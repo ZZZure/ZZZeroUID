@@ -18,9 +18,8 @@
 >
 > **如果已经是最新版本的`gsuid_core`, 可以直接对bot发送`core安装插件zzz`，然后重启core以应用安装**
 >
-> 如使用命令缺失素材可尝试使用命令`sr下载全部资源`
 >
-> 支持NoneBot2 & HoshinoBot & ZeroBot & YunzaiBot的星穹铁道Bot插件
+> 支持NoneBot2 & HoshinoBot & ZeroBot & YunzaiBot的绝区零Bot插件
 >
 > 🚧插件目前还在施工中，功能快速迭代中...🚧
 >
@@ -34,4 +33,4 @@
 ## 丨其他
 
 + 本项目仅供学习使用，请勿用于商业用途
-+ [GPL-3.0 License](https://github.com/qwerdvd/StarRailUID/blob/master/LICENSE)
++ [GPL-3.0 License](https://github.com/ZZZure/ZZZeroUID/blob/master/LICENSE)
