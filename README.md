@@ -1,7 +1,7 @@
 # ZZZeroUID
 
 <p align="center">
-  <a href="https://github.com/ZZZure/ZZZeroUID"><img src="https://i.17173cdn.com/2fhnvk/YWxqaGBf/cms3/JqpLnFbqcovkkfu.png" width="256" height="256" alt="StarRailUID"></a>
+  <a href="https://github.com/ZZZure/ZZZeroUID"><img src="https://s2.loli.net/2024/04/19/hOEDmsoUFy6nH5d.jpg" width="480" height="270" alt="StarRailUID"></a>
 </p>
 <h1 align = "center">ZZZeroUID 1.0</h1>
 <h4 align = "center">🚧支持OneBot(QQ)、QQ频道、微信、开黑啦、Telegram的全功能绝区零Bot插件🚧</h4>
