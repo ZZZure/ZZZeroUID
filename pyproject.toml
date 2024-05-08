@@ -22,7 +22,7 @@ python = "^3.10.11"
 
 [[tool.poetry.source]]
 name = "USTC"
-url = "https://pypi.mirrors.ustc.edu.cn/simple"
+url = "https://mirrors.aliyun.com/pypi/simple/"
 default = false
 secondary = true
 
@@ -109,7 +109,7 @@ includes = []
 
 [[tool.pdm.source]]
 name = "USTC"
-url = "https://pypi.mirrors.ustc.edu.cn/simple"
+url = "https://mirrors.aliyun.com/pypi/simple/"
 verify_ssl = true
 
 [project]

@@ -1,3 +1,4 @@
-from ..zzzerouid_config.zzzero_config import zzzconfig
+from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
 
-PREFIX = zzzconfig.get_config('ZZZeroUID').data
+PREFIX = ZZZ_CONFIG.get_config('ZZZeroUID').data
+
