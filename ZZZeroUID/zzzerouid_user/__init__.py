@@ -5,8 +5,8 @@ from gsuid_core.models import Event
 from gsuid_core.sv import SV
 from gsuid_core.utils.database.models import GsBind
 
-from ..utils.message import send_diff_msg
-from ..utils.zzzero_prefix import PREFIX
+from ..zzzzerouid_utils.message import send_diff_msg
+from ..zzzzerouid_utils.zzzero_prefix import PREFIX
 from ..zzzerouid_config.zzzero_config import ZZZ_GAME_NAME
 
 sv_user_config = SV(f'{PREFIX}用户管理', pm=2)

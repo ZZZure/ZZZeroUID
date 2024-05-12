@@ -4,7 +4,7 @@ from gsuid_core.bot import Bot
 from gsuid_core.models import Event
 from gsuid_core.utils.image.convert import convert_img
 
-from ..utils.zzzero_prefix import PREFIX
+from ..zzzzerouid_utils.zzzero_prefix import PREFIX
 
 
 
