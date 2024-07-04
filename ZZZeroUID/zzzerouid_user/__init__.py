@@ -1,5 +1,3 @@
-from typing import List
-
 from gsuid_core.sv import SV
 from gsuid_core.bot import Bot
 from gsuid_core.models import Event
@@ -13,14 +11,26 @@ sv_user_config = SV(f'{PREFIX}用户管理', pm=2)
 sv_user_info = SV(f'{PREFIX}用户信息')
 
 
-@sv_user_info.on_fullmatch(f'{PREFIX}绑定uid')
+@sv_user_info.on_command(
+    (
+        f'{PREFIX}绑定uid',
+        f'{PREFIX}绑定UID',
+        f'{PREFIX}绑定',
+    ),
+    block=True,
+)
 async def bind_uid(bot: Bot, ev: Event):
     qid = ev.user_id
     uid = ev.text.strip()
     await bot.logger.info(f'zzz开始执行uid绑定, qid={qid}, uid={uid}')
+
+    if not uid:
+        return await bot.send('[zzz] 你需要在命令后面加入你绝区零的UID！')
+
     data = await GsBind.insert_uid(
-        qid, ev.bot_id, uid, ev.group_id, 32, game_name=ZZZ_GAME_NAME
+        qid, ev.bot_id, uid, ev.group_id, game_name=ZZZ_GAME_NAME
     )
+
     return await send_diff_msg(
         bot,
         data,
@@ -33,20 +43,57 @@ async def bind_uid(bot: Bot, ev: Event):
     )
 
 
-@sv_user_info.on_fullmatch(f'{PREFIX}切换uid')
+@sv_user_info.on_command(
+    (
+        f'{PREFIX}切换uid',
+        f'{PREFIX}切换UID',
+        f'{PREFIX}切换',
+    ),
+    block=True,
+)
 async def switch_uid(bot: Bot, ev: Event):
     qid = ev.user_id
     uid = ev.text.strip()
-    data = await GsBind.switch_uid_by_game(qid, ev.bot_id, uid, ZZZ_GAME_NAME)
-    if isinstance(data, List):
-        return await bot.send(f'[zzz] 切换uid[{uid}]成功!')
-    return await bot.send(f'[zzz] 尚未绑定该uid[{uid}]')
+    if uid and not uid.isdigit():
+        return await bot.send(
+            '[zzz] 你需要在切换命令后面加入你绝区零的UID或者直接输入切换命令！'
+        )
+
+    data = await GsBind.switch_uid_by_game(
+        qid,
+        ev.bot_id,
+        uid,
+        ZZZ_GAME_NAME,
+    )
+
+    return await send_diff_msg(
+        bot,
+        data,
+        {
+            0: f'[zzz] 切换uid{uid}成功!',
+            -1: '[zzz] 不存在绑定记录!',
+            -2: '[zzz] 请绑定两个以上UID再进行切换!',
+            -3: '[zzz] 请绑定两个以上UID再进行切换!',
+        },
+    )
 
 
-@sv_user_info.on_fullmatch((f'{PREFIX}删除uid', f'{PREFIX}解绑uid'))
+@sv_user_info.on_command(
+    (
+        f'{PREFIX}删除uid',
+        f'{PREFIX}解绑uid',
+        f'{PREFIX}删除UID',
+        f'{PREFIX}解绑',
+        f'{PREFIX}删除UID',
+        f'{PREFIX}删除',
+    ),
+    block=True,
+)
 async def delete_uid(bot: Bot, ev: Event):
     qid = ev.user_id
     uid = ev.text.strip()
+    if not uid:
+        return await bot.send('[zzz] 你需要在解绑命令后面加入你绝区零的UID！')
     data = await GsBind.delete_uid(qid, ev.bot_id, uid, ZZZ_GAME_NAME)
     return await send_diff_msg(
         bot,
