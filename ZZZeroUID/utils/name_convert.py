@@ -4,7 +4,7 @@ from typing import Dict, List
 from msgspec import json as msgjson
 
 ALIAS_LIST = Path(__file__).parent / 'alias'
-CHAR_ALIAS = ALIAS_LIST / 'alias.json'
+CHAR_ALIAS = ALIAS_LIST / 'char_alias.json'
 
 
 with open(CHAR_ALIAS, 'r', encoding='UTF-8') as f:
