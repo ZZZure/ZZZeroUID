@@ -3,7 +3,7 @@ from gsuid_core.bot import Bot
 from gsuid_core.models import Event
 from gsuid_core.logger import logger
 
-from ..zzzzerouid_utils.zzzero_prefix import PREFIX
+from ..utils.zzzero_prefix import PREFIX
 
 sv_zzz_help = SV('zzz帮助')
 

@@ -1,10 +1,1 @@
-import asyncio
-import threading
-
-from gsuid_core.logger import logger
-
-
-async def all_start():
-    pass
-
-
+from .main import all_start as AST  # noqa: F401

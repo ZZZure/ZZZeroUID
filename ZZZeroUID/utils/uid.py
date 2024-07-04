@@ -9,15 +9,13 @@ from gsuid_core.utils.database.models import GsBind
 @overload
 async def get_uid(
     bot: Bot, ev: Event, get_user_id: bool = False, only_uid: bool = False
-) -> Optional[str]:
-    ...
+) -> Optional[str]: ...
 
 
 @overload
 async def get_uid(
     bot: Bot, ev: Event, get_user_id: bool = True, only_uid: bool = False
-) -> Tuple[Optional[str], str]:
-    ...
+) -> Tuple[Optional[str], str]: ...
 
 
 async def get_uid(
@@ -30,9 +28,9 @@ async def get_uid(
         if sr_uid:
             ev.text = ev.text.replace(sr_uid, '')
     else:
-        sr_uid = await GsBind.get_uid_by_game(ev.user_id, ev.bot_id, 'sr')
+        sr_uid = await GsBind.get_uid_by_game(ev.user_id, ev.bot_id, 'zzz')
     if only_uid:
-        sr_uid = await GsBind.get_uid_by_game(ev.user_id, ev.bot_id, 'sr')
+        sr_uid = await GsBind.get_uid_by_game(ev.user_id, ev.bot_id, 'zzz')
     if get_user_id:
         return sr_uid, user_id
     return sr_uid

@@ -1,16 +1,13 @@
 import json
-import asyncio
-from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Optional
-import asyncio
+from typing import Dict, Optional
+
 import msgspec
-from ..zzzzerouid_utils.resource.RESOURCE_PATH import PLAYER_PATH
+import aiofiles
+
 from ..zzzerouid_api.zzzero_api import zzz_api
+from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
 
-
-def get_new_chalogs_by_link(uid: str, gacha_url: str, full_data: Dict, is_force: bool):
-    path = PLAYER_PATH / str(uid)
 
 async def save_gachalogs(
     uid: str,
@@ -31,9 +28,9 @@ async def save_gachalogs(
 
     vo = zzz_api.get_gacha_record_by_link(gacha_url)
     result = msgspec.to_builtins(vo)
-    with Path.open(gachalogs_path, 'w', encoding='UTF-8') as file:
-        json.dump(result, file, indent=2, ensure_ascii=False)
+    async with aiofiles.open(gachalogs_path, 'w', encoding='UTF-8') as file:
+        await file.write(json.dumps(result, indent=2, ensure_ascii=False))
+
     # 回复文字
     res_msg = f'{uid}抽卡记录刷新成功!'
     return res_msg
-
