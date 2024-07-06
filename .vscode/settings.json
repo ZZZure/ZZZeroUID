@@ -14,6 +14,9 @@
       "source.organizeImports": "explicit"
     }
   },
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}/../../../../"
+  ],
   "isort.args": [
     "--profile",
     "black"
@@ -26,10 +29,8 @@
   "python.analysis.extraPaths": [
     "${workspaceFolder}/../../../"
   ],
-  "python.autoComplete.extraPaths": [
-    "${workspaceFolder}/../../../"
-  ],
   "python.analysis.include": [
     "${workspaceFolder}/../../../"
-  ]
+  ],
+  "python.analysis.autoImportCompletions": true
 }
