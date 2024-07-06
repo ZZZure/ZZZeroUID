@@ -16,7 +16,7 @@
 
 > **注意：该插件为[早柚核心(gsuid_core)](https://github.com/Genshin-bots/gsuid_core)的扩展，具体安装方式可参考[GenshinUID](https://github.com/KimigaiiWuyi/GenshinUID)**
 >
-> **如果已经是最新版本的`gsuid_core`, 可以直接对bot发送`core安装插件zzz`，然后重启core以应用安装**
+> **如果已经是最新版本的`gsuid_core`, 可以直接对bot发送`core安装插件zzzerouid`，然后重启core以应用安装**
 >
 >
 > 支持NoneBot2 & HoshinoBot & ZeroBot & YunzaiBot的绝区零Bot插件
@@ -28,7 +28,25 @@
 
 ## 丨功能
 
-🚧 施工中... 🚧
+<details><summary>绑定切换删除UID - 命令: zzz绑定UID、zzz删除UID、zzz切换UID</summary><p>
+还没有图
+</p></details>
+
+<details><summary>便签 - 命令: zzzmr、zzz便签</summary><p>
+<a><img src="https://s2.loli.net/2024/07/07/ZQGRNT3Fv45Hlae.png"></a>
+</p></details>
+
+<details><summary>基本信息汇总 - 命令: zzz查询</summary><p>
+<a><img src="https://s2.loli.net/2024/07/07/4vLXzJ2ZwdMc5TU.jpg"></a>
+</p></details>
+
+<details><summary>更新抽卡记录 - 命令: zzz刷新抽卡记录</summary><p>
+还没有图
+</p></details>
+
+<details><summary>抽卡记录 - 命令: zzz抽卡记录</summary><p>
+还没有图
+</p></details>
 
 ## 丨其他
 
