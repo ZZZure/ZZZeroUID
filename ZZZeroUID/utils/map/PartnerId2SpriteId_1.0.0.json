@@ -1,0 +1,87 @@
+{
+    "1011": {
+        "sprite_id": "01",
+        "name": "安比",
+        "full_name": "安比·德玛拉",
+        "en_name": "Anbi"
+    },
+    "1021": {
+        "sprite_id": "11",
+        "name": "猫又",
+        "full_name": "猫宫 又奈",
+        "en_name": "Nekomiya"
+    },
+    "1031": {
+        "sprite_id": "12",
+        "name": "妮可",
+        "full_name": "妮可·德玛拉",
+        "en_name": "Nicole"
+    },
+    "1081": {
+        "sprite_id": "10",
+        "name": "比利",
+        "full_name": "比利·奇德",
+        "en_name": "Billy"
+    },
+    "1101": {
+        "sprite_id": "14",
+        "name": "珂蕾妲",
+        "full_name": "珂蕾妲·贝洛伯格",
+        "en_name": "Koleda"
+    },
+    "1111": {
+        "sprite_id": "15",
+        "name": "安东",
+        "full_name": "安东·伊万诺夫",
+        "en_name": "Anton"
+    },
+    "1121": {
+        "sprite_id": "16",
+        "name": "本",
+        "full_name": "本·比格",
+        "en_name": "Ben"
+    },
+    "1181": {
+        "sprite_id": "20",
+        "name": "格莉丝",
+        "full_name": "格莉丝·霍华德",
+        "en_name": "Grace"
+    },
+    "1061": {
+        "sprite_id": "09",
+        "name": "可琳",
+        "full_name": "可琳·威克斯",
+        "en_name": "Coline"
+    },
+    "1141": {
+        "sprite_id": "18",
+        "name": "莱卡恩",
+        "full_name": "冯·莱卡恩",
+        "en_name": "Lycaon"
+    },
+    "1191": {
+        "sprite_id": "21",
+        "name": "艾莲",
+        "full_name": "艾莲·乔",
+        "en_name": "Ellen"
+    },
+    "1211": {
+        "sprite_id": "22",
+        "name": "丽娜",
+        "full_name": "亚历山德丽娜·莎芭丝缇安",
+        "en_name": "Rina"
+    },
+    "1041": {
+        "sprite_id": "05",
+        "name": "「11号」",
+        "full_name": "「11号」",
+        "en_name": "Soldier11"
+    },
+    "1241": {
+        "sprite_id": "23",
+        "name": "朱鸢",
+        "full_name": "朱鸢",
+        "en_name": "ZhuYuan"
+    },
+    "0": {}
+}

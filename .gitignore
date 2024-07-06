@@ -667,3 +667,6 @@ FodyWeavers.xsd
 ### CI ###
 result.txt
 upload_file.py
+
+### ZZZ-DATA
+ZZZeroUID/tools/zzz_data
