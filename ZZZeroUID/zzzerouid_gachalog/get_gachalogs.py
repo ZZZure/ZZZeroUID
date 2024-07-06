@@ -5,7 +5,7 @@ from typing import Dict, Optional
 import msgspec
 import aiofiles
 
-from ..zzzerouid_api.zzzero_api import zzz_api
+from ..utils.zzzero_api import zzz_api
 from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
 
 
