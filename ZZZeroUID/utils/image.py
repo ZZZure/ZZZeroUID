@@ -27,14 +27,17 @@ def count_characters(s: str) -> float:
     return count
 
 
-async def get_player_card_min(uid: str, ev: Event):
+async def get_player_card_min(uid: str, ev: Event, world: str = ''):
     data = await zzz_api.get_zzz_user_info(uid)
     if isinstance(data, int):
         return data
 
     user_name = data['nickname']
     world_level = data['level']
-    region_name = data['region_name']
+    if world:
+        region_name = world
+    else:
+        region_name = data['region_name']
     name_len = count_characters(user_name) * 45
 
     player_card = Image.open(TEXT_PATH / 'player_card_min.png')

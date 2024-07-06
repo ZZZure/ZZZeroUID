@@ -5,6 +5,7 @@ from msgspec import json as msgjson
 
 from ..tools.data_to_map import PartnerId2DataFile, WeaponId2SpriteFile
 
+MAP_PATH = Path(__file__).parent / 'map'
 ALIAS_LIST = Path(__file__).parent / 'alias'
 CHAR_ALIAS = ALIAS_LIST / 'char_alias.json'
 
@@ -12,10 +13,10 @@ CHAR_ALIAS = ALIAS_LIST / 'char_alias.json'
 with open(CHAR_ALIAS, 'r', encoding='UTF-8') as f:
     char_alias_data = msgjson.decode(f.read(), type=Dict[str, List[str]])
 
-with open(PartnerId2DataFile, 'r', encoding='UTF-8') as f:
+with open(MAP_PATH / PartnerId2DataFile, 'r', encoding='UTF-8') as f:
     partener_data = msgjson.decode(f.read(), type=Dict[str, Dict[str, str]])
 
-with open(WeaponId2SpriteFile, 'r', encoding='UTF-8') as f:
+with open(MAP_PATH / WeaponId2SpriteFile, 'r', encoding='UTF-8') as f:
     weapon_data = msgjson.decode(f.read(), type=Dict[str, str])
 
 

@@ -24,6 +24,8 @@ FLOWER_GUIDE_PATH = GUIDE_PATH / 'flower'
 
 # 游戏素材
 RESOURCE_PATH = MAIN_PATH / 'resource'
+SQUARE_AVATAR = RESOURCE_PATH / 'square_avatar'
+SQUARE_BANGBOO = RESOURCE_PATH / 'square_bangbo'
 
 # 插件数据通用素材
 TEXT2D_PATH = Path(__file__).parent / 'texture2d'
@@ -39,6 +41,8 @@ def init_dir():
         GUIDE_PATH,
         TEXT2D_PATH,
         FLOWER_GUIDE_PATH,
+        SQUARE_AVATAR,
+        SQUARE_BANGBOO,
     ]:
         i.mkdir(parents=True, exist_ok=True)
 

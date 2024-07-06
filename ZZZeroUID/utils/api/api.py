@@ -10,3 +10,9 @@ ZZZ_CHALLENGE_API = f'{ZZZ_API}/challenge'
 
 ZZZ_BIND_API = f'{OLD_URL}/binding/api'
 ZZZ_GAME_INFO_API = f'{ZZZ_BIND_API}/getUserGameRolesByCookie?game_biz=nap_cn'
+
+
+# Resource
+ZZZ_RES = 'https://act-webstatic.mihoyo.com/game_record/zzz'
+ZZZ_SQUARE_AVATAR = f'{ZZZ_RES}/role_square_avatar'
+ZZZ_SQUARE_BANGBOO = f'{ZZZ_RES}/bangboo_rectangle_avatar'

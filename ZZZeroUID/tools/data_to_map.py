@@ -134,4 +134,5 @@ async def main():
         print('未找到TextMapCHS.json文件，停止转换！')
 
 
-asyncio.run(main())
+if __name__ == '__main__':
+    asyncio.run(main())
