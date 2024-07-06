@@ -29,7 +29,7 @@ avatar_data = {}
 
 WeaponId2SpriteFile = f'WeaponId2Sprite_{version}.json'
 PartnerId2DataFile = f'PartnerId2SpriteId_{version}.json'
-GachaId2SpriteIdFile = f'GachaId2SpriteId_{version}.json'
+# GachaId2SpriteIdFile = f'GachaId2SpriteId_{version}.json'
 
 
 def gen_weapon_id_to_sprite():
@@ -44,6 +44,7 @@ def gen_weapon_id_to_sprite():
     print('[执行完成] gen_weapon_id_to_sprite')
 
 
+'''
 def gen_gacha_id_to_sprite():
     print('[正在执行] gen_gacha_id_to_sprite')
     gacha_id_to_sprite = {}
@@ -54,31 +55,24 @@ def gen_gacha_id_to_sprite():
     with open(MAP_PATH / GachaId2SpriteIdFile, 'w', encoding='UTF-8') as f:
         json.dump(gacha_id_to_sprite, f, indent=4, ensure_ascii=False)
     print('[执行完成] gen_gacha_id_to_sprite')
+'''
 
 
 def gen_partner_id_to_data():
     print('[正在执行] gen_partner_id_to_data')
     partner_id_to_data = {}
-    for item in partner_data['GMNCBMLIHPE']:
-        partner_id = item['EJLCDDCBPAE']
+    for item in avatar_data['GMNCBMLIHPE']:
+        partner_id = item['HBKDOIKGNDE']
+        name = item['DIIDBBGLDOL']
+        partner_name = raw_data[name]
+        full_name = raw_data[f'{name}_FullName']
+        en_name = raw_data[f'{name}_En']
+        for i in gacha_data["GMNCBMLIHPE"]:
+            if i['NOJCFGOCGBI'] == partner_id:
+                sprite_id = i['FAIIOENDLMC'].replace('IconRole', '')
+
         if partner_id not in partner_id_to_data:
             partner_id_to_data[partner_id] = {}
-        sprite_id = item['GPOKHDCGAHN'].replace('IconRole', '')
-        if item['FNEMGJINKNN'] not in raw_data:
-            for av in avatar_data['GMNCBMLIHPE']:
-                if av['HBKDOIKGNDE'] == partner_id:
-                    if av['DIIDBBGLDOL'] in raw_data:
-                        texture_id = av['DIIDBBGLDOL']
-                        break
-            else:
-                continue
-        else:
-            texture_id = item['FNEMGJINKNN']
-        partner_name = raw_data[texture_id]
-        full_name = raw_data[f"{texture_id}_FullName"]
-        if 'AKEMNEKJMKD' not in item:
-            continue
-        en_name = item['AKEMNEKJMKD']
 
         partner_id_to_data[partner_id]['sprite_id'] = sprite_id
         partner_id_to_data[partner_id]['name'] = partner_name
@@ -134,7 +128,7 @@ async def main():
 
         gen_weapon_id_to_sprite()
         gen_partner_id_to_data()
-        gen_gacha_id_to_sprite()
+        # gen_gacha_id_to_sprite()
 
     except FileNotFoundError:
         print('未找到TextMapCHS.json文件，停止转换！')
