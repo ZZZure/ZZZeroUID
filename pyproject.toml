@@ -12,10 +12,17 @@ asyncio_mode = "auto"
 [tool.poetry]
 name = "ZZZeroUID"
 version = "1.0.0"
-description = ""
+description = "支持OneBot(QQ)、OneBotV12、QQ频道、微信、KOOK（开黑啦）、Telegram（电报）、FeiShu（飞书）、DoDo、Villa（米游社大别野）、Discord的全功能HoshinoBot/NoneBot2/Koishi/yunzai/ZeroBot绝区零机器人插件"
 authors = ["SoftGreyMon"]
 license = "GPL-3.0-or-later"
 readme = "README.md"
+homepage = "https://github.com/ZZZure/ZZZeroUID"
+repository = "https://github.com/ZZZure/ZZZeroUID"
+documentation = "https://docs.sayu-bot.com/"
+packages = [
+    { include = "ZZZeroUID" }
+]
+exclude = ["tests", "deploy"]
 
 [tool.poetry.dependencies]
 python = "^3.10.11"
@@ -112,12 +119,14 @@ name = "USTC"
 url = "https://mirrors.aliyun.com/pypi/simple/"
 verify_ssl = true
 
+
 [project]
-name = "ZZZero"
+name = "ZZZeroUID"
 version = "1.0.0"
-description = "支持 NoneBot2 & HoshinoBot & ZeroBot & YunzaiBot 的全功能绝区零Bot插件"
+description = "支持OneBot(QQ)、OneBotV12、QQ频道、微信、KOOK（开黑啦）、Telegram（电报）、FeiShu（飞书）、DoDo、Villa（米游社大别野）、Discord的全功能HoshinoBot/NoneBot2/Koishi/yunzai/ZeroBot绝区零机器人插件"
 authors = [
     {name = "SoftGreyMon", email = "31758581@qq.com"},
+    {name = "KimigaiiWuyi", email = "444835641@qq.com"},
 ]
 dependencies = [
     "beautifulsoup4>=4.12.2",
