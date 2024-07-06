@@ -17,6 +17,15 @@ YELLOW = (255, 200, 1)
 BLUE = (1, 183, 255)
 
 
+def get_rank_img(rank: str, w: int = 40, h: int = 40):
+    rank = rank.upper()
+    if rank in ['S', 'A', 'B']:
+        img = Image.open(TEXT_PATH / f'{rank}RANK.png')
+        return img.resize((w, h)).convert('RGBA')
+    else:
+        return Image.new('RGBA', (w, h), (0, 0, 0, 0))
+
+
 def count_characters(s: str) -> float:
     count = 0
     for char in s:

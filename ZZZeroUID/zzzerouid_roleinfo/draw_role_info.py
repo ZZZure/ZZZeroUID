@@ -8,10 +8,16 @@ from gsuid_core.utils.image.convert import convert_img
 from ..utils.hint import error_reply
 from ..utils.zzzero_api import zzz_api
 from ..utils.fonts.zzz_fonts import zzz_font_32, zzz_font_44
-from ..utils.image import GREY, add_footer, get_zzz_bg, get_player_card_min
 from ..utils.resource.download_file import (
     get_square_avatar,
     get_square_bangboo,
+)
+from ..utils.image import (
+    GREY,
+    add_footer,
+    get_zzz_bg,
+    get_rank_img,
+    get_player_card_min,
 )
 
 TEXT_PATH = Path(__file__).parent / 'texture2d'
@@ -72,7 +78,7 @@ async def draw_role_img(uid: str, ev: Event) -> Union[str, bytes]:
 
     for aindex, agent in enumerate(data['avatar_list']):
         rarity = agent['rarity']
-        rank_icon = Image.open(TEXT_PATH / f'{rarity}RANK.png')
+        rank_icon = get_rank_img(rarity)
         element_icon = Image.open(
             TEXT_PATH / f'{ELEMENT_TYPE[agent["element_type"]]}.png'
         )
@@ -98,7 +104,7 @@ async def draw_role_img(uid: str, ev: Event) -> Union[str, bytes]:
 
     for bindex, bangboo in enumerate(data['buddy_list']):
         rarity = bangboo['rarity']
-        rank_icon = Image.open(TEXT_PATH / f'{rarity}RANK.png')
+        rank_icon = get_rank_img(rarity)
         rank_bg = Image.open(TEXT_PATH / f'{rarity}RANK_BG.png')
         rank_draw = ImageDraw.Draw(rank_bg)
         bangboo_icon = await get_square_bangboo(bangboo['id'])
