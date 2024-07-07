@@ -3,32 +3,34 @@ from pathlib import Path
 
 from gsuid_core.data_store import get_res_path
 
-MAIN_PATH = get_res_path() / 'ZZZeroUID'
+MAIN_PATH = get_res_path() / "ZZZeroUID"
 sys.path.append(str(MAIN_PATH))
 
 # 配置文件
-CONFIG_PATH = MAIN_PATH / 'config.json'
+CONFIG_PATH = MAIN_PATH / "config.json"
 
 # 用户数据保存文件
-PLAYER_PATH = MAIN_PATH / 'players'
+PLAYER_PATH = MAIN_PATH / "players"
 # 自定义背景
-CU_BG_PATH = MAIN_PATH / 'bg'
+CU_BG_PATH = MAIN_PATH / "bg"
 
 # WIKI文件夹
-WIKI_PATH = MAIN_PATH / 'wiki'
+WIKI_PATH = MAIN_PATH / "wiki"
 
 # 攻略文件夹
-GUIDE_PATH = MAIN_PATH / 'guide'
+GUIDE_PATH = MAIN_PATH / "guide"
 # 花佬攻略库
-FLOWER_GUIDE_PATH = GUIDE_PATH / 'flower'
+FLOWER_GUIDE_PATH = GUIDE_PATH / "flower"
 
 # 游戏素材
-RESOURCE_PATH = MAIN_PATH / 'resource'
-SQUARE_AVATAR = RESOURCE_PATH / 'square_avatar'
-SQUARE_BANGBOO = RESOURCE_PATH / 'square_bangbo'
+RESOURCE_PATH = MAIN_PATH / "resource"
+SQUARE_AVATAR = RESOURCE_PATH / "square_avatar"
+SQUARE_BANGBOO = RESOURCE_PATH / "square_bangbo"
+WEAPON_PATH = RESOURCE_PATH / "weapon"
+
 
 # 插件数据通用素材
-TEXT2D_PATH = Path(__file__).parent / 'texture2d'
+TEXT2D_PATH = Path(__file__).parent / "texture2d"
 
 
 def init_dir():
@@ -43,6 +45,7 @@ def init_dir():
         FLOWER_GUIDE_PATH,
         SQUARE_AVATAR,
         SQUARE_BANGBOO,
+        WEAPON_PATH,
     ]:
         i.mkdir(parents=True, exist_ok=True)
 
