@@ -187,20 +187,14 @@ async def draw_card(uid: str, ev: Event) -> Union[str, bytes]:
                         current_data["avg"], [53, 60, 68, 73, 75]
                     )
 
-    normal_gacha_num = len(total_data["常驻频段"]["rank_s_list"])
-    char_gacha_num = len(total_data["独家频段"]["rank_s_list"])
-    weapon_gacha_num = len(total_data["音擎频段"]["rank_s_list"])
-    bangboo_gacha_num = len(total_data["邦布频段"]["rank_s_list"])
-
     oset = 265
     bset = 115
 
-    w, h = 950, 360 + title_num * oset + bset * (
-        get_num_h(normal_gacha_num, 4)
-        + get_num_h(char_gacha_num, 4)
-        + get_num_h(weapon_gacha_num, 4)
-        + get_num_h(bangboo_gacha_num, 4)
-    )
+    _numlen = 0
+    for name in total_data:
+        _num = len(total_data[name]["rank_s_list"])
+        _numlen += bset * get_num_h(_num, 4)
+    w, h = 950, 360 + title_num * oset + _numlen
 
     # 绘制骨架
     card_img = get_zzz_bg(w, h)
