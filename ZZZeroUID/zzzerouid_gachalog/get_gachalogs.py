@@ -83,10 +83,10 @@ async def save_gachalogs(
         async with aiofiles.open(gachalogs_path, "r", encoding="UTF-8") as f:
             gacha_log = json.loads(await f.read())
         gachalogs_history = gacha_log["data"]
-        old_normal_gacha_num = len(gachalogs_history["常驻频段"])
-        old_char_gacha_num = len(gachalogs_history["独家频段"])
-        old_weapon_gacha_num = len(gachalogs_history["音擎频段"])
-        old_bangboo_gacha_num = len(gachalogs_history["邦布频段"])
+        old_normal_gacha_num = len(gachalogs_history.get("常驻频段", []))
+        old_char_gacha_num = len(gachalogs_history.get("独家频段", []))
+        old_weapon_gacha_num = len(gachalogs_history.get("音擎频段", []))
+        old_bangboo_gacha_num = len(gachalogs_history.get("邦布频段", []))
     else:
         gachalogs_history = {}
         (
@@ -102,10 +102,10 @@ async def save_gachalogs(
 
     result["uid"] = uid
     result["data_time"] = current_time
-    result["normal_gacha_num"] = len(raw_data["常驻频段"])
-    result["char_gacha_num"] = len(raw_data["独家频段"])
-    result["weapon_gacha_num"] = len(raw_data["音擎频段"])
-    result["bangboo_gacha_num"] = len(raw_data["邦布频段"])
+    result["normal_gacha_num"] = len(raw_data.get("常驻频段", []))
+    result["char_gacha_num"] = len(raw_data.get("独家频段", []))
+    result["weapon_gacha_num"] = len(raw_data.get("音擎频段", []))
+    result["bangboo_gacha_num"] = len(raw_data.get("邦布频段", []))
     result["data"] = raw_data
 
     # 计算数据
@@ -126,7 +126,7 @@ async def save_gachalogs(
         im = (
             f"UID{uid}数据更新成功！"
             f"本次更新{all_add}个数据\n"
-            f"常驻频段{normal_add}个\n独家频段{char_add}个\n"
-            f"武器音擎{weapon_add}个！\n邦布频段{bangboo_add}个！"
+            f"常驻频段{normal_add}个！\n独家频段{char_add}个！\n"
+            f"音擎频段{weapon_add}个！\n邦布频段{bangboo_add}个！"
         )
     return im
