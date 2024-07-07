@@ -45,7 +45,7 @@
 </p></details>
 
 <details><summary>抽卡记录 - 命令: zzz抽卡记录</summary><p>
-还没有图
+<a><img src="https://s2.loli.net/2024/07/07/pzh6QYGKBNMZqyO.jpg"></a>
 </p></details>
 
 ## 丨其他
