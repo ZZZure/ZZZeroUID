@@ -188,13 +188,13 @@ async def draw_card(uid: str, ev: Event) -> Union[str, bytes]:
                     )
 
     oset = 265
-    bset = 115
+    bset = 120
 
     _numlen = 0
     for name in total_data:
         _num = len(total_data[name]["rank_s_list"])
         _numlen += bset * get_num_h(_num, 4)
-    w, h = 950, 360 + title_num * oset + _numlen
+    w, h = 950, 370 + title_num * oset + _numlen
 
     # 绘制骨架
     card_img = get_zzz_bg(w, h)
@@ -235,7 +235,7 @@ async def draw_card(uid: str, ev: Event) -> Union[str, bytes]:
         title_draw.text((253, 182), avg_s, "white", zzz_font_40, "mm")
         title_draw.text((373, 182), avg_up_s, "white", zzz_font_40, "mm")
         title_draw.text((492, 182), total, "white", zzz_font_40, "mm")
-        title_draw.text((398, 106), remain_s, "green", zzz_font_20, "mm")
+        title_draw.text((398, 106), remain_s, (63, 255, 0), zzz_font_20, "mm")
 
         title.paste(level_icon, (684, 51), level_icon)
         title_draw.text((757, 222), tag, "white", zzz_font_32, "mm")
@@ -259,19 +259,19 @@ async def draw_card(uid: str, ev: Event) -> Union[str, bytes]:
             else:
                 item_icon = await get_square_avatar(item["item_id"])
                 item_icon.resize((175, 214)).convert("RGBA")
-                item_temp.paste(item_icon, (6, -33), item_icon)
+                item_temp.paste(item_icon, (10, -24), item_icon)
             item_bg.paste(item_temp, (0, 0), item_mask)
 
             item_bg.paste(item_fg, (0, 0), item_fg)
             item_draw = ImageDraw.Draw(item_bg)
             gnum = item["gacha_num"]
             if gnum >= 80:
-                gcolor = "red"
+                gcolor = (255, 20, 20)
             elif gnum <= 60:
-                gcolor = "green"
+                gcolor = (63, 255, 0)
             else:
                 gcolor = "white"
-            item_draw.text((42, 105), f"{gnum}抽", gcolor, zzz_font_20, "mm")
+            item_draw.text((42, 102), f"{gnum}抽", gcolor, zzz_font_20, "mm")
             rank_str = RANK_MAP[item["rank_type"]]
             rank_icon = get_rank_img(rank_str, 50, 50)
 
