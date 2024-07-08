@@ -26,5 +26,4 @@ async def send_daily_info_pic(bot: Bot, ev: Event):
     logger.info(f'[ZZZ每日] UID: {uid}')
     if not uid:
         return await bot.send(BIND_UID_HINT)
-    im = await draw_stamina_img(uid, ev)
-    await bot.send(im)
+    await draw_stamina_img(bot, ev)
