@@ -54,12 +54,12 @@ async def get_new_gachalog(uid: str, full_data: Dict, is_force: bool):
                     break
                 if len(full_data[gacha_name]) >= 1:
                     full_id = full_data[gacha_name][0]["id"]
-                    if int(data[-1]["id"]) <= int(full_id):
-                        full_data[gacha_name].extend(data)
-                    else:
+                    if int(data[0]["id"]) <= int(full_id):
                         full_data[gacha_name][0:0] = data
+                    else:
+                        full_data[gacha_name].extend(data)
                 else:
-                    full_data[gacha_name].extend(data)
+                    full_data[gacha_name][0:0] = data
                 await asyncio.sleep(0.5)
     return full_data
 
@@ -96,6 +96,9 @@ async def save_gachalogs(
             old_bangboo_gacha_num,
         ) = (0, 0, 0, 0)
 
+    for i in gachalogs_history:
+        if len(gachalogs_history[i]) >= 1:
+            gachalogs_history[i].sort(key=lambda x: (-int(x['id'])))
     raw_data = await get_new_gachalog(uid, gachalogs_history, is_force)
     if isinstance(raw_data, int):
         return error_reply(raw_data)
@@ -106,6 +109,9 @@ async def save_gachalogs(
     result["char_gacha_num"] = len(raw_data.get("独家频段", []))
     result["weapon_gacha_num"] = len(raw_data.get("音擎频段", []))
     result["bangboo_gacha_num"] = len(raw_data.get("邦布频段", []))
+    for i in raw_data:
+        if len(raw_data[i]) > 1:
+            raw_data[i].sort(key=lambda x: (-int(x['id'])))
     result["data"] = raw_data
 
     # 计算数据
