@@ -8,55 +8,75 @@ from gsuid_core.utils.image.image_tools import (
 )
 
 from .zzzero_api import zzz_api
+from .name_convert import equip_id_to_sprite
+from .resource.RESOURCE_PATH import SUIT_PATH
 from .fonts.zzz_fonts import zzz_font_28, zzz_font_30, zzz_font_38
 
-TEXT_PATH = Path(__file__).parent / 'texture2d'
+TEXT_PATH = Path(__file__).parent / "texture2d"
 GREY = (216, 216, 216)
 BLACK_G = (40, 40, 40)
 YELLOW = (255, 200, 1)
 BLUE = (1, 183, 255)
 
 
+def get_equip_img(equip_id: str, w: int = 256, h: int = 256):
+    sprite_id = equip_id_to_sprite(equip_id)
+    if sprite_id:
+        img = Image.open(SUIT_PATH / f"{equip_id}.png")
+        return img.resize((w, h)).convert("RGBA")
+    else:
+        return Image.new("RGBA", (w, h), (0, 0, 0, 0))
+
+
+def get_rarity_img(rank: str, w: int = 80, h: int = 80):
+    rank = rank.upper()
+    if rank in ["S", "A", "B", "C"]:
+        img = Image.open(TEXT_PATH / f"Rarity_{rank}.png")
+        return img.resize((w, h)).convert("RGBA")
+    else:
+        return Image.new("RGBA", (w, h), (0, 0, 0, 0))
+
+
 def get_rank_img(rank: str, w: int = 40, h: int = 40):
     rank = rank.upper()
-    if rank in ['S', 'A', 'B']:
-        img = Image.open(TEXT_PATH / f'{rank}RANK.png')
-        return img.resize((w, h)).convert('RGBA')
+    if rank in ["S", "A", "B"]:
+        img = Image.open(TEXT_PATH / f"{rank}RANK.png")
+        return img.resize((w, h)).convert("RGBA")
     else:
-        return Image.new('RGBA', (w, h), (0, 0, 0, 0))
+        return Image.new("RGBA", (w, h), (0, 0, 0, 0))
 
 
 def count_characters(s: str) -> float:
     count = 0
     for char in s:
-        if '\u4e00' <= char <= '\u9fff':
+        if "\u4e00" <= char <= "\u9fff":
             count += 1
         else:
             count += 0.5
     return count
 
 
-async def get_player_card_min(uid: str, ev: Event, world: str = ''):
+async def get_player_card_min(uid: str, ev: Event, world: str = ""):
     data = await zzz_api.get_zzz_user_info(uid)
     if isinstance(data, int):
         return data
 
-    user_name = data['nickname']
-    world_level = data['level']
+    user_name = data["nickname"]
+    world_level = data["level"]
     if world:
         region_name = world
     else:
-        region_name = data['region_name']
+        region_name = data["region_name"]
     name_len = count_characters(user_name) * 45
 
-    player_card = Image.open(TEXT_PATH / 'player_card_min.png')
+    player_card = Image.open(TEXT_PATH / "player_card_min.png")
     card_draw = ImageDraw.Draw(player_card)
 
     avatar = await get_avatar_with_ring(ev, 129, is_ring=False)
     player_card.paste(avatar, (105, 30), avatar)
 
-    card_draw.text((426, 120), f'UID {uid}', GREY, zzz_font_30, 'mm')
-    card_draw.text((290, 64), user_name, 'white', zzz_font_38, 'lm')
+    card_draw.text((426, 120), f"UID {uid}", GREY, zzz_font_30, "mm")
+    card_draw.text((290, 64), user_name, "white", zzz_font_38, "lm")
 
     xs, ys = 290 + name_len + 20, 45
     xt, yt = xs + 90 + 12, 45
@@ -65,28 +85,28 @@ async def get_player_card_min(uid: str, ev: Event, world: str = ''):
 
     card_draw.text(
         (xs + 45, ys + 17),
-        f'Lv{world_level}',
+        f"Lv{world_level}",
         BLACK_G,
         zzz_font_28,
-        'mm',
+        "mm",
     )
     card_draw.text(
         (xt + 72, yt + 17),
         region_name,
         BLACK_G,
         zzz_font_28,
-        'mm',
+        "mm",
     )
     return player_card
 
 
 def get_zzz_bg(w: int, h: int) -> Image.Image:
-    bg = Image.open(TEXT_PATH / 'bg.jpg').convert('RGBA')
+    bg = Image.open(TEXT_PATH / "bg.jpg").convert("RGBA")
     return crop_center_img(bg, w, h)
 
 
 def add_footer(img: Image.Image) -> Image.Image:
-    footer = Image.open(TEXT_PATH / 'footer.png')
+    footer = Image.open(TEXT_PATH / "footer.png")
     w = img.size[0]
     if w != footer.size[0]:
         footer = footer.resize(

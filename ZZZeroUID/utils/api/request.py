@@ -87,13 +87,24 @@ class ZZZApi(_MysApi):
             data = cast(ZZZBangbooResp, data["data"])
         return data
 
-    async def get_zzz_avatar_info(self, uid: str) -> Union[
+    async def get_zzz_avatar_info(
+        self,
+        uid: str,
+        id_list: Union[List[int], List[str]],
+    ) -> Union[
         int,
         List[ZZZAvatarInfo],
     ]:
-        data = await self.simple_zzz_req(ZZZ_AVATAR_INFO_API, uid)
+        data = await self.simple_zzz_req(
+            ZZZ_AVATAR_INFO_API,
+            uid,
+            {
+                "id_list[]": [str(i) for i in id_list],
+                "need_wiki": False,
+            },
+        )
         if isinstance(data, Dict):
-            data = cast(List[ZZZAvatarInfo], data["data"])
+            data = cast(List[ZZZAvatarInfo], data["data"]["avatar_list"])
         return data
 
     async def get_zzz_avatar_basic_info(self, uid: str) -> Union[
@@ -102,7 +113,7 @@ class ZZZApi(_MysApi):
     ]:
         data = await self.simple_zzz_req(ZZZ_AVATAR_BASIC_API, uid)
         if isinstance(data, Dict):
-            data = cast(List[ZZZAvatarBasic], data["data"])
+            data = cast(List[ZZZAvatarBasic], data["data"]["avatar_list"])
         return data
 
     async def get_zzz_gacha_log_by_authkey(
@@ -184,8 +195,7 @@ class ZZZApi(_MysApi):
         cookie: Optional[str] = None,
     ) -> Union[Dict, int]:
         server_id = "prod_gf_cn"
-        if not params:
-            params = {"role_id": uid, "server": server_id}
+        params.update({"role_id": uid, "server": server_id})
         print(params)
         HEADER = deepcopy(self.ZZZ_HEADER)
         HEADER.update(header)

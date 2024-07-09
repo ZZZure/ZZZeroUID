@@ -1,6 +1,12 @@
 from gsuid_core.utils.download_resource.download_core import download_all_file
 
-from .RESOURCE_PATH import WEAPON_PATH, FLOWER_GUIDE_PATH
+from .RESOURCE_PATH import (
+    ROLE_PATH,
+    SUIT_PATH,
+    WEAPON_PATH,
+    ROLECIRCLE_PATH,
+    FLOWER_GUIDE_PATH,
+)
 
 
 async def download_all_resource():
@@ -9,5 +15,8 @@ async def download_all_resource():
         {
             "guide/flower": FLOWER_GUIDE_PATH,
             "resource/weapon": WEAPON_PATH,
+            "resource/role_circle": ROLECIRCLE_PATH,
+            "resource/role": ROLE_PATH,
+            "resource/3d_suit": SUIT_PATH,
         },
     )
