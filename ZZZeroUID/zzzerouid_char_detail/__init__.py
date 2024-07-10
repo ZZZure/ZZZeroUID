@@ -7,6 +7,7 @@ from ..utils.uid import get_uid
 from ..utils.hint import BIND_UID_HINT
 from ..utils.zzzero_prefix import PREFIX
 from .refresh_char_detail import refresh_char
+from .draw_char_detail_card import draw_char_detail_img
 
 sv_char_detail_refresh = SV(f"{PREFIX}角色面板刷新")
 sv_char_detail = SV(f"{PREFIX}角色面板")
@@ -26,4 +27,20 @@ async def send_refresh_char_detail_msg(bot: Bot, ev: Event):
         return await bot.send(BIND_UID_HINT)
 
     im = await refresh_char(uid)
+    return await bot.send(im)
+
+
+@sv_char_detail.on_prefix((f"{PREFIX}角色面板", f"{PREFIX}查询"))
+async def send_char_detail_msg(bot: Bot, ev: Event):
+    char = ev.text.strip(" ")
+    logger.info(f"[绝区零] [角色面板] CHAR: {char}")
+    uid = await get_uid(bot, ev)
+    logger.info(f"[绝区零] [角色面板] UID: {uid}")
+    if not char:
+        return
+
+    if not uid:
+        return await bot.send(BIND_UID_HINT)
+
+    im = await draw_char_detail_img(uid, char)
     return await bot.send(im)

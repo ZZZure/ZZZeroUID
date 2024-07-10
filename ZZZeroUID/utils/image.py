@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Union
 
 from PIL import Image, ImageDraw
 from gsuid_core.models import Event
@@ -18,11 +19,62 @@ BLACK_G = (40, 40, 40)
 YELLOW = (255, 200, 1)
 BLUE = (1, 183, 255)
 
+ELEMENT_TYPE = {
+    203: "电属性",
+    205: "以太属性",
+    202: "冰属性",
+    200: "物理属性",
+    201: "火属性",
+}
 
-def get_equip_img(equip_id: str, w: int = 256, h: int = 256):
+prop_id = {
+    "111": "IconHpMax",
+    "121": "IconAttack",
+    "131": "IconDef",
+    "122": "IconBreakStun",
+    "201": "IconCrit",
+    "211": "IconCritDmg",
+    "314": "IconElementAbnormalPower",
+    "312": "IconElementMystery",
+    "231": "IconPenRatio",
+    "232": "IconPenValue",
+    "305": "IconSpRecover",
+    "310": "IconSpGetRatio",
+    "115": "IconSpMax",
+    "315": "IconPhysDmg",
+    "316": "IconFire",
+    "317": "IconIce",
+    "318": "IconThunder",
+    "319": "IconDungeonBuffEther",
+}
+
+
+def get_prop_img(_id: Union[str, int], w: int = 40, h: int = 40):
+    img = Image.new("RGBA", (70, 70))
+    propid = str(_id)
+    propid = propid[:3]
+    prop_icon = prop_id.get(propid)
+    if not prop_icon:
+        return img.resize((w, h))
+
+    icon = Image.open(TEXT_PATH / "prop" / f"{prop_icon}.png")
+    x, y = icon.size
+    img.paste(icon, (35 - x // 2, 35 - y // 2), icon)
+    return img.resize((w, h))
+
+
+def get_element_img(elemet_id: Union[int, str], w: int = 40, h: int = 40):
+    elemet_id = int(elemet_id)
+    if elemet_id not in ELEMENT_TYPE:
+        return Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    img = Image.open(TEXT_PATH / f"{ELEMENT_TYPE[elemet_id]}.png")
+    return img.resize((w, h)).convert("RGBA")
+
+
+def get_equip_img(equip_id: str, w: int = 90, h: int = 90):
     sprite_id = equip_id_to_sprite(equip_id)
     if sprite_id:
-        img = Image.open(SUIT_PATH / f"{equip_id}.png")
+        img = Image.open(SUIT_PATH / f"{sprite_id}.png")
         return img.resize((w, h)).convert("RGBA")
     else:
         return Image.new("RGBA", (w, h), (0, 0, 0, 0))
@@ -114,7 +166,7 @@ def add_footer(img: Image.Image) -> Image.Image:
         )
     x, y = (
         int((img.size[0] - footer.size[0]) / 2),
-        img.size[1] - footer.size[1] - 20,
+        img.size[1] - footer.size[1] - 10,
     )
     img.paste(footer, (x, y), footer)
     return img

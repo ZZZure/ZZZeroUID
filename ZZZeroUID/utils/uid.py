@@ -21,7 +21,7 @@ async def get_uid(
 async def get_uid(
     bot: Bot, ev: Event, get_user_id: bool = False, only_uid: bool = False
 ) -> Union[Optional[str], Tuple[Optional[str], str]]:
-    uid_data = re.findall(r"\d", ev.text)
+    uid_data = re.findall(r"\d{8-10}", ev.text)
     user_id = ev.at if ev.at else ev.user_id
     if uid_data:
         zzz_uid: Optional[str] = uid_data[0]

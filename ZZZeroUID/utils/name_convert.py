@@ -27,12 +27,28 @@ with open(MAP_PATH / EquipId2DataFile, "r", encoding="UTF-8") as f:
     equip_data = msgjson.decode(f.read(), type=Dict[str, Dict])
 
 
+def char_id_to_sprite(char_id: str) -> str:
+    char_id = str(char_id)
+    if char_id in partener_data:
+        return partener_data[char_id]["sprite_id"]
+    else:
+        return "28"
+
+
+def char_id_to_full_name(char_id: str) -> str:
+    char_id = str(char_id)
+    if char_id in partener_data:
+        return partener_data[char_id]["full_name"]
+    else:
+        return "绳匠"
+
+
 def equip_id_to_sprite(equip_id: Union[str, int]) -> Optional[str]:
     equip_id = str(equip_id)
     if len(equip_id) == 5:
         suit_id = equip_id[:3] + "00"
         if suit_id in equip_data:
-            return equip_data[suit_id]["sprite"]
+            return equip_data[suit_id]["sprite_file"]
 
 
 def alias_to_char_name(char_name: str) -> str:
