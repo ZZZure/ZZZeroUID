@@ -15,8 +15,12 @@ from .models import (
     ZZZGachaLogResp,
 )
 from .api import (
+    ZZZ_API,
+    ZZZ_OS_API,
+    ZZZ_BIND_API,
     ZZZ_NOTE_API,
     ZZZ_INDEX_API,
+    ZZZ_BIND_OS_API,
     ZZZ_GAME_INFO_API,
     ZZZ_BUDDY_INFO_API,
     ZZZ_AVATAR_INFO_API,
@@ -47,11 +51,28 @@ class ZZZApi(_MysApi):
             }
         )
 
+    def _get_region(self, uid: str):
+        if len(uid) < 10:
+            server_id = "prod_gf_cn"
+        else:
+            server_id = REGION_MAP.get(uid[:2], "prod_gf_jp")
+        return server_id
+
     async def get_ck(
         self, uid: str, mode: Literal["OWNER", "RANDOM"] = "RANDOM"
     ) -> Optional[str]:
         if mode == "RANDOM":
-            return await GsUser.get_random_cookie(uid, game_name="zzz")
+            return await GsUser.get_random_cookie(
+                uid,
+                game_name="zzz",
+                condition=(
+                    {
+                        "zzz_region": self._get_region(uid),
+                    }
+                    if len(uid) >= 10
+                    else None
+                ),
+            )
         else:
             return await GsUser.get_user_cookie_by_uid(uid, game_name="zzz")
 
@@ -59,12 +80,21 @@ class ZZZApi(_MysApi):
         return await GsUser.get_user_stoken_by_uid(uid, game_name="zzz")
 
     async def get_zzz_user_info(self, uid: str) -> Union[int, ZZZUser]:
+        if len(uid) < 10:
+            base_url = ZZZ_BIND_API
+        else:
+            base_url = ZZZ_BIND_OS_API
+
         header = deepcopy(self.ZZZ_HEADER)
         ck = await self.get_ck(uid, "OWNER")
         if not ck:
             return -51
         header["Cookie"] = ck
-        data = await self._mys_request(ZZZ_GAME_INFO_API, header=header)
+        data = await self._mys_request(
+            ZZZ_GAME_INFO_API,
+            header=header,
+            base_url=base_url,
+        )
         if isinstance(data, Dict):
             for i in data["data"]["list"]:
                 if uid == i["game_uid"]:
@@ -135,7 +165,7 @@ class ZZZApi(_MysApi):
         page: int = 1,
         end_id: str = "0",
     ):
-        server_id = "prod_gf_cn"
+        server_id = self._get_region(uid)
         authkey_rawdata = await self.get_authkey_by_cookie(
             uid,
             "nap_cn",
@@ -205,10 +235,11 @@ class ZZZApi(_MysApi):
         header: Dict = {},  # noqa: B006
         cookie: Optional[str] = None,
     ) -> Union[Dict, int]:
+        server_id = self._get_region(uid)
         if len(uid) < 10:
-            server_id = "prod_gf_cn"
+            base_url = ZZZ_API
         else:
-            server_id = REGION_MAP.get(uid[:2], "prod_gf_jp")
+            base_url = ZZZ_OS_API
 
         params.update({"role_id": uid, "server": server_id})
         HEADER = deepcopy(self.ZZZ_HEADER)
@@ -230,5 +261,6 @@ class ZZZApi(_MysApi):
             method="GET",
             header=HEADER,
             params=params,
+            base_url=base_url,
         )
         return data
