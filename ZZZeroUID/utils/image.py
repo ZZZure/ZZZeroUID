@@ -33,7 +33,7 @@ prop_id = {
     "131": "IconDef",
     "122": "IconBreakStun",
     "201": "IconCrit",
-    "211": "IconCritDmg",
+    "211": "IconCritDam",
     "314": "IconElementAbnormalPower",
     "312": "IconElementMystery",
     "231": "IconPenRatio",
