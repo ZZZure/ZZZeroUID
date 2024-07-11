@@ -95,6 +95,9 @@ class ZZZApi(_MysApi):
         int,
         List[ZZZAvatarInfo],
     ]:
+        ck = await self.get_ck(uid, 'OWNER')
+        if ck is None:
+            return -51
         data = await self.simple_zzz_req(
             ZZZ_AVATAR_INFO_API,
             uid,
@@ -102,6 +105,7 @@ class ZZZApi(_MysApi):
                 "id_list[]": [str(i) for i in id_list],
                 "need_wiki": False,
             },
+            cookie=ck,
         )
         if isinstance(data, Dict):
             data = cast(List[ZZZAvatarInfo], data["data"]["avatar_list"])

@@ -20,6 +20,7 @@ async def refresh_char(uid: str) -> Union[str, bytes]:
     current_time = now.strftime("%Y-%m-%d %H:%M:%S")
 
     path = PLAYER_PATH / str(uid)
+    path.mkdir(parents=True, exist_ok=True)
     im = []
     for avatar in data:
         save_data = {}
