@@ -123,8 +123,8 @@ async def draw_char_detail_img(uid: str, char: str) -> Union[str, bytes]:
     skill_draw = ImageDraw.Draw(skill_bg)
     for skill in skills:
         skill_type = skill["skill_type"]
-        if skill_type >= 5:
-            skill_type -= 1
+        if skill_type == 6:
+            skill_type = 4
         skill_level = skill["level"]
         if skill_level >= 11:
             skill_color = YELLOW
