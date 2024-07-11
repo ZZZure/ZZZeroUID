@@ -44,6 +44,14 @@ nonebug = "^0.3.0"
 pytest = "^7.2.0"
 pytest-asyncio = "^0.20.3"
 
+[tool.black]
+line-length = 79
+target-version = ["py38", "py39", "py310"]
+include = '\.pyi?$'
+skip-string-normalization = true
+extend-exclude = '''
+'''
+
 [tool.ruff]
 line-length = 79
 select = [

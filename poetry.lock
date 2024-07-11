@@ -247,13 +247,13 @@ pyflakes = ">=3.1.0,<3.2.0"
 
 [[package]]
 name = "identify"
-version = "2.5.36"
+version = "2.6.0"
 description = "File identification library for Python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "identify-2.5.36-py2.py3-none-any.whl", hash = "sha256:37d93f380f4de590500d9dba7db359d0d3da95ffe7f9de1753faa159e71e7dfa"},
-    {file = "identify-2.5.36.tar.gz", hash = "sha256:e5e00f54165f9047fbebeb4a560f9acfb8af4c88232be60a488e9b68d122745d"},
+    {file = "identify-2.6.0-py2.py3-none-any.whl", hash = "sha256:e79ae4406387a9d300332b5fd366d8994f1525e8414984e1a59e058b2eda2dd0"},
+    {file = "identify-2.6.0.tar.gz", hash = "sha256:cb171c685bdc31bcc4c1734698736a7d5b6c8bf2e0c15117f4d469c8640ae5cf"},
 ]
 
 [package.extras]
@@ -991,13 +991,13 @@ files = [
 
 [[package]]
 name = "tomlkit"
-version = "0.12.5"
+version = "0.13.0"
 description = "Style preserving TOML library"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "tomlkit-0.12.5-py3-none-any.whl", hash = "sha256:af914f5a9c59ed9d0762c7b64d3b5d5df007448eb9cd2edc8a46b1eafead172f"},
-    {file = "tomlkit-0.12.5.tar.gz", hash = "sha256:eef34fba39834d4d6b73c9ba7f3e4d1c417a4e56f89a7e96e090dd0d24b8fb3c"},
+    {file = "tomlkit-0.13.0-py3-none-any.whl", hash = "sha256:7075d3042d03b80f603482d69bf0c8f345c2b30e41699fd8883227f89972b264"},
+    {file = "tomlkit-0.13.0.tar.gz", hash = "sha256:08ad192699734149f5b97b45f1f18dad7eb1b6d16bc72ad0c2335772650d7b72"},
 ]
 
 [[package]]

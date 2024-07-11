@@ -29,7 +29,8 @@ SQUARE_BANGBOO = RESOURCE_PATH / "square_bangbo"
 WEAPON_PATH = RESOURCE_PATH / "weapon"
 ROLECIRCLE_PATH = RESOURCE_PATH / "role_circle"
 ROLE_PATH = RESOURCE_PATH / "role"
-SUIT_PATH = RESOURCE_PATH / "3d_suit"
+SUIT_PATH = RESOURCE_PATH / "suit"
+SUIT_3D_PATH = RESOURCE_PATH / "3d_suit"
 
 
 # 插件数据通用素材
@@ -52,6 +53,7 @@ def init_dir():
         ROLECIRCLE_PATH,
         ROLE_PATH,
         SUIT_PATH,
+        SUIT_3D_PATH,
     ]:
         i.mkdir(parents=True, exist_ok=True)
 
