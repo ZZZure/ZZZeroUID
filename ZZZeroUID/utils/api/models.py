@@ -31,7 +31,7 @@ class SingleGachaLog(TypedDict):
     uid: str
     gacha_id: str
     gacha_type: str
-    '''gacha_type: 1-常驻, 2-限定, 3-音擎'''
+    """gacha_type: 1-常驻, 2-限定, 3-音擎"""
     item_id: str
     count: str
     time: str
@@ -39,7 +39,7 @@ class SingleGachaLog(TypedDict):
     lang: str
     item_type: str
     rank_type: str
-    '''rank_type: 2-B, 3-A, 4-S'''
+    """rank_type: 2-B, 3-A, 4-S"""
     id: str
 
 
@@ -89,7 +89,7 @@ class ZZZIndexResp(TypedDict):
     buddy_list: List[Buddy]
 
 
-class Item(TypedDict):
+class ZZZBangboo(TypedDict):
     id: int
     name: str
     rarity: str
@@ -100,11 +100,6 @@ class Item(TypedDict):
 class BangbooWiki(TypedDict):
     item_id: str
     wiki_url: str
-
-
-class ZZZBangbooResp(TypedDict):
-    items: List[Item]
-    bangboo_wiki: BangbooWiki
 
 
 class AvatarIconPaths(TypedDict):

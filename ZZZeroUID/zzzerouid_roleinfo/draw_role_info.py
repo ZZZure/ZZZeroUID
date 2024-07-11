@@ -29,6 +29,14 @@ async def draw_role_img(uid: str, ev: Event) -> Union[str, bytes]:
     if isinstance(data, int):
         return error_reply(data)
 
+    avatar_data = await zzz_api.get_zzz_avatar_basic_info(uid)
+    if isinstance(avatar_data, int):
+        return error_reply(avatar_data)
+
+    bangboo_data = await zzz_api.get_zzz_bangboo_info(uid)
+    if isinstance(bangboo_data, int):
+        return error_reply(bangboo_data)
+
     stats = data["stats"]
     player_card = await get_player_card_min(
         uid,
@@ -55,8 +63,8 @@ async def draw_role_img(uid: str, ev: Event) -> Union[str, bytes]:
     base_draw.text((556, 239), f"{buddy_num}", "white", zzz_font_44, "mm")
     base_draw.text((734, 239), f"{zone_layer}", "white", zzz_font_44, "mm")
 
-    agent_num = len(data["avatar_list"])
-    bangboo_num = len(data["buddy_list"])
+    agent_num = len(avatar_data)
+    bangboo_num = len(bangboo_data)
     agent_h = ((agent_num - 1) // 4 + 1) * 220
     w, h = (
         950,
@@ -69,7 +77,7 @@ async def draw_role_img(uid: str, ev: Event) -> Union[str, bytes]:
     img.paste(agent_banner, (0, 551), agent_banner)
     img.paste(bangboo_banner, (0, 651 + agent_h), bangboo_banner)
 
-    for aindex, agent in enumerate(data["avatar_list"]):
+    for aindex, agent in enumerate(avatar_data):
         rarity = agent["rarity"]
         rank_icon = get_rank_img(rarity)
         element_icon = get_element_img(agent["element_type"])
@@ -93,7 +101,7 @@ async def draw_role_img(uid: str, ev: Event) -> Union[str, bytes]:
             rank_bg,
         )
 
-    for bindex, bangboo in enumerate(data["buddy_list"]):
+    for bindex, bangboo in enumerate(bangboo_data):
         rarity = bangboo["rarity"]
         rank_icon = get_rank_img(rarity)
         rank_bg = Image.open(TEXT_PATH / f"{rarity}RANK_BG.png")

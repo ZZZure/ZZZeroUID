@@ -1,6 +1,9 @@
 from gsuid_core.utils.api.mys.api import NEW_URL, OLD_URL
 
+# BASE_URL
 ZZZ_API = f"{NEW_URL}/event/game_record_zzz/api/zzz"
+ZZZ_OS_API = "https://sg-act-nap-api.hoyolab.com/event/game_record_zzz/api/zzz"
+
 ZZZ_INDEX_API = f"{ZZZ_API}/index"
 ZZZ_NOTE_API = f"{ZZZ_API}/note"
 ZZZ_BUDDY_INFO_API = f"{ZZZ_API}/buddy/info"

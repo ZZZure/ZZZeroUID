@@ -7,11 +7,11 @@ from gsuid_core.utils.database.models import GsUser
 
 from .models import (
     ZZZUser,
+    ZZZBangboo,
     ZZZNoteResp,
     ZZZIndexResp,
     ZZZAvatarInfo,
     ZZZAvatarBasic,
-    ZZZBangbooResp,
     ZZZGachaLogResp,
 )
 from .api import (
@@ -25,6 +25,13 @@ from .api import (
 )
 
 # from gsuid_core.utils.api.mys.tools import get_ds_token
+
+REGION_MAP = {
+    "10": "prod_gf_us",
+    "13": "prod_gf_jp",
+    "15": "prod_gf_eu",
+    "17": "prod_gf_sg",
+}
 
 
 class ZZZApi(_MysApi):
@@ -80,11 +87,11 @@ class ZZZApi(_MysApi):
 
     async def get_zzz_bangboo_info(self, uid: str) -> Union[
         int,
-        ZZZBangbooResp,
+        List[ZZZBangboo],
     ]:
         data = await self.simple_zzz_req(ZZZ_BUDDY_INFO_API, uid)
         if isinstance(data, Dict):
-            data = cast(ZZZBangbooResp, data["data"])
+            data = cast(List[ZZZBangboo], data["data"]["list"])
         return data
 
     async def get_zzz_avatar_info(
@@ -95,7 +102,7 @@ class ZZZApi(_MysApi):
         int,
         List[ZZZAvatarInfo],
     ]:
-        ck = await self.get_ck(uid, 'OWNER')
+        ck = await self.get_ck(uid, "OWNER")
         if ck is None:
             return -51
         data = await self.simple_zzz_req(
@@ -193,14 +200,17 @@ class ZZZApi(_MysApi):
     async def simple_zzz_req(
         self,
         URL: str,
-        uid: Union[str, bool],
+        uid: str,
         params: Dict = {},  # noqa: B006
         header: Dict = {},  # noqa: B006
         cookie: Optional[str] = None,
     ) -> Union[Dict, int]:
-        server_id = "prod_gf_cn"
+        if len(uid) < 10:
+            server_id = "prod_gf_cn"
+        else:
+            server_id = REGION_MAP.get(uid[:2], "prod_gf_jp")
+
         params.update({"role_id": uid, "server": server_id})
-        print(params)
         HEADER = deepcopy(self.ZZZ_HEADER)
         HEADER.update(header)
 
