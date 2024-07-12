@@ -7,7 +7,7 @@ from gsuid_core.utils.image.convert import convert_img
 
 from ..utils.hint import error_reply
 from ..utils.zzzero_api import zzz_api
-from ..utils.fonts.zzz_fonts import zzz_font_32, zzz_font_44
+from ..utils.fonts.zzz_fonts import zzz_font_24, zzz_font_44
 from ..utils.resource.download_file import (
     get_square_avatar,
     get_square_bangboo,
@@ -22,6 +22,15 @@ from ..utils.image import (
 )
 
 TEXT_PATH = Path(__file__).parent / "texture2d"
+RANK_COLOR_MAP = {
+    0: (131, 132, 131),
+    1: (26, 122, 26),
+    2: (1, 139, 222),
+    3: (231, 14, 192),
+    4: (255, 141, 0),
+    5: (249, 81, 0),
+    6: (249, 0, 0),
+}
 
 
 async def draw_role_img(uid: str, ev: Event) -> Union[str, bytes]:
@@ -79,6 +88,8 @@ async def draw_role_img(uid: str, ev: Event) -> Union[str, bytes]:
 
     for aindex, agent in enumerate(avatar_data):
         rarity = agent["rarity"]
+        rank = agent["rank"]
+        rank_color = RANK_COLOR_MAP.get(rank, (131, 132, 131))
         rank_icon = get_rank_img(rarity)
         element_icon = get_element_img(agent["element_type"])
         rank_bg = Image.open(TEXT_PATH / f"{rarity}RANK_BG.png")
@@ -88,11 +99,19 @@ async def draw_role_img(uid: str, ev: Event) -> Union[str, bytes]:
         rank_bg.paste(char_fg, (0, 0), char_fg)
         rank_bg.paste(rank_icon, (20, 20), rank_icon)
         rank_bg.paste(element_icon, (130, 21), element_icon)
+        rank_draw.rectangle((19, 165, 76, 202), rank_color)
         rank_draw.text(
-            (94, 184),
+            (48, 184),
+            f'{rank}命',
+            'white',
+            zzz_font_24,
+            "mm",
+        )
+        rank_draw.text(
+            (123, 184),
             f'等级{agent["level"]}',
             GREY,
-            zzz_font_32,
+            zzz_font_24,
             "mm",
         )
         img.paste(
@@ -114,7 +133,7 @@ async def draw_role_img(uid: str, ev: Event) -> Union[str, bytes]:
             (94, 184),
             f'等级{bangboo["level"]}',
             GREY,
-            zzz_font_32,
+            zzz_font_24,
             "mm",
         )
         img.paste(

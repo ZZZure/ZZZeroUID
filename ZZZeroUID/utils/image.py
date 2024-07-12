@@ -48,6 +48,25 @@ prop_id = {
     '319': 'IconDungeonBuffEther',
 }
 
+pro_id = {
+    '1': 'IconAttack',  # 强攻
+    '2': 'IconStun',  # 击破
+    '3': 'IconAnomaly',  # 异常
+    '4': 'IconSupport',  # 支援
+    '5': 'IconDefense',  # 防御
+}
+
+
+def get_pro_img(_id: Union[str, int], w: int = 50, h: int = 50):
+    img = Image.new('RGBA', (100, 100))
+    propid = str(_id)
+    prop_icon = pro_id.get(propid)
+    if not prop_icon:
+        return img.resize((w, h))
+
+    icon = Image.open(TEXT_PATH / 'pro' / f'{prop_icon}.png')
+    return icon.resize((w, h)).convert('RGBA')
+
 
 def get_prop_img(_id: Union[str, int], w: int = 40, h: int = 40):
     img = Image.new('RGBA', (70, 70))
