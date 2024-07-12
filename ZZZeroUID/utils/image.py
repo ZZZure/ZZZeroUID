@@ -110,7 +110,7 @@ def count_characters(s: str) -> float:
 
 
 async def get_player_card_min(uid: str, ev: Event, world: str = ''):
-    data = await zzz_api.get_zzz_user_info(uid)
+    data = await zzz_api.get_zzz_user_info_g(uid)
     if isinstance(data, int):
         return data
 
