@@ -48,6 +48,7 @@ PROP_POS_MAP = {
     "穿透率": (554, 609),
     "能量自动回复": (554, 667),
 }
+PROFESSION_MAP = {}
 GREY = (210, 210, 210)
 BLUE = (0, 151, 255)
 YELLOW = (255, 188, 0)
@@ -60,7 +61,9 @@ async def draw_char_detail_img(uid: str, char: str) -> Union[str, bytes]:
 
     path = PLAYER_PATH / str(uid) / f"{char_id}.json"
     if not path.exists():
-        return f"[绝区零] 未找到该角色信息, 请先使用[{PREFIX}刷新面板]进行刷新!"
+        return (
+            f"[绝区零] 未找到该角色信息, 请先使用[{PREFIX}刷新面板]进行刷新!"
+        )
 
     async with aiofiles.open(path, "r", encoding="utf-8") as f:
         data = json.loads(await f.read())  # noqa: F841
