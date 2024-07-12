@@ -108,11 +108,12 @@ async def draw_char_detail_img(uid: str, char: str) -> Union[str, bytes]:
     info_draw.text((213, 65), full_name, "white", zzz_font_50, "lm")
     info_draw.text((171, 121), f"Lv.{level}", "white", zzz_font_30, "mm")
     info_bg.paste(char_star, (223, 101), char_star)
-    for r in range(rank):
+    for r in range(rank+1):
         if r == 0:
             continue
         rank_icon = Image.open(TEXT_PATH / "ranks" / f"{r}.png")
-        info_bg.paste(rank_icon, (394 + 37 * (r - 1), 105), rank_icon)
+        rank_icon = rank_icon.resize((31, 31)).convert("RGBA")
+        info_bg.paste(rank_icon, (394 + 34 * (r - 1), 105), rank_icon)
     info_bg.paste(element_icon, (142, 35), element_icon)
     info_bg.paste(rarity_icon, (75, 35), rarity_icon)
     img.paste(info_bg, (340, 17), info_bg)
