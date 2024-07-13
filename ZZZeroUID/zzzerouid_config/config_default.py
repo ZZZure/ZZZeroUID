@@ -3,6 +3,7 @@ from typing import Dict
 from gsuid_core.utils.plugins_config.models import (
     GSC,
     GsStrConfig,
+    GsBoolConfig,
     GsListStrConfig,
 )
 
@@ -17,5 +18,20 @@ CONFIG_DEFAULT: Dict[str, GSC] = {
         '用于设置不接受@响应的命令列表',
         [],
         ['刷新抽卡记录', '更新抽卡记录', '每日'],
+    ),
+    'SignTime': GsListStrConfig(
+        '每晚签到时间设置',
+        '每晚米游社签到时间设置（时，分）',
+        ['0', '59'],
+    ),
+    'SchedSignin': GsBoolConfig(
+        '定时签到',
+        '开启后每晚00:59将开始自动签到任务',
+        True,
+    ),
+    'PrivateSignReport': GsBoolConfig(
+        '签到私聊报告',
+        '关闭后将不再给任何人推送当天签到任务完成情况',
+        False,
     ),
 }
