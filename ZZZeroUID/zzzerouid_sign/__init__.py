@@ -33,8 +33,9 @@ async def recheck(bot: Bot, ev: Event):
     await bot.logger.info('开始执行[全部重签]')
     await bot.send('[绝区零] [全部重签] 已开始执行!')
     result = await daily_sign('zzz')
-    if IS_REPORT:
-        await send_board_cast_msg(result)
+    if not IS_REPORT:
+        result['private_msg_dict'] = {}
+    await send_board_cast_msg(result)
     await bot.send('[绝区零] [全部重签] 执行完成!')
 
 
