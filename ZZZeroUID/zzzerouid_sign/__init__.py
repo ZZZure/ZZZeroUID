@@ -43,5 +43,6 @@ async def recheck(bot: Bot, ev: Event):
 async def zzz_sign_at_night():
     if ZZZ_CONFIG.get_config('SchedSignin').data:
         result = await daily_sign('zzz')
-        if IS_REPORT:
-            await send_board_cast_msg(result)
+        if not IS_REPORT:
+            result['private_msg_dict'] = {}
+        await send_board_cast_msg(result)
