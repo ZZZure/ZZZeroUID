@@ -285,5 +285,3 @@ class ZZZApi(_MysApi):
             base_url=base_url,
         )
         return data
-        return data
-        return data
