@@ -118,28 +118,29 @@ def get_rank_img(rank: str, w: int = 40, h: int = 40):
         return Image.new('RGBA', (w, h), (0, 0, 0, 0))
 
 
-def count_characters(s: str) -> float:
-    count = 0
-    for char in s:
-        if '\u4e00' <= char <= '\u9fff':
-            count += 1
-        else:
-            count += 0.5
-    return count
-
-
-async def get_player_card_min(uid: str, ev: Event, world: str = ''):
+async def get_player_card_min(
+    uid: str,
+    ev: Event,
+    world: str = '',
+):
     data = await zzz_api.get_zzz_user_info_g(uid)
     if isinstance(data, int):
-        return data
+        data = {
+            'nickname': (
+                ev.sender['nickname']
+                if ev.sender and 'nickname' in ev.sender
+                else '绳匠'
+            ),
+            'level': '未知',
+            'region_name': '新艾丽都',
+        }
 
     user_name = data['nickname']
-    world_level = data['level']
+    world_level = str(data['level'])
     if world:
         region_name = world
     else:
         region_name = data['region_name']
-    name_len = count_characters(user_name) * 45
 
     player_card = Image.open(TEXT_PATH / 'player_card_min.png')
     card_draw = ImageDraw.Draw(player_card)
@@ -150,7 +151,9 @@ async def get_player_card_min(uid: str, ev: Event, world: str = ''):
     card_draw.text((426, 120), f'UID {uid}', GREY, zzz_font_30, 'mm')
     card_draw.text((290, 64), user_name, 'white', zzz_font_38, 'lm')
 
-    xs, ys = 290 + name_len + 20, 45
+    text_lenth = card_draw.textlength(user_name, zzz_font_38)
+
+    xs, ys = 290 + text_lenth + 20, 45
     xt, yt = xs + 90 + 12, 45
     card_draw.rounded_rectangle((xs, ys, xs + 90, ys + 35), 10, YELLOW)
     card_draw.rounded_rectangle((xt, yt, xt + 144, yt + 35), 10, BLUE)

@@ -1,4 +1,4 @@
-from typing import List, TypedDict
+from typing import List, Optional, TypedDict
 
 
 class EnergyProgress(TypedDict):
@@ -222,3 +222,64 @@ class ZZZUser(TypedDict):
     is_chosen: bool
     region_name: str
     is_official: bool
+
+
+class ChallengeAvatar(TypedDict):
+    id: int
+    level: int
+    rarity: str
+    element_type: int
+
+
+class ChallengeBuddy(TypedDict):
+    id: int
+    rarity: str
+    level: int
+
+
+class MonsterInfo(TypedDict):
+    id: int
+    name: str
+    weak_element_type: int
+
+
+class Buff(TypedDict):
+    title: str
+    text: str
+
+
+class ChallengeNode(TypedDict):
+    avatars: List[Avatar]
+    buddy: Buddy
+    element_type_list: List[int]
+    monster_info: MonsterInfo
+
+
+class FloorDetail(TypedDict):
+    layer_index: int
+    rating: str
+    layer_id: int
+    buffs: List[Buff]
+    node_1: Optional[ChallengeNode]
+    node_2: Optional[ChallengeNode]
+    challenge_time: int
+    zone_name: str
+    floor_challenge_time: dict
+
+
+class Rating(TypedDict):
+    times: int
+    rating: str
+
+
+class ZZZChallenge(TypedDict):
+    schedule_id: int
+    begin_time: int
+    end_time: int
+    rating_list: List[Rating]
+    has_data: bool
+    all_floor_detail: List[FloorDetail]
+    fast_layer_time: int
+    max_layer: int
+    hadal_begin_time: dict
+    hadal_end_time: dict

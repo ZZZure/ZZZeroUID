@@ -10,6 +10,7 @@ from .models import (
     ZZZUser,
     ZZZBangboo,
     ZZZNoteResp,
+    ZZZChallenge,
     ZZZIndexResp,
     ZZZAvatarInfo,
     ZZZAvatarBasic,
@@ -22,6 +23,7 @@ from .api import (
     ZZZ_NOTE_API,
     ZZZ_INDEX_API,
     ZZZ_BIND_OS_API,
+    ZZZ_CHALLENGE_API,
     ZZZ_GAME_INFO_API,
     ZZZ_BUDDY_INFO_API,
     ZZZ_AVATAR_INFO_API,
@@ -134,6 +136,14 @@ class ZZZApi(_MysApi):
         data = await self.simple_zzz_req(ZZZ_INDEX_API, uid)
         if isinstance(data, Dict):
             data = cast(ZZZIndexResp, data['data'])
+        return data
+
+    async def get_zzz_challenge_info(
+        self, uid: str
+    ) -> Union[int, ZZZChallenge]:
+        data = await self.simple_zzz_req(ZZZ_CHALLENGE_API, uid)
+        if isinstance(data, Dict):
+            data = cast(ZZZChallenge, data['data'])
         return data
 
     async def get_zzz_bangboo_info(self, uid: str) -> Union[
