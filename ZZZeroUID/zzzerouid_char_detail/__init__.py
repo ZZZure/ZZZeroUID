@@ -9,33 +9,33 @@ from ..utils.zzzero_prefix import PREFIX
 from .refresh_char_detail import refresh_char
 from .draw_char_detail_card import draw_char_detail_img
 
-sv_char_detail_refresh = SV(f"{PREFIX}角色面板刷新")
-sv_char_detail = SV(f"{PREFIX}角色面板")
+sv_char_detail_refresh = SV(f'{PREFIX}角色面板刷新')
+sv_char_detail = SV(f'{PREFIX}角色面板')
 
 
 @sv_char_detail_refresh.on_fullmatch(
     (
-        f"{PREFIX}刷新面板",
-        f"{PREFIX}强制刷新",
+        f'{PREFIX}刷新面板',
+        f'{PREFIX}强制刷新',
     )
 )
 async def send_refresh_char_detail_msg(bot: Bot, ev: Event):
     uid = await get_uid(bot, ev)
-    logger.info(f"[绝区零] [刷新面板] UID: {uid}")
+    logger.info(f'[绝区零] [刷新面板] UID: {uid}')
 
     if not uid:
         return await bot.send(BIND_UID_HINT)
 
-    im = await refresh_char(uid)
+    im = await refresh_char(uid, ev)
     return await bot.send(im)
 
 
-@sv_char_detail.on_prefix((f"{PREFIX}角色面板", f"{PREFIX}查询"))
+@sv_char_detail.on_prefix((f'{PREFIX}角色面板', f'{PREFIX}查询'))
 async def send_char_detail_msg(bot: Bot, ev: Event):
-    char = ev.text.strip(" ")
-    logger.info(f"[绝区零] [角色面板] CHAR: {char}")
+    char = ev.text.strip(' ')
+    logger.info(f'[绝区零] [角色面板] CHAR: {char}')
     uid = await get_uid(bot, ev)
-    logger.info(f"[绝区零] [角色面板] UID: {uid}")
+    logger.info(f'[绝区零] [角色面板] UID: {uid}')
     if not char:
         return
 

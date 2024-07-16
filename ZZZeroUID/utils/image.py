@@ -9,8 +9,9 @@ from gsuid_core.utils.image.image_tools import (
 )
 
 from .zzzero_api import zzz_api
-from .name_convert import equip_id_to_sprite
 from .resource.RESOURCE_PATH import SUIT_PATH
+from ..utils.resource.RESOURCE_PATH import ROLECIRCLE_PATH
+from .name_convert import char_id_to_sprite, equip_id_to_sprite
 from .fonts.zzz_fonts import zzz_font_28, zzz_font_30, zzz_font_38
 
 TEXT_PATH = Path(__file__).parent / 'texture2d'
@@ -55,6 +56,13 @@ pro_id = {
     '4': 'IconSupport',  # 支援
     '5': 'IconDefense',  # 防御
 }
+
+
+def get_circle_role_img(_id: Union[str, int], w: int = 142, h: int = 142):
+    char_id = str(_id)
+    sprite_id = char_id_to_sprite(char_id)
+    path = ROLECIRCLE_PATH / f'IconRoleCircle{sprite_id}.png'
+    return Image.open(path).resize((w, h)).convert('RGBA')
 
 
 def get_pro_img(_id: Union[str, int], w: int = 50, h: int = 50):
@@ -180,9 +188,9 @@ def get_zzz_bg(w: int, h: int) -> Image.Image:
     return crop_center_img(bg, w, h)
 
 
-def add_footer(img: Image.Image) -> Image.Image:
+def add_footer(img: Image.Image, w: int = 0) -> Image.Image:
     footer = Image.open(TEXT_PATH / 'footer.png')
-    w = img.size[0]
+    w = img.size[0] if not w else w
     if w != footer.size[0]:
         footer = footer.resize(
             (w, int(footer.size[1] * w / footer.size[0])),

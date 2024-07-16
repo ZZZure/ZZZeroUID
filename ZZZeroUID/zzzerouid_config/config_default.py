@@ -34,4 +34,19 @@ CONFIG_DEFAULT: Dict[str, GSC] = {
         '关闭后将不再给任何人推送当天签到任务完成情况',
         False,
     ),
+    'RefreshBG': GsStrConfig(
+        '刷新面板背景',
+        '刷新面板背景',
+        'bg2',
+        options=[
+            'bg1',
+            'bg2',
+            'bg3',
+        ],
+    ),
+    'RefreshCardUsePic': GsBoolConfig(
+        '刷新面板时使用图片返回',
+        '关闭后刷新面板将使用文字返回信息',
+        True,
+    ),
 }
