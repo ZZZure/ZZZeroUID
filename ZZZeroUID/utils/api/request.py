@@ -243,7 +243,7 @@ class ZZZApi(_MysApi):
         page_size: int = 10,
     ) -> Union[int, ZZZGachaLogResp]:
         if url is None:
-            raise Exception('[zzz] gacha_record url is None')
+            raise Exception('[绝区零] gacha_record url is None')
         data = await self._mys_request(
             url=url,
             method='GET',

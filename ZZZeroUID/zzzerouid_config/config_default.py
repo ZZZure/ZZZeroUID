@@ -44,6 +44,15 @@ CONFIG_DEFAULT: Dict[str, GSC] = {
             'bg3',
         ],
     ),
+    'ZZZGuideProvide': GsStrConfig(
+        '角色攻略图提供方',
+        '使用zzz角色攻略时选择的提供方',
+        '猫冬',
+        options=[
+            '猫冬',
+            '听雨惊花',
+        ],
+    ),
     'RefreshCardUsePic': GsBoolConfig(
         '刷新面板时使用图片返回',
         '关闭后刷新面板将使用文字返回信息',

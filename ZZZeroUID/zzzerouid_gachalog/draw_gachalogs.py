@@ -87,9 +87,7 @@ async def draw_card(uid: str, ev: Event) -> Union[str, bytes]:
     # 获取数据
     gacha_log_path = PLAYER_PATH / uid / 'gacha_logs.json'
     if not gacha_log_path.exists():
-        return (
-            f'[ZZZ] 你还没有抽卡记录噢!请绑定CK后使用{PREFIX}刷新抽卡记录重试!'
-        )
+        return f'[绝区零] 你还没有抽卡记录噢!请绑定CK后使用{PREFIX}刷新抽卡记录重试!'
     async with aiofiles.open(gacha_log_path, 'r', encoding='UTF-8') as f:
         raw_data: Dict = json.loads(await f.read())
 
