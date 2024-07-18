@@ -5,6 +5,7 @@ from .RESOURCE_PATH import (
     SUIT_PATH,
     WEAPON_PATH,
     SUIT_3D_PATH,
+    CAT_GUIDE_PATH,
     ROLECIRCLE_PATH,
     FLOWER_GUIDE_PATH,
 )
@@ -15,6 +16,7 @@ async def download_all_resource():
         'ZZZeroUID',
         {
             'guide/flower': FLOWER_GUIDE_PATH,
+            'guide/cat': CAT_GUIDE_PATH,
             'resource/weapon': WEAPON_PATH,
             'resource/role_circle': ROLECIRCLE_PATH,
             'resource/role': ROLE_PATH,
