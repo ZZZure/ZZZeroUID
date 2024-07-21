@@ -97,7 +97,7 @@ async def draw_team(
 async def draw_abyss_img(
     uid: str,
     ev: Event,
-    schedule_type: int = 2,
+    schedule_type: int = 1,
 ):
     '''
     import json

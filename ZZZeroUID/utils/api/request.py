@@ -139,7 +139,7 @@ class ZZZApi(_MysApi):
         return data
 
     async def get_zzz_challenge_info(
-        self, uid: str, schedule_type: int = 2
+        self, uid: str, schedule_type: int = 1
     ) -> Union[int, ZZZChallenge]:
         data = await self.simple_zzz_req(
             ZZZ_CHALLENGE_API, uid, params={'schedule_type': schedule_type}

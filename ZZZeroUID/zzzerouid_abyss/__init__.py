@@ -31,8 +31,8 @@ async def send_abyss_info(bot: Bot, ev: Event):
     if not uid:
         return await bot.send(BIND_UID_HINT)
     if '上期' in ev.command:
-        schedule_type = 1
-    else:
         schedule_type = 2
+    else:
+        schedule_type = 1
     im = await draw_abyss_img(uid, ev, schedule_type)
     await bot.send(im)
