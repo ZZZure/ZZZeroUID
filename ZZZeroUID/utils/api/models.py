@@ -1,4 +1,4 @@
-from typing import List, Optional, TypedDict
+from typing import List, TypedDict
 
 
 class EnergyProgress(TypedDict):
@@ -231,7 +231,7 @@ class ChallengeAvatar(TypedDict):
     element_type: int
 
 
-class ChallengeBuddy(TypedDict):
+class ChallengeBangboo(TypedDict):
     id: int
     rarity: str
     level: int
@@ -249,10 +249,19 @@ class Buff(TypedDict):
 
 
 class ChallengeNode(TypedDict):
-    avatars: List[Avatar]
-    buddy: Buddy
+    avatars: List[ChallengeAvatar]
+    buddy: ChallengeBangboo
     element_type_list: List[int]
     monster_info: MonsterInfo
+
+
+class FloorChallengeTime(TypedDict):
+    year: int
+    month: int
+    day: int
+    hour: int
+    minute: int
+    second: int
 
 
 class FloorDetail(TypedDict):
@@ -260,11 +269,11 @@ class FloorDetail(TypedDict):
     rating: str
     layer_id: int
     buffs: List[Buff]
-    node_1: Optional[ChallengeNode]
-    node_2: Optional[ChallengeNode]
+    node_1: ChallengeNode
+    node_2: ChallengeNode
     challenge_time: int
     zone_name: str
-    floor_challenge_time: dict
+    floor_challenge_time: FloorChallengeTime
 
 
 class Rating(TypedDict):

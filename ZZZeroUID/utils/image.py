@@ -183,9 +183,9 @@ async def get_player_card_min(
     return player_card
 
 
-def get_zzz_bg(w: int, h: int) -> Image.Image:
-    bg = Image.open(TEXT_PATH / 'bg.jpg').convert('RGBA')
-    return crop_center_img(bg, w, h)
+def get_zzz_bg(w: int, h: int, bg: str = 'bg') -> Image.Image:
+    img = Image.open(TEXT_PATH / f'{bg}.jpg').convert('RGBA')
+    return crop_center_img(img, w, h)
 
 
 def add_footer(img: Image.Image, w: int = 0) -> Image.Image:
