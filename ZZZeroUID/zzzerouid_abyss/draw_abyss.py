@@ -98,16 +98,8 @@ async def draw_abyss_img(
     uid: str,
     ev: Event,
     schedule_type: int = 1,
+    is_full: bool = False,
 ):
-    '''
-    import json
-
-    with open(
-        Path(__file__).parent / 'zzzchallenge.json', 'r', encoding='utf-8'
-    ) as f:
-        data = json.load(f)
-    '''
-
     data = await zzz_api.get_zzz_challenge_info(
         uid,
         schedule_type,
@@ -170,14 +162,14 @@ async def draw_abyss_img(
     title_draw.text(
         (224, 256),
         begin,
-        (255, 255, 255, 20),
+        (81, 81, 81),
         zzz_font_60,
         'mm',
     )
     title_draw.text(
         (733, 256),
         end,
-        (255, 255, 255, 20),
+        (81, 81, 81),
         zzz_font_60,
         'mm',
     )
@@ -186,7 +178,12 @@ async def draw_abyss_img(
     img.paste(title, (0, 190), title)
     img.paste(banner, (0, 610), banner)
 
-    for floor_num, floor_data in enumerate(data['all_floor_detail']):
+    if is_full:
+        abyss_data = data['all_floor_detail']
+    else:
+        abyss_data = data['all_floor_detail'][:3]
+
+    for floor_num, floor_data in enumerate(abyss_data):
         floor_img = Image.open(TEXT_PATH / 'floor.png')
         floor_draw = ImageDraw.Draw(floor_img)
         rating = floor_data['rating']
