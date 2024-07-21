@@ -114,7 +114,12 @@ async def draw_abyss_img(
     if isinstance(player_card, int):
         return error_reply(player_card)
 
-    w, h = 950, 710 + 700 * len(data['all_floor_detail']) + 100
+    if is_full:
+        abyss_data = data['all_floor_detail']
+    else:
+        abyss_data = data['all_floor_detail'][:3]
+
+    w, h = 950, 710 + 700 * len(abyss_data) + 100
 
     img = get_zzz_bg(w, h, 'bg2')
     title = Image.open(TEXT_PATH / 'title.png')
@@ -177,11 +182,6 @@ async def draw_abyss_img(
     img.paste(player_card, (0, 70), player_card)
     img.paste(title, (0, 190), title)
     img.paste(banner, (0, 610), banner)
-
-    if is_full:
-        abyss_data = data['all_floor_detail']
-    else:
-        abyss_data = data['all_floor_detail'][:3]
 
     for floor_num, floor_data in enumerate(abyss_data):
         floor_img = Image.open(TEXT_PATH / 'floor.png')
