@@ -295,5 +295,6 @@ class ZZZApi(_MysApi):
             header=HEADER,
             params=params,
             base_url=base_url,
+            game_name='zzz',
         )
         return data
