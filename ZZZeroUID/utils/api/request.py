@@ -61,23 +61,10 @@ class ZZZApi(_MysApi):
             server_id = REGION_MAP.get(uid[:2], 'prod_gf_jp')
         return server_id
 
-    async def get_ck(
+    async def zzz_get_ck(
         self, uid: str, mode: Literal['OWNER', 'RANDOM'] = 'RANDOM'
     ) -> Optional[str]:
-        if mode == 'RANDOM':
-            return await GsUser.get_random_cookie(
-                uid,
-                game_name='zzz',
-                condition=(
-                    {
-                        'zzz_region': self._get_region(uid),
-                    }
-                    if len(uid) >= 10
-                    else None
-                ),
-            )
-        else:
-            return await GsUser.get_user_cookie_by_uid(uid, game_name='zzz')
+        return await self.get_ck(uid, mode, 'zzz')
 
     async def get_stoken(self, uid: str) -> Optional[str]:
         return await GsUser.get_user_stoken_by_uid(uid, game_name='zzz')
@@ -89,7 +76,7 @@ class ZZZApi(_MysApi):
         )
         if mys_id is None:
             return -100
-        ck = await self.get_ck(uid, 'OWNER')
+        ck = await self.zzz_get_ck(uid, 'OWNER')
         if ck is None:
             return -51
 
@@ -109,7 +96,7 @@ class ZZZApi(_MysApi):
             base_url = ZZZ_BIND_OS_API
 
         header = deepcopy(self.ZZZ_HEADER)
-        ck = await self.get_ck(uid, 'OWNER')
+        ck = await self.zzz_get_ck(uid, 'OWNER')
         if not ck:
             return -51
         header['Cookie'] = ck
@@ -165,7 +152,7 @@ class ZZZApi(_MysApi):
         int,
         List[ZZZAvatarInfo],
     ]:
-        ck = await self.get_ck(uid, 'OWNER')
+        ck = await self.zzz_get_ck(uid, 'OWNER')
         if ck is None:
             return -51
         data = await self.simple_zzz_req(
@@ -193,20 +180,13 @@ class ZZZApi(_MysApi):
     async def get_zzz_gacha_log_by_authkey(
         self,
         uid: str,
+        authkey: str,
         gacha_type: str = '2001',
         init_log_gacha_base_type: str = '2',
         page: int = 1,
         end_id: str = '0',
     ):
         server_id = self._get_region(uid)
-        authkey_rawdata = await self.get_authkey_by_cookie(
-            uid,
-            'nap_cn',
-            server_id,
-        )
-        if isinstance(authkey_rawdata, int):
-            return authkey_rawdata
-        authkey = authkey_rawdata['authkey']
         url = ZZZ_GET_GACHA_LOG_API
         data = await self._mys_request(
             url=url,
@@ -284,7 +264,7 @@ class ZZZApi(_MysApi):
         if cookie is not None:
             HEADER['Cookie'] = cookie
         elif 'Cookie' not in HEADER and isinstance(uid, str):
-            ck = await self.get_ck(uid)
+            ck = await self.zzz_get_ck(uid)
             if ck is None:
                 return -51
             HEADER['Cookie'] = ck
