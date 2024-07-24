@@ -143,10 +143,10 @@ async def save_gachalogs(
 
     # 回复文字
     if all_add == 0:
-        im = f'UID{uid}没有新增祈愿数据!'
+        im = f'🌱UID{uid}没有新增调频数据!'
     else:
         im = (
-            f'UID{uid}数据更新成功！'
+            f'✅UID{uid}数据更新成功！'
             f'本次更新{all_add}个数据\n'
             f'常驻频段{normal_add}个！\n独家频段{char_add}个！\n'
             f'音擎频段{weapon_add}个！\n邦布频段{bangboo_add}个！'
