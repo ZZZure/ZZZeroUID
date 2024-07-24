@@ -15,7 +15,7 @@ _HEADER = {'User-Agent': f'ZZZeroUID/{ZZZero_version}'}
 async def get_hakush_char_data(
     id: Union[int, str],
 ) -> Optional[CharacterData]:
-    data = await _hakush_request(url=ZZZ_CHARACTER.format(id))
+    data = await _hakush_request(ZZZ_CHARACTER.format(id))
     if isinstance(data, Dict):
         return cast(CharacterData, data)
     return None
@@ -30,7 +30,11 @@ async def _hakush_request(
 ) -> Optional[AnyDict]:
     async with AsyncClient(timeout=None) as client:
         req = await client.request(
-            method, url=url, headers=header, params=params, json=data
+            method,
+            url=url,
+            headers=header,
+            params=params,
+            json=data,
         )
         data = req.json()
         return data

@@ -70,33 +70,39 @@ class SkillDescription(TypedDict):
     Desc: str
 
 
+class SkillValue(TypedDict):
+    Main: int
+    Growth: int
+    Format: str
+
+
 class SkillParam(TypedDict):
     Name: str
     Desc: str
-    Param: Dict[str, Dict[str, Union[int, float, str]]]
+    Param: Dict[str, SkillValue]
+
+
+class SkillParamDesc(TypedDict):
+    Skill: int
+    Prop: int
+
+
+class SkillDescription2(TypedDict):
+    Name: str
+    Param: SkillParam
 
 
 class SkillDetail(TypedDict):
-    Description: List[SkillDescription]
+    Description: List[Union[SkillDescription, SkillDescription2]]
     Material: Dict[str, Dict[str, int]]
 
 
 class Skill(TypedDict):
-    Basic: Dict[
-        str, Union[List[SkillDescription], Dict[str, List[SkillParam]]]
-    ]
-    Dodge: Dict[
-        str, Union[List[SkillDescription], Dict[str, List[SkillParam]]]
-    ]
-    Special: Dict[
-        str, Union[List[SkillDescription], Dict[str, List[SkillParam]]]
-    ]
-    Chain: Dict[
-        str, Union[List[SkillDescription], Dict[str, List[SkillParam]]]
-    ]
-    Assist: Dict[
-        str, Union[List[SkillDescription], Dict[str, List[SkillParam]]]
-    ]
+    Basic: Dict[str, SkillDetail]
+    Dodge: Dict[str, SkillDetail]
+    Special: Dict[str, SkillDetail]
+    Chain: Dict[str, SkillDetail]
+    Assist: Dict[str, SkillDetail]
 
 
 class PassiveLevel(TypedDict):

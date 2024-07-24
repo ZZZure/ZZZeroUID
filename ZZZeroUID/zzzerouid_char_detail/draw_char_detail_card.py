@@ -248,7 +248,7 @@ async def draw_char_detail_img(uid: str, char: str) -> Union[str, bytes]:
         if 'id' in equip:
             equip_id = equip['id']
             equip_level = equip['level']
-            equip_name = equip['name']
+            equip_name = equip['name'][:-3]
             eq_mp = equip['main_properties'][0]
             eq_p = equip['properties']
 

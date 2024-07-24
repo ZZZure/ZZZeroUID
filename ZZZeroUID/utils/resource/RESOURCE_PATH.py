@@ -35,6 +35,10 @@ ROLE_PATH = RESOURCE_PATH / 'role'
 SUIT_PATH = RESOURCE_PATH / 'suit'
 SUIT_3D_PATH = RESOURCE_PATH / '3d_suit'
 
+# 游戏数据
+ZZZ_DATA_PATH = MAIN_PATH / 'zzz_data'
+CHAR_DATA_PATH = ZZZ_DATA_PATH / 'char'
+
 
 # 插件数据通用素材
 TEXT2D_PATH = Path(__file__).parent / 'texture2d'
@@ -58,6 +62,8 @@ def init_dir():
         SUIT_PATH,
         SUIT_3D_PATH,
         CAT_GUIDE_PATH,
+        ZZZ_DATA_PATH,
+        CHAR_DATA_PATH,
     ]:
         i.mkdir(parents=True, exist_ok=True)
 
