@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from typing import Union
+from typing import Dict, Tuple, Union
 
 import aiofiles
 from PIL import Image, ImageDraw
@@ -60,6 +60,28 @@ SKILL_MAP = {
 GREY = (210, 210, 210)
 BLUE = (0, 151, 255)
 YELLOW = (255, 188, 0)
+
+
+def get_skill_dict(data: Dict):
+    skills = data['skills']
+    result: Dict[int, Tuple[int, Tuple[int, int, int]]] = {}
+
+    for skill in skills:
+        skill_type = skill['skill_type']
+        skill_pos_num = SKILL_MAP.get(skill_type, 0)
+        skill_level = skill['level']
+        if skill_level >= 11:
+            skill_color = YELLOW
+        elif skill_level >= 6:
+            skill_color = BLUE
+        elif skill_level >= 3:
+            skill_color = (255, 255, 255)
+        else:
+            skill_color = GREY
+
+        result[skill_pos_num] = skill_level, skill_color
+
+    return result
 
 
 async def draw_char_detail_img(uid: str, char: str) -> Union[str, bytes]:
@@ -130,21 +152,11 @@ async def draw_char_detail_img(uid: str, char: str) -> Union[str, bytes]:
     img.paste(info_bg, (340, 17), info_bg)
 
     # 技能部分
-    skills = data['skills']
+    skill_dict = get_skill_dict(data)
     skill_bg = Image.open(TEXT_PATH / 'skill_bg.png')
     skill_draw = ImageDraw.Draw(skill_bg)
-    for skill in skills:
-        skill_type = skill['skill_type']
-        skill_pos_num = SKILL_MAP.get(skill_type, 0)
-        skill_level = skill['level']
-        if skill_level >= 11:
-            skill_color = YELLOW
-        elif skill_level >= 6:
-            skill_color = BLUE
-        elif skill_level >= 3:
-            skill_color = (255, 255, 255)
-        else:
-            skill_color = GREY
+    for skill_pos_num in skill_dict:
+        skill_level, skill_color = skill_dict[skill_pos_num]
         skill_draw.text(
             (62 + skill_pos_num * 80, 73),
             f'{skill_level}',

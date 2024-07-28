@@ -10,9 +10,9 @@ from gsuid_core.utils.image.image_tools import (
 
 from .zzzero_api import zzz_api
 from .resource.RESOURCE_PATH import SUIT_PATH
-from ..utils.resource.RESOURCE_PATH import ROLECIRCLE_PATH
 from .name_convert import char_id_to_sprite, equip_id_to_sprite
 from .fonts.zzz_fonts import zzz_font_28, zzz_font_30, zzz_font_38
+from ..utils.resource.RESOURCE_PATH import ROLECIRCLE_PATH, ROLEGENERAL_PATH
 
 TEXT_PATH = Path(__file__).parent / 'texture2d'
 GREY = (216, 216, 216)
@@ -56,6 +56,13 @@ pro_id = {
     '4': 'IconSupport',  # 支援
     '5': 'IconDefense',  # 防御
 }
+
+
+def get_general_role_img(_id: Union[str, int], w: int = 180, h: int = 64):
+    char_id = str(_id)
+    sprite_id = char_id_to_sprite(char_id)
+    path = ROLEGENERAL_PATH / f'IconRoleGeneral{sprite_id}.png'
+    return Image.open(path).resize((w, h)).convert('RGBA')
 
 
 def get_circle_role_img(_id: Union[str, int], w: int = 142, h: int = 142):

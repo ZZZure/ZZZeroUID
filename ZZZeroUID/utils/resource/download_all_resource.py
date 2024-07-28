@@ -7,6 +7,7 @@ from .RESOURCE_PATH import (
     SUIT_3D_PATH,
     CAT_GUIDE_PATH,
     ROLECIRCLE_PATH,
+    ROLEGENERAL_PATH,
     FLOWER_GUIDE_PATH,
 )
 
@@ -19,6 +20,7 @@ async def download_all_resource():
             'guide/cat': CAT_GUIDE_PATH,
             'resource/weapon': WEAPON_PATH,
             'resource/role_circle': ROLECIRCLE_PATH,
+            'resource/role_general': ROLEGENERAL_PATH,
             'resource/role': ROLE_PATH,
             'resource/3d_suit': SUIT_3D_PATH,
             'resource/suit': SUIT_PATH,
