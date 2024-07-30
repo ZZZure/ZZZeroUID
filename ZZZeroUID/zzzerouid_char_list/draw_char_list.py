@@ -11,6 +11,7 @@ from ..utils.hint import error_reply
 from ..utils.zzzero_prefix import PREFIX
 from ..utils.resource.download_file import get_weapon
 from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
+from ..zzzerouid_char_detail.refresh_char_detail import refresh_char
 from ..zzzerouid_char_detail.draw_char_detail_card import get_skill_dict
 from ..utils.fonts.zzz_fonts import (
     zzz_font_18,
@@ -64,9 +65,12 @@ def get_shape(value: str, color: Image.Image):
 
 
 async def draw_char_list_img(uid: str, ev: Event) -> Union[str, bytes]:
+    await refresh_char(uid, ev, True)
+
     path = PLAYER_PATH / uid
     if not path.exists():
         return ERROR
+
     char_paths = list(path.rglob('[0-9][0-9][0-9][0-9].json'))
     if not char_paths:
         return ERROR

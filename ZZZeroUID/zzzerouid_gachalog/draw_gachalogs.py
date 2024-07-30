@@ -12,17 +12,12 @@ from gsuid_core.utils.image.convert import convert_img
 from ..utils.hint import error_reply
 from ..utils.zzzero_prefix import PREFIX
 from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
+from ..utils.fonts.zzz_fonts import zzz_font_18, zzz_font_20, zzz_font_32
 from ..utils.image import (
     add_footer,
     get_zzz_bg,
     get_rank_img,
     get_player_card_min,
-)
-from ..utils.fonts.zzz_fonts import (
-    zzz_font_18,
-    zzz_font_20,
-    zzz_font_32,
-    zzz_font_40,
 )
 from ..utils.resource.download_file import (
     get_weapon,
@@ -232,9 +227,9 @@ async def draw_card(uid: str, ev: Event) -> Union[str, bytes]:
         level_icon = level_icon.resize((140, 140)).convert('RGBA')
         tag = HOMO_TAG[level]
 
-        title_draw.text((253, 182), avg_s, 'white', zzz_font_40, 'mm')
-        title_draw.text((373, 182), avg_up_s, 'white', zzz_font_40, 'mm')
-        title_draw.text((492, 182), total, 'white', zzz_font_40, 'mm')
+        title_draw.text((253, 182), avg_s, 'white', zzz_font_32, 'mm')
+        title_draw.text((373, 182), avg_up_s, 'white', zzz_font_32, 'mm')
+        title_draw.text((492, 182), total, 'white', zzz_font_32, 'mm')
         title_draw.text((398, 106), remain_s, (63, 255, 0), zzz_font_20, 'mm')
 
         title.paste(level_icon, (684, 51), level_icon)

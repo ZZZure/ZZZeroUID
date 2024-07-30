@@ -24,7 +24,11 @@ from ..utils.image import (
 REFRESH_BG_PATH = TEXT_PATH / 'refresh_bg'
 
 
-async def refresh_char(uid: str, ev: Event) -> Union[str, bytes]:
+async def refresh_char(
+    uid: str,
+    ev: Event,
+    only_refresh: bool = False,
+) -> Union[str, bytes]:
     raw_data = await zzz_api.get_zzz_avatar_basic_info(uid)
     if isinstance(raw_data, int):
         return error_reply(raw_data)
@@ -56,7 +60,7 @@ async def refresh_char(uid: str, ev: Event) -> Union[str, bytes]:
         im.append(avatar['name_mi18n'])
 
     is_pic: bool = ZZZ_CONFIG.get_config('RefreshCardUsePic').data
-    if is_pic:
+    if is_pic and not only_refresh:
         return await draw_refresh_card(uid, ev, data)
 
     msg = f'[绝区零] 刷新完成！本次刷新{len(im)}个角色!'
