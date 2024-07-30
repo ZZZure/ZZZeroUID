@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from typing import Dict, Tuple, Union
+from typing import Dict, List, Tuple, Union
 
 import aiofiles
 from PIL import Image, ImageDraw
@@ -94,10 +94,29 @@ async def draw_char_list_img(uid: str, ev: Event) -> Union[str, bytes]:
     SRANK_AVATAR = 0
     frame = Image.open(TEXT_PATH / 'frame.png')
     weapon_mask = Image.open(TEXT_PATH / 'weapon_mask.png')
+
+    datas: List[Dict] = []
     for index, i in enumerate(char_paths):
         async with aiofiles.open(i, mode='r', encoding='UTF8') as f:
             data: Dict = json.loads(await f.read())
 
+        base_score = 250 if data['rarity'] == 'S' else 50
+        score = (data['rank'] + 1) * base_score
+        score += data['level']
+        for skill in data['skills']:
+            skill_level = skill['level']
+            score += skill_level * 10
+
+        if data['weapon']:
+            score += 210 if data['weapon']['rarity'] == 'S' else 60
+            score += data['weapon']['level']
+
+        data['score'] = score
+        datas.append(data)
+
+    datas.sort(key=lambda x: x['score'], reverse=True)
+
+    for index, data in enumerate(datas):
         char_id: int = data['id']
         char_img = get_general_role_img(char_id)
         element_icon = get_element_img(data['element_type'], 30, 30)
