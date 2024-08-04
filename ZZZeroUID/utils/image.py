@@ -12,7 +12,12 @@ from .zzzero_api import zzz_api
 from .resource.RESOURCE_PATH import SUIT_PATH
 from .name_convert import char_id_to_sprite, equip_id_to_sprite
 from .fonts.zzz_fonts import zzz_font_28, zzz_font_30, zzz_font_38
-from ..utils.resource.RESOURCE_PATH import ROLECIRCLE_PATH, ROLEGENERAL_PATH
+from ..utils.resource.RESOURCE_PATH import (
+    CAMP_PATH,
+    MIND_PATH,
+    ROLECIRCLE_PATH,
+    ROLEGENERAL_PATH,
+)
 
 TEXT_PATH = Path(__file__).parent / 'texture2d'
 GREY = (216, 216, 216)
@@ -56,6 +61,24 @@ pro_id = {
     '4': 'IconSupport',  # 支援
     '5': 'IconDefense',  # 防御
 }
+
+camp_map = {
+    '白祇重工': 'BelobogIndustries',
+    '奥波勒斯小队': 'Obols',
+    '狡兔屋': 'GentleHouse',
+    '对空洞特别行动部第六课': 'H.S.O-S6',
+    '卡吕冬之子': 'SonsOfCalydon',
+    '维多利亚家政': 'VictoriaHousekeepingCo.',
+}
+
+
+def get_camp_img(camp_name: str):
+    name = camp_map[camp_name]
+    return Image.open(CAMP_PATH / f'IconCamp{name}.png')
+
+
+def get_mind_role_img(_id: Union[str, int], _type: str = '3'):
+    return Image.open(MIND_PATH / f'Mindscape_{_id}_{_type}.png')
 
 
 def get_general_role_img(_id: Union[str, int], w: int = 180, h: int = 64):
@@ -163,7 +186,7 @@ async def get_player_card_min(
     avatar = await get_avatar_with_ring(ev, 129, is_ring=False)
     player_card.paste(avatar, (105, 30), avatar)
 
-    card_draw.text((426, 120), f'UID {uid}', GREY, zzz_font_30, 'mm')
+    card_draw.text((290, 120), f'UID {uid}', GREY, zzz_font_30, 'lm')
     card_draw.text((290, 64), user_name, 'white', zzz_font_38, 'lm')
 
     text_lenth = card_draw.textlength(user_name, zzz_font_38)
@@ -173,9 +196,14 @@ async def get_player_card_min(
     card_draw.rounded_rectangle((xs, ys, xs + 90, ys + 35), 10, YELLOW)
     card_draw.rounded_rectangle((xt, yt, xt + 144, yt + 35), 10, BLUE)
 
+    if world_level != '未知':
+        level_str = f'Lv.{world_level}'
+    else:
+        level_str = '未知'
+
     card_draw.text(
         (xs + 45, ys + 17),
-        f'Lv{world_level}',
+        level_str,
         BLACK_G,
         zzz_font_28,
         'mm',

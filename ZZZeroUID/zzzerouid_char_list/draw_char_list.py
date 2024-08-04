@@ -11,8 +11,8 @@ from ..utils.hint import error_reply
 from ..utils.zzzero_prefix import PREFIX
 from ..utils.resource.download_file import get_weapon
 from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
+from ..zzzerouid_char_detail.utils import get_skill_dict
 from ..zzzerouid_char_detail.refresh_char_detail import refresh_char
-from ..zzzerouid_char_detail.draw_char_detail_card import get_skill_dict
 from ..utils.fonts.zzz_fonts import (
     zzz_font_18,
     zzz_font_20,

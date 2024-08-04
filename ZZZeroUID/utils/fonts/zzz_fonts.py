@@ -3,10 +3,15 @@ from pathlib import Path
 from PIL import ImageFont
 
 FONT_ORIGIN_PATH = Path(__file__).parent / 'zzz_fonts.ttf'
+FONT_THIN_PATH = Path(__file__).parent / 'zzz_thins.ttf'
 
 
 def zzz_font_origin(size: int) -> ImageFont.FreeTypeFont:
     return ImageFont.truetype(str(FONT_ORIGIN_PATH), size=size)
+
+
+def zzz_font_thin(size: int) -> ImageFont.FreeTypeFont:
+    return ImageFont.truetype(str(FONT_THIN_PATH), size=size)
 
 
 zzz_font_12 = zzz_font_origin(12)

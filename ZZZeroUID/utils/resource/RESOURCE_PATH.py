@@ -24,6 +24,8 @@ FLOWER_GUIDE_PATH = GUIDE_PATH / 'flower'
 # 猫冬攻略库
 CAT_GUIDE_PATH = GUIDE_PATH / 'cat'
 
+# 自定义面板
+CUSTOM_PATH = MAIN_PATH / 'custom'
 
 # 游戏素材
 RESOURCE_PATH = MAIN_PATH / 'resource'
@@ -35,6 +37,9 @@ ROLEGENERAL_PATH = RESOURCE_PATH / 'role_general'
 ROLE_PATH = RESOURCE_PATH / 'role'
 SUIT_PATH = RESOURCE_PATH / 'suit'
 SUIT_3D_PATH = RESOURCE_PATH / '3d_suit'
+CAMP_PATH = RESOURCE_PATH / 'camp'
+MIND_PATH = RESOURCE_PATH / 'mind'
+
 
 # 游戏数据
 ZZZ_DATA_PATH = MAIN_PATH / 'zzz_data'
@@ -66,6 +71,9 @@ def init_dir():
         ZZZ_DATA_PATH,
         CHAR_DATA_PATH,
         ROLEGENERAL_PATH,
+        CAMP_PATH,
+        MIND_PATH,
+        CUSTOM_PATH,
     ]:
         i.mkdir(parents=True, exist_ok=True)
 
