@@ -69,6 +69,7 @@ camp_map = {
     '对空洞特别行动部第六课': 'H.S.O-S6',
     '卡吕冬之子': 'SonsOfCalydon',
     '维多利亚家政': 'VictoriaHousekeepingCo.',
+    '新艾利都治安局': 'N.E.P.S.',
 }
 
 
