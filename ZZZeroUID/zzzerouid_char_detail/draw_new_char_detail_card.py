@@ -11,13 +11,21 @@ from ..utils.zzzero_prefix import PREFIX
 from ..utils.name_convert import char_name_to_char_id
 from ..utils.resource.download_file import get_weapon
 from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
-from .utils import BLUE, YELLOW, WEAPON_EQUIP_POS, get_skill_dict
 from ..utils.fonts.zzz_fonts import (
     zzz_font_28,
     zzz_font_30,
     zzz_font_40,
     zzz_font_50,
     zzz_font_thin,
+)
+from .utils import (
+    BLUE,
+    YELLOW,
+    PROP_NAME_TO_ID,
+    WEAPON_EQUIP_POS,
+    PartnerScore_Dict,
+    get_ep_value,
+    get_skill_dict,
 )
 from ..utils.image import (
     add_footer,
@@ -101,20 +109,33 @@ async def draw_char_detail_img(
     property_bg = Image.open(TEXT_PATH / 'prop_bg.png')
     property_draw = ImageDraw.Draw(property_bg)
     for pindex, prop in enumerate(props):
-        name = prop['property_name']
+        prop_name = prop['property_name']
+        _pid = PROP_NAME_TO_ID[prop_name]
+        partner_data = PartnerScore_Dict.get(str(char_id), {})
+        if _pid in partner_data:
+            prop_value = partner_data[_pid]
+            if prop_value >= 1:
+                name_color = YELLOW
+            elif prop_value >= 0.75:
+                name_color = BLUE
+            elif prop_value >= 0.5:
+                name_color = 'white'
+            else:
+                name_color = (182, 182, 182)
+
         value = prop["final"]
         y = int(96 + pindex * 58.6)
         property_draw.text(
             (431, y),
             value,
-            'white',
+            name_color,
             zzz_font_thin(32),
             'rm',
         )
         property_draw.text(
             (114, y),
-            name,
-            'white',
+            prop_name,
+            name_color,
             zzz_font_thin(32),
             'lm',
         )
@@ -174,27 +195,10 @@ async def draw_char_detail_img(
                 (160, 145),
                 equip_name,
                 'white',
-                zzz_font_thin(28),
+                zzz_font_30,
                 'mm',
             )
 
-            score_value = 35
-            score_color = (255, 196, 1)
-
-            all_score_value += score_value
-
-            equip_draw.rounded_rectangle(
-                (264, 128, 350, 162),
-                10,
-                score_color,
-            )
-            equip_draw.text(
-                (307, 145),
-                f'{score_value}分',
-                'black',
-                zzz_font_thin(26),
-                'mm',
-            )
             if equip['rarity'] == 'A':
                 equip_color = (177, 0, 255)
             elif equip['rarity'] == 'S':
@@ -226,16 +230,21 @@ async def draw_char_detail_img(
 
             equip_draw.rounded_rectangle((71, 186, 350, 231), 8, BLUE)
             mp_img = get_prop_img(eq_mp['property_id'], 38, 38)
-            equip_bar.paste(mp_img, (92, 190), mp_img)
+            score_value = get_ep_value(
+                char_id,
+                eq_mp['property_id'],
+                eq_mp['base'],
+            )
+            equip_bar.paste(mp_img, (80, 190), mp_img)
             equip_draw.text(
-                (139, 208),
+                (128, 208),
                 eq_mp['property_name'],
                 'white',
-                zzz_font_thin(20),
+                zzz_font_thin(28),
                 'lm',
             )
             equip_draw.text(
-                (329, 208),
+                (331, 208),
                 eq_mp['base'],
                 'white',
                 zzz_font_thin(30),
@@ -248,18 +257,41 @@ async def draw_char_detail_img(
                 equip_prop_draw.rounded_rectangle((5, 4, 285, 42), 8)
                 ep_prop_img = get_prop_img(ep['property_id'], 35, 35)
                 equip_prop_bar.paste(ep_prop_img, (14, 7), ep_prop_img)
+
+                ep_base = ep['base']
+                ep_pid = str(ep['property_id'])
+
+                if ep_pid in partner_data:
+                    prop_value = partner_data[ep_pid]
+                    if prop_value >= 1:
+                        ep_color = YELLOW
+                    elif prop_value >= 0.75:
+                        ep_color = (0, 151, 254)
+                    elif prop_value >= 0.5:
+                        ep_color = 'white'
+                    else:
+                        ep_color = (170, 170, 170)
+                else:
+                    ep_color = (170, 170, 170)
+
+                ep_value = get_ep_value(
+                    char_id,
+                    ep_pid,
+                    ep_base,
+                )
+                score_value += ep_value
                 equip_prop_draw.text(
                     (60, 23),
                     ep['property_name'],
-                    'white',
-                    zzz_font_thin(22),
+                    ep_color,
+                    zzz_font_thin(25),
                     'lm',
                 )
                 equip_prop_draw.text(
                     (266, 23),
-                    ep['base'],
-                    YELLOW,
-                    zzz_font_thin(22),
+                    ep_base,
+                    ep_color,
+                    zzz_font_thin(27),
                     'rm',
                 )
                 equip_bar.paste(
@@ -267,6 +299,31 @@ async def draw_char_detail_img(
                     (66, 252 + eindex * 46),
                     equip_prop_bar,
                 )
+
+            if score_value >= 40:
+                score_color = (255, 196, 1)
+            elif score_value >= 35:
+                score_color = (230, 66, 255)
+            elif score_value >= 30:
+                score_color = BLUE
+            else:
+                score_color = (160, 160, 160)
+
+            all_score_value += score_value
+
+            score_value_str = format(score_value, '.1f')
+            equip_draw.rounded_rectangle(
+                (264, 128, 350, 162),
+                10,
+                score_color,
+            )
+            equip_draw.text(
+                (307, 145),
+                f'{score_value_str}分',
+                'black',
+                zzz_font_thin(26),
+                'mm',
+            )
         else:
             empty = Image.open(TEXT_PATH / 'empty_equip.png')
             equip_bar.paste(empty, (0, 0), empty)
@@ -316,7 +373,7 @@ async def draw_char_detail_img(
         (842, 289),
         main_p['base'],
         YELLOW,
-        zzz_font_thin(26),
+        zzz_font_thin(30),
         'rm',
     )
 
@@ -355,15 +412,17 @@ async def draw_char_detail_img(
     weapon_equip_rank = get_rank_img(equip_rank, 49, 49)
     weapon_bg.paste(weapon_equip_rank, (563, 437), weapon_equip_rank)
     weapon_bg.paste(camp_img, (875, 156), camp_img)
+    all_score_value_str = format(all_score_value, '.1f')
     weapon_draw.text(
         (739, 448),
-        f'{all_score_value}分',
+        f'{all_score_value_str}分',
         'white',
-        zzz_font_thin(45),
+        zzz_font_40,
         'mm',
     )
     img.paste(weapon_bg, (0, 824), weapon_bg)
 
     img = add_footer(img)
     img = await convert_img(img)
+    return img
     return img
