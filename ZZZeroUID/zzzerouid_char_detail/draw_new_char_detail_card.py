@@ -230,11 +230,7 @@ async def draw_char_detail_img(
 
             equip_draw.rounded_rectangle((71, 186, 350, 231), 8, BLUE)
             mp_img = get_prop_img(eq_mp['property_id'], 38, 38)
-            score_value = get_ep_value(
-                char_id,
-                eq_mp['property_id'],
-                eq_mp['base'],
-            )
+            score_value = 0
             equip_bar.paste(mp_img, (80, 190), mp_img)
             equip_draw.text(
                 (128, 208),
