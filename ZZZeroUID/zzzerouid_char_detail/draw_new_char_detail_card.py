@@ -1,4 +1,5 @@
 import json
+import random
 from pathlib import Path
 from typing import Union
 
@@ -10,7 +11,8 @@ from gsuid_core.utils.image.convert import convert_img
 from ..utils.zzzero_prefix import PREFIX
 from ..utils.name_convert import char_name_to_char_id
 from ..utils.resource.download_file import get_weapon
-from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
+from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
+from ..utils.resource.RESOURCE_PATH import CUSTOM_PATH, PLAYER_PATH
 from ..utils.fonts.zzz_fonts import (
     zzz_font_28,
     zzz_font_30,
@@ -41,6 +43,7 @@ from ..utils.image import (
     get_player_card_min,
 )
 
+is_custom = ZZZ_CONFIG.get_config('EnableCustomCharBG').data
 TEXT_PATH = Path(__file__).parent / 'texture2d'
 STAR_PATH = TEXT_PATH / 'star'
 
@@ -65,10 +68,24 @@ async def draw_char_detail_img(
 
     # 角色部分
     char_bg = Image.new('RGBA', (1100, 645))
-    char_img = get_mind_role_img(char_id).convert('RGBA')
-    new_size = int(char_img.size[0] * 0.85), int(char_img.size[1] * 0.85)
-    char_img = char_img.resize(new_size)
-    char_bg.paste(char_img, (-582, -150), char_img)
+    set_custom = False
+
+    if is_custom:
+        custom_char_path = CUSTOM_PATH / char_id
+        if custom_char_path.exists():
+            pic_list = list(custom_char_path.glob('*.[jp][pn]g'))
+            if pic_list:
+                random_pic = random.choice(pic_list)
+                char_bg = Image.open(random_pic).convert('RGBA')
+                char_bg = char_bg.resize((1100, 645))
+                set_custom = True
+
+    if not set_custom:
+        char_img = get_mind_role_img(char_id).convert('RGBA')
+        new_size = int(char_img.size[0] * 0.85), int(char_img.size[1] * 0.85)
+        char_img = char_img.resize(new_size)
+        char_bg.paste(char_img, (-582, -150), char_img)
+
     img.paste(char_bg, (0, 195), char_bg)
 
     # title部分
@@ -420,5 +437,6 @@ async def draw_char_detail_img(
 
     img = add_footer(img)
     img = await convert_img(img)
+    return img
     return img
     return img

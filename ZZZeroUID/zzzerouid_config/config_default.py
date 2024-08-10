@@ -58,4 +58,9 @@ CONFIG_DEFAULT: Dict[str, GSC] = {
         '关闭后刷新面板将使用文字返回信息',
         True,
     ),
+    'EnableCustomCharBG': GsBoolConfig(
+        '查询面板使用自定义角色图',
+        '查询面板使用自定义角色图',
+        False,
+    ),
 }
