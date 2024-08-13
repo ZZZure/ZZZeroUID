@@ -24,7 +24,7 @@
 > 🚧插件目前还在施工中，功能快速迭代中...🚧
 >
 > 
-> ✨如果需要添加其他绝区零相关功能欢迎在issues中提出✨
+> ✨如果需要添加其他绝区零相关功能欢迎在[issues](https://github.com/ZZZure/ZZZeroUID/issues/5)中提出✨
 
 ## 丨功能
 
@@ -62,6 +62,11 @@
 
 <details><summary>面板查询 - 命令: zzz查询露西</summary><p>
 <a><img src="https://s2.loli.net/2024/07/22/3acSNeTM4VrYldm.jpg"></a>
+<a><img src="https://s2.loli.net/2024/08/13/DVuzKq3P8dOkCQR.jpg"></a>
+</p></details>
+
+<details><summary>练度统计 - 命令: zzz练度统计</summary><p>
+<a><img src="https://s2.loli.net/2024/08/13/LYZbHhz6PqpwX9j.jpg"></a>
 </p></details>
 
 <details><summary>签到相关 - 命令: zzz签到 / zzz开启自动签到 / zzz全部重签(需要管理员)</summary><p>
