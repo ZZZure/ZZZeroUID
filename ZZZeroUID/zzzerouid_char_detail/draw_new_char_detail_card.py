@@ -127,7 +127,11 @@ async def draw_char_detail_img(
     property_draw = ImageDraw.Draw(property_bg)
     for pindex, prop in enumerate(props):
         prop_name = prop['property_name']
-        _pid = PROP_NAME_TO_ID[prop_name]
+        if '伤害加成' in prop_name:
+            _pid = '315'
+        else:
+            _pid = PROP_NAME_TO_ID[prop_name]
+
         partner_data = PartnerScore_Dict.get(str(char_id), {})
         if _pid in partner_data:
             prop_value = partner_data[_pid]
