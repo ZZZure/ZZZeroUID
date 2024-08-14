@@ -4,9 +4,21 @@ from typing import Any, Dict, Union, Literal, Optional, cast
 
 from httpx import AsyncClient
 
-from .api import ZZZ_CHARACTER
-from .models import CharacterData
 from ...version import ZZZero_version
+from .api import (
+    ZZZ_NEW,
+    ZZZ_WEAPON,
+    ZZZ_ALL_CHAR,
+    ZZZ_CHARACTER,
+    ZZZ_ALL_WEAPON,
+)
+from .models import (
+    NewData,
+    WeaponData,
+    CharacterData,
+    WeaponDatabase,
+    CharacterDatabase,
+)
 
 AnyDict = Dict[str, Any]
 _HEADER = {'User-Agent': f'ZZZeroUID/{ZZZero_version}'}
@@ -18,6 +30,36 @@ async def get_hakush_char_data(
     data = await _hakush_request(ZZZ_CHARACTER.format(id))
     if isinstance(data, Dict):
         return cast(CharacterData, data)
+    return None
+
+
+async def get_hakush_all_char_data() -> Optional[Dict[str, CharacterDatabase]]:
+    data = await _hakush_request(ZZZ_ALL_CHAR)
+    if isinstance(data, Dict):
+        return cast(Dict[str, CharacterDatabase], data)
+    return None
+
+
+async def get_hakush_all_weapon_data() -> Optional[Dict[str, WeaponDatabase]]:
+    data = await _hakush_request(ZZZ_ALL_WEAPON)
+    if isinstance(data, Dict):
+        return cast(Dict[str, WeaponDatabase], data)
+    return None
+
+
+async def get_hakush_weapon_data(
+    id: Union[int, str],
+) -> Optional[WeaponData]:
+    data = await _hakush_request(ZZZ_WEAPON.format(id))
+    if isinstance(data, Dict):
+        return cast(WeaponData, data)
+    return None
+
+
+async def get_hakush_new_data() -> Optional[NewData]:
+    data = await _hakush_request(ZZZ_NEW)
+    if isinstance(data, Dict):
+        return cast(NewData, data)
     return None
 
 

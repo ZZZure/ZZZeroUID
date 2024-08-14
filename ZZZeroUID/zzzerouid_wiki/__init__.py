@@ -27,7 +27,9 @@ async def send_role_guide_pic(bot: Bot, ev: Event):
     if gp == '猫冬':
         path = CAT_GUIDE_PATH / f'{name}.jpg'
     else:
-        path = FLOWER_GUIDE_PATH / f'{name}.png'
+        path1 = FLOWER_GUIDE_PATH / f'{name}.jpg'
+        path2 = FLOWER_GUIDE_PATH / f'{name}.png'
+        path = path1 if path1.exists() else path2
 
     if path.exists():
         img = await convert_img(path)

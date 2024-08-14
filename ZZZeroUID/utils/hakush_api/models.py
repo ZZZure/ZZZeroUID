@@ -151,3 +151,84 @@ class CharacterData(TypedDict):
     Skill: Skill
     Passive: Passive
     Talent: Talent
+
+
+class WeaponType(TypedDict):
+    weapon_id: str
+
+
+class Property(TypedDict):
+    Name: str
+    Name2: str
+    Format: str
+    Value: int
+
+
+class CharLevel(TypedDict):
+    Exp: int
+    Rate: int
+    Rate2: int
+
+
+class Stars(TypedDict):
+    StarRate: int
+    RandRate: int
+
+
+class CharTalent(TypedDict):
+    Name: str
+    Desc: str
+
+
+class WeaponData(TypedDict):
+    Id: int
+    CodeName: str
+    Name: str
+    Desc: str
+    Desc2: str
+    Desc3: str
+    Rarity: int
+    Icon: str
+    WeaponType: Dict[str, WeaponType]
+    BaseProperty: Property
+    RandProperty: Property
+    Level: Dict[int, CharLevel]
+    Stars: Dict[int, Stars]
+    Materials: str
+    Talents: Dict[int, CharTalent]
+
+
+class NewData(TypedDict):
+    character: List[int]
+    bangboo: List[int]
+    weapon: List[int]
+    equipment: List[int]
+    item: List[int]
+    version: str
+    previous: List[str]
+
+
+class CharacterDatabase(TypedDict, total=False):
+    code: str
+    rank: int
+    type: int
+    element: int
+    hit: int
+    camp: int
+    icon: str
+    EN: str
+    desc: str
+    KO: str
+    CHS: str
+    JA: str
+
+
+class WeaponDatabase(TypedDict):
+    icon: str
+    rank: int
+    type: int
+    EN: str
+    desc: str
+    KO: str
+    CHS: str
+    JA: str
