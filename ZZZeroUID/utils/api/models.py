@@ -20,11 +20,24 @@ class VhsSale(TypedDict):
     sale_state: str
 
 
+class BountyCommission(TypedDict):
+    num: int
+    total: int
+
+
+class SurveyPoints(TypedDict):
+    num: int
+    total: int
+    is_max_level: bool
+
+
 class ZZZNoteResp(TypedDict):
     energy: Energy
     vitality: Vitality
     vhs_sale: VhsSale
     card_sign: str
+    bounty_commission: BountyCommission
+    survey_points: SurveyPoints
 
 
 class SingleGachaLog(TypedDict):
@@ -292,3 +305,51 @@ class ZZZChallenge(TypedDict):
     max_layer: int
     hadal_begin_time: dict
     hadal_end_time: dict
+
+
+class AbyssLevel(TypedDict):
+    cur_level: int
+    max_level: int
+    icon: str
+
+
+class AbyssPoint(TypedDict):
+    cur_point: int
+    max_point: int
+
+
+class AbyssDuty(TypedDict):
+    cur_duty: int
+    max_duty: int
+
+
+class AbyssTalent(TypedDict):
+    cur_talent: int
+    max_talent: int
+
+
+class AbyssCollect(TypedDict):
+    type: int
+    cur_collect: int
+    max_collect: int
+
+
+class AbyssNest(TypedDict):
+    is_nest: bool
+
+
+class AbyssThrone(TypedDict):
+    is_throne: bool
+    max_damage: str
+
+
+class ZZZAbyssData(TypedDict):
+    abyss_level: AbyssLevel
+    abyss_point: AbyssPoint
+    abyss_duty: AbyssDuty
+    abyss_talent: AbyssTalent
+    refresh_time: int
+    abyss_collect: List[AbyssCollect]
+    abyss_nest: AbyssNest
+    abyss_throne: AbyssThrone
+    unlock: bool

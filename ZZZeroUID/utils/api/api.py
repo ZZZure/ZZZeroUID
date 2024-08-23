@@ -10,6 +10,7 @@ ZZZ_BUDDY_INFO_API = '/buddy/info'
 ZZZ_AVATAR_BASIC_API = '/avatar/basic'
 ZZZ_AVATAR_INFO_API = '/avatar/info'
 ZZZ_CHALLENGE_API = '/challenge'
+ZZZ_ABYSS_API = '/abyss_abstract'
 
 ZZZ_BIND_API = f'{GS_BASE}/binding/api'
 ZZZ_BIND_OS_API = f'{GS_BASE_OS}/binding/api'
