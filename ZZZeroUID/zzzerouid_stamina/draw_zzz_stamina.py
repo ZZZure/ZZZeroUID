@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Union
+from typing import Any, List, Union
 
 from gsuid_core.bot import Bot
 from PIL import Image, ImageDraw
@@ -58,6 +58,36 @@ async def draw_stamina_img(bot: Bot, ev: Event):
             await bot.send(res)
         else:
             await bot.send('你当前绑定的UID存在错误, 请尝试解决...')
+
+
+async def draw_bar(
+    title: str,
+    cur_value: Any,
+    max_value: Any,
+    max_yes: bool = True,
+):
+    bar = Image.open(TEXT_PATH / 'bar.png')
+    bar_draw = ImageDraw.Draw(bar)
+
+    if max_yes:
+        if cur_value >= max_value:
+            icon = YES
+        else:
+            icon = NO
+    else:
+        if cur_value <= max_value:
+            icon = YES
+        else:
+            icon = NO
+
+    bar.paste(icon, (93, 10), icon)
+
+    bar_draw.text((188, 51), f'{title}', GREY, zzz_font_40, 'lm')
+
+    bar_draw.text((716, 56), f'/{max_value}', GREY, zzz_font_40, 'lm')
+    bar_draw.text((708, 54), f'{cur_value}', YELLOW, zzz_font_50, 'rm')
+
+    return bar
 
 
 async def _draw_stamina_img(uid: str, ev: Event) -> Union[str, Image.Image]:

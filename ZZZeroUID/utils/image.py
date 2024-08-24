@@ -219,8 +219,15 @@ async def get_player_card_min(
     return player_card
 
 
-def get_zzz_bg(w: int, h: int, bg: str = 'bg') -> Image.Image:
-    img = Image.open(TEXT_PATH / f'{bg}.jpg').convert('RGBA')
+def get_zzz_bg(
+    w: int,
+    h: int,
+    bg: Union[str, Path] = 'bg',
+) -> Image.Image:
+    if isinstance(bg, Path):
+        img = Image.open(bg).convert('RGBA')
+    else:
+        img = Image.open(TEXT_PATH / f'{bg}.jpg').convert('RGBA')
     return crop_center_img(img, w, h)
 
 
