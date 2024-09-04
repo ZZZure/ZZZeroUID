@@ -143,6 +143,8 @@ async def draw_char_detail_img(
                 name_color = 'white'
             else:
                 name_color = (182, 182, 182)
+        else:
+            name_color = 'white'
 
         value = prop["final"]
         y = int(96 + pindex * 58.6)
