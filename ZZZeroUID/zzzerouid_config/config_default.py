@@ -30,6 +30,11 @@ CONFIG_DEFAULT: Dict[str, GSC] = {
         '开启后每晚00:59将开始自动签到任务',
         True,
     ),
+    'SchedEnergyPush': GsBoolConfig(
+        '定时检查体力',
+        '开启后每隔半小时检查一次开启推送的人的体力状态',
+        True,
+    ),
     'PrivateSignReport': GsBoolConfig(
         '签到私聊报告',
         '关闭后将不再给任何人推送当天签到任务完成情况',

@@ -13,8 +13,11 @@ from ..utils.uid import get_uid
 from ..utils.hint import BIND_UID_HINT
 from ..utils.zzzero_prefix import PREFIX
 from .draw_zzz_stamina import draw_stamina_img
+from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
 
 sv_get_stamina = SV('绝区零查询体力')
+
+is_check_energy = ZZZ_CONFIG.get_config('SchedEnergyPush').data
 
 
 @sv_get_stamina.on_fullmatch(
@@ -37,6 +40,9 @@ async def send_daily_info_pic(bot: Bot, ev: Event):
 
 @scheduler.scheduled_job('cron', minute='*/30')
 async def zzz_notice_job():
+    logger.info('zzz开始推送检查')
+    if not is_check_energy:
+        return
     result = await get_notice_list()
     logger.info('[zzz推送检查]完成!等待消息推送中...')
     logger.debug(result)
