@@ -64,10 +64,10 @@ async def draw_char_detail_img(
     async with aiofiles.open(path, 'r', encoding='utf-8') as f:
         data = json.loads(await f.read())  # noqa: F841
 
-    img = get_zzz_bg(1100, 2400, 'bg3')
+    img = get_zzz_bg(1100, 2525, 'bg3')
 
     # 角色部分
-    char_bg = Image.new('RGBA', (1100, 645))
+    char_bg = Image.new('RGBA', (1100, 770))
     set_custom = False
 
     if is_custom:
@@ -76,15 +76,16 @@ async def draw_char_detail_img(
             pic_list = list(custom_char_path.glob('*.[jp][pn]g'))
             if pic_list:
                 random_pic = random.choice(pic_list)
-                char_bg = Image.open(random_pic).convert('RGBA')
-                char_bg = char_bg.resize((1100, 645))
+                char_img = Image.open(random_pic).convert('RGBA')
+                char_img = char_img.resize((1313, 770))
+                char_bg.paste(char_img, (-120, 0), char_img)
                 set_custom = True
 
     if not set_custom:
         char_img = get_mind_role_img(char_id).convert('RGBA')
-        new_size = int(char_img.size[0] * 0.85), int(char_img.size[1] * 0.85)
+        new_size = int(char_img.size[0] * 0.94), int(char_img.size[1] * 0.94)
         char_img = char_img.resize(new_size)
-        char_bg.paste(char_img, (-582, -150), char_img)
+        char_bg.paste(char_img, (-692, -128), char_img)
 
     img.paste(char_bg, (0, 195), char_bg)
 
@@ -126,11 +127,12 @@ async def draw_char_detail_img(
     property_bg = Image.open(TEXT_PATH / 'prop_bg.png')
     property_draw = ImageDraw.Draw(property_bg)
     for pindex, prop in enumerate(props):
-        prop_name = prop['property_name']
+        prop_name: str = prop['property_name']
         if '伤害加成' in prop_name:
             _pid = '315'
         else:
             _pid = PROP_NAME_TO_ID[prop_name]
+        prop_name = prop_name.replace('属性伤害', '伤')
 
         partner_data = PartnerScore_Dict.get(str(char_id), {})
         if _pid in partner_data:
@@ -147,7 +149,7 @@ async def draw_char_detail_img(
             name_color = 'white'
 
         value = prop["final"]
-        y = int(96 + pindex * 58.6)
+        y = int(27.8 + pindex * 58.6)
         property_draw.text(
             (431, y),
             value,
@@ -162,7 +164,7 @@ async def draw_char_detail_img(
             zzz_font_thin(32),
             'lm',
         )
-    img.paste(property_bg, (631, 169), property_bg)
+    img.paste(property_bg, (624, 230), property_bg)
 
     # 技能部分
     skill_dict = get_skill_dict(data)
@@ -177,7 +179,7 @@ async def draw_char_detail_img(
             zzz_font_28,
             'mm',
         )
-    img.paste(skill_bg, (0, 832), skill_bg)
+    img.paste(skill_bg, (0, 957), skill_bg)
 
     weapon_bg = Image.open(TEXT_PATH / 'weapon_bar.png')
     all_score_value = 0
@@ -348,7 +350,7 @@ async def draw_char_detail_img(
             equip_bar.paste(empty, (0, 0), empty)
         equip_bg.paste(equip_bar, (-5 + ox, 113 + oy), equip_bar)
 
-    img.paste(equip_bg, (0, 1272), equip_bg)
+    img.paste(equip_bg, (0, 1397), equip_bg)
 
     # 武器部分
     weapon = data['weapon']
@@ -439,10 +441,8 @@ async def draw_char_detail_img(
         zzz_font_40,
         'mm',
     )
-    img.paste(weapon_bg, (0, 824), weapon_bg)
+    img.paste(weapon_bg, (0, 949), weapon_bg)
 
     img = add_footer(img)
     img = await convert_img(img)
-    return img
-    return img
     return img
