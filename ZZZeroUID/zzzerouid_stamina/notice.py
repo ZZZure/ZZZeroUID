@@ -62,10 +62,10 @@ async def all_check(
         else:
             # 达到提醒
             if _check == 'warn':
-                notice = '你的电量已达提醒阈值！' + ZZZ_NOTICE
+                notice = '[绝区零] 你的电量已达提醒阈值！' + ZZZ_NOTICE
             # 已满
             if _check == 'full':
-                notice = '你的电量已满！' + ZZZ_NOTICE
+                notice = '[绝区零] 你的电量已满！' + ZZZ_NOTICE
             # 初始化
             if bot_id not in msg_dict:
                 msg_dict[bot_id] = {"direct": {}, "group": {}}
