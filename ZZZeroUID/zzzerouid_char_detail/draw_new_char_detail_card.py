@@ -164,7 +164,12 @@ async def draw_char_detail_img(
             zzz_font_thin(32),
             'lm',
         )
-    img.paste(property_bg, (624, 230), property_bg)
+
+    if char_id in ['1131', '1141', '1181', '1191', '1261'] and not set_custom:
+        box = (-6, 230)
+    else:
+        box = (624, 230)
+    img.paste(property_bg, box, property_bg)
 
     # 技能部分
     skill_dict = get_skill_dict(data)
@@ -257,9 +262,10 @@ async def draw_char_detail_img(
             mp_img = get_prop_img(eq_mp['property_id'], 38, 38)
             score_value = 0
             equip_bar.paste(mp_img, (80, 190), mp_img)
+            ep_prop_name = eq_mp['property_name'].replace('属性伤害', '伤')
             equip_draw.text(
                 (128, 208),
-                eq_mp['property_name'],
+                ep_prop_name,
                 'white',
                 zzz_font_thin(28),
                 'lm',
