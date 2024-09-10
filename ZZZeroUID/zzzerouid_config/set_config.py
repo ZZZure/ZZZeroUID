@@ -47,13 +47,14 @@ async def set_config_func(
         logger.info(
             f'uid: {uid}, option: {option}, config_name: {config_name}'
         )
-        if config_name.replace('推送', '') in PUSH_MAP:
+        _config_name = config_name.replace('推送', '')
+        if _config_name in PUSH_MAP:
             await ZzzPush.update_data_by_uid(
                 uid,
                 bot_id,
                 'zzz',
                 **{
-                    f'{PUSH_MAP[config_name.replace('推送', '')]}_push': option,
+                    f'{PUSH_MAP[_config_name]}_push': option,
                 },
             )
         else:
