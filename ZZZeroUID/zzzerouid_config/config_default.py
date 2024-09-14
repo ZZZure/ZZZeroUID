@@ -2,7 +2,6 @@ from typing import Dict
 
 from gsuid_core.utils.plugins_config.models import (
     GSC,
-    GsIntConfig,
     GsStrConfig,
     GsBoolConfig,
     GsListStrConfig,
@@ -33,6 +32,11 @@ CONFIG_DEFAULT: Dict[str, GSC] = {
     'SchedEnergyPush': GsBoolConfig(
         '定时检查体力',
         '开启后每隔半小时检查一次开启推送的人的体力状态',
+        True,
+    ),
+    'WidgetResin': GsBoolConfig(
+        '体力使用组件API',
+        '开启后zzzmr功能将转为调用组件API, 可能数据不准、刷新过慢',
         True,
     ),
     "CrazyNotice": GsBoolConfig(
