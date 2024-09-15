@@ -54,6 +54,7 @@ async def all_check(
                 await ZzzPush.update_data_by_uid(
                     uid, bot_id, "zzz", **{"energy_is_push": "off"}
                 )
+        return
 
     # 准备推送
     if _check:
