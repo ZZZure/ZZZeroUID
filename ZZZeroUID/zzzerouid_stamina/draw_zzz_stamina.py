@@ -9,6 +9,7 @@ from gsuid_core.utils.image.convert import convert_img
 
 from ..utils.zzzero_api import zzz_api
 from ..utils.hint import BIND_UID_HINT, error_reply
+from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
 from ..utils.fonts.zzz_fonts import (
     zzz_font_26,
     zzz_font_36,
@@ -23,6 +24,7 @@ from ..utils.image import (
     get_player_card_min,
 )
 
+is_WidgetResin = ZZZ_CONFIG.get_config('WidgetResin').data
 TEXT_PATH = Path(__file__).parent / 'texture2d'
 YES = Image.open(TEXT_PATH / 'yes.png')
 NO = Image.open(TEXT_PATH / 'no.png')
@@ -91,8 +93,10 @@ async def draw_bar(
 
 
 async def _draw_stamina_img(uid: str, ev: Event) -> Union[str, Image.Image]:
-
-    data = await zzz_api.get_zzz_note_info(uid)
+    if is_WidgetResin:
+        data = await zzz_api.get_zzz_widget_info(uid)
+    else:
+        data = await zzz_api.get_zzz_note_info(uid)
     player_card = await get_player_card_min(uid, ev)
     if isinstance(data, int):
         return error_reply(data)

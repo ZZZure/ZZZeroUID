@@ -12,10 +12,11 @@ ZZZ_AVATAR_INFO_API = '/avatar/info'
 ZZZ_CHALLENGE_API = '/challenge'
 ZZZ_ABYSS_API = '/abyss_abstract'
 
+ZZZ_NOTE_WIDGET_API = '/widget'
+
 ZZZ_BIND_API = f'{GS_BASE}/binding/api'
 ZZZ_BIND_OS_API = f'{GS_BASE_OS}/binding/api'
 ZZZ_GAME_INFO_API = '/getUserGameRolesByCookie?game_biz=nap_cn'
-
 
 # Resource
 ZZZ_RES = 'https://act-webstatic.mihoyo.com/game_record/zzz'

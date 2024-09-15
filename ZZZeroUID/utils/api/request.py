@@ -16,6 +16,7 @@ from .models import (
     ZZZAvatarInfo,
     ZZZAvatarBasic,
     ZZZGachaLogResp,
+    ZZZWidgetNoteResp,
 )
 from .api import (
     ZZZ_API,
@@ -29,6 +30,7 @@ from .api import (
     ZZZ_GAME_INFO_API,
     ZZZ_BUDDY_INFO_API,
     ZZZ_AVATAR_INFO_API,
+    ZZZ_NOTE_WIDGET_API,
     ZZZ_AVATAR_BASIC_API,
     ZZZ_GET_GACHA_LOG_API,
 )
@@ -119,6 +121,19 @@ class ZZZApi(_MysApi):
         data = await self.simple_zzz_req(ZZZ_NOTE_API, uid)
         if isinstance(data, Dict):
             data = cast(ZZZNoteResp, data['data'])
+        return data
+
+    async def get_zzz_widget_info(
+        self, uid: str
+    ) -> Union[int, ZZZWidgetNoteResp]:
+        cookie = await GsUser.get_user_stoken_by_uid(uid, 'zzz')
+        if not cookie:
+            return -51
+        data = await self.simple_zzz_req(
+            ZZZ_NOTE_WIDGET_API, uid, params=None, cookie=cookie
+        )
+        if isinstance(data, Dict):
+            data = cast(ZZZWidgetNoteResp, data['data'])
         return data
 
     async def get_zzz_index_info(self, uid: str) -> Union[int, ZZZIndexResp]:
@@ -252,7 +267,7 @@ class ZZZApi(_MysApi):
         self,
         URL: str,
         uid: str,
-        params: Dict = {},  # noqa: B006
+        params: Optional[Dict] = {},  # noqa: B006
         header: Dict = {},  # noqa: B006
         cookie: Optional[str] = None,
     ) -> Union[Dict, int]:
@@ -262,7 +277,11 @@ class ZZZApi(_MysApi):
         else:
             base_url = ZZZ_OS_API
 
-        params.update({'role_id': uid, 'server': server_id})
+        if params is None:
+            params = {}
+        else:
+            params.update({'role_id': uid, 'server': server_id})
+
         HEADER = deepcopy(self.ZZZ_HEADER)
         HEADER.update(header)
 

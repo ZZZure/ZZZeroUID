@@ -40,6 +40,15 @@ class ZZZNoteResp(TypedDict):
     survey_points: SurveyPoints
 
 
+class ZZZWidgetNoteResp(ZZZNoteResp):
+    vitality_refresh: int
+    abyss_refresh: int
+    has_signed: bool
+    sign_url: str
+    home_url: str
+    note_url: str
+
+
 class SingleGachaLog(TypedDict):
     uid: str
     gacha_id: str
