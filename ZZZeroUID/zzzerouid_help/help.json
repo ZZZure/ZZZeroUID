@@ -1,0 +1,181 @@
+{
+  "绑定账号": {
+    "desc": "在执行查询之前请绑定账号",
+    "data": [
+      {
+        "name": "绑定UID",
+        "desc": "绑定自己的账户",
+        "eg": "绑定UID100740568",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "切换UID",
+        "desc": "切换绑定的账户",
+        "eg": "切换UID100740568",
+        "need_ck": true,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "删除UID",
+        "desc": "解除绑定",
+        "eg": "删除UID100740568",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      }
+    ]
+  },
+  "信息查询": {
+    "desc": "在执行查询之前请绑定账号",
+    "data": [
+      {
+        "name": "便签",
+        "desc": "获取自己的每日状态",
+        "eg": "mr",
+        "need_ck": true,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "查询",
+        "desc": "查询基本信息",
+        "eg": "查询",
+        "need_ck": true,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "式舆防卫战",
+        "desc": "查询式舆防卫战信息",
+        "eg": "深渊",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "上期式舆防卫战",
+        "desc": "查询上期式舆防卫战信息",
+        "eg": "上期深渊",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "零号空洞",
+        "desc": "查询零号空洞信息",
+        "eg": "零号空洞",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "练度统计",
+        "desc": "查询练度统计一览",
+        "eg": "练度统计",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      }
+    ]
+  },
+  "抽卡记录": {
+    "desc": "欧菲鉴定器",
+    "data": [
+      {
+        "name": "刷新抽卡记录",
+        "desc": "绑定账户后可直接刷新抽卡记录",
+        "eg": "刷新抽卡记录",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "抽卡记录",
+        "desc": "查询自己的抽卡记录",
+        "eg": "抽卡记录",
+        "need_ck": true,
+        "need_sk": false,
+        "need_admin": false
+      }
+    ]
+  },
+  "面板服务": {
+    "desc": "查看自己单个角色的面板",
+    "data": [
+      {
+        "name": "刷新面板",
+        "desc": "刷新面板信息",
+        "eg": "刷新面板",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "查询[角色]",
+        "desc": "查询相应角色面板",
+        "eg": "查询露西",
+        "need_ck": true,
+        "need_sk": false,
+        "need_admin": false
+      }
+    ]
+  },
+  "攻略相关": {
+    "desc": "一些有用没用的杂图",
+    "data": [
+      {
+        "name": "角色攻略",
+        "desc": "查询角色攻略",
+        "eg": "角色攻略",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      }
+    ]
+  },
+  "其他服务": {
+    "desc": "杂项服务",
+    "data": [
+      {
+        "name": "签到",
+        "desc": "进行一次社区签到",
+        "eg": "签到",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      }
+    ]
+  },
+  "个人服务": {
+    "desc": "该配置项仅针对个人使用",
+    "data": [
+      {
+        "name": "开启体力推送",
+        "desc": "是否开启体力推送",
+        "eg": "开启体力推送",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "设置体力阈值",
+        "desc": "超过阈值才会推送体力信息",
+        "eg": "设置体力阈值160",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "开启自动签到",
+        "desc": "开启每天的自动签到功能",
+        "eg": "开启自动签到",
+        "need_ck": true,
+        "need_sk": false,
+        "need_admin": false
+      }
+    ]
+  }
+}

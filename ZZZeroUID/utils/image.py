@@ -232,8 +232,12 @@ def get_zzz_bg(
     return crop_center_img(img, w, h)
 
 
+def get_footer():
+    return Image.open(TEXT_PATH / 'footer.png')
+
+
 def add_footer(img: Image.Image, w: int = 0) -> Image.Image:
-    footer = Image.open(TEXT_PATH / 'footer.png')
+    footer = get_footer()
     w = img.size[0] if not w else w
     if w != footer.size[0]:
         footer = footer.resize(
