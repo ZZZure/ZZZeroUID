@@ -1,6 +1,6 @@
 import json
 from time import time
-from typing import Union, Literal
+from typing import Union, Literal, List
 from re import sub, compile, findall
 from datetime import datetime, timezone, timedelta
 
@@ -92,7 +92,7 @@ async def get_live_data(act_id: str) -> dict:
     return live_data
 
 
-async def get_code(version: str, act_id: str) -> Union[dict, list[dict]]:
+async def get_code(version: str, act_id: str) -> Union[dict, List[dict]]:
     """获取兑换码"""
 
     ret = await get_data("code", {"version": version, "actId": act_id})
