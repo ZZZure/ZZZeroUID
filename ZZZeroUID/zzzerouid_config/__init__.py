@@ -66,9 +66,9 @@ async def open_switch_func(bot: Bot, ev: Event):
 
     im = await set_config_func(
         ev.bot_id,
+        ev,
         config_name=config_name,
         uid=uid,
-        user_id=user_id,
         option=gid,
         query=query,
         is_admin=is_admin,

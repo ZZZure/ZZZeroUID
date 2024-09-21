@@ -1,6 +1,9 @@
 from typing import Optional
 
+from gsuid_core.models import Event
 from gsuid_core.logger import logger
+from gsuid_core.utils.database.models import GsUser
+from gsuid_core.utils.database.config_switch import set_database_value
 
 from .zzzero_config import ZZZ_CONFIG
 from ..utils.database.model import ZzzPush
@@ -9,6 +12,7 @@ from .config_default import CONFIG_DEFAULT
 PUSH_MAP = {
     '体力': 'energy',
 }
+OPTION_MAP = ['自动签到']
 
 
 async def set_push_value(bot_id: str, func: str, uid: str, value: int):
@@ -30,9 +34,9 @@ async def set_push_value(bot_id: str, func: str, uid: str, value: int):
 
 async def set_config_func(
     bot_id: str,
+    ev: Event,
     config_name: str = '',
     uid: str = '0',
-    user_id: str = '',
     option: str = '0',
     query: Optional[bool] = None,
     is_admin: bool = False,
@@ -57,6 +61,30 @@ async def set_config_func(
                     f'{PUSH_MAP[_config_name]}_push': option,
                 },
             )
+        elif _config_name in OPTION_MAP:
+            if '开启' in ev.command:
+                if ev.user_type == 'direct':
+                    value = 'on'
+                else:
+                    if ev.group_id:
+                        value = ev.group_id
+                    else:
+                        value = 'on'
+            else:
+                value = 'off'
+            im = await set_database_value(
+                GsUser,
+                'zzz',
+                'zzz开启',
+                ev.text.strip(),
+                uid,
+                ev.bot_id,
+                value,
+            )
+            if im is not None:
+                return im
+            else:
+                return '设置失败!'
         else:
             return '该配置项不存在!'
 
