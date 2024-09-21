@@ -146,6 +146,14 @@
         "need_ck": false,
         "need_sk": false,
         "need_admin": false
+      },
+      {
+        "name": "兑换码",
+        "desc": "查询可用的前瞻兑换码",
+        "eg": "兑换码",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
       }
     ]
   },
