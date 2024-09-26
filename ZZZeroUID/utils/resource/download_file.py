@@ -41,7 +41,7 @@ async def get_square_avatar(
     retcode = await download(url, SQUARE_AVATAR, name, tag="[绝区零]")
     if retcode != 200:
         retcode = await download(new_url, SQUARE_AVATAR, name, tag="[绝区零]")
-    return Image.open(path).convert("RGBA")
+    return Image.open(path).convert("RGBA").resize((152, 186))
 
 
 async def get_square_bangboo(bangboo_id: Union[str, int]) -> Image.Image:
@@ -60,7 +60,7 @@ async def get_square_bangboo(bangboo_id: Union[str, int]) -> Image.Image:
     if retcode != 200:
         retcode = await download(new_url, SQUARE_BANGBOO, name, tag="[绝区零]")
 
-    return Image.open(path).convert("RGBA")
+    return Image.open(path).convert("RGBA").resize((152, 186))
 
 
 async def get_weapon(weapon_id: Union[str, int]) -> Image.Image:

@@ -37,16 +37,16 @@ EquipId2DataFile = f'EquipId2Data_{version}.json'
 def gen_equip_id_to_data():
     print('[正在执行] gen_equip_id_to_data')
     equip_id_to_data = {}
-    for item in equip_data['GMNCBMLIHPE']:
-        suit_id = item['HCPFIHKLKKD']
+    for item in equip_data['JIJNDLLPCHO']:
+        suit_id = item['KCMEOFINDJO']
         if suit_id not in equip_id_to_data:
             equip_id_to_data[suit_id] = {
                 'equip_id_list': [],
                 'sprite_file': '',
             }
-        equip_id = item['NOJCFGOCGBI']
+        equip_id = item['PAFLDEAPMFJ']
         equip_id_to_data[suit_id]['equip_id_list'].append(equip_id)
-        name = '3D' + item['CBNEDJNAOBO'].split('/')[-1]
+        name = '3D' + item['IJIEIMJCAHM'].split('/')[-1]
         name = name.split('.')[0]
 
         equip_id_to_data[suit_id]['sprite_file'] = name
@@ -58,9 +58,9 @@ def gen_equip_id_to_data():
 def gen_weapon_id_to_sprite():
     print('[正在执行] gen_weapon_id_to_sprite')
     weapon_id_to_sprite = {}
-    for item in weapon_data['GMNCBMLIHPE']:
-        weapon_id = item['NOJCFGOCGBI']
-        sprite_file = item['LAFKHMCKNIO']
+    for item in weapon_data['JIJNDLLPCHO']:
+        weapon_id = item['PAFLDEAPMFJ']
+        sprite_file = item['HJIOEFBGFED']
         weapon_id_to_sprite[weapon_id] = sprite_file
     with open(MAP_PATH / WeaponId2SpriteFile, 'w', encoding='UTF-8') as f:
         json.dump(weapon_id_to_sprite, f, indent=4, ensure_ascii=False)
@@ -84,15 +84,15 @@ def gen_gacha_id_to_sprite():
 def gen_partner_id_to_data():
     print('[正在执行] gen_partner_id_to_data')
     partner_id_to_data = {}
-    for item in avatar_data['GMNCBMLIHPE']:
-        partner_id = item['HBKDOIKGNDE']
-        name = item['DIIDBBGLDOL']
+    for item in avatar_data['JIJNDLLPCHO']:
+        partner_id = item['DKDDFEIAMIF']
+        name = item['DEPJKIPACJK']
         partner_name = raw_data[name]
         full_name = raw_data[f'{name}_FullName']
         en_name = raw_data[f'{name}_En']
-        for i in gacha_data['GMNCBMLIHPE']:
-            if i['NOJCFGOCGBI'] == partner_id:
-                sprite_id = i['FAIIOENDLMC'].replace('IconRole', '')
+        for i in gacha_data['JIJNDLLPCHO']:
+            if i['PAFLDEAPMFJ'] == partner_id:
+                sprite_id = i['EGNNNIEJLHA'].replace('IconRole', '')
 
         if partner_id not in partner_id_to_data:
             partner_id_to_data[partner_id] = {}
@@ -109,7 +109,7 @@ def gen_partner_id_to_data():
 
 async def download_new_file():
     print('[正在执行] download_new_file')
-    URL = 'https://raw.githubusercontent.com/Dimbreath/ZenlessData/master'
+    URL = 'https://git.mero.moe/dimbreath/ZenlessData/raw/branch/master'
     url_list = [
         f'{URL}/FileCfg/WeaponTemplateTb.json',
         f'{URL}/FileCfg/PartnerConfigTemplateTb.json',
