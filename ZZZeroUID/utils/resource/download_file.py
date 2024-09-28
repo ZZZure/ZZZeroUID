@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Union
 
 from PIL import Image, UnidentifiedImageError
@@ -11,6 +12,16 @@ from ..api.api import (
     NEW_ZZZ_SQUARE_AVATAR,
     NEW_ZZZ_SQUARE_BANGBOO,
 )
+
+
+def get_source(img: Union[Image.Image, Path], w: int, h: int):
+    if isinstance(img, Path):
+        _img = Image.open(img).convert("RGBA")
+    else:
+        _img = img.convert("RGBA")
+    scale = w / _img.size[0]
+    img = _img.resize((w, int(_img.size[1] * scale)))
+    return img
 
 
 async def get_square_avatar(
@@ -33,15 +44,14 @@ async def get_square_avatar(
     path = SQUARE_AVATAR / name
     if path.exists():
         try:
-            img = Image.open(path).convert("RGBA")
-            return img
+            return get_source(path, 152, 186)
         except UnidentifiedImageError:
             pass
 
     retcode = await download(url, SQUARE_AVATAR, name, tag="[绝区零]")
     if retcode != 200:
         retcode = await download(new_url, SQUARE_AVATAR, name, tag="[绝区零]")
-    return Image.open(path).convert("RGBA").resize((152, 186))
+    return get_source(path, 152, 186)
 
 
 async def get_square_bangboo(bangboo_id: Union[str, int]) -> Image.Image:
@@ -51,8 +61,7 @@ async def get_square_bangboo(bangboo_id: Union[str, int]) -> Image.Image:
     path = SQUARE_BANGBOO / name
     if path.exists():
         try:
-            img = Image.open(path).convert("RGBA")
-            return img
+            return get_source(path, 152, 186)
         except UnidentifiedImageError:
             pass
 
@@ -60,7 +69,7 @@ async def get_square_bangboo(bangboo_id: Union[str, int]) -> Image.Image:
     if retcode != 200:
         retcode = await download(new_url, SQUARE_BANGBOO, name, tag="[绝区零]")
 
-    return Image.open(path).convert("RGBA").resize((152, 186))
+    return get_source(path, 152, 186)
 
 
 async def get_weapon(weapon_id: Union[str, int]) -> Image.Image:
