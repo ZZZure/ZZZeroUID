@@ -362,3 +362,35 @@ class ZZZAbyssData(TypedDict):
     abyss_nest: AbyssNest
     abyss_throne: AbyssThrone
     unlock: bool
+
+
+class IncomeComponent(TypedDict):
+    action: str
+    num: int
+    percent: int
+
+
+class MonthDataEntry(TypedDict):
+    data_type: str
+    count: int
+    data_name: str
+
+
+class MonthData(TypedDict):
+    list: List[MonthDataEntry]
+    income_components: List[IncomeComponent]
+
+
+class RoleInfo(TypedDict):
+    nickname: str
+    avatar: str
+
+
+class ZZZMonthInfo(TypedDict):
+    uid: str
+    region: str
+    current_month: str
+    data_month: str
+    month_data: MonthData
+    optional_month: List[str]
+    role_info: RoleInfo

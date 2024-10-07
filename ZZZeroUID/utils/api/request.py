@@ -13,6 +13,7 @@ from .models import (
     ZZZAbyssData,
     ZZZChallenge,
     ZZZIndexResp,
+    ZZZMonthInfo,
     ZZZAvatarInfo,
     ZZZAvatarBasic,
     ZZZGachaLogResp,
@@ -25,6 +26,7 @@ from .api import (
     ZZZ_NOTE_API,
     ZZZ_ABYSS_API,
     ZZZ_INDEX_API,
+    ZZZ_MONTH_INFO,
     ZZZ_BIND_OS_API,
     ZZZ_CHALLENGE_API,
     ZZZ_GAME_INFO_API,
@@ -140,6 +142,30 @@ class ZZZApi(_MysApi):
         data = await self.simple_zzz_req(ZZZ_INDEX_API, uid)
         if isinstance(data, Dict):
             data = cast(ZZZIndexResp, data['data'])
+        return data
+
+    async def get_zzz_month_info(
+        self, uid: str, month: str = ''
+    ) -> Union[int, ZZZMonthInfo]:
+        header = deepcopy(self.ZZZ_HEADER)
+        ck = await self.zzz_get_ck(uid, 'OWNER')
+        if ck is None:
+            return -51
+        header['Cookie'] = ck
+        data = await self._mys_request(
+            url=ZZZ_MONTH_INFO,
+            base_url='https://api-takumi.mihoyo.com/event/nap_ledger',
+            method='GET',
+            header=header,
+            params={
+                'uid': uid,
+                'region': self._get_region(uid),
+                'month': month,
+            },
+            game_name='zzz',
+        )
+        if isinstance(data, Dict):
+            data = cast(ZZZMonthInfo, data['data'])
         return data
 
     async def get_zzz_challenge_info(
