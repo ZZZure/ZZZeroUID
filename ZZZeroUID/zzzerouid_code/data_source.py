@@ -1,7 +1,7 @@
 import json
 from time import time
-from typing import Union, Literal, List
 from re import sub, compile, findall
+from typing import List, Union, Literal
 from datetime import datetime, timezone, timedelta
 
 from httpx import AsyncClient
@@ -9,7 +9,9 @@ from httpx import AsyncClient
 TZ = timezone(timedelta(hours=8))
 
 
-async def get_data(type: Literal["activity", "index", "code"], data: dict = {}) -> dict:
+async def get_data(
+    type: Literal["activity", "index", "code"], data: dict = {}
+) -> dict:
     """米哈游接口请求"""
 
     url = {
@@ -83,9 +85,9 @@ async def get_live_data(act_id: str) -> dict:
         live_data["review"] = live_temp["reviewUrl"]["args"]["post_id"]
     else:
         now = datetime.fromtimestamp(time(), TZ)
-        start = datetime.strptime(live_raw["start"], "%Y-%m-%d %H:%M:%S").replace(
-            tzinfo=TZ
-        )
+        start = datetime.strptime(
+            live_raw["start"], "%Y-%m-%d %H:%M:%S"
+        ).replace(tzinfo=TZ)
         if now < start:
             live_data["start"] = live_raw["start"]
 
@@ -131,5 +133,5 @@ async def get_code_msg() -> str:
         code = code_data[0]
         code_msg += f'{code["items"]}:\n{code["code"]}\n'
         return code_msg.strip()
-    except:
+    except:  # noqa: E722
         return "获取兑换码失败！"

@@ -11,7 +11,6 @@ from gsuid_core.segment import MessageSegment
 from ..utils.uid import get_uid
 from .notice import get_notice_list
 from ..utils.hint import BIND_UID_HINT
-from ..utils.zzzero_prefix import PREFIX
 from .draw_zzz_stamina import draw_stamina_img
 from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
 
@@ -22,11 +21,11 @@ is_check_energy = ZZZ_CONFIG.get_config('SchedEnergyPush').data
 
 @sv_get_stamina.on_fullmatch(
     (
-        f'{PREFIX}每日',
-        f'{PREFIX}mr',
-        f'{PREFIX}实时便笺',
-        f'{PREFIX}便笺',
-        f'{PREFIX}便签',
+        '每日',
+        'mr',
+        '实时便笺',
+        '便笺',
+        '便签',
     )
 )
 async def send_daily_info_pic(bot: Bot, ev: Event):

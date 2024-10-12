@@ -5,7 +5,6 @@ from gsuid_core.logger import logger
 
 from ..utils.uid import get_uid
 from ..utils.hint import BIND_UID_HINT
-from ..utils.zzzero_prefix import PREFIX
 from .draw_challenge import draw_challenge_img
 
 sv_get_challenge = SV('zzz查询深渊')
@@ -13,22 +12,22 @@ sv_get_challenge = SV('zzz查询深渊')
 
 @sv_get_challenge.on_fullmatch(
     (
-        f'{PREFIX}查询深渊',
-        f'{PREFIX}深渊',
+        '查询深渊',
+        '深渊',
         '‌式舆防卫战',
-        f'{PREFIX}‌式舆防卫战',
-        f'{PREFIX}查询上期深渊',
-        f'{PREFIX}上期深渊',
+        '‌式舆防卫战',
+        '查询上期深渊',
+        '上期深渊',
         '上期‌式舆防卫战',
-        f'{PREFIX}上期‌式舆防卫战',
-        f'{PREFIX}查询完整深渊',
-        f'{PREFIX}完整深渊',
+        '上期‌式舆防卫战',
+        '查询完整深渊',
+        '完整深渊',
         '‌完整式舆防卫战',
-        f'{PREFIX}完整‌式舆防卫战',
-        f'{PREFIX}查询上期完整深渊',
-        f'{PREFIX}上期完整深渊',
+        '完整‌式舆防卫战',
+        '查询上期完整深渊',
+        '上期完整深渊',
         '上期完整‌式舆防卫战',
-        f'{PREFIX}上期完整‌式舆防卫战',
+        '上期完整‌式舆防卫战',
     ),
     block=True,
 )

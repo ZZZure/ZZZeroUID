@@ -5,16 +5,15 @@ from gsuid_core.logger import logger
 
 from ..utils.uid import get_uid
 from ..utils.hint import BIND_UID_HINT
-from ..utils.zzzero_prefix import PREFIX
 from .draw_char_list import draw_char_list_img
 
-sv_char_list = SV(f'{PREFIX}角色练度统计')
+sv_char_list = SV('zzz角色练度统计')
 
 
 @sv_char_list.on_fullmatch(
     (
-        f'{PREFIX}练度统计',
-        f'{PREFIX}角色列表',
+        '练度统计',
+        '角色列表',
     )
 )
 async def send_char_list_msg(bot: Bot, ev: Event):

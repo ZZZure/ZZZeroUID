@@ -3,19 +3,17 @@ from gsuid_core.bot import Bot
 from gsuid_core.models import Event
 from gsuid_core.utils.database.models import GsBind
 
-from ..utils.zzzero_prefix import PREFIX
 from ..utils.message import send_diff_msg
 from ..zzzerouid_config.zzzero_config import ZZZ_GAME_NAME
 
-sv_user_config = SV(f'{PREFIX}用户管理', pm=2)
-sv_user_info = SV(f'{PREFIX}用户信息')
+sv_user_info = SV('zzz用户信息')
 
 
 @sv_user_info.on_command(
     (
-        f'{PREFIX}绑定uid',
-        f'{PREFIX}绑定UID',
-        f'{PREFIX}绑定',
+        '绑定uid',
+        '绑定UID',
+        '绑定',
     ),
     block=True,
 )
@@ -45,9 +43,9 @@ async def bind_uid(bot: Bot, ev: Event):
 
 @sv_user_info.on_command(
     (
-        f'{PREFIX}切换uid',
-        f'{PREFIX}切换UID',
-        f'{PREFIX}切换',
+        '切换uid',
+        '切换UID',
+        '切换',
     ),
     block=True,
 )
@@ -80,12 +78,12 @@ async def switch_uid(bot: Bot, ev: Event):
 
 @sv_user_info.on_command(
     (
-        f'{PREFIX}删除uid',
-        f'{PREFIX}解绑uid',
-        f'{PREFIX}删除UID',
-        f'{PREFIX}解绑',
-        f'{PREFIX}删除UID',
-        f'{PREFIX}删除',
+        '删除uid',
+        '解绑uid',
+        '删除UID',
+        '解绑',
+        '删除UID',
+        '删除',
     ),
     block=True,
 )

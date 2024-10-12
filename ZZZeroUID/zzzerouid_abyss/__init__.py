@@ -6,15 +6,13 @@ from gsuid_core.logger import logger
 from ..utils.uid import get_uid
 from ..utils.hint import BIND_UID_HINT
 from .draw_abyss import draw_abyss_img
-from ..utils.zzzero_prefix import PREFIX
 
 sv_get_abyss = SV('zzz查询零号空洞')
 
 
 @sv_get_abyss.on_fullmatch(
     (
-        f'{PREFIX}查询零号空洞',
-        f'{PREFIX}零号空洞',
+        '查询零号空洞',
         '零号空洞',
     ),
     block=True,

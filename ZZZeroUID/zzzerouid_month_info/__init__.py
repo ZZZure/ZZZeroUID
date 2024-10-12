@@ -5,17 +5,16 @@ from gsuid_core.logger import logger
 
 from ..utils.uid import get_uid
 from ..utils.hint import BIND_UID_HINT
-from ..utils.zzzero_prefix import PREFIX
 from .get_month_data import draw_month_info
 
-sv_month_info = SV(f'{PREFIX}绳网月报')
+sv_month_info = SV('zzz绳网月报')
 
 
 @sv_month_info.on_fullmatch(
     (
-        f'{PREFIX}绳网月报',
-        f'{PREFIX}月历',
-        f'{PREFIX}札记',
+        '绳网月报',
+        '月历',
+        '札记',
     )
 )
 async def send_month_info(bot: Bot, ev: Event):

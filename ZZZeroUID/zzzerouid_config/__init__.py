@@ -7,15 +7,12 @@ from gsuid_core.logger import logger
 from gsuid_core.utils.error_reply import UID_HINT
 from gsuid_core.utils.database.models import GsBind
 
-from .zzzero_config import ZZZ_CONFIG
 from .set_config import set_push_value, set_config_func
 
 sv_self_config = SV('绝区零配置')
 
-PREFIX = ZZZ_CONFIG.get_config('ZZZPrefix').data
 
-
-@sv_self_config.on_prefix((f'{PREFIX}设置'))
+@sv_self_config.on_prefix(('设置'))
 async def send_config_ev(bot: Bot, ev: Event):
     logger.info('[ZZZ] 开始执行[设置阈值信息]')
     uid = await GsBind.get_uid_by_game(ev.user_id, ev.bot_id, 'zzz')
@@ -37,8 +34,8 @@ async def send_config_ev(bot: Bot, ev: Event):
 # 开启 自动签到 和 推送树脂提醒 功能
 @sv_self_config.on_prefix(
     (
-        f'{PREFIX}开启',
-        f'{PREFIX}关闭',
+        '开启',
+        '关闭',
     )
 )
 async def open_switch_func(bot: Bot, ev: Event):
@@ -47,7 +44,7 @@ async def open_switch_func(bot: Bot, ev: Event):
 
     logger.info(f'[{user_id}]尝试[{ev.command[2:]}]了[{ev.text}]功能')
 
-    if ev.command == f'{PREFIX}开启':
+    if ev.command == '开启':
         query = True
         gid = ev.group_id if ev.group_id else 'on'
     else:

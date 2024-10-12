@@ -5,18 +5,17 @@ from gsuid_core.logger import logger
 
 from ..utils.uid import get_uid
 from ..utils.hint import BIND_UID_HINT
-from ..utils.zzzero_prefix import PREFIX
 from .refresh_char_detail import refresh_char
 from .draw_new_char_detail_card import draw_char_detail_img
 
-sv_char_detail_refresh = SV(f'{PREFIX}角色面板刷新')
-sv_char_detail = SV(f'{PREFIX}角色面板')
+sv_char_detail_refresh = SV('zzz角色面板刷新')
+sv_char_detail = SV('zzz角色面板')
 
 
 @sv_char_detail_refresh.on_fullmatch(
     (
-        f'{PREFIX}刷新面板',
-        f'{PREFIX}强制刷新',
+        '刷新面板',
+        '强制刷新',
     )
 )
 async def send_refresh_char_detail_msg(bot: Bot, ev: Event):
@@ -30,7 +29,7 @@ async def send_refresh_char_detail_msg(bot: Bot, ev: Event):
     return await bot.send(im)
 
 
-@sv_char_detail.on_prefix((f'{PREFIX}角色面板', f'{PREFIX}查询'))
+@sv_char_detail.on_prefix(('角色面板', '查询'))
 async def send_char_detail_msg(bot: Bot, ev: Event):
     char = ev.text.strip(' ')
     logger.info(f'[绝区零] [角色面板] CHAR: {char}')

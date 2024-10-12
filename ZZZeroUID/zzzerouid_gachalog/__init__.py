@@ -6,14 +6,13 @@ from gsuid_core.logger import logger
 from ..utils.uid import get_uid
 from .draw_gachalogs import draw_card
 from ..utils.hint import BIND_UID_HINT
-from ..utils.zzzero_prefix import PREFIX
 from .get_gachalogs import save_gachalogs
 
-sv_gacha_log = SV(f"{PREFIX}抽卡记录")
-sv_get_refresh_gachalog = SV(f"{PREFIX}刷新抽卡记录")
+sv_gacha_log = SV("zzz抽卡记录")
+sv_get_refresh_gachalog = SV("zzz刷新抽卡记录")
 
 
-@sv_gacha_log.on_fullmatch((f"{PREFIX}抽卡记录"))
+@sv_gacha_log.on_fullmatch(("抽卡记录"))
 async def send_gacha_log_card_info(bot: Bot, ev: Event):
     uid = await get_uid(bot, ev)
     logger.info(f"[ZZZ抽卡记录] UID: {uid}")
@@ -26,7 +25,7 @@ async def send_gacha_log_card_info(bot: Bot, ev: Event):
 
 
 @sv_get_refresh_gachalog.on_fullmatch(
-    (f"{PREFIX}刷新抽卡记录", f'{PREFIX}更新抽卡记录'),
+    ("刷新抽卡记录", '更新抽卡记录'),
 )
 async def send_refresh_gachalog_msg(bot: Bot, ev: Event):
     uid = await get_uid(bot, ev)

@@ -1,3 +1,3 @@
-from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
+from gsuid_core.sv import get_plugin_available_prefix
 
-PREFIX = ZZZ_CONFIG.get_config('ZZZPrefix').data
+PREFIX = get_plugin_available_prefix('ZZZeroUID')
