@@ -5,11 +5,11 @@ import aiofiles
 from PIL import Image
 from msgspec import json as msgjson
 from gsuid_core.help.model import PluginHelp
-from gsuid_core.sv import get_plugin_available_prefix
 from gsuid_core.help.draw_new_plugin_help import get_new_help
 
 from ..utils.image import get_footer
 from ..version import ZZZero_version
+from ..utils.zzzero_prefix import PREFIX
 
 ICON = Path(__file__).parent.parent.parent / 'ICON.png'
 HELP_DATA = Path(__file__).parent / 'help.json'
@@ -28,7 +28,7 @@ async def get_help():
         plugin_info={f'v{ZZZero_version}': ''},
         plugin_icon=Image.open(ICON),
         plugin_help=await get_help_data(),
-        plugin_prefix=get_plugin_available_prefix('ZZZeroUID'),
+        plugin_prefix=PREFIX,
         help_mode='dark',
         banner_bg=Image.open(TEXT_PATH / 'banner_bg.jpg'),
         banner_sub_text='仙灵为你服务！',

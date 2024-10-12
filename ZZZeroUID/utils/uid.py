@@ -4,11 +4,10 @@ from typing import List, Tuple, Union, Optional, overload
 from gsuid_core.bot import Bot
 from gsuid_core.models import Event
 from gsuid_core.utils.database.models import GsBind
-from gsuid_core.sv import get_plugin_available_prefix
 
+from ..utils.zzzero_prefix import PREFIX
 from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
 
-PREFIX = get_plugin_available_prefix('ZZZeroUID')
 _IGNORE_AT_LIST: List[str] = ZZZ_CONFIG.get_config('ZZZIgnoreAt').data
 IGNORE_AT_LIST = [f'{PREFIX}{i}' for i in _IGNORE_AT_LIST]
 
