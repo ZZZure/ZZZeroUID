@@ -82,10 +82,12 @@ async def draw_char_detail_img(
                 set_custom = True
 
     if not set_custom:
+        _w = char_img.size[0] * 0.94
+        _h = char_img.size[1] * 0.94
         char_img = get_mind_role_img(char_id).convert('RGBA')
-        new_size = int(char_img.size[0] * 0.94), int(char_img.size[1] * 0.94)
+        new_size = int(_w), int(_h)
         char_img = char_img.resize(new_size)
-        char_bg.paste(char_img, (-692, -128), char_img)
+        char_bg.paste(char_img, (int(1100 - _w + 15), -128), char_img)
 
     img.paste(char_bg, (0, 195), char_bg)
 
