@@ -15,6 +15,7 @@ from ..version import ZZZero_version  # noqa: E402
 R_PATH = Path(__file__).parents[0]
 ZZZ_DATA = R_PATH / 'zzz_data'
 MAP_PATH = Path(__file__).parents[1] / 'utils' / 'map'
+ALIAS = Path(__file__).parents[1] / 'utils' / 'alias' / 'char_alias.json'
 
 if not ZZZ_DATA.exists():
     ZZZ_DATA.mkdir()
@@ -27,26 +28,39 @@ gacha_data = {}
 avatar_data = {}
 equip_data = {}
 
+partner_id_to_data = {}
+
 
 WeaponId2SpriteFile = f'WeaponId2Sprite_{version}.json'
 PartnerId2DataFile = f'PartnerId2Data_{version}.json'
 EquipId2DataFile = f'EquipId2Data_{version}.json'
 # GachaId2SpriteIdFile = f'GachaId2SpriteId_{version}.json'
 
+A = 'PEPPKLMFFBD'
+ID = 'NKFGFANNKDH'
+
+PARTENER_NAME = 'FJECNNMMDGH'
+PARTENER_ID = 'GKNMDKNIMHP'
+ICONROLE_ID = 'KGONPCFANOD'
+SPRITE_FILE = 'DJJLPDJBHKA'
+
+SUIT_ID = 'OHBKOGIAGKO'
+SUIT_SPRITE_FILE = 'JMAOOLLOPLF'
+
 
 def gen_equip_id_to_data():
     print('[正在执行] gen_equip_id_to_data')
     equip_id_to_data = {}
-    for item in equip_data['JIJNDLLPCHO']:
-        suit_id = item['KCMEOFINDJO']
+    for item in equip_data[A]:
+        suit_id = item[SUIT_ID]
         if suit_id not in equip_id_to_data:
             equip_id_to_data[suit_id] = {
                 'equip_id_list': [],
                 'sprite_file': '',
             }
-        equip_id = item['PAFLDEAPMFJ']
+        equip_id = item[ID]
         equip_id_to_data[suit_id]['equip_id_list'].append(equip_id)
-        name = '3D' + item['IJIEIMJCAHM'].split('/')[-1]
+        name = '3D' + item[SUIT_SPRITE_FILE].split('/')[-1]
         name = name.split('.')[0]
 
         equip_id_to_data[suit_id]['sprite_file'] = name
@@ -58,9 +72,9 @@ def gen_equip_id_to_data():
 def gen_weapon_id_to_sprite():
     print('[正在执行] gen_weapon_id_to_sprite')
     weapon_id_to_sprite = {}
-    for item in weapon_data['JIJNDLLPCHO']:
-        weapon_id = item['PAFLDEAPMFJ']
-        sprite_file = item['HJIOEFBGFED']
+    for item in weapon_data[A]:
+        weapon_id = item[ID]
+        sprite_file = item[SPRITE_FILE]
         weapon_id_to_sprite[weapon_id] = sprite_file
     with open(MAP_PATH / WeaponId2SpriteFile, 'w', encoding='UTF-8') as f:
         json.dump(weapon_id_to_sprite, f, indent=4, ensure_ascii=False)
@@ -83,16 +97,16 @@ def gen_gacha_id_to_sprite():
 
 def gen_partner_id_to_data():
     print('[正在执行] gen_partner_id_to_data')
-    partner_id_to_data = {}
-    for item in avatar_data['JIJNDLLPCHO']:
-        partner_id = item['DKDDFEIAMIF']
-        name = item['DEPJKIPACJK']
+    global partner_id_to_data
+    for item in avatar_data[A]:
+        partner_id = item[PARTENER_ID]
+        name = item[PARTENER_NAME]
         partner_name = raw_data[name]
         full_name = raw_data[f'{name}_FullName']
         en_name = raw_data[f'{name}_En']
-        for i in gacha_data['JIJNDLLPCHO']:
-            if i['PAFLDEAPMFJ'] == partner_id:
-                sprite_id = i['EGNNNIEJLHA'].replace('IconRole', '')
+        for i in gacha_data[A]:
+            if i[ID] == partner_id:
+                sprite_id = i[ICONROLE_ID].replace('IconRole', '')
 
         if partner_id not in partner_id_to_data:
             partner_id_to_data[partner_id] = {}
@@ -134,6 +148,22 @@ async def download_new_file():
                 print(f'下载失败，状态码为{response.status_code}')
 
 
+def get_alias():
+    with open(ALIAS, 'r', encoding='UTF-8') as f:
+        alias = json.load(f)
+    for _id in partner_id_to_data:
+        partner = partner_id_to_data[_id]
+        if partner['name'] not in alias:
+            full_name = partner['full_name'].replace(' ', '')
+            en_name = partner['en_name'].replace(' ', '')
+            alias[partner['name']] = [full_name, en_name]
+
+    with open(ALIAS, 'w', encoding='UTF-8') as f:
+        json.dump(alias, f, indent=4, ensure_ascii=False)
+
+    return alias
+
+
 async def main():
     # await download_new_file()
     global raw_data
@@ -157,6 +187,7 @@ async def main():
         gen_weapon_id_to_sprite()
         gen_partner_id_to_data()
         gen_equip_id_to_data()
+        get_alias()
         # gen_gacha_id_to_sprite()
 
     except FileNotFoundError:
