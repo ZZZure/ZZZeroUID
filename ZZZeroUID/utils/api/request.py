@@ -1,4 +1,5 @@
 import time
+import asyncio
 from copy import deepcopy
 from typing import Dict, List, Union, Literal, Optional, cast
 
@@ -204,18 +205,31 @@ class ZZZApi(_MysApi):
         ck = await self.zzz_get_ck(uid, 'OWNER')
         if ck is None:
             return -51
-        data = await self.simple_zzz_req(
-            ZZZ_AVATAR_INFO_API,
-            uid,
-            {
-                'id_list[]': [str(i) for i in id_list],
-                'need_wiki': False,
-            },
-            cookie=ck,
-        )
-        if isinstance(data, Dict):
-            data = cast(List[ZZZAvatarInfo], data['data']['avatar_list'])
-        return data
+
+        TASK = []
+        for i in id_list:
+            TASK.append(
+                self.simple_zzz_req(
+                    ZZZ_AVATAR_INFO_API,
+                    uid,
+                    params={
+                        'id_list[]': str(i),
+                        'need_wiki': False,
+                    },
+                    cookie=ck,
+                )
+            )
+        data = await asyncio.gather(*TASK)
+        if all(isinstance(i, int) for i in data):
+            return data[0]
+        else:
+            result = []
+            for i in data:
+                if isinstance(i, Dict):
+                    result.extend(
+                        cast(ZZZAvatarInfo, i['data']['avatar_list'])
+                    )
+            return result
 
     async def get_zzz_avatar_basic_info(self, uid: str) -> Union[
         int,
