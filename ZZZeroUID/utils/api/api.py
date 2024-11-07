@@ -29,7 +29,7 @@ ZZZ_SQUARE_AVATAR = f'{ZZZ_RES}/role_square_avatar'
 ZZZ_SQUARE_BANGBOO = f'{ZZZ_RES}/bangboo_rectangle_avatar'
 
 
-V2_ZZZ_SQUARE_AVATAR = f'{V2_ZZZ_RES}/role_square_avatar_v2'
+V2_ZZZ_SQUARE_AVATAR = f'{V2_ZZZ_RES}/role_square_avatar'
 V2_ZZZ_SQUARE_BANGBOO = f'{V2_ZZZ_RES}/bangboo_rectangle_avatar'
 
 
