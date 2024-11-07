@@ -23,12 +23,14 @@ ZZZ_GAME_INFO_API = '/getUserGameRolesByCookie?game_biz=nap_cn'
 # Resource
 ZZZ_RES = 'https://act-webstatic.mihoyo.com/game_record/zzz'
 NEW_ZZZ_RES = 'https://act-webstatic.mihoyo.com/game_record/nap'
+V2_ZZZ_RES = 'https://act-webstatic.mihoyo.com/game_record/zzzv2'
 
 ZZZ_SQUARE_AVATAR = f'{ZZZ_RES}/role_square_avatar'
 ZZZ_SQUARE_BANGBOO = f'{ZZZ_RES}/bangboo_rectangle_avatar'
 
-NEW_ZZZ_SQUARE_AVATAR = f'{NEW_ZZZ_RES}/role_square_avatar'
-NEW_ZZZ_SQUARE_BANGBOO = f'{NEW_ZZZ_RES}/bangboo_rectangle_avatar'
+
+V2_ZZZ_SQUARE_AVATAR = f'{V2_ZZZ_RES}/role_square_avatar_v2'
+V2_ZZZ_SQUARE_BANGBOO = f'{V2_ZZZ_RES}/bangboo_rectangle_avatar'
 
 
 PUBLIC_API = 'https://public-operation-nap.mihoyo.com'

@@ -9,8 +9,8 @@ from .RESOURCE_PATH import WEAPON_PATH, SQUARE_AVATAR, SQUARE_BANGBOO
 from ..api.api import (
     ZZZ_SQUARE_AVATAR,
     ZZZ_SQUARE_BANGBOO,
-    NEW_ZZZ_SQUARE_AVATAR,
-    NEW_ZZZ_SQUARE_BANGBOO,
+    V2_ZZZ_SQUARE_AVATAR,
+    V2_ZZZ_SQUARE_BANGBOO,
 )
 
 
@@ -40,7 +40,8 @@ async def get_square_avatar(
 
     name = f"role_square_avatar_{char_id}.png"
     url = f"{ZZZ_SQUARE_AVATAR}/{name}"
-    new_url = f"{NEW_ZZZ_SQUARE_AVATAR}/{name}"
+    new_url = f"{V2_ZZZ_SQUARE_AVATAR}/{name}"
+
     path = SQUARE_AVATAR / name
     if path.exists():
         try:
@@ -48,16 +49,17 @@ async def get_square_avatar(
         except UnidentifiedImageError:
             pass
 
-    retcode = await download(url, SQUARE_AVATAR, name, tag="[绝区零]")
+    retcode = await download(new_url, SQUARE_AVATAR, name, tag="[绝区零]")
     if retcode != 200:
-        retcode = await download(new_url, SQUARE_AVATAR, name, tag="[绝区零]")
+        retcode = await download(url, SQUARE_AVATAR, name, tag="[绝区零]")
+
     return get_source(path, 152, 186)
 
 
 async def get_square_bangboo(bangboo_id: Union[str, int]) -> Image.Image:
     name = f"bangboo_rectangle_avatar_{bangboo_id}.png"
     url = f"{ZZZ_SQUARE_BANGBOO}/{name}"
-    new_url = f"{NEW_ZZZ_SQUARE_BANGBOO}/{name}"
+    new_url = f"{V2_ZZZ_SQUARE_BANGBOO}/{name}"
     path = SQUARE_BANGBOO / name
     if path.exists():
         try:
@@ -65,9 +67,9 @@ async def get_square_bangboo(bangboo_id: Union[str, int]) -> Image.Image:
         except UnidentifiedImageError:
             pass
 
-    retcode = await download(url, SQUARE_BANGBOO, name, tag="[绝区零]")
+    retcode = await download(new_url, SQUARE_BANGBOO, name, tag="[绝区零]")
     if retcode != 200:
-        retcode = await download(new_url, SQUARE_BANGBOO, name, tag="[绝区零]")
+        retcode = await download(url, SQUARE_BANGBOO, name, tag="[绝区零]")
 
     return get_source(path, 152, 186)
 
