@@ -7,10 +7,10 @@ from typing import Dict, List, Union
 import aiofiles
 from PIL import Image, ImageDraw
 from gsuid_core.models import Event
+from gsuid_core.sv import get_plugin_available_prefix
 from gsuid_core.utils.image.convert import convert_img
 
 from ..utils.hint import error_reply
-from ..utils.zzzero_prefix import PREFIX
 from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
 from ..utils.fonts.zzz_fonts import zzz_font_18, zzz_font_20, zzz_font_32
 from ..utils.image import (
@@ -82,7 +82,8 @@ async def draw_card(uid: str, ev: Event) -> Union[str, bytes]:
     # 获取数据
     gacha_log_path = PLAYER_PATH / uid / 'gacha_logs.json'
     if not gacha_log_path.exists():
-        return f'[绝区零] 你还没有抽卡记录噢!请绑定CK后使用{PREFIX}刷新抽卡记录重试!'
+        prefix = get_plugin_available_prefix("ZZZeroUID")
+        return f'[绝区零] 你还没有抽卡记录噢!请绑定CK后使用{prefix}刷新抽卡记录重试!'
     async with aiofiles.open(gacha_log_path, 'r', encoding='UTF-8') as f:
         raw_data: Dict = json.loads(await f.read())
 

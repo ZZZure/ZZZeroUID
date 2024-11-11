@@ -5,10 +5,10 @@ from typing import Dict, List, Tuple, Union
 import aiofiles
 from PIL import Image, ImageDraw
 from gsuid_core.models import Event
+from gsuid_core.sv import get_plugin_available_prefix
 from gsuid_core.utils.image.convert import convert_img
 
 from ..utils.hint import error_reply
-from ..utils.zzzero_prefix import PREFIX
 from ..utils.resource.download_file import get_weapon
 from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
 from ..zzzerouid_char_detail.utils import get_skill_dict
@@ -29,8 +29,9 @@ from ..utils.image import (
 )
 
 TEXT_PATH = Path(__file__).parent / 'texture2d'
+prefix = get_plugin_available_prefix("ZZZeroUID")
 ERROR = (
-    f' ❌【绝区零】你还未刷新角色面板, 请使用{PREFIX}刷新面板进行刷新后使用...'
+    f' ❌【绝区零】你还未刷新角色面板, 请使用{prefix}刷新面板进行刷新后使用...'
 )
 COLOR_MAP = {
     'S': (255, 188, 0),

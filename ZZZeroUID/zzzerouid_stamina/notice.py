@@ -3,13 +3,15 @@ from typing import Dict
 from gsuid_core.gss import gss
 from gsuid_core.logger import logger
 from gsuid_core.utils.database.models import GsUser
+from gsuid_core.sv import get_plugin_available_prefix
+
+from ..utils.zzzero_api import zzz_api
 from ..utils.api.models import ZZZNoteResp
 from ..utils.database.model import ZzzPush
-from ..utils.zzzero_api import zzz_api
-from ..utils.zzzero_prefix import PREFIX
 from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
 
-ZZZ_NOTICE = f'\n可发送[{PREFIX}便签]或者[{PREFIX}每日]来查看更多信息!\n'
+prefix = get_plugin_available_prefix("ZZZeroUID")
+ZZZ_NOTICE = f'\n可发送[{prefix}便签]或者[{prefix}每日]来查看更多信息!\n'
 
 
 async def get_notice_list() -> Dict[str, Dict[str, Dict]]:
@@ -22,7 +24,9 @@ async def get_notice_list() -> Dict[str, Dict[str, Dict]]:
                 if isinstance(raw_data, int):
                     logger.error(f"[zzz推送提醒]获取{user.zzz_uid}的数据失败!")
                     continue
-                push_data = await ZzzPush.select_data_by_uid(user.zzz_uid, "zzz")
+                push_data = await ZzzPush.select_data_by_uid(
+                    user.zzz_uid, "zzz"
+                )
                 msg_dict = await all_check(
                     user.bot_id,
                     raw_data,

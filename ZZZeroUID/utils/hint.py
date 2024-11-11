@@ -1,10 +1,10 @@
 from copy import deepcopy
 
 from gsuid_core.utils.error_reply import ERROR_CODE
+from gsuid_core.sv import get_plugin_available_prefix
 
-from .zzzero_prefix import PREFIX
-
-BIND_UID_HINT = f'你还没有绑定UID哦, 请使用 {PREFIX}绑定uid 完成绑定！'
+prefix = get_plugin_available_prefix("ZZZeroUID")
+BIND_UID_HINT = f'你还没有绑定UID哦, 请使用 {prefix}绑定uid 完成绑定！'
 
 ZZZ_ERROR_CODE = deepcopy(ERROR_CODE)
 ZZZ_ERROR_CODE.update()

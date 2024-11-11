@@ -6,9 +6,9 @@ from typing import Union
 import aiofiles
 from PIL import Image, ImageDraw
 from gsuid_core.models import Event
+from gsuid_core.sv import get_plugin_available_prefix
 from gsuid_core.utils.image.convert import convert_img
 
-from ..utils.zzzero_prefix import PREFIX
 from ..utils.name_convert import char_name_to_char_id
 from ..utils.resource.download_file import get_weapon
 from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
@@ -57,8 +57,9 @@ async def draw_char_detail_img(
 
     path = PLAYER_PATH / str(uid) / f'{char_id}.json'
     if not path.exists():
+        prefix = get_plugin_available_prefix("ZZZeroUID")
         return (
-            f'[绝区零] 未找到该角色信息, 请先使用[{PREFIX}刷新面板]进行刷新!'
+            f'[绝区零] 未找到该角色信息, 请先使用[{prefix}刷新面板]进行刷新!'
         )
 
     async with aiofiles.open(path, 'r', encoding='utf-8') as f:
