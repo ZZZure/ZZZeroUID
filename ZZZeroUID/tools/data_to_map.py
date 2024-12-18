@@ -36,16 +36,16 @@ PartnerId2DataFile = f'PartnerId2Data_{version}.json'
 EquipId2DataFile = f'EquipId2Data_{version}.json'
 # GachaId2SpriteIdFile = f'GachaId2SpriteId_{version}.json'
 
-A = 'PEPPKLMFFBD'
-ID = 'NKFGFANNKDH'
+A = 'LFPICNCBMIF'
+ID = 'CMDJPOHGGBI'
 
-PARTENER_NAME = 'FJECNNMMDGH'
-PARTENER_ID = 'GKNMDKNIMHP'
-ICONROLE_ID = 'KGONPCFANOD'
-SPRITE_FILE = 'DJJLPDJBHKA'
+PARTENER_NAME = 'JOMJELIIAGO'
+PARTENER_ID = 'FJKECLFEHOA'
+ICONROLE_ID = 'DKHLDPFGBLC'
+SPRITE_FILE = 'MMGLIMPGGHL'
 
-SUIT_ID = 'OHBKOGIAGKO'
-SUIT_SPRITE_FILE = 'JMAOOLLOPLF'
+SUIT_ID = 'EJBDEINOKEM'
+SUIT_SPRITE_FILE = 'LEIAGCBOCGD'
 
 
 def gen_equip_id_to_data():
@@ -184,8 +184,8 @@ async def main():
             with open(ZZZ_DATA / k, 'r', encoding='UTF-8') as f:
                 MAP[k].update(json.load(f))
 
-        gen_weapon_id_to_sprite()
-        gen_partner_id_to_data()
+        # gen_weapon_id_to_sprite()
+        # gen_partner_id_to_data()
         gen_equip_id_to_data()
         get_alias()
         # gen_gacha_id_to_sprite()
