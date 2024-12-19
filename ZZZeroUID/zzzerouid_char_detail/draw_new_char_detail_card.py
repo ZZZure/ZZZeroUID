@@ -23,6 +23,9 @@ from ..utils.fonts.zzz_fonts import (
 from .utils import (
     BLUE,
     YELLOW,
+    CUSTOM_LEFT,
+    CUSTOM_OFFSET,
+    ID_TO_PROP_NAME,
     PROP_NAME_TO_ID,
     WEAPON_EQUIP_POS,
     PartnerScore_Dict,
@@ -88,7 +91,11 @@ async def draw_char_detail_img(
         _h = char_img.size[1] * 0.94
         new_size = int(_w), int(_h)
         char_img = char_img.resize(new_size)
-        char_bg.paste(char_img, (int(1100 - _w + 15), -128), char_img)
+        if char_id in CUSTOM_OFFSET:
+            _box = CUSTOM_OFFSET[char_id]
+        else:
+            _box = (int(1100 - _w + 15), -128)
+        char_bg.paste(char_img, _box, char_img)
 
     img.paste(char_bg, (0, 195), char_bg)
 
@@ -137,9 +144,10 @@ async def draw_char_detail_img(
             _pid = PROP_NAME_TO_ID[prop_name]
         prop_name = prop_name.replace('属性伤害', '伤')
 
+        _pname = ID_TO_PROP_NAME[_pid]
         partner_data = PartnerScore_Dict.get(str(char_id), {})
-        if _pid in partner_data:
-            prop_value = partner_data[_pid]
+        if _pname in partner_data:
+            prop_value = partner_data[_pname]
             if prop_value >= 1:
                 name_color = YELLOW
             elif prop_value >= 0.75:
@@ -168,7 +176,7 @@ async def draw_char_detail_img(
             'lm',
         )
 
-    if char_id in ['1131', '1141', '1181', '1191', '1261'] and not set_custom:
+    if char_id in CUSTOM_LEFT and not set_custom:
         box = (-6, 230)
     else:
         box = (624, 230)
@@ -290,9 +298,10 @@ async def draw_char_detail_img(
 
                 ep_base = ep['base']
                 ep_pid = str(ep['property_id'])
+                ep_name = ID_TO_PROP_NAME[ep_pid]
 
-                if ep_pid in partner_data:
-                    prop_value = partner_data[ep_pid]
+                if ep_name in partner_data:
+                    prop_value = partner_data[ep_name]
                     if prop_value >= 1:
                         ep_color = YELLOW
                     elif prop_value >= 0.75:

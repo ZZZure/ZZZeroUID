@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from PIL import ImageFont
+from gsuid_core.utils.fonts.fonts import core_font
 
 FONT_ORIGIN_PATH = Path(__file__).parent / 'zzz_fonts.ttf'
 FONT_THIN_PATH = Path(__file__).parent / 'zzz_thins.ttf'
@@ -11,7 +12,7 @@ def zzz_font_origin(size: int) -> ImageFont.FreeTypeFont:
 
 
 def zzz_font_thin(size: int) -> ImageFont.FreeTypeFont:
-    return ImageFont.truetype(str(FONT_THIN_PATH), size=size)
+    return core_font(size)
 
 
 zzz_font_12 = zzz_font_origin(12)
