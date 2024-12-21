@@ -1,7 +1,7 @@
 import time
 import asyncio
 from copy import deepcopy
-from typing import Dict, List, Union, Literal, Optional, cast
+from typing import Dict, List, Union, Literal, Optional, cast, overload
 
 from gsuid_core.utils.api.mys_api import _MysApi
 from gsuid_core.utils.api.mys.models import MysGame
@@ -9,6 +9,7 @@ from gsuid_core.utils.database.models import GsUser
 
 from .models import (
     ZZZUser,
+    ZZZAnnData,
     ZZZBangboo,
     ZZZNoteResp,
     ZZZAbyssData,
@@ -77,28 +78,57 @@ class ZZZApi(_MysApi):
     async def get_stoken(self, uid: str) -> Optional[str]:
         return await GsUser.get_user_stoken_by_uid(uid, game_name='zzz')
 
+    @overload
     async def get_zzz_ann(
         self,
         uid: str,
+        platform: str = 'pc',
+        _type: Literal['getAnnList'] = 'getAnnList',
+        ann_id: Union[int, str] = '0',
+    ) -> Union[int, ZZZAnnData]: ...
+
+    @overload
+    async def get_zzz_ann(
+        self,
+        uid: str,
+        platform: str = 'pc',
+        _type: Literal['consumeRemind'] = 'consumeRemind',
+        ann_id: Union[int, str] = '0',
+    ) -> int: ...
+
+    async def get_zzz_ann(
+        self,
+        uid: str,
+        platform: str = 'pc',
         _type: Literal[
             'getAnnList', 'getAnnContent', 'consumeRemind'
         ] = 'getAnnList',
+        ann_id: Union[int, str] = '0',
     ):
+        params = {
+            'game': 'nap',
+            'game_biz': 'nap_cn',
+            'lang': 'zh-cn',
+            'bundle_id': 'nap_cn',
+            'channel_id': '1',
+            'level': '58',
+            'platform': platform,
+            'region': 'prod_gf_cn',
+            'uid': uid,
+        }
+
+        if _type == 'consumeRemind':
+            params['ann_id'] = str(ann_id)
+
         data = await self._mys_request(
             f'{ANN_API}/{_type}',
             'GET',
-            params={
-                'game': 'nap',
-                'game_biz': 'nap_cn',
-                'lang': 'zh-cn',
-                'bundle_id': 'nap_cn',
-                'channel_id': '1',
-                'level': '54',
-                'platform': 'pc',
-                'region': 'prod_gf_cn',
-                'uid': uid,
-            },
+            params=params,
         )
+        if isinstance(data, Dict) and _type == 'getAnnList':
+            data = cast(ZZZAnnData, data['data'])
+        elif isinstance(data, Dict) and _type == 'consumeRemind':
+            data = cast(int, data['retcode'])
         return data
 
     async def get_zzz_user_info_g(self, uid: str) -> Union[MysGame, int]:

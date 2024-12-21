@@ -394,3 +394,68 @@ class ZZZMonthInfo(TypedDict):
     month_data: MonthData
     optional_month: List[str]
     role_info: RoleInfo
+
+
+class InnerListItem(TypedDict):
+    ann_id: int
+    title: str
+    subtitle: str
+    banner: str
+    content: str
+    type_label: str
+    tag_label: str
+    tag_icon: str
+    login_alert: int
+    lang: str
+    start_time: str
+    end_time: str
+    type: int
+    remind: int
+    alert: int
+    tag_start_time: str
+    tag_end_time: str
+    remind_ver: int
+    has_content: bool
+    extra_remind: int
+    tag_icon_hover: str
+    logout_remind: int
+    logout_remind_ver: int
+
+
+class OuterListItem(TypedDict):
+    list: List[InnerListItem]
+    type_id: int
+    type_label: str
+
+
+class TypeListItem(TypedDict):
+    id: int
+    name: str
+    mi18n_name: str
+
+
+class PicListItem(TypedDict):
+    # 根据实际情况添加字段，如果pic_list始终为空列表，可以省略此类型
+    pass
+
+
+class PicTypeListItem(TypedDict):
+    # 根据实际情况添加字段，如果pic_type_list始终为空列表，可以省略此类型
+    pass
+
+
+class ZZZAnnData(TypedDict):
+    list: List[OuterListItem]
+    total: int
+    type_list: List[TypeListItem]
+    alert: bool
+    alert_id: int
+    timezone: int
+    t: str
+    pic_list: List[PicListItem]
+    pic_total: int
+    pic_type_list: List[PicTypeListItem]
+    pic_alert: bool
+    pic_alert_id: int
+    static_sign: str
+    banner: str

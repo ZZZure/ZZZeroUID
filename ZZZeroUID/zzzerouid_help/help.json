@@ -162,6 +162,14 @@
         "need_ck": false,
         "need_sk": false,
         "need_admin": false
+      },
+      {
+        "name": "清空公告红点",
+        "desc": "清空游戏内公告红点",
+        "eg": "清空公告红点",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
       }
     ]
   },
@@ -189,6 +197,14 @@
         "desc": "开启每天的自动签到功能",
         "eg": "开启自动签到",
         "need_ck": true,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "开启自动清红",
+        "desc": "每两小时自动清除一次游戏内公告红点",
+        "eg": "开启自动清红",
+        "need_ck": false,
         "need_sk": false,
         "need_admin": false
       }
