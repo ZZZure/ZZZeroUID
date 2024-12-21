@@ -21,6 +21,7 @@ from .models import (
     ZZZWidgetNoteResp,
 )
 from .api import (
+    ANN_API,
     ZZZ_API,
     ZZZ_OS_API,
     ZZZ_BIND_API,
@@ -75,6 +76,30 @@ class ZZZApi(_MysApi):
 
     async def get_stoken(self, uid: str) -> Optional[str]:
         return await GsUser.get_user_stoken_by_uid(uid, game_name='zzz')
+
+    async def get_zzz_ann(
+        self,
+        uid: str,
+        _type: Literal[
+            'getAnnList', 'getAnnContent', 'consumeRemind'
+        ] = 'getAnnList',
+    ):
+        data = await self._mys_request(
+            f'{ANN_API}/{_type}',
+            'GET',
+            params={
+                'game': 'nap',
+                'game_biz': 'nap_cn',
+                'lang': 'zh-cn',
+                'bundle_id': 'nap_cn',
+                'channel_id': '1',
+                'level': '54',
+                'platform': 'pc',
+                'region': 'prod_gf_cn',
+                'uid': uid,
+            },
+        )
+        return data
 
     async def get_zzz_user_info_g(self, uid: str) -> Union[MysGame, int]:
         is_os = False if len(uid) < 10 else True

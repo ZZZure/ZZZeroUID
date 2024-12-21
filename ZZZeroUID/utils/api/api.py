@@ -36,3 +36,6 @@ V2_ZZZ_SQUARE_BANGBOO = f'{V2_ZZZ_RES}/bangboo_rectangle_avatar'
 PUBLIC_API = 'https://public-operation-nap.mihoyo.com'
 PUBILC_GACHA_LOG_API = f'{PUBLIC_API}/common/gacha_record/api'
 ZZZ_GET_GACHA_LOG_API = f'{PUBILC_GACHA_LOG_API}/getGachaLog'
+
+
+ANN_API = 'https://announcement-api.mihoyo.com/common/nap_cn/announcement/api'

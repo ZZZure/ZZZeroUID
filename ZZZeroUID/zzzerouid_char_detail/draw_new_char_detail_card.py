@@ -372,75 +372,76 @@ async def draw_char_detail_img(
 
     # 武器部分
     weapon = data['weapon']
-    weapon_name = weapon['name']
-    weapon_level = weapon['level']
-    main_ps = weapon['main_properties']
-    weapon_ps = weapon['properties']
-    camp_img = get_camp_img(data['camp_name_mi18n'])
+    if weapon:
+        weapon_name = weapon['name']
+        weapon_level = weapon['level']
+        main_ps = weapon['main_properties']
+        weapon_ps = weapon['properties']
+        camp_img = get_camp_img(data['camp_name_mi18n'])
 
-    weapon_rank_icon = get_rank_img(weapon['rarity'], 64, 64)
-    weapon_star_icon = Image.open(STAR_PATH / f'{weapon["star"]}.png')
-    weapon_img = await get_weapon(weapon['id'])
-    weapon_img = weapon_img.resize((240, 240)).convert('RGBA')
+        weapon_rank_icon = get_rank_img(weapon['rarity'], 64, 64)
+        weapon_star_icon = Image.open(STAR_PATH / f'{weapon["star"]}.png')
+        weapon_img = await get_weapon(weapon['id'])
+        weapon_img = weapon_img.resize((240, 240)).convert('RGBA')
 
-    weapon_draw = ImageDraw.Draw(weapon_bg)
+        weapon_draw = ImageDraw.Draw(weapon_bg)
 
-    weapon_bg.paste(weapon_rank_icon, (559, 151), weapon_rank_icon)
-    weapon_bg.paste(weapon_star_icon, (643, 216), weapon_star_icon)
-    weapon_bg.paste(weapon_img, (140, 157), weapon_img)
-    weapon_draw.text((632, 183), weapon_name, 'white', zzz_font_40, 'lm')
-    weapon_draw.text(
-        (604, 236),
-        f'Lv.{weapon_level}',
-        (40, 40, 40),
-        zzz_font_28,
-        'mm',
-    )
-    main_p = main_ps[0]
-    main_prop_id = main_p['property_id']
-    main_prop_img = get_prop_img(main_prop_id, 45, 45)
-    weapon_draw.rounded_rectangle((561, 265, 861, 313), 8, BLUE)
-    weapon_bg.paste(main_prop_img, (570, 266), main_prop_img)
-    weapon_draw.text(
-        (620, 289),
-        main_p['property_name'],
-        'White',
-        zzz_font_thin(26),
-        'lm',
-    )
-    weapon_draw.text(
-        (842, 289),
-        main_p['base'],
-        YELLOW,
-        zzz_font_thin(30),
-        'rm',
-    )
-
-    for pindex, p in enumerate(weapon_ps):
-        wp_o = pindex * 60
-        prop_id = p['property_id']
-        prop_img = get_prop_img(prop_id, 45, 45)
-        weapon_draw.rounded_rectangle(
-            (561, 326 + wp_o, 861, 374 + wp_o),
-            8,
-            (40, 40, 40),
-        )
-        weapon_bg.paste(prop_img, (570, 327 + wp_o), prop_img)
-
+        weapon_bg.paste(weapon_rank_icon, (559, 151), weapon_rank_icon)
+        weapon_bg.paste(weapon_star_icon, (643, 216), weapon_star_icon)
+        weapon_bg.paste(weapon_img, (140, 157), weapon_img)
+        weapon_draw.text((632, 183), weapon_name, 'white', zzz_font_40, 'lm')
         weapon_draw.text(
-            (620, 350 + wp_o),
-            p['property_name'],
-            'white',
+            (604, 236),
+            f'Lv.{weapon_level}',
+            (40, 40, 40),
+            zzz_font_28,
+            'mm',
+        )
+        main_p = main_ps[0]
+        main_prop_id = main_p['property_id']
+        main_prop_img = get_prop_img(main_prop_id, 45, 45)
+        weapon_draw.rounded_rectangle((561, 265, 861, 313), 8, BLUE)
+        weapon_bg.paste(main_prop_img, (570, 266), main_prop_img)
+        weapon_draw.text(
+            (620, 289),
+            main_p['property_name'],
+            'White',
             zzz_font_thin(26),
             'lm',
         )
         weapon_draw.text(
-            (842, 350 + wp_o),
-            p['base'],
+            (842, 289),
+            main_p['base'],
             YELLOW,
-            zzz_font_thin(26),
+            zzz_font_thin(30),
             'rm',
         )
+
+        for pindex, p in enumerate(weapon_ps):
+            wp_o = pindex * 60
+            prop_id = p['property_id']
+            prop_img = get_prop_img(prop_id, 45, 45)
+            weapon_draw.rounded_rectangle(
+                (561, 326 + wp_o, 861, 374 + wp_o),
+                8,
+                (40, 40, 40),
+            )
+            weapon_bg.paste(prop_img, (570, 327 + wp_o), prop_img)
+
+            weapon_draw.text(
+                (620, 350 + wp_o),
+                p['property_name'],
+                'white',
+                zzz_font_thin(26),
+                'lm',
+            )
+            weapon_draw.text(
+                (842, 350 + wp_o),
+                p['base'],
+                YELLOW,
+                zzz_font_thin(26),
+                'rm',
+            )
 
     if all_score_value >= 200:
         equip_rank = 'S'
