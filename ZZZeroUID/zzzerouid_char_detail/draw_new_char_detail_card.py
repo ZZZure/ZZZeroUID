@@ -152,7 +152,7 @@ async def draw_char_detail_img(
                 name_color = YELLOW
             elif prop_value >= 0.75:
                 name_color = BLUE
-            elif prop_value >= 0.5:
+            elif prop_value >= 0.25:
                 name_color = 'white'
             else:
                 name_color = (182, 182, 182)
@@ -306,7 +306,7 @@ async def draw_char_detail_img(
                         ep_color = YELLOW
                     elif prop_value >= 0.75:
                         ep_color = (0, 151, 254)
-                    elif prop_value >= 0.5:
+                    elif prop_value >= 0.25:
                         ep_color = 'white'
                     else:
                         ep_color = (170, 170, 170)

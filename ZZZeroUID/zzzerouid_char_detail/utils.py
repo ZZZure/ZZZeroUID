@@ -108,7 +108,8 @@ def get_ep_value(
     ep: str,
 ) -> float:
     partner_data = PartnerScore_Dict.get(str(char_id), {})
-    target = partner_data.get(str(epid), 0)
+    ep_name = ID_TO_PROP_NAME[str(epid)]
+    target = partner_data.get(str(ep_name), 0)
     _epid = int(str(epid)[:3])
     if '%' in ep:
         ep = ep[:-1]
