@@ -26,7 +26,7 @@ async def get_ann_msg(bot: Bot, ev: Event):
     await bot.send(msg)
 
 
-@sv_ann_schedule.on_fullmatch(('开启自动清红', '关闭自动清红'))
+@sv_ann_schedule.on_fullmatch(('开启自动清红', '关闭自动清红'), block=True)
 async def get_ann_schedule_msg(bot: Bot, ev: Event):
     uid = await get_uid(bot, ev)
     if not uid:
