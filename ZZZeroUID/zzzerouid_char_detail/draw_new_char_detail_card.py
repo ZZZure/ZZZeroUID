@@ -373,6 +373,7 @@ async def draw_char_detail_img(
     # 武器部分
     weapon = data['weapon']
     camp_img = get_camp_img(data['camp_name_mi18n'])
+    weapon_draw = ImageDraw.Draw(weapon_bg)
     if weapon:
         weapon_name = weapon['name']
         weapon_level = weapon['level']
@@ -383,8 +384,6 @@ async def draw_char_detail_img(
         weapon_star_icon = Image.open(STAR_PATH / f'{weapon["star"]}.png')
         weapon_img = await get_weapon(weapon['id'])
         weapon_img = weapon_img.resize((240, 240)).convert('RGBA')
-
-        weapon_draw = ImageDraw.Draw(weapon_bg)
 
         weapon_bg.paste(weapon_rank_icon, (559, 151), weapon_rank_icon)
         weapon_bg.paste(weapon_star_icon, (643, 216), weapon_star_icon)
