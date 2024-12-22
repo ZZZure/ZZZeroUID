@@ -372,12 +372,12 @@ async def draw_char_detail_img(
 
     # 武器部分
     weapon = data['weapon']
+    camp_img = get_camp_img(data['camp_name_mi18n'])
     if weapon:
         weapon_name = weapon['name']
         weapon_level = weapon['level']
         main_ps = weapon['main_properties']
         weapon_ps = weapon['properties']
-        camp_img = get_camp_img(data['camp_name_mi18n'])
 
         weapon_rank_icon = get_rank_img(weapon['rarity'], 64, 64)
         weapon_star_icon = Image.open(STAR_PATH / f'{weapon["star"]}.png')
