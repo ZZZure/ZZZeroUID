@@ -31,13 +31,22 @@ class SurveyPoints(TypedDict):
     is_max_level: bool
 
 
+class ZZZWeeklyTask(TypedDict):
+    refresh_time: int
+    cur_point: int
+    max_point: int
+
+
 class ZZZNoteResp(TypedDict):
     energy: Energy
     vitality: Vitality
     vhs_sale: VhsSale
     card_sign: str
     bounty_commission: BountyCommission
+    s2_bounty_commission: BountyCommission
     survey_points: SurveyPoints
+    weekly_task: ZZZWeeklyTask
+    is_switch_new: bool
 
 
 class ZZZWidgetNoteResp(ZZZNoteResp):

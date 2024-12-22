@@ -135,19 +135,29 @@ async def _draw_stamina_img(uid: str, ev: Event) -> Union[str, Image.Image]:
         card_icon = NO
         card_text = '未抽奖'
 
-    cnum = data['bounty_commission']['num']
-    ctotal = data['bounty_commission']['total']
+    cnum = data['s2_bounty_commission']['num']
+    ctotal = data['s2_bounty_commission']['total']
     if cnum >= ctotal:
         bounty_icon = YES
     else:
         bounty_icon = NO
 
+    wnum = data['weekly_task']['cur_point']
+    wtotal = data['weekly_task']['max_point']
+    if wnum >= wtotal:
+        weekly_icon = YES
+    else:
+        weekly_icon = NO
+
+    # 废弃
+    '''
     pnum = data['survey_points']['num']
     ptotal = data['survey_points']['total']
     if pnum >= ptotal:
         survey_icon = YES
     else:
         survey_icon = NO
+    '''
 
     img = get_zzz_bg(950, 1700)
     bg = Image.open(TEXT_PATH / 'bg.png')
@@ -175,13 +185,13 @@ async def _draw_stamina_img(uid: str, ev: Event) -> Union[str, Image.Image]:
     gacha_draw.text((188, 51), '刮刮卡', GREY, zzz_font_40, 'lm')
     shop_draw.text((188, 51), '录像店经营', GREY, zzz_font_40, 'lm')
     mission_draw.text((188, 51), '悬赏委托', GREY, zzz_font_40, 'lm')
-    point_draw.text((188, 51), '调查点数', GREY, zzz_font_40, 'lm')
+    point_draw.text((188, 51), '丽都周纪', GREY, zzz_font_40, 'lm')
 
     active_bar.paste(vitality_icon, (93, 10), vitality_icon)
     gacha_bar.paste(card_icon, (93, 10), card_icon)
     shop_bar.paste(sale_icon, (93, 10), sale_icon)
     point_bar.paste(bounty_icon, (93, 10), bounty_icon)
-    mission_bar.paste(survey_icon, (93, 10), survey_icon)
+    mission_bar.paste(weekly_icon, (93, 10), weekly_icon)
 
     active_draw.text((716, 56), f'/{max_vitality}', GREY, zzz_font_40, 'lm')
     active_draw.text((708, 54), f'{vitality}', YELLOW, zzz_font_50, 'rm')
@@ -189,8 +199,8 @@ async def _draw_stamina_img(uid: str, ev: Event) -> Union[str, Image.Image]:
     mission_draw.text((716, 56), f'/{ctotal}', GREY, zzz_font_40, 'lm')
     mission_draw.text((708, 54), f'{cnum}', YELLOW, zzz_font_50, 'rm')
 
-    point_draw.text((716, 56), f'/{ptotal}', GREY, zzz_font_40, 'lm')
-    point_draw.text((708, 54), f'{pnum}', YELLOW, zzz_font_50, 'rm')
+    point_draw.text((716, 56), f'/{wtotal}', GREY, zzz_font_40, 'lm')
+    point_draw.text((708, 54), f'{wnum}', YELLOW, zzz_font_50, 'rm')
 
     gacha_draw.text((826, 50), card_text, YELLOW, zzz_font_50, 'rm')
     shop_draw.text((826, 50), sale_text, YELLOW, zzz_font_50, 'rm')
