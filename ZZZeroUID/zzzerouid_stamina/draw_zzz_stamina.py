@@ -135,18 +135,35 @@ async def _draw_stamina_img(uid: str, ev: Event) -> Union[str, Image.Image]:
         card_icon = NO
         card_text = '未抽奖'
 
-    cnum = data['s2_bounty_commission']['num']
-    ctotal = data['s2_bounty_commission']['total']
-    if cnum >= ctotal:
-        bounty_icon = YES
+    if 's2_bounty_commission' in data and data['s2_bounty_commission']:
+        cnum = data['s2_bounty_commission']['num']
+        ctotal = data['s2_bounty_commission']['total']
+        if cnum >= ctotal:
+            bounty_icon = YES
+        else:
+            bounty_icon = NO
+    elif 's1_bounty_commission' in data and data['s1_bounty_commission']:
+        cnum = data['s1_bounty_commission']['num']
+        ctotal = data['s1_bounty_commission']['total']
+        if cnum >= ctotal:
+            bounty_icon = YES
+        else:
+            bounty_icon = NO
     else:
+        cnum = '-'
+        ctotal = '-'
         bounty_icon = NO
 
-    wnum = data['weekly_task']['cur_point']
-    wtotal = data['weekly_task']['max_point']
-    if wnum >= wtotal:
-        weekly_icon = YES
+    if 'weekly_task' in data and data['weekly_task']:
+        wnum = data['weekly_task']['cur_point']
+        wtotal = data['weekly_task']['max_point']
+        if wnum >= wtotal:
+            weekly_icon = YES
+        else:
+            weekly_icon = NO
     else:
+        wnum = '-'
+        wtotal = '-'
         weekly_icon = NO
 
     # 废弃
