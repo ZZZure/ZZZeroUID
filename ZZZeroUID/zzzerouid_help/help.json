@@ -51,7 +51,7 @@
         "name": "式舆防卫战",
         "desc": "查询式舆防卫战信息",
         "eg": "深渊",
-        "need_ck": false,
+        "need_ck": true,
         "need_sk": false,
         "need_admin": false
       },
@@ -59,7 +59,23 @@
         "name": "上期式舆防卫战",
         "desc": "查询上期式舆防卫战信息",
         "eg": "上期深渊",
-        "need_ck": false,
+        "need_ck": true,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "危局强袭战",
+        "desc": "查询危局强袭战信息",
+        "eg": "强袭战",
+        "need_ck": true,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "上期危局强袭战",
+        "desc": "查询上期危局强袭战信息",
+        "eg": "上期强袭战",
+        "need_ck": true,
         "need_sk": false,
         "need_admin": false
       },
@@ -67,7 +83,7 @@
         "name": "零号空洞",
         "desc": "查询零号空洞信息",
         "eg": "零号空洞",
-        "need_ck": false,
+        "need_ck": true,
         "need_sk": false,
         "need_admin": false
       },
@@ -75,7 +91,7 @@
         "name": "练度统计",
         "desc": "查询练度统计一览",
         "eg": "练度统计",
-        "need_ck": false,
+        "need_ck": true,
         "need_sk": false,
         "need_admin": false
       },
@@ -83,8 +99,8 @@
         "name": "绳网月报",
         "desc": "查询本月绳网收入",
         "eg": "月历",
-        "need_ck": false,
-        "need_sk": false,
+        "need_ck": true,
+        "need_sk": true,
         "need_admin": false
       }
     ]

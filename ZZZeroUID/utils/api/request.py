@@ -11,6 +11,7 @@ from .models import (
     ZZZUser,
     ZZZAnnData,
     ZZZBangboo,
+    ZZZMEMInfo,
     ZZZNoteResp,
     ZZZAbyssData,
     ZZZChallenge,
@@ -24,6 +25,7 @@ from .models import (
 from .api import (
     ANN_API,
     ZZZ_API,
+    ZZZ_MEM,
     ZZZ_OS_API,
     ZZZ_BIND_API,
     ZZZ_NOTE_API,
@@ -179,6 +181,24 @@ class ZZZApi(_MysApi):
         data = await self.simple_zzz_req(ZZZ_NOTE_API, uid)
         if isinstance(data, Dict):
             data = cast(ZZZNoteResp, data['data'])
+        return data
+
+    async def get_zzz_mem_info(
+        self, uid: str, schedule_type: int = 1
+    ) -> Union[int, ZZZMEMInfo]:
+        # schedule_type = 2 为上期
+        data = await self.simple_zzz_req(
+            ZZZ_MEM,
+            uid,
+            params={
+                'uid': uid,
+                'lang': 'zh-cn',
+                'region': self._get_region(uid),
+                'schedule_type': schedule_type,
+            },
+        )
+        if isinstance(data, Dict):
+            data = cast(ZZZMEMInfo, data['data'])
         return data
 
     async def get_zzz_widget_info(

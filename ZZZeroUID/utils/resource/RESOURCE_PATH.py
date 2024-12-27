@@ -39,6 +39,9 @@ SUIT_PATH = RESOURCE_PATH / 'suit'
 SUIT_3D_PATH = RESOURCE_PATH / '3d_suit'
 CAMP_PATH = RESOURCE_PATH / 'camp'
 MIND_PATH = RESOURCE_PATH / 'mind'
+BBS_T_PATH = RESOURCE_PATH / 'bbs_t'
+MONSTER_PATH = RESOURCE_PATH / 'monster'
+TEMP_PATH = RESOURCE_PATH / 'temp'
 
 
 # 游戏数据
@@ -74,6 +77,9 @@ def init_dir():
         CAMP_PATH,
         MIND_PATH,
         CUSTOM_PATH,
+        BBS_T_PATH,
+        MONSTER_PATH,
+        TEMP_PATH,
     ]:
         i.mkdir(parents=True, exist_ok=True)
 

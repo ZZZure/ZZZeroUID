@@ -16,6 +16,8 @@ ZZZ_NOTE_WIDGET_API = '/widget'
 
 ZZZ_MONTH_INFO = '/month_info'
 
+ZZZ_MEM = '/mem_detail'
+
 ZZZ_BIND_API = f'{GS_BASE}/binding/api'
 ZZZ_BIND_OS_API = f'{GS_BASE_OS}/binding/api'
 ZZZ_GAME_INFO_API = '/getUserGameRolesByCookie?game_biz=nap_cn'

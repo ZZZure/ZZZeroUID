@@ -468,3 +468,67 @@ class ZZZAnnData(TypedDict):
     pic_alert_id: int
     static_sign: str
     banner: str
+
+
+class TimeData(TypedDict):
+    hour: int
+    minute: int
+    second: int
+    year: int
+    month: int
+    day: int
+
+
+class Boss(TypedDict):
+    race_icon: str
+    icon: str
+    name: str
+    bg_icon: str
+
+
+class Buffer(TypedDict):
+    desc: str
+    icon: str
+    name: str
+
+
+class MEMBuddy(TypedDict):
+    id: int
+    rarity: str
+    level: int
+    bangboo_rectangle_url: str
+
+
+class MEMAvatar(TypedDict):
+    rarity: str
+    element_type: int
+    avatar_profession: int
+    id: int
+    level: int
+    rank: int
+    role_square_url: str
+    sub_element_type: int
+
+
+class ListItem(TypedDict):
+    star: int
+    score: int
+    boss: List[Boss]
+    buffer: List[Buffer]
+    buddy: Buddy
+    total_star: int
+    challenge_time: TimeData
+    avatar_list: List[Avatar]
+
+
+class ZZZMEMInfo(TypedDict):
+    end_time: TimeData
+    nick_name: str
+    avatar_icon: str
+    has_data: bool
+    start_time: TimeData
+    zone_id: int
+    total_star: int
+    rank_percent: int
+    list: List[ListItem]
+    total_score: int
