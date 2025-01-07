@@ -43,7 +43,7 @@ async def get_ann_schedule_msg(bot: Bot, ev: Event):
 
 
 @scheduler.scheduled_job('cron', hour='*/2')
-async def send_ann_schedule():
+async def zzz_send_ann_schedule():
     logger.info('[绝区零][定时清空公告红点] 正在执行中!')
     datas = await gs_subscribe.get_subscribe('[绝区零] 自动清红')
     if datas:
