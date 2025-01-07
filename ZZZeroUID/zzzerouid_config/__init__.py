@@ -4,9 +4,9 @@ from gsuid_core.sv import SV
 from gsuid_core.bot import Bot
 from gsuid_core.models import Event
 from gsuid_core.logger import logger
-from gsuid_core.utils.error_reply import UID_HINT
 from gsuid_core.utils.database.models import GsBind
 
+from ..utils.hint import BIND_UID_HINT
 from .set_config import set_push_value, set_config_func
 
 sv_self_config = SV('绝区零配置')
@@ -17,7 +17,7 @@ async def send_config_ev(bot: Bot, ev: Event):
     logger.info('[ZZZ] 开始执行[设置阈值信息]')
     uid = await GsBind.get_uid_by_game(ev.user_id, ev.bot_id, 'zzz')
     if uid is None:
-        return await bot.send(UID_HINT)
+        return await bot.send(BIND_UID_HINT)
 
     func = ''.join(re.findall('[\u4e00-\u9fa5]', ev.text.replace('阈值', '')))
     value = re.findall(r'\d+', ev.text)
@@ -59,7 +59,7 @@ async def open_switch_func(bot: Bot, ev: Event):
 
     uid = await GsBind.get_uid_by_game(ev.user_id, ev.bot_id, 'zzz')
     if uid is None:
-        return await bot.send(UID_HINT)
+        return await bot.send(BIND_UID_HINT)
 
     im = await set_config_func(
         ev.bot_id,
