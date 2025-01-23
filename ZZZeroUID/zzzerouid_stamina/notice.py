@@ -27,6 +27,8 @@ async def get_notice_list() -> Dict[str, Dict[str, Dict]]:
                 push_data = await ZzzPush.select_data_by_uid(
                     user.zzz_uid, "zzz"
                 )
+                if push_data is None:
+                    continue
                 msg_dict = await all_check(
                     user.bot_id,
                     raw_data,
