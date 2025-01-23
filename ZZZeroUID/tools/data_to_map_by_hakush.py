@@ -21,14 +21,20 @@ from ZZZeroUID.utils.hakush_api.request import (  # noqa: E402
 )
 
 
-async def get_new():
+async def get_new_char():
     all_char_data = await get_hakush_all_char_data()
-    all_weapon_data = await get_hakush_all_weapon_data()
-    if all_char_data and all_weapon_data:
-        partner_data = {}
+    partner_data = {}
+    if all_char_data:
         for char in all_char_data:
             print(char)
-            char_data = await get_hakush_char_data(char)
+            for _ in range(5):
+                try:
+                    char_data = await get_hakush_char_data(char)
+                    break
+                except Exception as e:
+                    print(e)
+                    await asyncio.sleep(30)
+                    continue
             if char_data:
                 if (
                     'PartnerInfo' in char_data
@@ -38,22 +44,39 @@ async def get_new():
                 else:
                     full_name = char_data['Name']
                 partner_data[char] = {
-                    "sprite_id": char_data['Icon'].replace('IconRole', ''),
-                    "name": char_data['Name'],
-                    "full_name": full_name,
-                    "en_name": char_data['CodeName'],
+                    'sprite_id': char_data['Icon'].replace('IconRole', ''),
+                    'name': char_data['Name'],
+                    'full_name': full_name,
+                    'en_name': char_data['CodeName'],
                 }
+            await asyncio.sleep(3)
         with open(MAP_PATH / PartnerId2DataFile, 'w', encoding='UTF-8') as f:
             json.dump(partner_data, f, indent=4, ensure_ascii=False)
 
+
+async def get_new_weapon():
+    all_weapon_data = await get_hakush_all_weapon_data()
+    if all_weapon_data:
         weapon2sprite_data = {}
         for weapon in all_weapon_data:
             print(weapon)
-            weapon_data = await get_hakush_weapon_data(weapon)
+            for _ in range(5):
+                try:
+                    weapon_data = await get_hakush_weapon_data(weapon)
+                    break
+                except Exception as e:
+                    print(e)
+                    await asyncio.sleep(30)
+                    continue
             if weapon_data:
                 weapon2sprite_data[weapon] = weapon_data['CodeName']
         with open(MAP_PATH / WeaponId2SpriteFile, 'w', encoding='UTF-8') as f:
             json.dump(weapon2sprite_data, f, indent=4, ensure_ascii=False)
+
+
+async def get_new():
+    # await get_new_char()
+    await get_new_weapon()
 
 
 asyncio.run(get_new())

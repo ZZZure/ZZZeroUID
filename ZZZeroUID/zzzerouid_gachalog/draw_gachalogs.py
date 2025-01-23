@@ -259,7 +259,9 @@ async def draw_card(uid: str, ev: Event) -> Union[str, bytes]:
                     item_icon.resize((175, 214)).convert('RGBA')
                     item_temp.paste(item_icon, (10, -24), item_icon)
             except FileNotFoundError:
-                logger.error(f'{item['item_type']}id:{item['item_id']}图片缺失')
+                logger.error(
+                    f'{item["item_type"]}id:{item["item_id"]}图片缺失'
+                )
             else:
                 item_bg.paste(item_temp, (0, 0), item_mask)
 
