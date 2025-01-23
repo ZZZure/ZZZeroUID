@@ -7,6 +7,7 @@ from typing import Dict, List, Union
 import aiofiles
 from PIL import Image, ImageDraw
 from gsuid_core.models import Event
+from gsuid_core.logger import logger
 from gsuid_core.sv import get_plugin_available_prefix
 from gsuid_core.utils.image.convert import convert_img
 
@@ -244,19 +245,23 @@ async def draw_card(uid: str, ev: Event) -> Union[str, bytes]:
             item_bg.paste(item_mask, (0, 0), item_mask)
 
             item_temp = Image.new('RGBA', (186, 130))
-            if item['item_type'] == '音擎':
-                item_icon = await get_weapon(item['item_id'])
-                item_icon = item_icon.resize((160, 160)).convert('RGBA')
-                item_temp.paste(item_icon, (0, -18), item_icon)
-            elif item['item_type'] == '邦布':
-                item_icon = await get_square_bangboo(item['item_id'])
-                item_icon = item_icon.convert('RGBA')
-                item_temp.paste(item_icon, (32, -19), item_icon)
+            try:
+                if item['item_type'] == '音擎':
+                    item_icon = await get_weapon(item['item_id'])
+                    item_icon = item_icon.resize((160, 160)).convert('RGBA')
+                    item_temp.paste(item_icon, (0, -18), item_icon)
+                elif item['item_type'] == '邦布':
+                    item_icon = await get_square_bangboo(item['item_id'])
+                    item_icon = item_icon.convert('RGBA')
+                    item_temp.paste(item_icon, (32, -19), item_icon)
+                else:
+                    item_icon = await get_square_avatar(item['item_id'])
+                    item_icon.resize((175, 214)).convert('RGBA')
+                    item_temp.paste(item_icon, (10, -24), item_icon)
+            except FileNotFoundError:
+                logger.error(f'{item['item_type']}id:{item['item_id']}图片缺失')
             else:
-                item_icon = await get_square_avatar(item['item_id'])
-                item_icon.resize((175, 214)).convert('RGBA')
-                item_temp.paste(item_icon, (10, -24), item_icon)
-            item_bg.paste(item_temp, (0, 0), item_mask)
+                item_bg.paste(item_temp, (0, 0), item_mask)
 
             item_bg.paste(item_fg, (0, 0), item_fg)
             item_draw = ImageDraw.Draw(item_bg)

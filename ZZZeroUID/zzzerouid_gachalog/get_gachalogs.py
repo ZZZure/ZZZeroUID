@@ -1,10 +1,12 @@
 import json
+import shutil
 import asyncio
 from typing import Dict
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import msgspec
 import aiofiles
+from gsuid_core.logger import logger
 
 from ..utils.hint import error_reply
 from ..utils.zzzero_api import zzz_api
@@ -80,6 +82,29 @@ async def get_new_gachalog(uid: str, full_data: Dict, is_force: bool):
     return full_data
 
 
+def remove_gachalog(gachalog: Dict, month: int = 5):
+    now = datetime.now()
+    threshold = now - timedelta(days=month * 30)
+
+    map_num = {
+        '常驻频段': 'normal_gacha_num',
+        '独家频段': 'char_gacha_num',
+        '音擎频段': 'weapon_gacha_num',
+        '邦布频段': 'bangboo_gacha_num',
+    }
+    for gacha_name in map_num:
+        gachanum_name = map_num[gacha_name]
+        gachalog['data'][gacha_name] = [
+            item
+            for item in gachalog['data'][gacha_name]
+            if datetime.strptime(item["time"], "%Y-%m-%d %H:%M:%S")
+            <= threshold
+        ]
+        gachalog[gachanum_name] = len(gachalog['data'][gacha_name])
+
+    return gachalog
+
+
 async def save_gachalogs(
     uid: str,
     is_force: bool = False,
@@ -151,4 +176,44 @@ async def save_gachalogs(
             f'常驻频段{normal_add}个！\n独家频段{char_add}个！\n'
             f'音擎频段{weapon_add}个！\n邦布频段{bangboo_add}个！'
         )
+    return im
+
+
+full_lock = []
+
+
+async def get_full_gachalog(uid: str):
+    if uid in full_lock:
+        return '当前正在全量刷新抽卡记录中, 请勿重试!请稍后再试...!'
+
+    full_lock.append(uid)
+    path = PLAYER_PATH / str(uid)
+    if not path.exists():
+        path.mkdir(parents=True, exist_ok=True)
+
+    # 获取当前时间
+    now = datetime.now()
+    current_time = now.strftime('%Y-%m-%d %H-%M-%S')
+    # 抽卡记录json路径
+    gachalogs_path = path / 'gacha_logs.json'
+    if gachalogs_path.exists():
+        gacha_log_backup_path = path / f'gacha_logs_{current_time}.json'
+        shutil.copy(gachalogs_path, gacha_log_backup_path)
+        logger.info(
+            f'[全量刷新抽卡记录] 已备份抽卡记录到{gacha_log_backup_path}'
+        )
+        async with aiofiles.open(gachalogs_path, "r", encoding='UTF-8') as f:
+            gachalogs_history: Dict = json.loads(await f.read())
+        gachalogs_history = remove_gachalog(gachalogs_history)
+        async with aiofiles.open(gachalogs_path, "w", encoding='UTF-8') as f:
+            await f.write(
+                json.dumps(
+                    gachalogs_history,
+                    ensure_ascii=False,
+                )
+            )
+        im = await save_gachalogs(uid)
+    else:
+        im = '你还没有已缓存的抽卡记录, 请使用刷新抽卡记录！'
+    full_lock.remove(uid)
     return im
