@@ -42,7 +42,7 @@ async def open_switch_func(bot: Bot, ev: Event):
     user_id = ev.user_id
     config_name = ev.text
 
-    logger.info(f'[{user_id}]尝试[{ev.command[2:]}]了[{ev.text}]功能')
+    logger.info(f'[{user_id}]尝试[{ev.command}]了[{ev.text}]功能')
 
     if ev.command == '开启':
         query = True

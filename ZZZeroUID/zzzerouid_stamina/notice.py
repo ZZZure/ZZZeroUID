@@ -17,7 +17,7 @@ ZZZ_NOTICE = f'\n可发送[{prefix}便签]或者[{prefix}每日]来查看更多�
 async def get_notice_list() -> Dict[str, Dict[str, Dict]]:
     msg_dict: Dict[str, Dict[str, Dict]] = {}
     for _ in gss.active_bot:
-        user_list = await GsUser.get_all_push_user_list()
+        user_list = await GsUser.get_push_user_list('zzz')
         for user in user_list:
             if user.zzz_uid is not None:
                 raw_data = await zzz_api.get_zzz_note_info(user.zzz_uid)

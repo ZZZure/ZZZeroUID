@@ -61,6 +61,9 @@ async def set_config_func(
                     f'{PUSH_MAP[_config_name]}_push': option,
                 },
             )
+            await GsUser.update_data_by_uid(
+                uid, bot_id, 'zzz', zzz_push_switch=option
+            )
         elif _config_name in OPTION_MAP:
             if '开启' in ev.command:
                 if ev.user_type == 'direct':
