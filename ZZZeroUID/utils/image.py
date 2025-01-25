@@ -71,6 +71,7 @@ camp_map = {
     '维多利亚家政': 'VictoriaHousekeepingCo.',
     '新艾利都治安局': 'N.E.P.S.',
     '刑侦特勤组': 'JaneBadge',
+    '天琴座': 'StarsOfLyra',
 }
 
 
