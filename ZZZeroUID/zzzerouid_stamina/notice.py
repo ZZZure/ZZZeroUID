@@ -66,12 +66,7 @@ async def all_check(
         if push_data["energy_push"] == "off":
             pass
         else:
-            # 达到提醒
-            if _check == 'warn':
-                notice = '[绝区零] 你的电量已达提醒阈值！' + ZZZ_NOTICE
-            # 已满
-            if _check == 'full':
-                notice = '[绝区零] 你的电量已满！' + ZZZ_NOTICE
+            notice = _check
             # 初始化
             if bot_id not in msg_dict:
                 msg_dict[bot_id] = {"direct": {}, "group": {}}
@@ -104,11 +99,19 @@ async def all_check(
 
 
 async def check(data: ZZZNoteResp, limit: int) -> str:
-    # 不知道为什么不能用data.xx来取值
-    current = data["energy"]['progress']['current']
-    max = data["energy"]['progress']['max']
-    if current >= max:
-        return 'full'
+    energy_data = data['energy']
+    progress = energy_data['progress']
+    current = progress['current']
+    max_power = progress['max']
+    base_notice = '[绝区零] 你的电量'
+    if current >= max_power:
+        return base_notice + "已满！" + ZZZ_NOTICE
     if current >= limit:
-        return 'warn'
+        current_status = f"当前{current}/{max_power}，将于"
+        if energy_data["day_type"] == 1:
+            current_status += "今"
+        else:
+            current_status += "明"
+        current_status += f"日{energy_data['hour']}:{energy_data['minute']}回满"
+        return base_notice + "已达提醒阈值！\n" + current_status + ZZZ_NOTICE
     return ''

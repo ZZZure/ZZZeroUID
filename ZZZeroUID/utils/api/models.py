@@ -9,6 +9,9 @@ class EnergyProgress(TypedDict):
 class Energy(TypedDict):
     progress: EnergyProgress
     restore: int
+    day_type: int
+    hour: int
+    minute: int
 
 
 class Vitality(TypedDict):
