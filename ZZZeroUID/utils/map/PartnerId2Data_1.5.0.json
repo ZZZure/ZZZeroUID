@@ -125,6 +125,12 @@
         "full_name": "星见雅",
         "en_name": "Miyabi"
     },
+    "1361": {
+        "sprite_id": "39",
+        "name": "「扳机」",
+        "full_name": "...",
+        "en_name": "Trigger"
+    },
     "1121": {
         "sprite_id": "16",
         "name": "本",
@@ -136,6 +142,12 @@
         "name": "丽娜",
         "full_name": "亚历山德丽娜·莎芭丝缇安",
         "en_name": "Rina"
+    },
+    "1351": {
+        "sprite_id": "38",
+        "name": "波可娜",
+        "full_name": "...",
+        "en_name": "Pulchra Fellini"
     },
     "1311": {
         "sprite_id": "36",
@@ -172,6 +184,12 @@
         "name": "柏妮思",
         "full_name": "柏妮思·怀特",
         "en_name": "Burnice"
+    },
+    "1381": {
+        "sprite_id": "40",
+        "name": "银心锡兵·安比",
+        "full_name": "银心锡兵·安比",
+        "en_name": "Silver Soldier - Anby"
     },
     "1191": {
         "sprite_id": "21",
