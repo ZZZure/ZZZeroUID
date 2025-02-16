@@ -9,6 +9,7 @@ from gsuid_core.models import Event
 from gsuid_core.sv import get_plugin_available_prefix
 from gsuid_core.utils.image.convert import convert_img
 
+from .dmg_cal import get_dmg
 from ..utils.name_convert import char_name_to_char_id
 from ..utils.resource.download_file import get_weapon
 from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
@@ -68,7 +69,8 @@ async def draw_char_detail_img(
     async with aiofiles.open(path, 'r', encoding='utf-8') as f:
         data = json.loads(await f.read())  # noqa: F841
 
-    img = get_zzz_bg(1100, 2525, 'bg3')
+    dmg = get_dmg(data)
+    img = get_zzz_bg(1100, 2525 + 58 * len(dmg), 'bg3')
 
     # 角色部分
     char_bg = Image.new('RGBA', (1100, 770))
@@ -460,6 +462,42 @@ async def draw_char_detail_img(
         'mm',
     )
     img.paste(weapon_bg, (0, 949), weapon_bg)
+
+    # 伤害部分
+    for index, d in enumerate(dmg):
+        al = dmg[d]
+        bar_index = index % 2 + 1
+        dmg_bg = Image.open(TEXT_PATH / f'damage_bar{bar_index}.png')
+        dmg_draw = ImageDraw.Draw(dmg_bg)
+        dmg_draw.text(
+            (97, 31),
+            d,
+            'white',
+            zzz_font_thin(30),
+            'lm',
+        )
+        dmg_draw.text(
+            (504, 31),
+            al[0],
+            'white',
+            zzz_font_thin(30),
+            'lm',
+        )
+        dmg_draw.text(
+            (698, 31),
+            al[1],
+            'white',
+            zzz_font_thin(30),
+            'lm',
+        )
+        dmg_draw.text(
+            (891, 31),
+            al[2],
+            'white',
+            zzz_font_thin(30),
+            'lm',
+        )
+        img.paste(dmg_bg, (0, 2460 + index * 58), dmg_bg)
 
     img = add_footer(img)
     img = await convert_img(img)
