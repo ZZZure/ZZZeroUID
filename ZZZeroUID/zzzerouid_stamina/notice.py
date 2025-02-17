@@ -11,7 +11,7 @@ from ..utils.database.model import ZzzPush
 from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
 
 prefix = get_plugin_available_prefix("ZZZeroUID")
-ZZZ_NOTICE = f'\n可发送[{prefix}便签]或者[{prefix}每日]来查看更多信息!\n'
+ZZZ_NOTICE = f'\n可发送[{prefix}便签]或者[{prefix}每日]来查看更多信息!'
 
 
 async def get_notice_list() -> Dict[str, Dict[str, Dict]]:
@@ -105,13 +105,14 @@ async def check(data: ZZZNoteResp, limit: int) -> str:
     max_power = progress['max']
     base_notice = '[绝区零] 你的电量'
     if current >= max_power:
-        return base_notice + "已满！" + ZZZ_NOTICE
+        return base_notice + '已满！' + ZZZ_NOTICE
     if current >= limit:
-        current_status = f"当前{current}/{max_power}，将于"
-        if energy_data["day_type"] == 1:
-            current_status += "今"
+        current_status = f'当前{current}/{max_power}，将于'
+        if energy_data['day_type'] == 1:
+            current_status += '今'
         else:
-            current_status += "明"
-        current_status += f"日{energy_data['hour']}:{energy_data['minute']}回满"
-        return base_notice + "已达提醒阈值！\n" + current_status + ZZZ_NOTICE
+            current_status += '明'
+        minute = str(energy_data['minute']).zfill(2)
+        current_status += f'日{energy_data["hour"]}:{minute}回满'
+        return base_notice + '已达提醒阈值！\n' + current_status + ZZZ_NOTICE
     return ''
