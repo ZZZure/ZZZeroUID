@@ -174,7 +174,7 @@ async def get_new_weapon():
 
 async def get_new():
     await get_new_char()
-    # await get_new_weapon()
+    await get_new_weapon()
 
 
 asyncio.run(get_new())
