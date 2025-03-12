@@ -11,6 +11,7 @@ sys.path.append(str(Path(__file__).parents[2]))
 __package__ = 'ZZZeroUID.tools'
 
 from ZZZeroUID.tools.data_to_map import (  # noqa: E402
+    EquipId2DataFile,
     PartnerId2DataFile,
     WeaponId2SpriteFile,
     PartnerId2SkillParamFile,
@@ -19,6 +20,7 @@ from ZZZeroUID.utils.hakush_api.request import (  # noqa: E402
     get_hakush_char_data,
     get_hakush_weapon_data,
     get_hakush_all_char_data,
+    get_hakush_all_equipment,
     get_hakush_all_weapon_data,
 )
 
@@ -172,9 +174,36 @@ async def get_new_weapon():
             json.dump(weapon2sprite_data, f, indent=4, ensure_ascii=False)
 
 
+async def get_new_equipment():
+    all_equipment_data = await get_hakush_all_equipment()
+    if all_equipment_data:
+        equipment2sprite_data = {}
+
+        for equipment in all_equipment_data:
+            print(equipment)
+            name = (
+                all_equipment_data[equipment]['icon']
+                .split('/')[-1]
+                .split('.')[0]
+            )
+            equipment2sprite_data[equipment] = {
+                'equip_id_list': [],
+                'sprite_file': f'3D{name}',
+            }
+            for i in (
+                list(range(21, 27)) + list(range(31, 37)) + list(range(41, 47))
+            ):
+                equipment2sprite_data[equipment]['equip_id_list'].append(
+                    int(equipment[:3] + str(i))
+                )
+        with open(MAP_PATH / EquipId2DataFile, 'w', encoding='UTF-8') as f:
+            json.dump(equipment2sprite_data, f, indent=4, ensure_ascii=False)
+
+
 async def get_new():
     await get_new_char()
-    # await get_new_weapon()
+    await get_new_weapon()
+    await get_new_equipment()
 
 
 asyncio.run(get_new())

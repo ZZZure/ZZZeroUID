@@ -232,3 +232,17 @@ class WeaponDatabase(TypedDict):
     KO: str
     CHS: str
     JA: str
+
+
+class EquipDesc(TypedDict):
+    name: str
+    desc2: str
+    desc4: str
+
+
+class EquipData(TypedDict):
+    icon: str
+    EN: EquipDesc
+    KO: EquipDesc
+    CHS: EquipDesc
+    JA: EquipDesc

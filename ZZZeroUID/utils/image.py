@@ -72,6 +72,7 @@ camp_map = {
     '新艾利都治安局': 'N.E.P.S.',
     '刑侦特勤组': 'JaneBadge',
     '天琴座': 'StarsOfLyra',
+    '白银小队': 'Silvers',
 }
 
 
