@@ -9,11 +9,13 @@ from .api import (
     ZZZ_NEW,
     ZZZ_WEAPON,
     ZZZ_ALL_CHAR,
+    ZZZ_ALL_EQUIP,
     ZZZ_CHARACTER,
     ZZZ_ALL_WEAPON,
 )
 from .models import (
     NewData,
+    EquipData,
     WeaponData,
     CharacterData,
     WeaponDatabase,
@@ -22,6 +24,13 @@ from .models import (
 
 AnyDict = Dict[str, Any]
 _HEADER = {'User-Agent': f'ZZZeroUID/{ZZZero_version}'}
+
+
+async def get_hakush_all_equipment():
+    data = await _hakush_request(ZZZ_ALL_EQUIP)
+    if isinstance(data, Dict):
+        return cast(Dict[str, EquipData], data)
+    return None
 
 
 async def get_hakush_char_data(
