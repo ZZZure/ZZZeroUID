@@ -26,6 +26,7 @@ from .api import (
     ANN_API,
     ZZZ_API,
     ZZZ_MEM,
+    ENKA_API,
     ZZZ_OS_API,
     ZZZ_BIND_API,
     ZZZ_NOTE_API,
@@ -175,6 +176,12 @@ class ZZZApi(_MysApi):
                     return cast(ZZZUser, i)
             else:
                 return -51
+        return data
+
+    async def get_zzz_enka_data(self, uid: str) -> Union[int, Dict]:
+        data = await self._mys_request(ENKA_API.format(uid), 'GET')
+        if isinstance(data, int):
+            return data
         return data
 
     async def get_zzz_note_info(self, uid: str) -> Union[int, ZZZNoteResp]:

@@ -31,7 +31,7 @@ equip_data = {}
 partner_id_to_data = {}
 
 
-WeaponId2SpriteFile = f'WeaponId2Sprite_{version}.json'
+WeaponId2DataFile = f'WeaponId2Data_{version}.json'
 PartnerId2DataFile = f'PartnerId2Data_{version}.json'
 EquipId2DataFile = f'EquipId2Data_{version}.json'
 PartnerId2SkillParamFile = f'PartnerId2SkillParam_{version}.json'
@@ -77,7 +77,7 @@ def gen_weapon_id_to_sprite():
         weapon_id = item[ID]
         sprite_file = item[SPRITE_FILE]
         weapon_id_to_sprite[weapon_id] = sprite_file
-    with open(MAP_PATH / WeaponId2SpriteFile, 'w', encoding='UTF-8') as f:
+    with open(MAP_PATH / WeaponId2DataFile, 'w', encoding='UTF-8') as f:
         json.dump(weapon_id_to_sprite, f, indent=4, ensure_ascii=False)
     print('[执行完成] gen_weapon_id_to_sprite')
 

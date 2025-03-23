@@ -12,8 +12,8 @@ __package__ = 'ZZZeroUID.tools'
 
 from ZZZeroUID.tools.data_to_map import (  # noqa: E402
     EquipId2DataFile,
+    WeaponId2DataFile,
     PartnerId2DataFile,
-    WeaponId2SpriteFile,
     PartnerId2SkillParamFile,
 )
 from ZZZeroUID.utils.hakush_api.request import (  # noqa: E402
@@ -23,6 +23,27 @@ from ZZZeroUID.utils.hakush_api.request import (  # noqa: E402
     get_hakush_all_equipment,
     get_hakush_all_weapon_data,
 )
+
+PROP_NAME_TO_ID = {
+    '基础生命值': '11101',
+    '生命值': '11103',
+    '生命值百分比': '11102',
+    '生命值上限': '11403',
+    '基础攻击力': '12101',
+    '攻击力': '12103',
+    '攻击力百分比': '12102',
+    '基础防御力': '13101',
+    '防御力': '13103',
+    '防御力百分比': '13102',
+    '冲击力': '12203',
+    '暴击率': '20103',
+    '暴击伤害': '21103',
+    '异常掌控': '31403',
+    '异常精通': '31203',
+    '穿透率': '23103',
+    '穿透值': '23203',
+    '能量自动回复': '30502',
+}
 
 
 def parse_desc(desc, param_dict):
@@ -73,6 +94,7 @@ async def get_new_char():
     all_char_data = await get_hakush_all_char_data()
     partner_data = {}
     skill_data = {}
+
     if all_char_data:
         for char in all_char_data:
             print(char)
@@ -137,6 +159,59 @@ async def get_new_char():
                                     )
                                 )
 
+                partner_data[char].update(
+                    {
+                        'WeaponType': '',
+                        'ElementType': '',
+                        'Camp': '',
+                        'HitType': '',
+                        'Rarity': '',
+                    }
+                )
+
+                stats = [
+                    'Attack',
+                    'AttackGrowth',
+                    'BreakStun',
+                    'Defence',
+                    'DefenceGrowth',
+                    'HpMax',
+                    'HpGrowth',
+                    'Crit',
+                    'CritDamage',
+                    'ElementAbnormalPower',
+                    'ElementMystery',
+                    'PenDelta',
+                    'PenRate',
+                    'SpRecover',
+                ]
+
+                partner_data[char].update({k: 0 for k in stats})
+
+                if char not in ['2011', '2021']:
+                    partner_data[char].update(
+                        {
+                            'WeaponType': list(char_data['WeaponType'].keys())[
+                                0
+                            ],
+                            'ElementType': list(
+                                char_data['ElementType'].keys()
+                            )[0],
+                            'Camp': list(char_data['Camp'].values())[0],
+                            'HitType': list(char_data['HitType'].values())[0],
+                            'Rarity': {4: 'S', 3: 'A'}.get(
+                                char_data['Rarity'], 'A'
+                            ),
+                        }
+                    )
+
+                    for k in char_data['Stats']:
+                        if k in stats:
+                            partner_data[char][k] = char_data['Stats'][k]
+
+                    partner_data[char]['Level'] = char_data['Level']
+                    partner_data[char]['ExtraLevel'] = char_data['ExtraLevel']
+
             await asyncio.sleep(3)
 
         with open(
@@ -157,7 +232,7 @@ async def get_new_char():
 async def get_new_weapon():
     all_weapon_data = await get_hakush_all_weapon_data()
     if all_weapon_data:
-        weapon2sprite_data = {}
+        weapon_result = {}
         for weapon in all_weapon_data:
             print(weapon)
             for _ in range(5):
@@ -169,9 +244,26 @@ async def get_new_weapon():
                     await asyncio.sleep(30)
                     continue
             if weapon_data:
-                weapon2sprite_data[weapon] = weapon_data['CodeName']
-        with open(MAP_PATH / WeaponId2SpriteFile, 'w', encoding='UTF-8') as f:
-            json.dump(weapon2sprite_data, f, indent=4, ensure_ascii=False)
+                weapon_result[weapon] = {
+                    'code_name': weapon_data['CodeName'],
+                    'name': weapon_data['Name'],
+                    'talents': weapon_data['Talents'],
+                    'rarity': 'S' if weapon_data['Rarity'] == 4 else 'A',
+                    'props_name': weapon_data['BaseProperty']['Name'],
+                    'props_id': PROP_NAME_TO_ID[
+                        weapon_data['BaseProperty']['Name2']
+                    ],
+                    'props_value': weapon_data['BaseProperty']['Value'],
+                    'rand_props_name': weapon_data['RandProperty']['Name'],
+                    'rand_props_id': PROP_NAME_TO_ID[
+                        weapon_data['RandProperty']['Name2']
+                    ],
+                    'rand_props_value': weapon_data['RandProperty']['Value'],
+                    'level': weapon_data['Level'],
+                    'stars': weapon_data['Stars'],
+                }
+        with open(MAP_PATH / WeaponId2DataFile, 'w', encoding='UTF-8') as f:
+            json.dump(weapon_result, f, indent=4, ensure_ascii=False)
 
 
 async def get_new_equipment():
@@ -189,6 +281,9 @@ async def get_new_equipment():
             equipment2sprite_data[equipment] = {
                 'equip_id_list': [],
                 'sprite_file': f'3D{name}',
+                'equip_name': all_equipment_data[equipment]['CHS']['name'],
+                'desc1': all_equipment_data[equipment]['CHS']['desc2'],
+                'desc2': all_equipment_data[equipment]['CHS']['desc4'],
             }
             for i in (
                 list(range(21, 27)) + list(range(31, 37)) + list(range(41, 47))
@@ -201,9 +296,9 @@ async def get_new_equipment():
 
 
 async def get_new():
-    await get_new_char()
+    # await get_new_char()
     await get_new_weapon()
-    await get_new_equipment()
+    # await get_new_equipment()
 
 
 asyncio.run(get_new())

@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Any, Dict, Union, Literal, Optional, cast
 
 from httpx import AsyncClient
+from gsuid_core.utils.api.utils import cache_data
 
 from ...version import ZZZero_version
 from .api import (
@@ -33,6 +34,7 @@ async def get_hakush_all_equipment():
     return None
 
 
+@cache_data
 async def get_hakush_char_data(
     id: Union[int, str],
 ) -> Optional[CharacterData]:
@@ -56,6 +58,7 @@ async def get_hakush_all_weapon_data() -> Optional[Dict[str, WeaponDatabase]]:
     return None
 
 
+@cache_data
 async def get_hakush_weapon_data(
     id: Union[int, str],
 ) -> Optional[WeaponData]:

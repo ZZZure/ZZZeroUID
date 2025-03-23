@@ -159,6 +159,10 @@ class EquipProperty(TypedDict):
     property_name: str
     property_id: int
     base: str  # Base value, could be an empty string if not applicable
+    level: int
+    valid: bool
+    system_id: int
+    add: int
 
 
 class EquipMainProperty(TypedDict):

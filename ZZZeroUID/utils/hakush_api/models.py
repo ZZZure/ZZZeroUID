@@ -18,8 +18,8 @@ class Stats(TypedDict):
     CritDamage: int
     CritDmgRes: int
     CritRes: int
-    Defence: int
-    DefenceGrowth: int
+    Defense: int
+    DefenseGrowth: int
     ElementAbnormalPower: int
     ElementMystery: int
     Endurance: int

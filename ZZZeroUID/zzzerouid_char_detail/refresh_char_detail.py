@@ -12,6 +12,7 @@ from ..utils.zzzero_api import zzz_api
 from ..utils.api.models import ZZZAvatarInfo
 from .draw_char_detail_card import TEXT_PATH
 from ..utils.fonts.zzz_fonts import zzz_font_40
+from ..utils.enka_to_mys import _enka_data_to_mys_data
 from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
 from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
 from ..utils.image import (
@@ -24,11 +25,24 @@ from ..utils.image import (
 REFRESH_BG_PATH = TEXT_PATH / 'refresh_bg'
 
 
-async def refresh_char(
+async def refresh_char_by_enka(
     uid: str,
     ev: Event,
     only_refresh: bool = False,
-) -> Union[str, bytes]:
+):
+    raw_data = await zzz_api.get_zzz_enka_data(uid)
+    if isinstance(raw_data, int):
+        return error_reply(raw_data)
+    data = await _enka_data_to_mys_data(raw_data)
+
+    return await refresh_char(uid, data, ev, only_refresh)
+
+
+async def refresh_char_by_mys(
+    uid: str,
+    ev: Event,
+    only_refresh: bool = False,
+):
     raw_data = await zzz_api.get_zzz_avatar_basic_info(uid)
     if isinstance(raw_data, int):
         return error_reply(raw_data)
@@ -37,6 +51,15 @@ async def refresh_char(
     if isinstance(data, int):
         return error_reply(data)
 
+    return await refresh_char(uid, data, ev, only_refresh)
+
+
+async def refresh_char(
+    uid: str,
+    data: List[ZZZAvatarInfo],
+    ev: Event,
+    only_refresh: bool = False,
+) -> Union[str, bytes]:
     now = datetime.now()
     current_time = now.strftime('%Y-%m-%d %H:%M:%S')
 

@@ -41,3 +41,5 @@ ZZZ_GET_GACHA_LOG_API = f'{PUBILC_GACHA_LOG_API}/getGachaLog'
 
 
 ANN_API = 'https://announcement-api.mihoyo.com/common/nap_cn/announcement/api'
+
+ENKA_API = 'https://enka.network/api/zzz/uid/{}'

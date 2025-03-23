@@ -1,12 +1,12 @@
 from pathlib import Path
-from typing import Dict, List, Union, Optional
+from typing import Any, Dict, List, Union, Optional
 
 from msgspec import json as msgjson
 
 from ..tools.data_to_map import (
     EquipId2DataFile,
+    WeaponId2DataFile,
     PartnerId2DataFile,
-    WeaponId2SpriteFile,
 )
 
 MAP_PATH = Path(__file__).parent / "map"
@@ -18,10 +18,10 @@ with open(CHAR_ALIAS, "r", encoding="UTF-8") as f:
     char_alias_data = msgjson.decode(f.read(), type=Dict[str, List[str]])
 
 with open(MAP_PATH / PartnerId2DataFile, "r", encoding="UTF-8") as f:
-    partener_data = msgjson.decode(f.read(), type=Dict[str, Dict[str, str]])
+    partener_data = msgjson.decode(f.read(), type=Dict[str, Dict[str, Any]])
 
-with open(MAP_PATH / WeaponId2SpriteFile, "r", encoding="UTF-8") as f:
-    weapon_data = msgjson.decode(f.read(), type=Dict[str, str])
+with open(MAP_PATH / WeaponId2DataFile, "r", encoding="UTF-8") as f:
+    weapon_data = msgjson.decode(f.read(), type=Dict[str, Any])
 
 with open(MAP_PATH / EquipId2DataFile, "r", encoding="UTF-8") as f:
     equip_data = msgjson.decode(f.read(), type=Dict[str, Dict])

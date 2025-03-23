@@ -5,8 +5,9 @@ from gsuid_core.logger import logger
 
 from ..utils.uid import get_uid
 from ..utils.hint import BIND_UID_HINT
-from .refresh_char_detail import refresh_char
+from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
 from .draw_new_char_detail_card import draw_char_detail_img
+from .refresh_char_detail import refresh_char_by_mys, refresh_char_by_enka
 
 sv_char_detail_refresh = SV('zzz角色面板刷新')
 sv_char_detail = SV('zzz角色面板')
@@ -25,7 +26,11 @@ async def send_refresh_char_detail_msg(bot: Bot, ev: Event):
     if not uid:
         return await bot.send(BIND_UID_HINT)
 
-    im = await refresh_char(uid, ev)
+    is_enka = ZZZ_CONFIG.get_config('EnableEnkaData').data
+    if is_enka:
+        im = await refresh_char_by_enka(uid, ev)
+    else:
+        im = await refresh_char_by_mys(uid, ev)
     return await bot.send(im)
 
 
