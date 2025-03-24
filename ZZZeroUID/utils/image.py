@@ -73,6 +73,7 @@ camp_map = {
     '刑侦特勤组': 'JaneBadge',
     '天琴座': 'StarsOfLyra',
     '防卫军·白银小队': 'Silvers',
+    '防卫军·奥波勒斯小队': 'Obols',
 }
 
 
