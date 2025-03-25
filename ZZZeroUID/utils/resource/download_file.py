@@ -77,9 +77,10 @@ async def get_square_bangboo(bangboo_id: Union[str, int]) -> Image.Image:
 async def get_weapon(weapon_id: Union[str, int]) -> Image.Image:
     img = Image.new("RGBA", (400, 400))
     if str(weapon_id) in weapon_data:
+
         weapon_sprite = weapon_data[str(weapon_id)]
-        path_1 = WEAPON_PATH / f"{weapon_sprite}.png"
-        path_2 = WEAPON_PATH / f"{weapon_sprite}_High.png"
+        path_1 = WEAPON_PATH / f"{weapon_sprite['code_name']}.png"
+        path_2 = WEAPON_PATH / f"{weapon_sprite['code_name']}_High.png"
         if path_2.exists():
             weapon = Image.open(path_2)
         elif path_1.exists():
