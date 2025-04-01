@@ -12,7 +12,7 @@ from ..utils.hint import error_reply
 from ..utils.resource.download_file import get_weapon
 from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
 from ..zzzerouid_char_detail.utils import get_skill_dict
-from ..zzzerouid_char_detail.refresh_char_detail import refresh_char
+from ..zzzerouid_char_detail.refresh_char_detail import refresh_char_by_mys
 from ..utils.fonts.zzz_fonts import (
     zzz_font_18,
     zzz_font_20,
@@ -66,7 +66,7 @@ def get_shape(value: str, color: Image.Image):
 
 
 async def draw_char_list_img(uid: str, ev: Event) -> Union[str, bytes]:
-    await refresh_char(uid, ev, True)
+    await refresh_char_by_mys(uid, ev, True)
 
     path = PLAYER_PATH / uid
     if not path.exists():
