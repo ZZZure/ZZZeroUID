@@ -1,0 +1,182 @@
+{
+    "原始朋克": {
+        "normal_effect": {
+            "desc1": "",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "DmgBonus+1500"
+        }
+    },
+    "自由蓝调": {
+        "normal_effect": {
+            "desc1": "ElementMystery+30",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": ""
+        }
+    },
+    "摇摆爵士": {
+        "normal_effect": {
+            "desc1": "",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "DmgBonus+1500"
+        }
+    },
+    "折枝剑歌": {
+        "normal_effect": {
+            "desc1": "CritDmg+1600",
+            "desc2": "CritDmg+3000"
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "Crit+1200"
+        }
+    },
+    "河豚电音": {
+        "normal_effect": {
+            "desc1": "PenRate+800",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "Q:DmgBonus+2000;AttackAdd+1500"
+        }
+    },
+    "震星迪斯科": {
+        "normal_effect": {
+            "desc1": "BreakStunAdd+600",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": ""
+        }
+    },
+    "静听嘉音": {
+        "normal_effect": {
+            "desc1": "AttackAdd+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "DmgBonus+2400"
+        }
+    },
+    "雷暴重金属": {
+        "normal_effect": {
+            "desc1": "ThunderDmgBonus+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "AttackAdd+2800"
+        }
+    },
+    "如影相随": {
+        "normal_effect": {
+            "desc1": "",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "XE:DmgBonus+1500",
+            "desc2": "AttackAdd+1200;Crit+1200"
+        }
+    },
+    "灵魂摇滚": {
+        "normal_effect": {
+            "desc1": "DefenceAdd+1600",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": ""
+        }
+    },
+    "极地重金属": {
+        "normal_effect": {
+            "desc1": "IceDmgBonus+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "AX:DmgBonus+4000"
+        }
+    },
+    "獠牙重金属": {
+        "normal_effect": {
+            "desc1": "PsyDmgBonus+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "DmgBonus+3500"
+        }
+    },
+    "混沌爵士": {
+        "normal_effect": {
+            "desc1": "ElementMystery+30",
+            "desc2": "FireDmgBonus+1500;ThunderDmgBonus+1500"
+        },
+        "skill_effect": {
+            "desc1": "异常精通+30点。",
+            "desc2": "CPE:DmgBonus+2000"
+        }
+    },
+    "法厄同之歌": {
+        "normal_effect": {
+            "desc1": "ElementAbnormalAdd+800",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "ElementMystery+45;EtherDmgBonus+2500"
+        }
+    },
+    "激素朋克": {
+        "normal_effect": {
+            "desc1": "AttackAdd+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "AttackAdd+2500"
+        }
+    },
+    "炎狱重金属": {
+        "normal_effect": {
+            "desc1": "FireDmgBonus+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "Crit+2800"
+        }
+    },
+    "啄木鸟电音": {
+        "normal_effect": {
+            "desc1": "Crit+800",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "ASC:AttackAdd+2700"
+        }
+    },
+    "混沌重金属": {
+        "normal_effect": {
+            "desc1": "EtherDmgBonus+1000",
+            "desc2": "CritDmg+2000"
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "CritDmg+3300"
+        }
+    }
+}

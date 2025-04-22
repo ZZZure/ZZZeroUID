@@ -1,0 +1,1042 @@
+{
+    "飞鸟星梦": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "ElementMystery+120",
+            "2": "ElementMystery+138",
+            "3": "ElementMystery+156",
+            "4": "ElementMystery+174",
+            "5": "ElementMystery+192"
+        }
+    },
+    "千面日陨": {
+        "normal_effect": {
+            "1": "CritDmg+3500",
+            "2": "CritDmg+4025",
+            "3": "CritDmg+4550",
+            "4": "CritDmg+5075",
+            "5": "CritDmg+5600"
+        },
+        "skill_effect": {
+            "1": "D+-3000",
+            "2": "D+-3450",
+            "3": "D+-3900",
+            "4": "D+-4300",
+            "5": "D+-4800"
+        }
+    },
+    "仿制星徽引擎": {
+        "normal_effect": {
+            "1": "PhysDmgBonus+3600",
+            "2": "PhysDmgBonus+4100",
+            "3": "PhysDmgBonus+4650",
+            "4": "PhysDmgBonus+5200",
+            "5": "PhysDmgBonus+5750"
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "硫磺石": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "AttackAdd+2800",
+            "2": "AttackAdd+3520",
+            "3": "AttackAdd+4160",
+            "4": "AttackAdd+4800",
+            "5": "AttackAdd+5400"
+        }
+    },
+    "「湍流」-斧型": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "BreakStunAdd+900",
+            "2": "BreakStunAdd+1000",
+            "3": "BreakStunAdd+1100",
+            "4": "BreakStunAdd+1200",
+            "5": "BreakStunAdd+1300"
+        }
+    },
+    "奔袭獠牙": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "DmgBonus+1800;ShieldAdd+3000",
+            "2": "DmgBonus+2250;ShieldAdd+3800",
+            "3": "DmgBonus+2700;ShieldAdd+4600",
+            "4": "DmgBonus+3150;ShieldAdd+5200",
+            "5": "DmgBonus+3600;ShieldAdd+6000"
+        }
+    },
+    "聚宝箱": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "DmgBonus+1500",
+            "2": "DmgBonus+1750",
+            "3": "DmgBonus+2000",
+            "4": "DmgBonus+2200",
+            "5": "DmgBonus+2400"
+        }
+    },
+    "时光切片": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "含羞恶面": {
+        "normal_effect": {
+            "1": "IceDmgBonus+1500",
+            "2": "IceDmgBonus+1750",
+            "3": "IceDmgBonus+2000",
+            "4": "IceDmgBonus+2200",
+            "5": "IceDmgBonus+2400"
+        },
+        "skill_effect": {
+            "1": "AttackAdd+800",
+            "2": "AttackAdd+920",
+            "3": "AttackAdd+1040",
+            "4": "AttackAdd+1160",
+            "5": "AttackAdd+1280"
+        }
+    },
+    "「月相」-朔": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "「月相」-晦": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "WQ:DmgBonus+1500",
+            "2": "WQ:DmgBonus+1750",
+            "3": "WQ:DmgBonus+2000",
+            "4": "WQ:DmgBonus+2250",
+            "5": "WQ:DmgBonus+2500"
+        }
+    },
+    "裁纸刀": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "PhysDmgBonus+1500",
+            "2": "PhysDmgBonus+1730",
+            "3": "PhysDmgBonus+1950",
+            "4": "PhysDmgBonus+2180",
+            "5": "PhysDmgBonus+2400"
+        }
+    },
+    "薇薇安测试音擎": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "双生泣星": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "ElementMystery+120",
+            "2": "ElementMystery+136",
+            "3": "ElementMystery+152",
+            "4": "ElementMystery+168",
+            "5": "ElementMystery+192"
+        }
+    },
+    "加农转子": {
+        "normal_effect": {
+            "1": "AttackAdd+750",
+            "2": "AttackAdd+860",
+            "3": "AttackAdd+970",
+            "4": "AttackAdd+1080",
+            "5": "AttackAdd+1200"
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "雨林饕客": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "AttackAdd+2500",
+            "2": "AttackAdd+2800",
+            "3": "AttackAdd+3200",
+            "4": "AttackAdd+3600",
+            "5": "AttackAdd+4000"
+        }
+    },
+    "兔能环": {
+        "normal_effect": {
+            "1": "HpAdd+800",
+            "2": "HpAdd+920",
+            "3": "HpAdd+1040",
+            "4": "HpAdd+1160",
+            "5": "HpAdd+1280"
+        },
+        "skill_effect": {
+            "1": "AttackAdd+1000",
+            "2": "AttackAdd+1150",
+            "3": "AttackAdd+1300",
+            "4": "AttackAdd+1450",
+            "5": "AttackAdd+1600"
+        }
+    },
+    "焰心桂冠": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "BreakStunAdd+2500",
+            "2": "BreakStunAdd+2875",
+            "3": "BreakStunAdd+3250",
+            "4": "BreakStunAdd+3625",
+            "5": "BreakStunAdd+4000"
+        }
+    },
+    "春日融融": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "钢铁肉垫": {
+        "normal_effect": {
+            "1": "PhysDmgBonus+2000",
+            "2": "PhysDmgBonus+2500",
+            "3": "PhysDmgBonus+3000",
+            "4": "PhysDmgBonus+3500",
+            "5": "PhysDmgBonus+4000"
+        },
+        "skill_effect": {
+            "1": "DmgBonus+2500",
+            "2": "DmgBonus+3150",
+            "3": "DmgBonus+3800",
+            "4": "DmgBonus+4400",
+            "5": "DmgBonus+5000"
+        }
+    },
+    "强音热望": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "AttackAdd+1200",
+            "2": "AttackAdd+1380",
+            "3": "AttackAdd+1560",
+            "4": "AttackAdd+1740",
+            "5": "AttackAdd+1920"
+        }
+    },
+    "时流贤者": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "ElementMystery+75",
+            "2": "ElementMystery+85",
+            "3": "ElementMystery+95",
+            "4": "ElementMystery+105",
+            "5": "ElementMystery+115"
+        }
+    },
+    "残心青囊": {
+        "normal_effect": {
+            "1": "Crit+1000",
+            "2": "Crit+1150",
+            "3": "Crit+1300",
+            "4": "Crit+1450",
+            "5": "Crit+1600"
+        },
+        "skill_effect": {
+            "1": "Crit+1000;X:ThunderDmgBonus+4000",
+            "2": "Crit+1150;X:ThunderDmgBonus+4600",
+            "3": "Crit+1300;X:ThunderDmgBonus+5200",
+            "4": "Crit+1450;X:ThunderDmgBonus+5800",
+            "5": "Crit+1600;X:ThunderDmgBonus+6400"
+        }
+    },
+    "拘缚者": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "A:DmgBonus+3000",
+            "2": "A:DmgBonus+3750",
+            "3": "A:DmgBonus+4500",
+            "4": "A:DmgBonus+5250",
+            "5": "A:DmgBonus+6000"
+        }
+    },
+    "嵌合编译器": {
+        "normal_effect": {
+            "1": "AttackAdd+1200",
+            "2": "AttackAdd+1500",
+            "3": "AttackAdd+1800",
+            "4": "AttackAdd+2100",
+            "5": "AttackAdd+2400"
+        },
+        "skill_effect": {
+            "1": "ElementMystery+75",
+            "2": "ElementMystery+93",
+            "3": "ElementMystery+111",
+            "4": "ElementMystery+129",
+            "5": "ElementMystery+150"
+        }
+    },
+    "「电磁暴」-贰式": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "ElementMystery+25",
+            "2": "ElementMystery+28",
+            "3": "ElementMystery+32",
+            "4": "ElementMystery+36",
+            "5": "ElementMystery+40"
+        }
+    },
+    "雨果测试音擎": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "牺牲洁纯": {
+        "normal_effect": {
+            "1": "CritDmg+3000",
+            "2": "CritDmg+3450",
+            "3": "CritDmg+3900",
+            "4": "CritDmg+4350",
+            "5": "CritDmg+4800"
+        },
+        "skill_effect": {
+            "1": "CritDmg+3000;ThunderDmgBonus+2000",
+            "2": "CritDmg+3450;ThunderDmgBonus+2300",
+            "3": "CritDmg+3900;ThunderDmgBonus+2600",
+            "4": "CritDmg+4350;ThunderDmgBonus+2900",
+            "5": "CritDmg+4800;ThunderDmgBonus+3200"
+        }
+    },
+    "索魂影眸": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "BreakStunAdd+2000;D+-2500",
+            "2": "BreakStunAdd+2300;D+-2875",
+            "3": "BreakStunAdd+2600;D+-3250",
+            "4": "BreakStunAdd+2900;D+-3625",
+            "5": "BreakStunAdd+3200;D+-4000"
+        }
+    },
+    "正版变身器": {
+        "normal_effect": {
+            "1": "HpAdd+800",
+            "2": "HpAdd+900",
+            "3": "HpAdd+1000",
+            "4": "HpAdd+1100",
+            "5": "HpAdd+1250"
+        },
+        "skill_effect": {
+            "1": "BreakStunAdd+1000",
+            "2": "BreakStunAdd+1150",
+            "3": "BreakStunAdd+1300",
+            "4": "BreakStunAdd+1450",
+            "5": "BreakStunAdd+1600"
+        }
+    },
+    "「残响」-Ⅱ型": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "ElementMystery+10",
+            "2": "ElementMystery+12",
+            "3": "ElementMystery+13",
+            "4": "ElementMystery+15",
+            "5": "ElementMystery+16"
+        }
+    },
+    "比格气缸": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "「湍流」-铳型": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "深海访客": {
+        "normal_effect": {
+            "1": "IceDmgBonus+2500",
+            "2": "IceDmgBonus+3150",
+            "3": "IceDmgBonus+3800",
+            "4": "IceDmgBonus+4450",
+            "5": "IceDmgBonus+5000"
+        },
+        "skill_effect": {
+            "1": "Crit+2000",
+            "2": "Crit+2500",
+            "3": "Crit+3000",
+            "4": "Crit+3500",
+            "5": "Crit+4000"
+        }
+    },
+    "心弦夜响": {
+        "normal_effect": {
+            "1": "CritDmg+5000",
+            "2": "CritDmg+5750",
+            "3": "CritDmg+6500",
+            "4": "CritDmg+7250",
+            "5": "CritDmg+8000"
+        },
+        "skill_effect": {
+            "1": "FireResist+-1250",
+            "2": "FireResist+-1450",
+            "3": "FireResist+-1650",
+            "4": "FireResist+-1850",
+            "5": "FireResist+-2000"
+        }
+    },
+    "灼心摇壶": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "DmgBonus+3500;ElementMystery+50",
+            "2": "DmgBonus+4400;ElementMystery+62",
+            "3": "DmgBonus+5200;ElementMystery+75",
+            "4": "DmgBonus+6100;ElementMystery+87",
+            "5": "DmgBonus+7000;ElementMystery+100"
+        }
+    },
+    "防暴者Ⅵ型": {
+        "normal_effect": {
+            "1": "Crit+1500",
+            "2": "Crit+1880",
+            "3": "Crit+2260",
+            "4": "Crit+2640",
+            "5": "Crit+3000"
+        },
+        "skill_effect": {
+            "1": "A:EtherDmgBonus+3500",
+            "2": "A:EtherDmgBonus+4350",
+            "3": "A:EtherDmgBonus+5200",
+            "4": "A:EtherDmgBonus+6050",
+            "5": "A:EtherDmgBonus+7000"
+        }
+    },
+    "德玛拉电池Ⅱ型": {
+        "normal_effect": {
+            "1": "ThunderDmgBonus+1500",
+            "2": "ThunderDmgBonus+1750",
+            "3": "ThunderDmgBonus+2000",
+            "4": "ThunderDmgBonus+2200",
+            "5": "ThunderDmgBonus+2400"
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "燃狱齿轮": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "BreakStunAdd+2000",
+            "2": "BreakStunAdd+2500",
+            "3": "BreakStunAdd+3000",
+            "4": "BreakStunAdd+3500",
+            "5": "BreakStunAdd+4000"
+        }
+    },
+    "「恒等式」-本格": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "DefenceAdd+2000",
+            "2": "DefenceAdd+2300",
+            "3": "DefenceAdd+2600",
+            "4": "DefenceAdd+2900",
+            "5": "DefenceAdd+3200"
+        }
+    },
+    "「残响」-Ⅲ型": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "AttackAdd+800",
+            "2": "AttackAdd+900",
+            "3": "AttackAdd+1000",
+            "4": "AttackAdd+1100",
+            "5": "AttackAdd+1200"
+        }
+    },
+    "霰落星殿": {
+        "normal_effect": {
+            "1": "CritDmg+5000",
+            "2": "CritDmg+5700",
+            "3": "CritDmg+6500",
+            "4": "CritDmg+7200",
+            "5": "CritDmg+8000"
+        },
+        "skill_effect": {
+            "1": "C:IceDmgBonus+2000",
+            "2": "C:IceDmgBonus+2300",
+            "3": "C:IceDmgBonus+2600",
+            "4": "C:IceDmgBonus+2900",
+            "5": "C:IceDmgBonus+3200"
+        }
+    },
+    "星徽引擎": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "AttackAdd+1200",
+            "2": "AttackAdd+1380",
+            "3": "AttackAdd+1560",
+            "4": "AttackAdd+1740",
+            "5": "AttackAdd+1920"
+        }
+    },
+    "「恒等式」-变格": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "人为刀俎": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "BreakStunAdd+1600",
+            "2": "BreakStunAdd+1840",
+            "3": "BreakStunAdd+2080",
+            "4": "BreakStunAdd+2320",
+            "5": "BreakStunAdd+2560"
+        }
+    },
+    "玲珑妆匣": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "DmgBonus+2000",
+            "2": "DmgBonus+2300",
+            "3": "DmgBonus+2600",
+            "4": "DmgBonus+2900",
+            "5": "DmgBonus+3200"
+        }
+    },
+    "维序者-特化型": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "旋钻机-赤轴": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "AX:ThunderDmgBonus+5000",
+            "2": "AX:ThunderDmgBonus+5750",
+            "3": "AX:ThunderDmgBonus+6500",
+            "4": "AX:ThunderDmgBonus+7250",
+            "5": "AX:ThunderDmgBonus+8000"
+        }
+    },
+    "啜泣摇篮": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "DmgBonus+2020",
+            "2": "DmgBonus+2450",
+            "3": "DmgBonus+3000",
+            "4": "DmgBonus+3550",
+            "5": "DmgBonus+3980"
+        }
+    },
+    "「电磁暴」-壹式": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "ElementMystery+25",
+            "2": "ElementMystery+28",
+            "3": "ElementMystery+32",
+            "4": "ElementMystery+36",
+            "5": "ElementMystery+40"
+        }
+    },
+    "好斗的阿炮": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "AttackAdd+1000",
+            "2": "AttackAdd+1120",
+            "3": "AttackAdd+1280",
+            "4": "AttackAdd+1440",
+            "5": "AttackAdd+1600"
+        }
+    },
+    "触电唇彩": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "AttackAdd+1000;DmgBonus+1500",
+            "2": "AttackAdd+1150;DmgBonus+1750",
+            "3": "AttackAdd+1300;DmgBonus+2000",
+            "4": "AttackAdd+1450;DmgBonus+2250",
+            "5": "AttackAdd+1600;DmgBonus+2500"
+        }
+    },
+    "鎏金花信": {
+        "normal_effect": {
+            "1": "AttackAdd+600",
+            "2": "AttackAdd+690",
+            "3": "AttackAdd+780",
+            "4": "AttackAdd+870",
+            "5": "AttackAdd+960"
+        },
+        "skill_effect": {
+            "1": "C:DmgBonus+1500",
+            "2": "C:DmgBonus+1720",
+            "3": "C:DmgBonus+1950",
+            "4": "C:DmgBonus+2180",
+            "5": "C:DmgBonus+2400"
+        }
+    },
+    "「残响」-Ⅰ型": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "BreakStunAdd+800",
+            "2": "BreakStunAdd+900",
+            "3": "BreakStunAdd+1000",
+            "4": "BreakStunAdd+1100",
+            "5": "BreakStunAdd+1200"
+        }
+    },
+    "淬锋钳刺": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "PhysDmgBonus+3600",
+            "2": "PhysDmgBonus+4500",
+            "3": "PhysDmgBonus+5400",
+            "4": "PhysDmgBonus+6300",
+            "5": "PhysDmgBonus+7200"
+        }
+    },
+    "「湍流」-矢型": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "「月相」-望": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "AXS:DmgBonus+1200",
+            "2": "AXS:DmgBonus+1400",
+            "3": "AXS:DmgBonus+1600",
+            "4": "AXS:DmgBonus+1800",
+            "5": "AXS:DmgBonus+2000"
+        }
+    },
+    "家政员": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "PsyDmgBonus+4500",
+            "2": "PsyDmgBonus+5250",
+            "3": "PsyDmgBonus+6000",
+            "4": "PsyDmgBonus+6600",
+            "5": "PsyDmgBonus+7200"
+        }
+    },
+    "逍遥游球": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "Crit+1200",
+            "2": "Crit+1350",
+            "3": "Crit+1550",
+            "4": "Crit+1750",
+            "5": "Crit+2000"
+        }
+    },
+    "玉壶青冰": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "BreakStunAdd+2100;DmgBonus+2000",
+            "2": "BreakStunAdd+2640;DmgBonus+2300",
+            "3": "BreakStunAdd+3150;DmgBonus+2600",
+            "4": "BreakStunAdd+3660;DmgBonus+2900",
+            "5": "BreakStunAdd+4200;DmgBonus+3200"
+        }
+    },
+    "街头巨星": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "Q:DmgBonus+4500",
+            "2": "Q:DmgBonus+5160",
+            "3": "Q:DmgBonus+5850",
+            "4": "Q:DmgBonus+6510",
+            "5": "Q:DmgBonus+7200"
+        }
+    },
+    "贵重骨核": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "「电磁暴」-叁式": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "左轮转子": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "轰鸣座驾": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "AttackAdd+800;ElementMystery+40",
+            "2": "AttackAdd+920;ElementMystery+46",
+            "3": "AttackAdd+1040;ElementMystery+52",
+            "4": "AttackAdd+1160;ElementMystery+58",
+            "5": "AttackAdd+1280;ElementMystery+64"
+        }
+    }
+}

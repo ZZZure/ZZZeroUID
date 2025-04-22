@@ -17,6 +17,7 @@ ID_TO_PROP_NAME = {
     '13101': '防御力',
     '13103': '防御力',
     '13102': '防御力',
+    '12202': '冲击力',
     '12203': '冲击力',
     '20103': '暴击率',
     '21103': '暴击伤害',
@@ -46,6 +47,7 @@ ID_TO_EN = {
     '13101': 'Defence',
     '13103': 'DefenceBase',
     '13102': 'DefenceAdd',
+    '12202': 'BreakStunAdd',
     '12203': 'BreakStun',
     '20103': 'Crit',
     '21103': 'CritDmg',
@@ -76,6 +78,7 @@ PERCENT_ID = [
     '11102',
     '12102',
     '13102',
+    '12202',
     '20103',
     '21103',
     '23103',
@@ -124,6 +127,18 @@ MAIN_PROP_VALUE = {
     '31803': 450,
     '31903': 450,
 }
+
+'''
+A 普攻
+B 特殊
+C 强化特殊
+X 冲刺攻击
+S 闪避反击
+W 连携技
+Q 终结技
+P 快速支援
+E 支援突击
+'''
 
 
 def _determine_char_star_tier(level: int):
@@ -401,6 +416,7 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
 
         result['weapon'] = weapon
 
+        print(props)
         # 处理属性
         props['CritDmg'] += props['CritDamage']
         del props['CritDamage']
@@ -467,6 +483,6 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
         timestamp = char['ObtainmentTimestamp']
         result['current_time'] = datetime.fromtimestamp(timestamp)
 
-        result_list.append(result)
+        result_list.append(result)  # type: ignore
 
     return result_list
