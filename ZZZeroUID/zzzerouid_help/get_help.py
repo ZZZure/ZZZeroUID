@@ -1,9 +1,9 @@
+import json
 from typing import Dict
 from pathlib import Path
 
 import aiofiles
 from PIL import Image
-from msgspec import json as msgjson
 from gsuid_core.help.model import PluginHelp
 from gsuid_core.sv import get_plugin_available_prefix
 from gsuid_core.help.draw_new_plugin_help import get_new_help
@@ -19,7 +19,7 @@ TEXT_PATH = Path(__file__).parent / 'texture2d'
 
 async def get_help_data() -> Dict[str, PluginHelp]:
     async with aiofiles.open(HELP_DATA, 'rb') as file:
-        return msgjson.decode(await file.read(), type=Dict[str, PluginHelp])
+        return json.loads(await file.read())
 
 
 async def get_help():

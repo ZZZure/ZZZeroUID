@@ -3,13 +3,14 @@
 <p align="center">
   <a href="https://github.com/ZZZure/ZZZeroUID"><img src="https://s2.loli.net/2024/04/19/hOEDmsoUFy6nH5d.jpg" width="480" height="270" alt="StarRailUID"></a>
 </p>
-<h1 align = "center">ZZZeroUID 1.1</h1>
+<h1 align = "center">ZZZeroUID 1.8.0</h1>
 <h4 align = "center">🚧支持OneBot(QQ)、QQ频道、微信、开黑啦、Telegram的全功能绝区零Bot插件🚧</h4>
 <div align = "center">
         <a href="https://docs.sayu-bot.com/" target="_blank">安装文档</a> &nbsp; · &nbsp;
         <a href="https://docs.sayu-bot.com/插件帮助/ZZZeroUID.html" target="_blank">指令列表</a> &nbsp; · &nbsp;
         <a href="https://docs.sayu-bot.com/常见问题/">常见问题</a>
 </div>
+
 
 
 ## 丨安装提醒

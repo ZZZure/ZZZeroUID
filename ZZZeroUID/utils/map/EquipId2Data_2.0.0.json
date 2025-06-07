@@ -23,7 +23,7 @@
         "sprite_file": "3DSuitProtoPunk",
         "equip_name": "原始朋克",
         "desc1": "施加的护盾值提升15%。",
-        "desc2": "队伍中任意角色发动<color=#FFFFFF>[招架支援]</color>或<color=#FFFFFF>[回避支援]</color>时，全队造成的伤害提升15%，持续10秒，同名被动效果之间不可叠加。"
+        "desc2": "队伍中任意角色发动<color=#FFFFFF>[招架支援]</color>或<color=#FFFFFF>[回避支援]</color>时，全队角色造成的伤害提升15%，持续10秒，同名被动效果之间不可叠加。"
     },
     "31300": {
         "equip_id_list": [
@@ -75,7 +75,7 @@
         "sprite_file": "3DSuitSwingJazz",
         "equip_name": "摇摆爵士",
         "desc1": "能量自动回复+20%。",
-        "desc2": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队造成的伤害提升15%，持续12秒，同名被动效果之间不可叠加。"
+        "desc2": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队角色造成的伤害提升15%，持续12秒，同名被动效果之间不可叠加。"
     },
     "32700": {
         "equip_id_list": [
@@ -129,6 +129,32 @@
         "desc1": "穿透率+8%。",
         "desc2": "<color=#FFFFFF>[终结技]</color>造成的伤害提升20%；发动<color=#FFFFFF>[终结技]</color>时，装备者的攻击力提升15%，持续12秒。"
     },
+    "33200": {
+        "equip_id_list": [
+            33221,
+            33222,
+            33223,
+            33224,
+            33225,
+            33226,
+            33231,
+            33232,
+            33233,
+            33234,
+            33235,
+            33236,
+            33241,
+            33242,
+            33243,
+            33244,
+            33245,
+            33246
+        ],
+        "sprite_file": "3DSuitKingoftheSummit",
+        "equip_name": "山大王",
+        "desc1": "攻击造成的失衡值提升6%",
+        "desc2": "装备者为[击破]角色时，发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>会使全队角色暴击伤害提升15%，装备者的暴击率大于等于50%时暴击伤害额外提升15%，持续15秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。"
+    },
     "31200": {
         "equip_id_list": [
             31221,
@@ -179,7 +205,33 @@
         "sprite_file": "3DSuitAstralVoice",
         "equip_name": "静听嘉音",
         "desc1": "攻击力+10%。",
-        "desc2": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>入场时，全队获得1层<color=#FFFFFF>[嘉音]</color>，最多叠加3层，持续15秒，重复触发时刷新持续时间，每拥有1层<color=#FFFFFF>[嘉音]</color>，通过<color=#FFFFFF>[快速支援]</color>入场的角色造成的伤害提升8%，该效果全队唯一。"
+        "desc2": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>入场时，全队角色获得1层<color=#FFFFFF>[嘉音]</color>，最多叠加3层，持续15秒，重复触发时刷新持续时间，每拥有1层<color=#FFFFFF>[嘉音]</color>，通过<color=#FFFFFF>[快速支援]</color>入场的角色造成的伤害提升8%，同名被动效果之间不可叠加。"
+    },
+    "33100": {
+        "equip_id_list": [
+            33121,
+            33122,
+            33123,
+            33124,
+            33125,
+            33126,
+            33131,
+            33132,
+            33133,
+            33134,
+            33135,
+            33136,
+            33141,
+            33142,
+            33143,
+            33144,
+            33145,
+            33146
+        ],
+        "sprite_file": "3DSuitYunkuiTales",
+        "equip_name": "云岿如我",
+        "desc1": "生命值+10%",
+        "desc2": "发动<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>时，暴击率提升4%，最多叠加3层，持续15秒，重复触发时刷新持续时间，拥有3层效果时，造成的贯穿伤害提升10%。"
     },
     "32400": {
         "equip_id_list": [
