@@ -52,6 +52,29 @@ TEXT_PATH = Path(__file__).parent / 'texture2d'
 STAR_PATH = TEXT_PATH / 'star'
 
 
+prop_id_to_icon = {
+    '1': 'IconHpMax',
+    '2': 'IconAttack',
+    '3': 'IconDef',
+    '4': 'IconBreakStun',
+    '5': 'IconCrit',
+    '6': 'IconCritDam',
+    '7': 'IconElementAbnormalPower',
+    '8': 'IconElementMystery',
+    '9': 'IconPenRatio',
+    '10': 'IconPenValue',
+    '11': 'IconSpRecover',
+    '12': 'IconSpGetRatio',
+    '13': 'IconSpMax',
+    '19': 'IconSheerForce',
+    '315': 'IconPhysDmg',
+    '316': 'IconFire',
+    '317': 'IconIce',
+    '318': 'IconThunder',
+    '319': 'IconDungeonBuffEther',
+}
+
+
 async def draw_char_detail_img(
     uid: str, ev: Event, char: str
 ) -> Union[str, bytes]:
@@ -138,16 +161,31 @@ async def draw_char_detail_img(
     props = data['properties']
     property_bg = Image.open(TEXT_PATH / 'prop_bg.png')
     property_draw = ImageDraw.Draw(property_bg)
-    for pindex, prop in enumerate(props):
+
+    partner_data = PartnerScore_Dict.get(str(char_id), {})
+    pindex = 0
+    for prop in props:
         prop_name: str = prop['property_name']
         if '伤害加成' in prop_name:
             _pid = '315'
         else:
+            if prop_name not in PROP_NAME_TO_ID:
+                continue
             _pid = PROP_NAME_TO_ID[prop_name]
         prop_name = prop_name.replace('属性伤害', '伤')
 
+        if str(prop['property_id']) in prop_id_to_icon:
+            icon = get_prop_img(
+                prop_id_to_icon[str(prop['property_id'])],
+                50,
+                50,
+            )
+        else:
+            continue
+
+        property_bg.paste(icon, (53, 3 + int(pindex * 59.6)), icon)
+
         _pname = ID_TO_PROP_NAME[_pid]
-        partner_data = PartnerScore_Dict.get(str(char_id), {})
         if _pname in partner_data:
             prop_value = partner_data[_pname]
             if prop_value >= 1:
@@ -177,6 +215,7 @@ async def draw_char_detail_img(
             zzz_font_thin(32),
             'lm',
         )
+        pindex += 1
 
     if char_id in CUSTOM_LEFT and not set_custom:
         box = (-6, 230)
@@ -466,6 +505,9 @@ async def draw_char_detail_img(
     # 伤害部分
     for index, d in enumerate(dmg):
         al = dmg[d]
+        d = d.replace('强化特殊技', '强特')
+        if len(d) >= 16:
+            d = d[:15] + '..'
         bar_index = index % 2 + 1
         dmg_bg = Image.open(TEXT_PATH / f'damage_bar{bar_index}.png')
         dmg_draw = ImageDraw.Draw(dmg_bg)
@@ -473,7 +515,7 @@ async def draw_char_detail_img(
             (97, 31),
             d,
             'white',
-            zzz_font_thin(30),
+            zzz_font_thin(28),
             'lm',
         )
         dmg_draw.text(

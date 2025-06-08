@@ -128,6 +128,28 @@ MAIN_PROP_VALUE = {
     '31903': 450,
 }
 
+MYS_NAME_TO_ID = {
+    '生命值': '1',
+    '攻击力': '2',
+    '防御力': '3',
+    '冲击力': '4',
+    '暴击率': '5',
+    '暴击伤害': '6',
+    '异常掌控': '7',
+    '异常精通': '8',
+    '穿透率': '9',
+    '穿透值': '10',
+    '能量自动回复': '11',
+    '能量回复百分比': '12',
+    '贯穿力': '19',
+    '闪能自动累积': '20',
+    '以太伤害加成': '319',
+    '雷属性伤害加成': '318',
+    '冰属性伤害加成': '317',
+    '火属性伤害加成': '316',
+    '物理伤害加成': '315',
+}
+
 '''
 A 普攻
 B 特殊
@@ -447,11 +469,21 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
 
         logger.debug(props)
         properties = []
+
+        atk = 0
+        hp = 0
+
         for p in props:
+            pid = int(MYS_NAME_TO_ID.get(EN_TO_ZH[p], 0))
+            if pid == 2:
+                atk += props[p]
+            elif pid == 1:
+                hp += props[p]
+
             properties.append(
                 {
                     "property_name": EN_TO_ZH[p],
-                    "property_id": 1,
+                    "property_id": pid,
                     "base": "",
                     "add": "",
                     "final": (
@@ -462,6 +494,20 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
                 }
             )
         result['properties'] = properties
+
+        if result['avatar_profession'] == 6:
+            final = 0.3 * atk
+            if str(result['id']) == '1371':
+                final += 0.1 * hp
+            properties.append(
+                {
+                    "property_name": '贯穿力',
+                    "property_id": 19,
+                    "base": "",
+                    "add": "",
+                    "final": final,
+                }
+            )
 
         # 技能
         skills = []

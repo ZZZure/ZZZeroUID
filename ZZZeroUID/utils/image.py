@@ -60,6 +60,7 @@ pro_id = {
     '3': 'IconAnomaly',  # 异常
     '4': 'IconSupport',  # 支援
     '5': 'IconDefense',  # 防御
+    '6': 'IconRupture',  # 命破
 }
 
 camp_map = {
@@ -75,6 +76,7 @@ camp_map = {
     '防卫军·白银小队': 'Silvers',
     '防卫军·奥波勒斯小队': 'Obols',
     '反舌鸟': 'MockingBird',
+    '云岿山': 'Suibian',
 }
 
 
@@ -115,8 +117,12 @@ def get_pro_img(_id: Union[str, int], w: int = 50, h: int = 50):
 def get_prop_img(_id: Union[str, int], w: int = 40, h: int = 40):
     img = Image.new('RGBA', (70, 70))
     propid = str(_id)
-    propid = propid[:3]
-    prop_icon = prop_id.get(propid)
+    if propid.isdigit():
+        propid = propid[:3]
+        prop_icon = prop_id.get(propid)
+    else:
+        prop_icon = propid
+
     if not prop_icon:
         return img.resize((w, h))
 

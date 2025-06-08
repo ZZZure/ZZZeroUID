@@ -2,6 +2,16 @@ from typing import Dict, List
 
 from ..utils.zzz_map import skill_param
 
+type_dict = {
+    '连携技': 3,
+    '终结技': 3,
+    '闪避': 2,
+    '冲刺': 2,
+    '特殊技': 1,
+    '普通攻击': 0,
+    '支援': 6,
+}
+
 
 def to_bl(char_dict: dict) -> Dict[str, float]:
     if str(char_dict['id']) not in skill_param:
@@ -14,9 +24,18 @@ def to_bl(char_dict: dict) -> Dict[str, float]:
     skill_list = char_dict['skills']
     for skill in skill_list:
         skill_level: int = skill['level']
-        for item in skill['items']:
-            item_title: str = item['title']
-            if item_title not in skill_p:
+        skill_type: int = skill['skill_type']
+        if skill_type == 5:
+            continue
+
+        for item_title in skill_p:
+            skill_type_str = item_title.split('：')[0]
+            for _t in type_dict:
+                if _t in skill_type_str:
+                    right_skill_type = type_dict[_t]
+                    break
+
+            if right_skill_type != skill_type:
                 continue
 
             for all_sub in skill_p[item_title]:
