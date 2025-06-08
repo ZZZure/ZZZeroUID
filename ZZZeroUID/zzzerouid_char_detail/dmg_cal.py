@@ -69,6 +69,7 @@ def to_dmg(char_dict: dict, bl_dict: Dict[str, float]) -> Dict[str, List[str]]:
     def_add = 1
     resist = 1
     easy_dmg = 1
+    sheer_dmg = 0
 
     self_def: float = 0.1551 * char_level**2 + 3.141 * char_level + 47.2039
     enemy_def = 0.1551 * enemy_level**2 + 3.141 * enemy_level + 47.2039
@@ -88,6 +89,8 @@ def to_dmg(char_dict: dict, bl_dict: Dict[str, float]) -> Dict[str, List[str]]:
             crit_rate = float(p['final'][:-1]) / 100
         elif 310 < p['property_id'] < 320:
             dmg_bouns = float(p['final'][:-1]) / 100
+        elif p['property_id'] == 19:
+            sheer_dmg += float(p['final'])
 
     enemy_def = enemy_def * def_add * (1 - ct_percent) - ct_value
     enemy_def = enemy_def if enemy_def > 0 else 0
@@ -96,9 +99,20 @@ def to_dmg(char_dict: dict, bl_dict: Dict[str, float]) -> Dict[str, List[str]]:
 
     for bl in bl_dict:
         name = bl
-        base = (
-            bl_dict[bl] * atk * (1 + dmg_bouns) * def_area * resist * easy_dmg
-        )
+        if char_dict['avatar_profession'] == 6:
+            base = (
+                bl_dict[bl] * sheer_dmg * (1 + dmg_bouns) * resist * easy_dmg
+            )
+        else:
+            base = (
+                bl_dict[bl]
+                * atk
+                * (1 + dmg_bouns)
+                * def_area
+                * resist
+                * easy_dmg
+            )
+
         result[name] = [
             '{:.2f}'.format(base * (1 + crit_dmg)),
             '{:.2f}'.format(
