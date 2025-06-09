@@ -3,6 +3,7 @@ import asyncio
 from copy import deepcopy
 from typing import Dict, List, Union, Literal, Optional, cast, overload
 
+import httpx
 from gsuid_core.utils.api.mys_api import _MysApi
 from gsuid_core.utils.api.mys.models import MysGame
 from gsuid_core.utils.database.models import GsUser
@@ -179,9 +180,11 @@ class ZZZApi(_MysApi):
         return data
 
     async def get_zzz_enka_data(self, uid: str) -> Union[int, Dict]:
-        data = await self._mys_request(ENKA_API.format(uid), 'GET')
-        if isinstance(data, int):
-            return data
+        async with httpx.AsyncClient() as client:
+            resp = await client.get(ENKA_API.format(uid))
+            if resp.status_code != 200:
+                return -1
+            data = resp.json()
         return data
 
     async def get_zzz_note_info(self, uid: str) -> Union[int, ZZZNoteResp]:
