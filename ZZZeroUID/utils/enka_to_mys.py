@@ -438,7 +438,7 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
 
         result['weapon'] = weapon
 
-        print(props)
+        logger.debug(props)
         # 处理属性
         props['CritDmg'] += props['CritDamage']
         del props['CritDamage']
@@ -493,12 +493,15 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
                     ),
                 }
             )
-        result['properties'] = properties
 
         if result['avatar_profession'] == 6:
             final = 0.3 * atk
             if str(result['id']) == '1371':
                 final += 0.1 * hp
+
+            # 保留一位小数并转为str
+            final = str(round(final, 1))
+
             properties.append(
                 {
                     "property_name": '贯穿力',
@@ -508,6 +511,13 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
                     "final": final,
                 }
             )
+
+            # 然后删除properties中property_id为9或者10的项
+            properties = [
+                p for p in properties if p['property_id'] not in [9, 10]
+            ]
+
+        result['properties'] = properties
 
         # 技能
         skills = []

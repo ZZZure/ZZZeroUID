@@ -199,7 +199,12 @@ async def draw_char_detail_img(
         else:
             name_color = 'white'
 
-        value = prop["final"]
+        if isinstance(prop["final"], str):
+            value = prop["final"]
+        else:
+            # 保留一位小数
+            value = f'{prop["final"]:.1f}'
+
         y = int(27.8 + pindex * 58.6)
         property_draw.text(
             (431, y),
