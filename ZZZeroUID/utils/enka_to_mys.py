@@ -18,6 +18,7 @@ ID_TO_PROP_NAME = {
     '13103': '防御力',
     '13102': '防御力',
     '12202': '冲击力',
+    '12201': '冲击力',
     '12203': '冲击力',
     '20103': '暴击率',
     '21103': '暴击伤害',
@@ -48,7 +49,8 @@ ID_TO_EN = {
     '13103': 'DefenceBase',
     '13102': 'DefenceAdd',
     '12202': 'BreakStunAdd',
-    '12203': 'BreakStun',
+    '12201': 'BreakStunBase',
+    '12203': 'BreakStunAdd',
     '20103': 'Crit',
     '21103': 'CritDmg',
     '31402': 'ElementAbnormalPower',
@@ -72,8 +74,8 @@ ELEMENT_TO_EN = {
     '200': 'Phys',
     '201': 'Fire',
 }
-NAME_TO_ID = {ID_TO_PROP_NAME[k]: k for k in ID_TO_PROP_NAME}
 EN_TO_ZH = {ID_TO_EN[k]: ID_TO_PROP_NAME[k] for k in ID_TO_EN}
+EN_TO_ID = {ID_TO_EN[k]: k for k in ID_TO_EN}
 PERCENT_ID = [
     '11102',
     '12102',
@@ -107,6 +109,7 @@ MAIN_PROP_VALUE = {
     '12101': 47.4,
     '12103': 47.4,
     '12102': 450,
+    '12202': 270,
     '13101': 27.6,
     '13103': 27.6,
     '13102': 720,
@@ -122,6 +125,7 @@ MAIN_PROP_VALUE = {
     '30503': 900,
     '30502': 900,
     '315': 450,
+    '31503': 450,
     '31603': 450,
     '31703': 450,
     '31803': 450,
@@ -232,7 +236,8 @@ def _calculate_base_stat(
 
     act = str(act)
 
-    base_value += level_data[act][level_key]
+    if act in level_data and level_key in level_data[act]:
+        base_value += level_data[act][level_key]
 
     if level > 10 and extra_key:
         base_value += (
@@ -281,26 +286,29 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
             if _prop == 'CritDmg':
                 props[_prop] = _partener['CritDamage']
                 props['CritDamage'] = _partener['CritDamage']
+            elif _prop == 'BreakStunBase':
+                props[_prop] = _partener['BreakStun']
+            elif _prop == 'BreakStun' or _prop == 'BreakStunAdd':
+                props[_prop] = 0
             elif _prop not in _partener:
                 props[_prop] = 0
             else:
                 props[_prop] = _partener[_prop]
 
-            if _prop in ['HpMax', 'Attack', 'Defence']:
-                props[_prop] = _calculate_base_stat(
-                    _partener[_prop],
-                    {
-                        'HpMax': _partener['HpGrowth'],
-                        'Attack': _partener['AttackGrowth'],
-                        'Defence': _partener['DefenceGrowth'],
-                    }.get(_prop, _partener['HpGrowth']),
-                    _partener['Level'],
-                    _partener['ExtraLevel'],
-                    char['Level'],
-                    char['PromotionLevel'],
-                    _prop,
-                    NAME_TO_ID.get(EN_TO_ZH.get(_prop, _prop)),
-                )
+            props[_prop] = _calculate_base_stat(
+                props[_prop],
+                {
+                    'HpMax': _partener['HpGrowth'],
+                    'Attack': _partener['AttackGrowth'],
+                    'Defence': _partener['DefenceGrowth'],
+                }.get(_prop, 0),
+                _partener['Level'],
+                _partener['ExtraLevel'],
+                char['Level'],
+                char['PromotionLevel'],
+                _prop,
+                EN_TO_ID.get(_prop, _prop),
+            )
 
         # 圣遗物
         relics = []
@@ -381,6 +389,7 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
                 }
             )
         result['equip'] = relics
+        # logger.debug(relics)
 
         # 武器
         weapon_id = str(char['Weapon']['Id'])
@@ -454,6 +463,9 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
             props['DefenceBase']
             + (props['DefenceAdd'] / 10000) * props['Defence']
         )
+        props['BreakStun'] = props['BreakStunBase'] + (
+            props['BreakStunAdd'] / 10000 * props['BreakStunBase']
+        )
 
         del props['HpBase']
         del props['HpAdd']
@@ -461,6 +473,8 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
         del props['AttackAdd']
         del props['DefenceBase']
         del props['DefenceAdd']
+        del props['BreakStunBase']
+        del props['BreakStunAdd']
 
         char_element = ELEMENT_TO_EN[_partener['ElementType']]
         for i in ELEMENT_TO_EN.values():
@@ -474,7 +488,13 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
         hp = 0
 
         for p in props:
-            pid = int(MYS_NAME_TO_ID.get(EN_TO_ZH[p], 0))
+            if p == 'BreakStun':
+                pid = 4
+                property_name = '冲击力'
+            else:
+                pid = int(MYS_NAME_TO_ID.get(EN_TO_ZH[p], 0))
+                property_name = EN_TO_ZH[p]
+
             if pid == 2:
                 atk += props[p]
             elif pid == 1:
@@ -482,7 +502,7 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
 
             properties.append(
                 {
-                    "property_name": EN_TO_ZH[p],
+                    "property_name": property_name,
                     "property_id": pid,
                     "base": "",
                     "add": "",
@@ -541,4 +561,5 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
 
         result_list.append(result)  # type: ignore
 
+    return result_list
     return result_list
