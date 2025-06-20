@@ -29,11 +29,15 @@ def to_bl(char_dict: dict) -> Dict[str, float]:
             continue
 
         for item_title in skill_p:
+            right_skill_type = None
             skill_type_str = item_title.split('：')[0]
             for _t in type_dict:
                 if _t in skill_type_str:
                     right_skill_type = type_dict[_t]
                     break
+
+            if not right_skill_type:
+                continue
 
             if right_skill_type != skill_type:
                 continue
@@ -127,4 +131,5 @@ def to_dmg(char_dict: dict, bl_dict: Dict[str, float]) -> Dict[str, List[str]]:
 def get_dmg(char_dict: dict) -> Dict[str, List[str]]:
     bl_dict = to_bl(char_dict)
     dmg_dict = to_dmg(char_dict, bl_dict)
+    return dmg_dict
     return dmg_dict
