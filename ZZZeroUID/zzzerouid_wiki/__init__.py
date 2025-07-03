@@ -18,6 +18,7 @@ async def send_role_wiki_pic(bot: Bot, ev: Event):
 
 
 @sv_zzz_guide.on_prefix('角色攻略')
+@sv_zzz_guide.on_suffix('攻略')
 async def send_role_guide_pic(bot: Bot, ev: Event):
     name = alias_to_char_name(ev.text.strip())
     logger.info(f'[绝区零] 角色攻略: {name}')
