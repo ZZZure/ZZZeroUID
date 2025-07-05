@@ -39,6 +39,10 @@ async def send_refresh_char_detail_msg(bot: Bot, ev: Event):
 @sv_char_detail.on_suffix('面板')
 async def send_char_detail_msg(bot: Bot, ev: Event):
     char = ev.text.strip(' ')
+
+    if char in ('刷新', '强制刷新', '更新'):
+        return
+        
     logger.info(f'[绝区零] [角色面板] CHAR: {char}')
     uid = await get_uid(bot, ev)
     logger.info(f'[绝区零] [角色面板] UID: {uid}')
