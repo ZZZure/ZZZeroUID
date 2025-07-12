@@ -184,14 +184,14 @@ async def draw_card(uid: str, ev: Event) -> Union[str, bytes]:
                         current_data['avg'], [53, 60, 68, 73, 75]
                     )
 
-    oset = 265
-    bset = 120
+    oset = 260
+    bset = 130
 
     _numlen = 0
     for name in total_data:
         _num = len(total_data[name]['rank_s_list'])
         _numlen += bset * get_num_h(_num, 4)
-    w, h = 950, 370 + title_num * oset + _numlen
+    w, h = 950, 350 + title_num * oset + _numlen
 
     # 绘制骨架
     card_img = get_zzz_bg(w, h)
