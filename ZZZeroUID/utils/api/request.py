@@ -290,6 +290,22 @@ class ZZZApi(_MysApi):
         ck = await self.zzz_get_ck(uid, 'OWNER')
         if ck is None:
             return -51
+        _header = deepcopy(self.ZZZ_HEADER)
+
+        device_id = await self.get_user_device_id(
+            uid,
+            'zzz',
+        )
+        fp = await self.get_user_fp(
+            uid,
+            'zzz',
+        )
+
+        if fp is not None:
+            _header['x-rpc-device_fp'] = fp
+
+        if device_id is not None:
+            _header['x-rpc-device_id'] = device_id
 
         TASK = []
         for i in id_list:
@@ -301,6 +317,7 @@ class ZZZApi(_MysApi):
                         'id_list[]': str(i),
                         'need_wiki': False,
                     },
+                    header=_header,
                     cookie=ck,
                 )
             )
@@ -429,4 +446,5 @@ class ZZZApi(_MysApi):
             base_url=base_url,
             game_name='zzz',
         )
+        return data
         return data
