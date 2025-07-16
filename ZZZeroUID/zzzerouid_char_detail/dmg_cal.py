@@ -36,7 +36,7 @@ def to_bl(char_dict: dict) -> Dict[str, float]:
                     right_skill_type = type_dict[_t]
                     break
 
-            if not right_skill_type:
+            if right_skill_type is None:
                 continue
 
             if right_skill_type != skill_type:

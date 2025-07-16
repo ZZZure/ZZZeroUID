@@ -1,2 +1,2 @@
-ZZeroUID_version = '1.8'
-ZZZero_version = '2.0.0'
+ZZeroUID_version = '2.1.0'
+ZZZero_version = '2.1.0'

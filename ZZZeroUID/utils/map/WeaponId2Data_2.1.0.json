@@ -737,23 +737,23 @@
         "talents": {
             "1": {
                 "Name": "疾潮",
-                "Desc": "进入接战状态或换入前场时，装备者的冲击力提升<color=#2BAD00>9%</color>，持续10秒，20秒内最多触发一次。"
+                "Desc": "成为接战状态下的当前操作角色时，装备者的冲击力提升<color=#2BAD00>9%</color>，持续10秒，20秒内最多触发一次。"
             },
             "2": {
                 "Name": "疾潮",
-                "Desc": "进入接战状态或换入前场时，装备者的冲击力提升<color=#2BAD00>10%</color>，持续10秒，20秒内最多触发一次。"
+                "Desc": "成为接战状态下的当前操作角色时，装备者的冲击力提升<color=#2BAD00>10%</color>，持续10秒，20秒内最多触发一次。"
             },
             "3": {
                 "Name": "疾潮",
-                "Desc": "进入接战状态或换入前场时，装备者的冲击力提升<color=#2BAD00>11%</color>，持续10秒，20秒内最多触发一次。"
+                "Desc": "成为接战状态下的当前操作角色时，装备者的冲击力提升<color=#2BAD00>11%</color>，持续10秒，20秒内最多触发一次。"
             },
             "4": {
                 "Name": "疾潮",
-                "Desc": "进入接战状态或换入前场时，装备者的冲击力提升<color=#2BAD00>12%</color>，持续10秒，20秒内最多触发一次。"
+                "Desc": "成为接战状态下的当前操作角色时，装备者的冲击力提升<color=#2BAD00>12%</color>，持续10秒，20秒内最多触发一次。"
             },
             "5": {
                 "Name": "疾潮",
-                "Desc": "进入接战状态或换入前场时，装备者的冲击力提升<color=#2BAD00>13%</color>，持续10秒，20秒内最多触发一次。"
+                "Desc": "成为接战状态下的当前操作角色时，装备者的冲击力提升<color=#2BAD00>13%</color>，持续10秒，20秒内最多触发一次。"
             }
         },
         "rarity": "A",
@@ -1103,23 +1103,23 @@
         "talents": {
             "1": {
                 "Name": "不破铁骑",
-                "Desc": "装备者施加的护盾值提升<color=#2BAD00>30%</color>；队伍中任意角色触发<color=#FFFFFF>[破招]</color>或<color=#FFFFFF>[极限闪避]</color>时，全队造成的伤害提升<color=#2BAD00>18%</color>，造成的失衡值提升<color=#2BAD00>12%</color>，持续20秒，同名被动效果之间不可叠加。"
+                "Desc": "装备者施加的护盾值提升<color=#2BAD00>30%</color>；队伍中任意角色触发<color=#FFFFFF>[破招]</color>或<color=#FFFFFF>[极限闪避]</color>时，全队角色造成的伤害提升<color=#2BAD00>18%</color>，造成的失衡值提升<color=#2BAD00>12%</color>，持续20秒，同名被动效果之间不可叠加。"
             },
             "2": {
                 "Name": "不破铁骑",
-                "Desc": "装备者施加的护盾值提升<color=#2BAD00>38%</color>；队伍中任意角色触发<color=#FFFFFF>[破招]</color>或<color=#FFFFFF>[极限闪避]</color>时，全队造成的伤害提升<color=#2BAD00>22.5%</color>，造成的失衡值提升<color=#2BAD00>15%</color>，持续20秒，同名被动效果之间不可叠加。"
+                "Desc": "装备者施加的护盾值提升<color=#2BAD00>38%</color>；队伍中任意角色触发<color=#FFFFFF>[破招]</color>或<color=#FFFFFF>[极限闪避]</color>时，全队角色造成的伤害提升<color=#2BAD00>22.5%</color>，造成的失衡值提升<color=#2BAD00>15%</color>，持续20秒，同名被动效果之间不可叠加。"
             },
             "3": {
                 "Name": "不破铁骑",
-                "Desc": "装备者施加的护盾值提升<color=#2BAD00>46%</color>；队伍中任意角色触发<color=#FFFFFF>[破招]</color>或<color=#FFFFFF>[极限闪避]</color>时，全队造成的伤害提升<color=#2BAD00>27%</color>，造成的失衡值提升<color=#2BAD00>18%</color>，持续20秒，同名被动效果之间不可叠加。"
+                "Desc": "装备者施加的护盾值提升<color=#2BAD00>46%</color>；队伍中任意角色触发<color=#FFFFFF>[破招]</color>或<color=#FFFFFF>[极限闪避]</color>时，全队角色造成的伤害提升<color=#2BAD00>27%</color>，造成的失衡值提升<color=#2BAD00>18%</color>，持续20秒，同名被动效果之间不可叠加。"
             },
             "4": {
                 "Name": "不破铁骑",
-                "Desc": "装备者施加的护盾值提升<color=#2BAD00>52%</color>；队伍中任意角色触发<color=#FFFFFF>[破招]</color>或<color=#FFFFFF>[极限闪避]</color>时，全队造成的伤害提升<color=#2BAD00>31.5%</color>，造成的失衡值提升<color=#2BAD00>21%</color>，持续20秒，同名被动效果之间不可叠加。"
+                "Desc": "装备者施加的护盾值提升<color=#2BAD00>52%</color>；队伍中任意角色触发<color=#FFFFFF>[破招]</color>或<color=#FFFFFF>[极限闪避]</color>时，全队角色造成的伤害提升<color=#2BAD00>31.5%</color>，造成的失衡值提升<color=#2BAD00>21%</color>，持续20秒，同名被动效果之间不可叠加。"
             },
             "5": {
                 "Name": "不破铁骑",
-                "Desc": "装备者施加的护盾值提升<color=#2BAD00>60%</color>；队伍中任意角色触发<color=#FFFFFF>[破招]</color>或<color=#FFFFFF>[极限闪避]</color>时，全队造成的伤害提升<color=#2BAD00>36%</color>，造成的失衡值提升<color=#2BAD00>24%</color>，持续20秒，同名被动效果之间不可叠加。"
+                "Desc": "装备者施加的护盾值提升<color=#2BAD00>60%</color>；队伍中任意角色触发<color=#FFFFFF>[破招]</color>或<color=#FFFFFF>[极限闪避]</color>时，全队角色造成的伤害提升<color=#2BAD00>36%</color>，造成的失衡值提升<color=#2BAD00>24%</color>，持续20秒，同名被动效果之间不可叠加。"
             }
         },
         "rarity": "S",
@@ -1469,23 +1469,23 @@
         "talents": {
             "1": {
                 "Name": "财迷心窍",
-                "Desc": "<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#FE437E>以太伤害</color>时，全队对目标造成的伤害提升<color=#2BAD00>15%</color>，装备者的能量自动回复提升<color=#2BAD00>0.5</color>点/秒，持续2秒，同名被动效果之间不可叠加。"
+                "Desc": "<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#FE437E>以太伤害</color>时，所有单位对目标造成的伤害提升<color=#2BAD00>15%</color>，装备者的能量自动回复提升<color=#2BAD00>0.5</color>点/秒，持续2秒，同名被动效果之间不可叠加。"
             },
             "2": {
                 "Name": "财迷心窍",
-                "Desc": "<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#FE437E>以太伤害</color>时，全队对目标造成的伤害提升<color=#2BAD00>17.5%</color>，装备者的能量自动回复提升<color=#2BAD00>0.58</color>点/秒，持续2秒，同名被动效果之间不可叠加。"
+                "Desc": "<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#FE437E>以太伤害</color>时，所有单位对目标造成的伤害提升<color=#2BAD00>17.5%</color>，装备者的能量自动回复提升<color=#2BAD00>0.58</color>点/秒，持续2秒，同名被动效果之间不可叠加。"
             },
             "3": {
                 "Name": "财迷心窍",
-                "Desc": "<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#FE437E>以太伤害</color>时，全队对目标造成的伤害提升<color=#2BAD00>20%</color>，装备者的能量自动回复提升<color=#2BAD00>0.65</color>点/秒，持续2秒，同名被动效果之间不可叠加。"
+                "Desc": "<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#FE437E>以太伤害</color>时，所有单位对目标造成的伤害提升<color=#2BAD00>20%</color>，装备者的能量自动回复提升<color=#2BAD00>0.65</color>点/秒，持续2秒，同名被动效果之间不可叠加。"
             },
             "4": {
                 "Name": "财迷心窍",
-                "Desc": "<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#FE437E>以太伤害</color>时，全队对目标造成的伤害提升<color=#2BAD00>22%</color>，装备者的能量自动回复提升<color=#2BAD00>0.72</color>点/秒，持续2秒，同名被动效果之间不可叠加。"
+                "Desc": "<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#FE437E>以太伤害</color>时，所有单位对目标造成的伤害提升<color=#2BAD00>22%</color>，装备者的能量自动回复提升<color=#2BAD00>0.72</color>点/秒，持续2秒，同名被动效果之间不可叠加。"
             },
             "5": {
                 "Name": "财迷心窍",
-                "Desc": "<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#FE437E>以太伤害</color>时，全队对目标造成的伤害提升<color=#2BAD00>24%</color>，装备者的能量自动回复提升<color=#2BAD00>0.8</color>点/秒，持续2秒，同名被动效果之间不可叠加。"
+                "Desc": "<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#FE437E>以太伤害</color>时，所有单位对目标造成的伤害提升<color=#2BAD00>24%</color>，装备者的能量自动回复提升<color=#2BAD00>0.8</color>点/秒，持续2秒，同名被动效果之间不可叠加。"
             }
         },
         "rarity": "A",
@@ -2567,23 +2567,23 @@
         "talents": {
             "1": {
                 "Name": "饕餮相",
-                "Desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>15%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，全队攻击力提升<color=#2BAD00>2%</color>，最多叠加4层，持续12秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。"
+                "Desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>15%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色攻击力提升<color=#2BAD00>2%</color>，最多叠加4层，持续12秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。"
             },
             "2": {
                 "Name": "饕餮相",
-                "Desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>17.5%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，全队攻击力提升<color=#2BAD00>2.3%</color>，最多叠加4层，持续12秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。"
+                "Desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>17.5%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色攻击力提升<color=#2BAD00>2.3%</color>，最多叠加4层，持续12秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。"
             },
             "3": {
                 "Name": "饕餮相",
-                "Desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>20%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，全队攻击力提升<color=#2BAD00>2.6%</color>，最多叠加4层，持续12秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。"
+                "Desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>20%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色攻击力提升<color=#2BAD00>2.6%</color>，最多叠加4层，持续12秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。"
             },
             "4": {
                 "Name": "饕餮相",
-                "Desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>22%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，全队攻击力提升<color=#2BAD00>2.9%</color>，最多叠加4层，持续12秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。"
+                "Desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>22%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色攻击力提升<color=#2BAD00>2.9%</color>，最多叠加4层，持续12秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。"
             },
             "5": {
                 "Name": "饕餮相",
-                "Desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>24%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，全队攻击力提升<color=#2BAD00>3.2%</color>，最多叠加4层，持续12秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。"
+                "Desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>24%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色攻击力提升<color=#2BAD00>3.2%</color>，最多叠加4层，持续12秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。"
             }
         },
         "rarity": "A",
@@ -4393,26 +4393,26 @@
     },
     "14133": {
         "code_name": "Weapon_S_1331",
-        "name": "薇薇安测试音擎",
+        "name": "飞鸟星梦",
         "talents": {
             "1": {
-                "Name": "测试音擎技能",
+                "Name": "银刺幽羽",
                 "Desc": "属性异常积蓄效率提升<color=#2BAD00>40%</color>；装备者造成<color=#FE437E>以太伤害</color>时，自身异常精通提升<color=#2BAD00>20</color>点，持续5秒，最多叠加6层，0.5秒内最多触发一次，重复触发时刷新持续时间。"
             },
             "2": {
-                "Name": "测试音擎技能",
+                "Name": "银刺幽羽",
                 "Desc": "属性异常积蓄效率提升<color=#2BAD00>46%</color>；装备者造成<color=#FE437E>以太伤害</color>时，自身异常精通提升<color=#2BAD00>23</color>点，持续5秒，最多叠加6层，0.5秒内最多触发一次，重复触发时刷新持续时间。"
             },
             "3": {
-                "Name": "测试音擎技能",
+                "Name": "银刺幽羽",
                 "Desc": "属性异常积蓄效率提升<color=#2BAD00>52%</color>；装备者造成<color=#FE437E>以太伤害</color>时，自身异常精通提升<color=#2BAD00>26</color>点，持续5秒，最多叠加6层，0.5秒内最多触发一次，重复触发时刷新持续时间。"
             },
             "4": {
-                "Name": "测试音擎技能",
+                "Name": "银刺幽羽",
                 "Desc": "属性异常积蓄效率提升<color=#2BAD00>58%</color>；装备者造成<color=#FE437E>以太伤害</color>时，自身异常精通提升<color=#2BAD00>29</color>点，持续5秒，最多叠加6层，0.5秒内最多触发一次，重复触发时刷新持续时间。"
             },
             "5": {
-                "Name": "测试音擎技能",
+                "Name": "银刺幽羽",
                 "Desc": "属性异常积蓄效率提升<color=#2BAD00>64%</color>；装备者造成<color=#FE437E>以太伤害</color>时，自身异常精通提升<color=#2BAD00>32</color>点，持续5秒，最多叠加6层，0.5秒内最多触发一次，重复触发时刷新持续时间。"
             }
         },
@@ -6959,23 +6959,23 @@
         "talents": {
             "1": {
                 "Name": "流动之火",
-                "Desc": "发动<color=#FFFFFF>[快速支援]</color>或<color=#FFFFFF>[极限支援]</color>时，装备者的冲击力提升<color=#2BAD00>25%</color>，持续8秒；装备者发动<color=#FFFFFF>[普通攻击]</color>命中敌人时，对目标施加一层<color=#FFFFFF>[萎靡]</color>，最多叠加20层，持续30秒，重复触发时刷新持续时间；队伍中任意角色攻击命中敌人时，目标每拥有一层<color=#FFFFFF>[萎靡]</color>，本次攻击中<color=#98EFF0>冰属性伤害</color>和<color=#FF5521>火属性伤害</color>的暴击伤害提升<color=#2BAD00>1.5%</color>，该效果全队唯一。"
+                "Desc": "发动<color=#FFFFFF>[快速支援]</color>或<color=#FFFFFF>[极限支援]</color>时，装备者的冲击力提升<color=#2BAD00>25%</color>，持续8秒；装备者的<color=#FFFFFF>[普通攻击]</color>命中敌人时，对目标施加一层<color=#FFFFFF>[萎靡]</color>，最多叠加20层，持续30秒，重复触发时刷新持续时间；队伍中任意角色攻击命中敌人时，目标每拥有一层<color=#FFFFFF>[萎靡]</color>，本次攻击中<color=#98EFF0>冰属性伤害</color>和<color=#FF5521>火属性伤害</color>的暴击伤害提升<color=#2BAD00>1.5%</color>，该效果全队唯一。"
             },
             "2": {
                 "Name": "流动之火",
-                "Desc": "发动<color=#FFFFFF>[快速支援]</color>或<color=#FFFFFF>[极限支援]</color>时，装备者的冲击力提升<color=#2BAD00>28.75%</color>，持续8秒；装备者发动<color=#FFFFFF>[普通攻击]</color>命中敌人时，对目标施加一层<color=#FFFFFF>[萎靡]</color>，最多叠加20层，持续30秒，重复触发时刷新持续时间；队伍中任意角色攻击命中敌人时，目标每拥有一层<color=#FFFFFF>[萎靡]</color>，本次攻击中<color=#98EFF0>冰属性伤害</color>和<color=#FF5521>火属性伤害</color>的暴击伤害提升<color=#2BAD00>1.72%</color>，该效果全队唯一。"
+                "Desc": "发动<color=#FFFFFF>[快速支援]</color>或<color=#FFFFFF>[极限支援]</color>时，装备者的冲击力提升<color=#2BAD00>28.75%</color>，持续8秒；装备者的<color=#FFFFFF>[普通攻击]</color>命中敌人时，对目标施加一层<color=#FFFFFF>[萎靡]</color>，最多叠加20层，持续30秒，重复触发时刷新持续时间；队伍中任意角色攻击命中敌人时，目标每拥有一层<color=#FFFFFF>[萎靡]</color>，本次攻击中<color=#98EFF0>冰属性伤害</color>和<color=#FF5521>火属性伤害</color>的暴击伤害提升<color=#2BAD00>1.72%</color>，该效果全队唯一。"
             },
             "3": {
                 "Name": "流动之火",
-                "Desc": "发动<color=#FFFFFF>[快速支援]</color>或<color=#FFFFFF>[极限支援]</color>时，装备者的冲击力提升<color=#2BAD00>32.5%</color>，持续8秒；装备者发动<color=#FFFFFF>[普通攻击]</color>命中敌人时，对目标施加一层<color=#FFFFFF>[萎靡]</color>，最多叠加20层，持续30秒，重复触发时刷新持续时间；队伍中任意角色攻击命中敌人时，目标每拥有一层<color=#FFFFFF>[萎靡]</color>，本次攻击中<color=#98EFF0>冰属性伤害</color>和<color=#FF5521>火属性伤害</color>的暴击伤害提升<color=#2BAD00>1.95%</color>，该效果全队唯一。"
+                "Desc": "发动<color=#FFFFFF>[快速支援]</color>或<color=#FFFFFF>[极限支援]</color>时，装备者的冲击力提升<color=#2BAD00>32.5%</color>，持续8秒；装备者的<color=#FFFFFF>[普通攻击]</color>命中敌人时，对目标施加一层<color=#FFFFFF>[萎靡]</color>，最多叠加20层，持续30秒，重复触发时刷新持续时间；队伍中任意角色攻击命中敌人时，目标每拥有一层<color=#FFFFFF>[萎靡]</color>，本次攻击中<color=#98EFF0>冰属性伤害</color>和<color=#FF5521>火属性伤害</color>的暴击伤害提升<color=#2BAD00>1.95%</color>，该效果全队唯一。"
             },
             "4": {
                 "Name": "流动之火",
-                "Desc": "发动<color=#FFFFFF>[快速支援]</color>或<color=#FFFFFF>[极限支援]</color>时，装备者的冲击力提升<color=#2BAD00>36.25%</color>，持续8秒；装备者发动<color=#FFFFFF>[普通攻击]</color>命中敌人时，对目标施加一层<color=#FFFFFF>[萎靡]</color>，最多叠加20层，持续30秒，重复触发时刷新持续时间；队伍中任意角色攻击命中敌人时，目标每拥有一层<color=#FFFFFF>[萎靡]</color>，本次攻击中<color=#98EFF0>冰属性伤害</color>和<color=#FF5521>火属性伤害</color>的暴击伤害提升<color=#2BAD00>2.17%</color>，该效果全队唯一。"
+                "Desc": "发动<color=#FFFFFF>[快速支援]</color>或<color=#FFFFFF>[极限支援]</color>时，装备者的冲击力提升<color=#2BAD00>36.25%</color>，持续8秒；装备者的<color=#FFFFFF>[普通攻击]</color>命中敌人时，对目标施加一层<color=#FFFFFF>[萎靡]</color>，最多叠加20层，持续30秒，重复触发时刷新持续时间；队伍中任意角色攻击命中敌人时，目标每拥有一层<color=#FFFFFF>[萎靡]</color>，本次攻击中<color=#98EFF0>冰属性伤害</color>和<color=#FF5521>火属性伤害</color>的暴击伤害提升<color=#2BAD00>2.17%</color>，该效果全队唯一。"
             },
             "5": {
                 "Name": "流动之火",
-                "Desc": "发动<color=#FFFFFF>[快速支援]</color>或<color=#FFFFFF>[极限支援]</color>时，装备者的冲击力提升<color=#2BAD00>40%</color>，持续8秒；装备者发动<color=#FFFFFF>[普通攻击]</color>命中敌人时，对目标施加一层<color=#FFFFFF>[萎靡]</color>，最多叠加20层，持续30秒，重复触发时刷新持续时间；队伍中任意角色攻击命中敌人时，目标每拥有一层<color=#FFFFFF>[萎靡]</color>，本次攻击中<color=#98EFF0>冰属性伤害</color>和<color=#FF5521>火属性伤害</color>的暴击伤害提升<color=#2BAD00>2.4%</color>，该效果全队唯一。"
+                "Desc": "发动<color=#FFFFFF>[快速支援]</color>或<color=#FFFFFF>[极限支援]</color>时，装备者的冲击力提升<color=#2BAD00>40%</color>，持续8秒；装备者的<color=#FFFFFF>[普通攻击]</color>命中敌人时，对目标施加一层<color=#FFFFFF>[萎靡]</color>，最多叠加20层，持续30秒，重复触发时刷新持续时间；队伍中任意角色攻击命中敌人时，目标每拥有一层<color=#FFFFFF>[萎靡]</color>，本次攻击中<color=#98EFF0>冰属性伤害</color>和<color=#FF5521>火属性伤害</color>的暴击伤害提升<color=#2BAD00>2.4%</color>，该效果全队唯一。"
             }
         },
         "rarity": "S",
@@ -9155,23 +9155,23 @@
         "talents": {
             "1": {
                 "Name": "黯火",
-                "Desc": "进入接战状态或换入前场时，装备者的攻击力提升<color=#2BAD00>7.2%</color>，持续10秒，20秒内最多触发一次。"
+                "Desc": "成为接战状态下的当前操作角色时，装备者的攻击力提升<color=#2BAD00>7.2%</color>，持续10秒，20秒内最多触发一次。"
             },
             "2": {
                 "Name": "黯火",
-                "Desc": "进入接战状态或换入前场时，装备者的攻击力提升<color=#2BAD00>8.2%</color>，持续10秒，20秒内最多触发一次。"
+                "Desc": "成为接战状态下的当前操作角色时，装备者的攻击力提升<color=#2BAD00>8.2%</color>，持续10秒，20秒内最多触发一次。"
             },
             "3": {
                 "Name": "黯火",
-                "Desc": "进入接战状态或换入前场时，装备者的攻击力提升<color=#2BAD00>9.3%</color>，持续10秒，20秒内最多触发一次。"
+                "Desc": "成为接战状态下的当前操作角色时，装备者的攻击力提升<color=#2BAD00>9.3%</color>，持续10秒，20秒内最多触发一次。"
             },
             "4": {
                 "Name": "黯火",
-                "Desc": "进入接战状态或换入前场时，装备者的攻击力提升<color=#2BAD00>10.4%</color>，持续10秒，20秒内最多触发一次。"
+                "Desc": "成为接战状态下的当前操作角色时，装备者的攻击力提升<color=#2BAD00>10.4%</color>，持续10秒，20秒内最多触发一次。"
             },
             "5": {
                 "Name": "黯火",
-                "Desc": "进入接战状态或换入前场时，装备者的攻击力提升<color=#2BAD00>11.5%</color>，持续10秒，20秒内最多触发一次。"
+                "Desc": "成为接战状态下的当前操作角色时，装备者的攻击力提升<color=#2BAD00>11.5%</color>，持续10秒，20秒内最多触发一次。"
             }
         },
         "rarity": "A",
@@ -10615,27 +10615,27 @@
     },
     "14129": {
         "code_name": "Weapon_S_1291",
-        "name": "雨果测试音擎",
+        "name": "千面日陨",
         "talents": {
             "1": {
-                "Name": "测试音擎技能",
-                "Desc": "攻击力提升<color=#2BAD00>25%</color>；<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>造成<color=#98EFF0>冰属性伤害</color>时，招式的暴击伤害提升<color=#2BAD00>25%</color>，上述招式命中处于失衡状态下的敌人时，上述招式的暴击伤害额外提升<color=#2BAD00>25%</color>。"
+                "Name": "万千非我",
+                "Desc": "暴击伤害提升<color=#2BAD00>45%</color>；<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>造成<color=#98EFF0>冰属性伤害</color>时，角色获得<color=#FFFFFF>[零度处刑宣言]</color>效果，持续3秒；<color=#FFFFFF>[零度处刑宣言]</color>效果期间，角色命中敌人时无视<color=#2BAD00>25%</color>防御力。"
             },
             "2": {
-                "Name": "测试音擎技能",
-                "Desc": "攻击力提升<color=#2BAD00>28.75%</color>；<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>造成<color=#98EFF0>冰属性伤害</color>时，招式的暴击伤害提升<color=#2BAD00>28.75%</color>，上述招式命中处于失衡状态下的敌人时，上述招式的暴击伤害额外提升<color=#2BAD00>28.75%</color>。"
+                "Name": "万千非我",
+                "Desc": "暴击伤害提升<color=#2BAD00>51.75%</color>；<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>造成<color=#98EFF0>冰属性伤害</color>时，角色获得<color=#FFFFFF>[零度处刑宣言]</color>效果，持续3秒；<color=#FFFFFF>[零度处刑宣言]</color>效果期间，角色命中敌人时无视<color=#2BAD00>28.75%</color>防御力。"
             },
             "3": {
-                "Name": "测试音擎技能",
-                "Desc": "攻击力提升<color=#2BAD00>32.5%</color>；<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>造成<color=#98EFF0>冰属性伤害</color>时，招式的暴击伤害提升<color=#2BAD00>32.5%</color>，上述招式命中处于失衡状态下的敌人时，上述招式的暴击伤害额外提升<color=#2BAD00>32.5%</color>。"
+                "Name": "万千非我",
+                "Desc": "暴击伤害提升<color=#2BAD00>58.5%</color>；<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>造成<color=#98EFF0>冰属性伤害</color>时，角色获得<color=#FFFFFF>[零度处刑宣言]</color>效果，持续3秒；<color=#FFFFFF>[零度处刑宣言]</color>效果期间，角色命中敌人时无视<color=#2BAD00>32.5%</color>防御力。"
             },
             "4": {
-                "Name": "测试音擎技能",
-                "Desc": "攻击力提升<color=#2BAD00>36.25%</color>；<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>造成<color=#98EFF0>冰属性伤害</color>时，招式的暴击伤害提升<color=#2BAD00>36.25%</color>，上述招式命中处于失衡状态下的敌人时，上述招式的暴击伤害额外提升<color=#2BAD00>36.25%</color>。"
+                "Name": "万千非我",
+                "Desc": "暴击伤害提升<color=#2BAD00>65.25%</color>；<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>造成<color=#98EFF0>冰属性伤害</color>时，角色获得<color=#FFFFFF>[零度处刑宣言]</color>效果，持续3秒；<color=#FFFFFF>[零度处刑宣言]</color>效果期间，角色命中敌人时无视<color=#2BAD00>36.25%</color>防御力。"
             },
             "5": {
-                "Name": "测试音擎技能",
-                "Desc": "攻击力提升<color=#2BAD00>40%</color>；<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>造成<color=#98EFF0>冰属性伤害</color>时，招式的暴击伤害提升<color=#2BAD00>40%</color>，上述招式命中处于失衡状态下的敌人时，上述招式的暴击伤害额外提升<color=#2BAD00>40%</color>。"
+                "Name": "万千非我",
+                "Desc": "暴击伤害提升<color=#2BAD00>72%</color>；<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>造成<color=#98EFF0>冰属性伤害</color>时，角色获得<color=#FFFFFF>[零度处刑宣言]</color>效果，持续3秒；<color=#FFFFFF>[零度处刑宣言]</color>效果期间，角色命中敌人时无视<color=#2BAD00>40%</color>防御力。"
             }
         },
         "rarity": "S",
@@ -11351,23 +11351,23 @@
         "talents": {
             "1": {
                 "Name": "捕风寻踪",
-                "Desc": "装备者发动<color=#FFFFFF>[追加攻击]</color>命中敌人并造成<color=#2EB6FF>电属性伤害</color>时，目标的防御力降低<color=#2BAD00>25%</color>，持续5秒，同名被动效果之间不可叠加；该效果触发时，如果自身不是当前操作中的角色，则装备者获得1层<color=#FFFFFF>[魂锁]</color>，最多叠加3层，同一招式内最多触发一次；每层<color=#FFFFFF>[魂锁]</color>，可使装备者的冲击力提升<color=#2BAD00>4%</color>，持续12秒，每层效果单独结算持续时间，<color=#FFFFFF>[魂锁]</color>层数叠满时，额外给装备者的冲击力提升<color=#2BAD00>8%</color>。"
+                "Desc": "装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人并造成<color=#2EB6FF>电属性伤害</color>时，目标的防御力降低<color=#2BAD00>25%</color>，持续5秒，同名被动效果之间不可叠加；该效果触发时，如果自身不是当前操作中的角色，则装备者获得1层<color=#FFFFFF>[魂锁]</color>，最多叠加3层，同一招式内最多触发一次；每层<color=#FFFFFF>[魂锁]</color>，可使装备者的冲击力提升<color=#2BAD00>4%</color>，持续12秒，每层效果单独结算持续时间，<color=#FFFFFF>[魂锁]</color>层数叠满时，额外给装备者的冲击力提升<color=#2BAD00>8%</color>。"
             },
             "2": {
                 "Name": "捕风寻踪",
-                "Desc": "装备者发动<color=#FFFFFF>[追加攻击]</color>命中敌人并造成<color=#2EB6FF>电属性伤害</color>时，目标的防御力降低<color=#2BAD00>28.75%</color>，持续5秒，同名被动效果之间不可叠加；该效果触发时，如果自身不是当前操作中的角色，则装备者获得1层<color=#FFFFFF>[魂锁]</color>，最多叠加3层，同一招式内最多触发一次；每层<color=#FFFFFF>[魂锁]</color>，可使装备者的冲击力提升<color=#2BAD00>4.6%</color>，持续12秒，每层效果单独结算持续时间，<color=#FFFFFF>[魂锁]</color>层数叠满时，额外给装备者的冲击力提升<color=#2BAD00>9.2%</color>。"
+                "Desc": "装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人并造成<color=#2EB6FF>电属性伤害</color>时，目标的防御力降低<color=#2BAD00>28.75%</color>，持续5秒，同名被动效果之间不可叠加；该效果触发时，如果自身不是当前操作中的角色，则装备者获得1层<color=#FFFFFF>[魂锁]</color>，最多叠加3层，同一招式内最多触发一次；每层<color=#FFFFFF>[魂锁]</color>，可使装备者的冲击力提升<color=#2BAD00>4.6%</color>，持续12秒，每层效果单独结算持续时间，<color=#FFFFFF>[魂锁]</color>层数叠满时，额外给装备者的冲击力提升<color=#2BAD00>9.2%</color>。"
             },
             "3": {
                 "Name": "捕风寻踪",
-                "Desc": "装备者发动<color=#FFFFFF>[追加攻击]</color>命中敌人并造成<color=#2EB6FF>电属性伤害</color>时，目标的防御力降低<color=#2BAD00>32.5%</color>，持续5秒，同名被动效果之间不可叠加；该效果触发时，如果自身不是当前操作中的角色，则装备者获得1层<color=#FFFFFF>[魂锁]</color>，最多叠加3层，同一招式内最多触发一次；每层<color=#FFFFFF>[魂锁]</color>，可使装备者的冲击力提升<color=#2BAD00>5.2%</color>，持续12秒，每层效果单独结算持续时间，<color=#FFFFFF>[魂锁]</color>层数叠满时，额外给装备者的冲击力提升<color=#2BAD00>10.4%</color>。"
+                "Desc": "装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人并造成<color=#2EB6FF>电属性伤害</color>时，目标的防御力降低<color=#2BAD00>32.5%</color>，持续5秒，同名被动效果之间不可叠加；该效果触发时，如果自身不是当前操作中的角色，则装备者获得1层<color=#FFFFFF>[魂锁]</color>，最多叠加3层，同一招式内最多触发一次；每层<color=#FFFFFF>[魂锁]</color>，可使装备者的冲击力提升<color=#2BAD00>5.2%</color>，持续12秒，每层效果单独结算持续时间，<color=#FFFFFF>[魂锁]</color>层数叠满时，额外给装备者的冲击力提升<color=#2BAD00>10.4%</color>。"
             },
             "4": {
                 "Name": "捕风寻踪",
-                "Desc": "装备者发动<color=#FFFFFF>[追加攻击]</color>命中敌人并造成<color=#2EB6FF>电属性伤害</color>时，目标的防御力降低<color=#2BAD00>36.25%</color>，持续5秒，同名被动效果之间不可叠加；该效果触发时，如果自身不是当前操作中的角色，则装备者获得1层<color=#FFFFFF>[魂锁]</color>，最多叠加3层，同一招式内最多触发一次；每层<color=#FFFFFF>[魂锁]</color>，可使装备者的冲击力提升<color=#2BAD00>5.8%</color>，持续12秒，每层效果单独结算持续时间，<color=#FFFFFF>[魂锁]</color>层数叠满时，额外给装备者的冲击力提升<color=#2BAD00>11.6%</color>。"
+                "Desc": "装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人并造成<color=#2EB6FF>电属性伤害</color>时，目标的防御力降低<color=#2BAD00>36.25%</color>，持续5秒，同名被动效果之间不可叠加；该效果触发时，如果自身不是当前操作中的角色，则装备者获得1层<color=#FFFFFF>[魂锁]</color>，最多叠加3层，同一招式内最多触发一次；每层<color=#FFFFFF>[魂锁]</color>，可使装备者的冲击力提升<color=#2BAD00>5.8%</color>，持续12秒，每层效果单独结算持续时间，<color=#FFFFFF>[魂锁]</color>层数叠满时，额外给装备者的冲击力提升<color=#2BAD00>11.6%</color>。"
             },
             "5": {
                 "Name": "捕风寻踪",
-                "Desc": "装备者发动<color=#FFFFFF>[追加攻击]</color>命中敌人并造成<color=#2EB6FF>电属性伤害</color>时，目标的防御力降低<color=#2BAD00>40%</color>，持续5秒，同名被动效果之间不可叠加；该效果触发时，如果自身不是当前操作中的角色，则装备者获得1层<color=#FFFFFF>[魂锁]</color>，最多叠加3层，同一招式内最多触发一次；每层<color=#FFFFFF>[魂锁]</color>，可使装备者的冲击力提升<color=#2BAD00>6.4%</color>，持续12秒，每层效果单独结算持续时间，<color=#FFFFFF>[魂锁]</color>层数叠满时，额外给装备者的冲击力提升<color=#2BAD00>12.8%</color>。"
+                "Desc": "装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人并造成<color=#2EB6FF>电属性伤害</color>时，目标的防御力降低<color=#2BAD00>40%</color>，持续5秒，同名被动效果之间不可叠加；该效果触发时，如果自身不是当前操作中的角色，则装备者获得1层<color=#FFFFFF>[魂锁]</color>，最多叠加3层，同一招式内最多触发一次；每层<color=#FFFFFF>[魂锁]</color>，可使装备者的冲击力提升<color=#2BAD00>6.4%</color>，持续12秒，每层效果单独结算持续时间，<color=#FFFFFF>[魂锁]</color>层数叠满时，额外给装备者的冲击力提升<color=#2BAD00>12.8%</color>。"
             }
         },
         "rarity": "S",
@@ -12083,23 +12083,23 @@
         "talents": {
             "1": {
                 "Name": "音浪",
-                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，全队异常掌控和异常精通提升<color=#2BAD00>10</color>点，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，全队角色异常掌控和异常精通提升<color=#2BAD00>10</color>点，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "2": {
                 "Name": "音浪",
-                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，全队异常掌控和异常精通提升<color=#2BAD00>12</color>点，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，全队角色异常掌控和异常精通提升<color=#2BAD00>12</color>点，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "3": {
                 "Name": "音浪",
-                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，全队异常掌控和异常精通提升<color=#2BAD00>13</color>点，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，全队角色异常掌控和异常精通提升<color=#2BAD00>13</color>点，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "4": {
                 "Name": "音浪",
-                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，全队异常掌控和异常精通提升<color=#2BAD00>15</color>点，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，全队角色异常掌控和异常精通提升<color=#2BAD00>15</color>点，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "5": {
                 "Name": "音浪",
-                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，全队异常掌控和异常精通提升<color=#2BAD00>16</color>点，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，全队角色异常掌控和异常精通提升<color=#2BAD00>16</color>点，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             }
         },
         "rarity": "A",
@@ -14645,23 +14645,23 @@
         "talents": {
             "1": {
                 "Name": "安全巡查",
-                "Desc": "暴击率提升<color=#2BAD00>15%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，为装备者提供8层充能效果，最多叠加8层；<color=#FFFFFF>[普通攻击]</color>造成<color=#FE437E>以太伤害</color>时，消耗1层充能，使当前招式造成的伤害提升<color=#2BAD00>35%</color>。"
+                "Desc": "暴击率提升<color=#2BAD00>15%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，为装备者提供8层充能效果，最多叠加8层；<color=#FFFFFF>[普通攻击]</color>或<color=#FFFFFF>[冲刺攻击]</color>造成<color=#FE437E>以太伤害</color>时，消耗1层充能，使当前招式造成的伤害提升<color=#2BAD00>35%</color>。"
             },
             "2": {
                 "Name": "安全巡查",
-                "Desc": "暴击率提升<color=#2BAD00>18.8%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，为装备者提供8层充能效果，最多叠加8层；<color=#FFFFFF>[普通攻击]</color>造成<color=#FE437E>以太伤害</color>时，消耗1层充能，使当前招式造成的伤害提升<color=#2BAD00>43.5%</color>。"
+                "Desc": "暴击率提升<color=#2BAD00>18.8%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，为装备者提供8层充能效果，最多叠加8层；<color=#FFFFFF>[普通攻击]</color>或<color=#FFFFFF>[冲刺攻击]</color>造成<color=#FE437E>以太伤害</color>时，消耗1层充能，使当前招式造成的伤害提升<color=#2BAD00>43.5%</color>。"
             },
             "3": {
                 "Name": "安全巡查",
-                "Desc": "暴击率提升<color=#2BAD00>22.6%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，为装备者提供8层充能效果，最多叠加8层；<color=#FFFFFF>[普通攻击]</color>造成<color=#FE437E>以太伤害</color>时，消耗1层充能，使当前招式造成的伤害提升<color=#2BAD00>52%</color>。"
+                "Desc": "暴击率提升<color=#2BAD00>22.6%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，为装备者提供8层充能效果，最多叠加8层；<color=#FFFFFF>[普通攻击]</color>或<color=#FFFFFF>[冲刺攻击]</color>造成<color=#FE437E>以太伤害</color>时，消耗1层充能，使当前招式造成的伤害提升<color=#2BAD00>52%</color>。"
             },
             "4": {
                 "Name": "安全巡查",
-                "Desc": "暴击率提升<color=#2BAD00>26.4%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，为装备者提供8层充能效果，最多叠加8层；<color=#FFFFFF>[普通攻击]</color>造成<color=#FE437E>以太伤害</color>时，消耗1层充能，使当前招式造成的伤害提升<color=#2BAD00>60.5%</color>。"
+                "Desc": "暴击率提升<color=#2BAD00>26.4%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，为装备者提供8层充能效果，最多叠加8层；<color=#FFFFFF>[普通攻击]</color>或<color=#FFFFFF>[冲刺攻击]</color>造成<color=#FE437E>以太伤害</color>时，消耗1层充能，使当前招式造成的伤害提升<color=#2BAD00>60.5%</color>。"
             },
             "5": {
                 "Name": "安全巡查",
-                "Desc": "暴击率提升<color=#2BAD00>30%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，为装备者提供8层充能效果，最多叠加8层；<color=#FFFFFF>[普通攻击]</color>造成<color=#FE437E>以太伤害</color>时，消耗1层充能，使当前招式造成的伤害提升<color=#2BAD00>70%</color>。"
+                "Desc": "暴击率提升<color=#2BAD00>30%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，为装备者提供8层充能效果，最多叠加8层；<color=#FFFFFF>[普通攻击]</color>或<color=#FFFFFF>[冲刺攻击]</color>造成<color=#FE437E>以太伤害</color>时，消耗1层充能，使当前招式造成的伤害提升<color=#2BAD00>70%</color>。"
             }
         },
         "rarity": "S",
@@ -14671,6 +14671,372 @@
         "rand_props_name": "暴击伤害",
         "rand_props_id": "21103",
         "rand_props_value": 1920,
+        "level": {
+            "0": {
+                "Exp": 50,
+                "Rate": 0,
+                "Rate2": 10000
+            },
+            "1": {
+                "Exp": 100,
+                "Rate": 1568,
+                "Rate2": 10000
+            },
+            "2": {
+                "Exp": 150,
+                "Rate": 3136,
+                "Rate2": 10000
+            },
+            "3": {
+                "Exp": 200,
+                "Rate": 4705,
+                "Rate2": 10000
+            },
+            "4": {
+                "Exp": 300,
+                "Rate": 6273,
+                "Rate2": 10000
+            },
+            "5": {
+                "Exp": 400,
+                "Rate": 7841,
+                "Rate2": 10000
+            },
+            "6": {
+                "Exp": 500,
+                "Rate": 9409,
+                "Rate2": 10000
+            },
+            "7": {
+                "Exp": 600,
+                "Rate": 10977,
+                "Rate2": 10000
+            },
+            "8": {
+                "Exp": 750,
+                "Rate": 12545,
+                "Rate2": 10000
+            },
+            "9": {
+                "Exp": 950,
+                "Rate": 14114,
+                "Rate2": 10000
+            },
+            "10": {
+                "Exp": 1200,
+                "Rate": 15682,
+                "Rate2": 9000
+            },
+            "11": {
+                "Exp": 1290,
+                "Rate": 17250,
+                "Rate2": 9000
+            },
+            "12": {
+                "Exp": 1380,
+                "Rate": 18818,
+                "Rate2": 9000
+            },
+            "13": {
+                "Exp": 1465,
+                "Rate": 20386,
+                "Rate2": 9000
+            },
+            "14": {
+                "Exp": 1555,
+                "Rate": 21954,
+                "Rate2": 9000
+            },
+            "15": {
+                "Exp": 1640,
+                "Rate": 23523,
+                "Rate2": 9000
+            },
+            "16": {
+                "Exp": 1735,
+                "Rate": 25091,
+                "Rate2": 9000
+            },
+            "17": {
+                "Exp": 1825,
+                "Rate": 26659,
+                "Rate2": 9000
+            },
+            "18": {
+                "Exp": 1910,
+                "Rate": 28227,
+                "Rate2": 9000
+            },
+            "19": {
+                "Exp": 2000,
+                "Rate": 29795,
+                "Rate2": 9000
+            },
+            "20": {
+                "Exp": 3120,
+                "Rate": 31363,
+                "Rate2": 8000
+            },
+            "21": {
+                "Exp": 3315,
+                "Rate": 32932,
+                "Rate2": 8000
+            },
+            "22": {
+                "Exp": 3510,
+                "Rate": 34500,
+                "Rate2": 8000
+            },
+            "23": {
+                "Exp": 3705,
+                "Rate": 36068,
+                "Rate2": 8000
+            },
+            "24": {
+                "Exp": 3900,
+                "Rate": 37636,
+                "Rate2": 8000
+            },
+            "25": {
+                "Exp": 4100,
+                "Rate": 39204,
+                "Rate2": 8000
+            },
+            "26": {
+                "Exp": 4295,
+                "Rate": 40772,
+                "Rate2": 8000
+            },
+            "27": {
+                "Exp": 4490,
+                "Rate": 42341,
+                "Rate2": 8000
+            },
+            "28": {
+                "Exp": 4685,
+                "Rate": 43909,
+                "Rate2": 8000
+            },
+            "29": {
+                "Exp": 4880,
+                "Rate": 45477,
+                "Rate2": 8000
+            },
+            "30": {
+                "Exp": 7200,
+                "Rate": 47045,
+                "Rate2": 7000
+            },
+            "31": {
+                "Exp": 7600,
+                "Rate": 48613,
+                "Rate2": 7000
+            },
+            "32": {
+                "Exp": 8000,
+                "Rate": 50181,
+                "Rate2": 7000
+            },
+            "33": {
+                "Exp": 8400,
+                "Rate": 51750,
+                "Rate2": 7000
+            },
+            "34": {
+                "Exp": 8800,
+                "Rate": 53318,
+                "Rate2": 7000
+            },
+            "35": {
+                "Exp": 9200,
+                "Rate": 54886,
+                "Rate2": 7000
+            },
+            "36": {
+                "Exp": 9600,
+                "Rate": 56454,
+                "Rate2": 7000
+            },
+            "37": {
+                "Exp": 10000,
+                "Rate": 58022,
+                "Rate2": 7000
+            },
+            "38": {
+                "Exp": 10400,
+                "Rate": 59590,
+                "Rate2": 7000
+            },
+            "39": {
+                "Exp": 10800,
+                "Rate": 61159,
+                "Rate2": 7000
+            },
+            "40": {
+                "Exp": 11400,
+                "Rate": 62727,
+                "Rate2": 6000
+            },
+            "41": {
+                "Exp": 12200,
+                "Rate": 64295,
+                "Rate2": 6000
+            },
+            "42": {
+                "Exp": 13000,
+                "Rate": 65863,
+                "Rate2": 6000
+            },
+            "43": {
+                "Exp": 13800,
+                "Rate": 67431,
+                "Rate2": 6000
+            },
+            "44": {
+                "Exp": 14600,
+                "Rate": 68999,
+                "Rate2": 6000
+            },
+            "45": {
+                "Exp": 15400,
+                "Rate": 70568,
+                "Rate2": 6000
+            },
+            "46": {
+                "Exp": 16200,
+                "Rate": 72136,
+                "Rate2": 6000
+            },
+            "47": {
+                "Exp": 17000,
+                "Rate": 73704,
+                "Rate2": 6000
+            },
+            "48": {
+                "Exp": 17800,
+                "Rate": 75272,
+                "Rate2": 6000
+            },
+            "49": {
+                "Exp": 18600,
+                "Rate": 76840,
+                "Rate2": 6000
+            },
+            "50": {
+                "Exp": 22800,
+                "Rate": 78408,
+                "Rate2": 5000
+            },
+            "51": {
+                "Exp": 24400,
+                "Rate": 79977,
+                "Rate2": 5000
+            },
+            "52": {
+                "Exp": 26000,
+                "Rate": 81545,
+                "Rate2": 5000
+            },
+            "53": {
+                "Exp": 27600,
+                "Rate": 83113,
+                "Rate2": 5000
+            },
+            "54": {
+                "Exp": 29200,
+                "Rate": 84681,
+                "Rate2": 5000
+            },
+            "55": {
+                "Exp": 30800,
+                "Rate": 86249,
+                "Rate2": 5000
+            },
+            "56": {
+                "Exp": 32400,
+                "Rate": 87817,
+                "Rate2": 5000
+            },
+            "57": {
+                "Exp": 34000,
+                "Rate": 89386,
+                "Rate2": 5000
+            },
+            "58": {
+                "Exp": 35600,
+                "Rate": 90954,
+                "Rate2": 5000
+            },
+            "59": {
+                "Exp": 37200,
+                "Rate": 92522,
+                "Rate2": 5000
+            },
+            "60": {
+                "Exp": 0,
+                "Rate": 94090,
+                "Rate2": 4000
+            }
+        },
+        "stars": {
+            "0": {
+                "StarRate": 0,
+                "RandRate": 0
+            },
+            "1": {
+                "StarRate": 8922,
+                "RandRate": 3000
+            },
+            "2": {
+                "StarRate": 17844,
+                "RandRate": 6000
+            },
+            "3": {
+                "StarRate": 26766,
+                "RandRate": 9000
+            },
+            "4": {
+                "StarRate": 35688,
+                "RandRate": 12000
+            },
+            "5": {
+                "StarRate": 44610,
+                "RandRate": 15000
+            }
+        }
+    },
+    "14141": {
+        "code_name": "Weapon_S_1411",
+        "name": "狸法七变化",
+        "talents": {
+            "1": {
+                "Name": "机巧玲珑",
+                "Desc": "装备者的<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#F0D12B>物理伤害</color>时，装备者<color=#FFFFFF>异常掌控</color>提升<color=#2BAD00>30</color>点，持续40秒；装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人时，使全队角色的<color=#FFFFFF>异常精通</color>提升<color=#2BAD00>60</color>点，持续40秒，该效果全队唯一。"
+            },
+            "2": {
+                "Name": "机巧玲珑",
+                "Desc": "装备者的<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#F0D12B>物理伤害</color>时，装备者<color=#FFFFFF>异常掌控</color>提升<color=#2BAD00>34</color>点，持续40秒；装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人时，使全队角色的<color=#FFFFFF>异常精通</color>提升<color=#2BAD00>69</color>点，持续40秒，该效果全队唯一。"
+            },
+            "3": {
+                "Name": "机巧玲珑",
+                "Desc": "装备者的<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#F0D12B>物理伤害</color>时，装备者<color=#FFFFFF>异常掌控</color>提升<color=#2BAD00>39</color>点，持续40秒；装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人时，使全队角色的<color=#FFFFFF>异常精通</color>提升<color=#2BAD00>78</color>点，持续40秒，该效果全队唯一。"
+            },
+            "4": {
+                "Name": "机巧玲珑",
+                "Desc": "装备者的<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#F0D12B>物理伤害</color>时，装备者<color=#FFFFFF>异常掌控</color>提升<color=#2BAD00>43</color>点，持续40秒；装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人时，使全队角色的<color=#FFFFFF>异常精通</color>提升<color=#2BAD00>87</color>点，持续40秒，该效果全队唯一。"
+            },
+            "5": {
+                "Name": "机巧玲珑",
+                "Desc": "装备者的<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#F0D12B>物理伤害</color>时，装备者<color=#FFFFFF>异常掌控</color>提升<color=#2BAD00>48</color>点，持续40秒；装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人时，使全队角色的<color=#FFFFFF>异常精通</color>提升<color=#2BAD00>96</color>点，持续40秒，该效果全队唯一。"
+            }
+        },
+        "rarity": "S",
+        "props_name": "基础攻击力",
+        "props_id": "12101",
+        "props_value": 48,
+        "rand_props_name": "能量自动回复",
+        "rand_props_id": "30502",
+        "rand_props_value": 2400,
         "level": {
             "0": {
                 "Exp": 50,
@@ -16109,23 +16475,23 @@
         "talents": {
             "1": {
                 "Name": "强音",
-                "Desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队攻击力提升<color=#2BAD00>8%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队角色攻击力提升<color=#2BAD00>8%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "2": {
                 "Name": "强音",
-                "Desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队攻击力提升<color=#2BAD00>9%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队角色攻击力提升<color=#2BAD00>9%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "3": {
                 "Name": "强音",
-                "Desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队攻击力提升<color=#2BAD00>10%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队角色攻击力提升<color=#2BAD00>10%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "4": {
                 "Name": "强音",
-                "Desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队攻击力提升<color=#2BAD00>11%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队角色攻击力提升<color=#2BAD00>11%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "5": {
                 "Name": "强音",
-                "Desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队攻击力提升<color=#2BAD00>12%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队角色攻击力提升<color=#2BAD00>12%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             }
         },
         "rarity": "A",
@@ -18305,23 +18671,23 @@
         "talents": {
             "1": {
                 "Name": "卓卓千华",
-                "Desc": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[招架支援]</color>、<color=#FFFFFF>[回避支援]</color>入场时，为装备者回复<color=#2BAD00>5</color>点能量，5秒内最多触发一次；装备者消耗25点或以上能量时，全队造成的伤害提升<color=#2BAD00>10%</color>，最多叠加2层，持续20秒，重复触发时刷新持续时间，该效果全队唯一。"
+                "Desc": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[招架支援]</color>、<color=#FFFFFF>[回避支援]</color>入场时，为装备者回复<color=#2BAD00>5</color>点能量，5秒内最多触发一次；装备者消耗25点或以上能量时，全队角色造成的伤害提升<color=#2BAD00>10%</color>，最多叠加2层，持续20秒，重复触发时刷新持续时间，该效果全队唯一。"
             },
             "2": {
                 "Name": "卓卓千华",
-                "Desc": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[招架支援]</color>、<color=#FFFFFF>[回避支援]</color>入场时，为装备者回复<color=#2BAD00>5.5</color>点能量，5秒内最多触发一次；装备者消耗25点或以上能量时，全队造成的伤害提升<color=#2BAD00>11.5%</color>，最多叠加2层，持续20秒，重复触发时刷新持续时间，该效果全队唯一。"
+                "Desc": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[招架支援]</color>、<color=#FFFFFF>[回避支援]</color>入场时，为装备者回复<color=#2BAD00>5.5</color>点能量，5秒内最多触发一次；装备者消耗25点或以上能量时，全队角色造成的伤害提升<color=#2BAD00>11.5%</color>，最多叠加2层，持续20秒，重复触发时刷新持续时间，该效果全队唯一。"
             },
             "3": {
                 "Name": "卓卓千华",
-                "Desc": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[招架支援]</color>、<color=#FFFFFF>[回避支援]</color>入场时，为装备者回复<color=#2BAD00>6</color>点能量，5秒内最多触发一次；装备者消耗25点或以上能量时，全队造成的伤害提升<color=#2BAD00>13%</color>，最多叠加2层，持续20秒，重复触发时刷新持续时间，该效果全队唯一。"
+                "Desc": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[招架支援]</color>、<color=#FFFFFF>[回避支援]</color>入场时，为装备者回复<color=#2BAD00>6</color>点能量，5秒内最多触发一次；装备者消耗25点或以上能量时，全队角色造成的伤害提升<color=#2BAD00>13%</color>，最多叠加2层，持续20秒，重复触发时刷新持续时间，该效果全队唯一。"
             },
             "4": {
                 "Name": "卓卓千华",
-                "Desc": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[招架支援]</color>、<color=#FFFFFF>[回避支援]</color>入场时，为装备者回复<color=#2BAD00>6.5</color>点能量，5秒内最多触发一次；装备者消耗25点或以上能量时，全队造成的伤害提升<color=#2BAD00>14.5%</color>，最多叠加2层，持续20秒，重复触发时刷新持续时间，该效果全队唯一。"
+                "Desc": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[招架支援]</color>、<color=#FFFFFF>[回避支援]</color>入场时，为装备者回复<color=#2BAD00>6.5</color>点能量，5秒内最多触发一次；装备者消耗25点或以上能量时，全队角色造成的伤害提升<color=#2BAD00>14.5%</color>，最多叠加2层，持续20秒，重复触发时刷新持续时间，该效果全队唯一。"
             },
             "5": {
                 "Name": "卓卓千华",
-                "Desc": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[招架支援]</color>、<color=#FFFFFF>[回避支援]</color>入场时，为装备者回复<color=#2BAD00>7</color>点能量，5秒内最多触发一次；装备者消耗25点或以上能量时，全队造成的伤害提升<color=#2BAD00>16%</color>，最多叠加2层，持续20秒，重复触发时刷新持续时间，该效果全队唯一。"
+                "Desc": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[招架支援]</color>、<color=#FFFFFF>[回避支援]</color>入场时，为装备者回复<color=#2BAD00>7</color>点能量，5秒内最多触发一次；装备者消耗25点或以上能量时，全队角色造成的伤害提升<color=#2BAD00>16%</color>，最多叠加2层，持续20秒，重复触发时刷新持续时间，该效果全队唯一。"
             }
         },
         "rarity": "S",
@@ -19403,23 +19769,23 @@
         "talents": {
             "1": {
                 "Name": "惩·罚",
-                "Desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>0.6</color>点/秒；装备者攻击命中敌人时，全队对目标造成的伤害提升<color=#2BAD00>10%</color>，持续3秒；效果持续期间，每0.5秒该增益效果额外提升<color=#2BAD00>1.7%</color>，最多额外提升<color=#2BAD00>10.2%</color>，重复触发时仅刷新持续时间，不刷新伤害提升效果，同名被动效果之间不可叠加。"
+                "Desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>0.6</color>点/秒；装备者攻击命中敌人时，所有单位对目标造成的伤害提升<color=#2BAD00>10%</color>，持续3秒；效果持续期间，每0.5秒该增益效果额外提升<color=#2BAD00>1.7%</color>，最多额外提升<color=#2BAD00>10.2%</color>，重复触发时仅刷新持续时间，不刷新伤害提升效果，同名被动效果之间不可叠加。"
             },
             "2": {
                 "Name": "惩·罚",
-                "Desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>0.75</color>点/秒；装备者攻击命中敌人时，全队对目标造成的伤害提升<color=#2BAD00>12.5%</color>，持续3秒；效果持续期间，每0.5秒该增益效果额外提升<color=#2BAD00>2%</color>，最多额外提升<color=#2BAD00>12%</color>，重复触发时仅刷新持续时间，不刷新伤害提升效果，同名被动效果之间不可叠加。"
+                "Desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>0.75</color>点/秒；装备者攻击命中敌人时，所有单位对目标造成的伤害提升<color=#2BAD00>12.5%</color>，持续3秒；效果持续期间，每0.5秒该增益效果额外提升<color=#2BAD00>2%</color>，最多额外提升<color=#2BAD00>12%</color>，重复触发时仅刷新持续时间，不刷新伤害提升效果，同名被动效果之间不可叠加。"
             },
             "3": {
                 "Name": "惩·罚",
-                "Desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>0.9</color>点/秒；装备者攻击命中敌人时，全队对目标造成的伤害提升<color=#2BAD00>15%</color>，持续3秒；效果持续期间，每0.5秒该增益效果额外提升<color=#2BAD00>2.5%</color>，最多额外提升<color=#2BAD00>15%</color>，重复触发时仅刷新持续时间，不刷新伤害提升效果，同名被动效果之间不可叠加。"
+                "Desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>0.9</color>点/秒；装备者攻击命中敌人时，所有单位对目标造成的伤害提升<color=#2BAD00>15%</color>，持续3秒；效果持续期间，每0.5秒该增益效果额外提升<color=#2BAD00>2.5%</color>，最多额外提升<color=#2BAD00>15%</color>，重复触发时仅刷新持续时间，不刷新伤害提升效果，同名被动效果之间不可叠加。"
             },
             "4": {
                 "Name": "惩·罚",
-                "Desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>1.05</color>点/秒；装备者攻击命中敌人时，全队对目标造成的伤害提升<color=#2BAD00>17.5%</color>，持续3秒；效果持续期间，每0.5秒该增益效果额外提升<color=#2BAD00>3%</color>，最多额外提升<color=#2BAD00>18%</color>，重复触发时仅刷新持续时间，不刷新伤害提升效果，同名被动效果之间不可叠加。"
+                "Desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>1.05</color>点/秒；装备者攻击命中敌人时，所有单位对目标造成的伤害提升<color=#2BAD00>17.5%</color>，持续3秒；效果持续期间，每0.5秒该增益效果额外提升<color=#2BAD00>3%</color>，最多额外提升<color=#2BAD00>18%</color>，重复触发时仅刷新持续时间，不刷新伤害提升效果，同名被动效果之间不可叠加。"
             },
             "5": {
                 "Name": "惩·罚",
-                "Desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>1.2</color>点/秒；装备者攻击命中敌人时，全队对目标造成的伤害提升<color=#2BAD00>20%</color>，持续3秒；效果持续期间，每0.5秒该增益效果额外提升<color=#2BAD00>3.3%</color>，最多额外提升<color=#2BAD00>19.8%</color>，重复触发时仅刷新持续时间，不刷新伤害提升效果，同名被动效果之间不可叠加。"
+                "Desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>1.2</color>点/秒；装备者攻击命中敌人时，所有单位对目标造成的伤害提升<color=#2BAD00>20%</color>，持续3秒；效果持续期间，每0.5秒该增益效果额外提升<color=#2BAD00>3.3%</color>，最多额外提升<color=#2BAD00>19.8%</color>，重复触发时仅刷新持续时间，不刷新伤害提升效果，同名被动效果之间不可叠加。"
             }
         },
         "rarity": "S",
@@ -20861,6 +21227,372 @@
             }
         }
     },
+    "14140": {
+        "code_name": "Weapon_S_1401",
+        "name": "十方锻星",
+        "talents": {
+            "1": {
+                "Name": "予你星屑",
+                "Desc": "装备者的<color=#FFFFFF>[异常掌控]</color>提升<color=#2BAD00>60</color>点；触发<color=#F0D12B>[强击]</color>时，装备者造成的<color=#F0D12B>物理伤害</color>提升<color=#2BAD00>20%</color>，持续20秒，最多叠加2层，重复触发时刷新持续时间，装备者进入接战状态时，立即获得2层效果。"
+            },
+            "2": {
+                "Name": "予你星屑",
+                "Desc": "装备者的<color=#FFFFFF>[异常掌控]</color>提升<color=#2BAD00>69</color>点；触发<color=#F0D12B>[强击]</color>时，装备者造成的<color=#F0D12B>物理伤害</color>提升<color=#2BAD00>23%</color>，持续20秒，最多叠加2层，重复触发时刷新持续时间，装备者进入接战状态时，立即获得2层效果。"
+            },
+            "3": {
+                "Name": "予你星屑",
+                "Desc": "装备者的<color=#FFFFFF>[异常掌控]</color>提升<color=#2BAD00>78</color>点；触发<color=#F0D12B>[强击]</color>时，装备者造成的<color=#F0D12B>物理伤害</color>提升<color=#2BAD00>26%</color>，持续20秒，最多叠加2层，重复触发时刷新持续时间，装备者进入接战状态时，立即获得2层效果。"
+            },
+            "4": {
+                "Name": "予你星屑",
+                "Desc": "装备者的<color=#FFFFFF>[异常掌控]</color>提升<color=#2BAD00>87</color>点；触发<color=#F0D12B>[强击]</color>时，装备者造成的<color=#F0D12B>物理伤害</color>提升<color=#2BAD00>29%</color>，持续20秒，最多叠加2层，重复触发时刷新持续时间，装备者进入接战状态时，立即获得2层效果。"
+            },
+            "5": {
+                "Name": "予你星屑",
+                "Desc": "装备者的<color=#FFFFFF>[异常掌控]</color>提升<color=#2BAD00>96</color>点；触发<color=#F0D12B>[强击]</color>时，装备者造成的<color=#F0D12B>物理伤害</color>提升<color=#2BAD00>32%</color>，持续20秒，最多叠加2层，重复触发时刷新持续时间，装备者进入接战状态时，立即获得2层效果。"
+            }
+        },
+        "rarity": "S",
+        "props_name": "基础攻击力",
+        "props_id": "12101",
+        "props_value": 48,
+        "rand_props_name": "攻击力",
+        "rand_props_id": "12102",
+        "rand_props_value": 1200,
+        "level": {
+            "0": {
+                "Exp": 50,
+                "Rate": 0,
+                "Rate2": 10000
+            },
+            "1": {
+                "Exp": 100,
+                "Rate": 1568,
+                "Rate2": 10000
+            },
+            "2": {
+                "Exp": 150,
+                "Rate": 3136,
+                "Rate2": 10000
+            },
+            "3": {
+                "Exp": 200,
+                "Rate": 4705,
+                "Rate2": 10000
+            },
+            "4": {
+                "Exp": 300,
+                "Rate": 6273,
+                "Rate2": 10000
+            },
+            "5": {
+                "Exp": 400,
+                "Rate": 7841,
+                "Rate2": 10000
+            },
+            "6": {
+                "Exp": 500,
+                "Rate": 9409,
+                "Rate2": 10000
+            },
+            "7": {
+                "Exp": 600,
+                "Rate": 10977,
+                "Rate2": 10000
+            },
+            "8": {
+                "Exp": 750,
+                "Rate": 12545,
+                "Rate2": 10000
+            },
+            "9": {
+                "Exp": 950,
+                "Rate": 14114,
+                "Rate2": 10000
+            },
+            "10": {
+                "Exp": 1200,
+                "Rate": 15682,
+                "Rate2": 9000
+            },
+            "11": {
+                "Exp": 1290,
+                "Rate": 17250,
+                "Rate2": 9000
+            },
+            "12": {
+                "Exp": 1380,
+                "Rate": 18818,
+                "Rate2": 9000
+            },
+            "13": {
+                "Exp": 1465,
+                "Rate": 20386,
+                "Rate2": 9000
+            },
+            "14": {
+                "Exp": 1555,
+                "Rate": 21954,
+                "Rate2": 9000
+            },
+            "15": {
+                "Exp": 1640,
+                "Rate": 23523,
+                "Rate2": 9000
+            },
+            "16": {
+                "Exp": 1735,
+                "Rate": 25091,
+                "Rate2": 9000
+            },
+            "17": {
+                "Exp": 1825,
+                "Rate": 26659,
+                "Rate2": 9000
+            },
+            "18": {
+                "Exp": 1910,
+                "Rate": 28227,
+                "Rate2": 9000
+            },
+            "19": {
+                "Exp": 2000,
+                "Rate": 29795,
+                "Rate2": 9000
+            },
+            "20": {
+                "Exp": 3120,
+                "Rate": 31363,
+                "Rate2": 8000
+            },
+            "21": {
+                "Exp": 3315,
+                "Rate": 32932,
+                "Rate2": 8000
+            },
+            "22": {
+                "Exp": 3510,
+                "Rate": 34500,
+                "Rate2": 8000
+            },
+            "23": {
+                "Exp": 3705,
+                "Rate": 36068,
+                "Rate2": 8000
+            },
+            "24": {
+                "Exp": 3900,
+                "Rate": 37636,
+                "Rate2": 8000
+            },
+            "25": {
+                "Exp": 4100,
+                "Rate": 39204,
+                "Rate2": 8000
+            },
+            "26": {
+                "Exp": 4295,
+                "Rate": 40772,
+                "Rate2": 8000
+            },
+            "27": {
+                "Exp": 4490,
+                "Rate": 42341,
+                "Rate2": 8000
+            },
+            "28": {
+                "Exp": 4685,
+                "Rate": 43909,
+                "Rate2": 8000
+            },
+            "29": {
+                "Exp": 4880,
+                "Rate": 45477,
+                "Rate2": 8000
+            },
+            "30": {
+                "Exp": 7200,
+                "Rate": 47045,
+                "Rate2": 7000
+            },
+            "31": {
+                "Exp": 7600,
+                "Rate": 48613,
+                "Rate2": 7000
+            },
+            "32": {
+                "Exp": 8000,
+                "Rate": 50181,
+                "Rate2": 7000
+            },
+            "33": {
+                "Exp": 8400,
+                "Rate": 51750,
+                "Rate2": 7000
+            },
+            "34": {
+                "Exp": 8800,
+                "Rate": 53318,
+                "Rate2": 7000
+            },
+            "35": {
+                "Exp": 9200,
+                "Rate": 54886,
+                "Rate2": 7000
+            },
+            "36": {
+                "Exp": 9600,
+                "Rate": 56454,
+                "Rate2": 7000
+            },
+            "37": {
+                "Exp": 10000,
+                "Rate": 58022,
+                "Rate2": 7000
+            },
+            "38": {
+                "Exp": 10400,
+                "Rate": 59590,
+                "Rate2": 7000
+            },
+            "39": {
+                "Exp": 10800,
+                "Rate": 61159,
+                "Rate2": 7000
+            },
+            "40": {
+                "Exp": 11400,
+                "Rate": 62727,
+                "Rate2": 6000
+            },
+            "41": {
+                "Exp": 12200,
+                "Rate": 64295,
+                "Rate2": 6000
+            },
+            "42": {
+                "Exp": 13000,
+                "Rate": 65863,
+                "Rate2": 6000
+            },
+            "43": {
+                "Exp": 13800,
+                "Rate": 67431,
+                "Rate2": 6000
+            },
+            "44": {
+                "Exp": 14600,
+                "Rate": 68999,
+                "Rate2": 6000
+            },
+            "45": {
+                "Exp": 15400,
+                "Rate": 70568,
+                "Rate2": 6000
+            },
+            "46": {
+                "Exp": 16200,
+                "Rate": 72136,
+                "Rate2": 6000
+            },
+            "47": {
+                "Exp": 17000,
+                "Rate": 73704,
+                "Rate2": 6000
+            },
+            "48": {
+                "Exp": 17800,
+                "Rate": 75272,
+                "Rate2": 6000
+            },
+            "49": {
+                "Exp": 18600,
+                "Rate": 76840,
+                "Rate2": 6000
+            },
+            "50": {
+                "Exp": 22800,
+                "Rate": 78408,
+                "Rate2": 5000
+            },
+            "51": {
+                "Exp": 24400,
+                "Rate": 79977,
+                "Rate2": 5000
+            },
+            "52": {
+                "Exp": 26000,
+                "Rate": 81545,
+                "Rate2": 5000
+            },
+            "53": {
+                "Exp": 27600,
+                "Rate": 83113,
+                "Rate2": 5000
+            },
+            "54": {
+                "Exp": 29200,
+                "Rate": 84681,
+                "Rate2": 5000
+            },
+            "55": {
+                "Exp": 30800,
+                "Rate": 86249,
+                "Rate2": 5000
+            },
+            "56": {
+                "Exp": 32400,
+                "Rate": 87817,
+                "Rate2": 5000
+            },
+            "57": {
+                "Exp": 34000,
+                "Rate": 89386,
+                "Rate2": 5000
+            },
+            "58": {
+                "Exp": 35600,
+                "Rate": 90954,
+                "Rate2": 5000
+            },
+            "59": {
+                "Exp": 37200,
+                "Rate": 92522,
+                "Rate2": 5000
+            },
+            "60": {
+                "Exp": 0,
+                "Rate": 94090,
+                "Rate2": 4000
+            }
+        },
+        "stars": {
+            "0": {
+                "StarRate": 0,
+                "RandRate": 0
+            },
+            "1": {
+                "StarRate": 8922,
+                "RandRate": 3000
+            },
+            "2": {
+                "StarRate": 17844,
+                "RandRate": 6000
+            },
+            "3": {
+                "StarRate": 26766,
+                "RandRate": 9000
+            },
+            "4": {
+                "StarRate": 35688,
+                "RandRate": 12000
+            },
+            "5": {
+                "StarRate": 44610,
+                "RandRate": 15000
+            }
+        }
+    },
     "13013": {
         "code_name": "Weapon_A_Common_13",
         "name": "鎏金花信",
@@ -21233,23 +21965,23 @@
         "talents": {
             "1": {
                 "Name": "潮汐",
-                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，全队冲击力提升<color=#2BAD00>8%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色冲击力提升<color=#2BAD00>8%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "2": {
                 "Name": "潮汐",
-                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，全队冲击力提升<color=#2BAD00>9%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色冲击力提升<color=#2BAD00>9%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "3": {
                 "Name": "潮汐",
-                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，全队冲击力提升<color=#2BAD00>10%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色冲击力提升<color=#2BAD00>10%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "4": {
                 "Name": "潮汐",
-                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，全队冲击力提升<color=#2BAD00>11%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色冲击力提升<color=#2BAD00>11%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             },
             "5": {
                 "Name": "潮汐",
-                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，全队冲击力提升<color=#2BAD00>12%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
+                "Desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色冲击力提升<color=#2BAD00>12%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。"
             }
         },
         "rarity": "A",
@@ -23063,23 +23795,23 @@
         "talents": {
             "1": {
                 "Name": "电玩，启动！",
-                "Desc": "装备者攻击命中敌人时，若触发属性克制效果，则全队对该目标的暴击率提升<color=#2BAD00>12%</color>，持续12秒，同名被动效果之间不可叠加。"
+                "Desc": "装备者攻击命中敌人时，若触发属性克制效果，则所有单位对该目标的暴击率提升<color=#2BAD00>12%</color>，持续12秒，同名被动效果之间不可叠加。"
             },
             "2": {
                 "Name": "电玩，启动！",
-                "Desc": "装备者攻击命中敌人时，若触发属性克制效果，则全队对该目标的暴击率提升<color=#2BAD00>13.5%</color>，持续12秒，同名被动效果之间不可叠加。"
+                "Desc": "装备者攻击命中敌人时，若触发属性克制效果，则所有单位对该目标的暴击率提升<color=#2BAD00>13.5%</color>，持续12秒，同名被动效果之间不可叠加。"
             },
             "3": {
                 "Name": "电玩，启动！",
-                "Desc": "装备者攻击命中敌人时，若触发属性克制效果，则全队对该目标的暴击率提升<color=#2BAD00>15.5%</color>，持续12秒，同名被动效果之间不可叠加。"
+                "Desc": "装备者攻击命中敌人时，若触发属性克制效果，则所有单位对该目标的暴击率提升<color=#2BAD00>15.5%</color>，持续12秒，同名被动效果之间不可叠加。"
             },
             "4": {
                 "Name": "电玩，启动！",
-                "Desc": "装备者攻击命中敌人时，若触发属性克制效果，则全队对该目标的暴击率提升<color=#2BAD00>17.5%</color>，持续12秒，同名被动效果之间不可叠加。"
+                "Desc": "装备者攻击命中敌人时，若触发属性克制效果，则所有单位对该目标的暴击率提升<color=#2BAD00>17.5%</color>，持续12秒，同名被动效果之间不可叠加。"
             },
             "5": {
                 "Name": "电玩，启动！",
-                "Desc": "装备者攻击命中敌人时，若触发属性克制效果，则全队对该目标的暴击率提升<color=#2BAD00>20%</color>，持续12秒，同名被动效果之间不可叠加。"
+                "Desc": "装备者攻击命中敌人时，若触发属性克制效果，则所有单位对该目标的暴击率提升<color=#2BAD00>20%</color>，持续12秒，同名被动效果之间不可叠加。"
             }
         },
         "rarity": "A",
@@ -23429,23 +24161,23 @@
         "talents": {
             "1": {
                 "Name": "泠泠连奏",
-                "Desc": "<color=#FFFFFF>[普通攻击]</color>命中敌人时，获得1层<color=#FFFFFF>[茶劲]</color>，每层<color=#FFFFFF>[茶劲]</color>使装备者的冲击力提升<color=#2BAD00>0.7%</color>，最多叠加30层，持续8秒，每层效果单独结算持续时间；获得<color=#FFFFFF>[茶劲]</color>时，若装备者拥有的<color=#FFFFFF>[茶劲]</color>层数大于等于15层，全队造成的伤害提升<color=#2BAD00>20%</color>，持续10秒，同名被动效果之间不可叠加。"
+                "Desc": "<color=#FFFFFF>[普通攻击]</color>命中敌人时，获得1层<color=#FFFFFF>[茶劲]</color>，每层<color=#FFFFFF>[茶劲]</color>使装备者的冲击力提升<color=#2BAD00>0.7%</color>，最多叠加30层，持续8秒，每层效果单独结算持续时间；获得<color=#FFFFFF>[茶劲]</color>时，若装备者拥有的<color=#FFFFFF>[茶劲]</color>层数大于等于15层，全队角色造成的伤害提升<color=#2BAD00>20%</color>，持续10秒，同名被动效果之间不可叠加。"
             },
             "2": {
                 "Name": "泠泠连奏",
-                "Desc": "<color=#FFFFFF>[普通攻击]</color>命中敌人时，获得1层<color=#FFFFFF>[茶劲]</color>，每层<color=#FFFFFF>[茶劲]</color>使装备者的冲击力提升<color=#2BAD00>0.88%</color>，最多叠加30层，持续8秒，每层效果单独结算持续时间；获得<color=#FFFFFF>[茶劲]</color>时，若装备者拥有的<color=#FFFFFF>[茶劲]</color>层数大于等于15层，全队造成的伤害提升<color=#2BAD00>23%</color>，持续10秒，同名被动效果之间不可叠加。"
+                "Desc": "<color=#FFFFFF>[普通攻击]</color>命中敌人时，获得1层<color=#FFFFFF>[茶劲]</color>，每层<color=#FFFFFF>[茶劲]</color>使装备者的冲击力提升<color=#2BAD00>0.88%</color>，最多叠加30层，持续8秒，每层效果单独结算持续时间；获得<color=#FFFFFF>[茶劲]</color>时，若装备者拥有的<color=#FFFFFF>[茶劲]</color>层数大于等于15层，全队角色造成的伤害提升<color=#2BAD00>23%</color>，持续10秒，同名被动效果之间不可叠加。"
             },
             "3": {
                 "Name": "泠泠连奏",
-                "Desc": "<color=#FFFFFF>[普通攻击]</color>命中敌人时，获得1层<color=#FFFFFF>[茶劲]</color>，每层<color=#FFFFFF>[茶劲]</color>使装备者的冲击力提升<color=#2BAD00>1.05%</color>，最多叠加30层，持续8秒，每层效果单独结算持续时间；获得<color=#FFFFFF>[茶劲]</color>时，若装备者拥有的<color=#FFFFFF>[茶劲]</color>层数大于等于15层，全队造成的伤害提升<color=#2BAD00>26%</color>，持续10秒，同名被动效果之间不可叠加。"
+                "Desc": "<color=#FFFFFF>[普通攻击]</color>命中敌人时，获得1层<color=#FFFFFF>[茶劲]</color>，每层<color=#FFFFFF>[茶劲]</color>使装备者的冲击力提升<color=#2BAD00>1.05%</color>，最多叠加30层，持续8秒，每层效果单独结算持续时间；获得<color=#FFFFFF>[茶劲]</color>时，若装备者拥有的<color=#FFFFFF>[茶劲]</color>层数大于等于15层，全队角色造成的伤害提升<color=#2BAD00>26%</color>，持续10秒，同名被动效果之间不可叠加。"
             },
             "4": {
                 "Name": "泠泠连奏",
-                "Desc": "<color=#FFFFFF>[普通攻击]</color>命中敌人时，获得1层<color=#FFFFFF>[茶劲]</color>，每层<color=#FFFFFF>[茶劲]</color>使装备者的冲击力提升<color=#2BAD00>1.22%</color>，最多叠加30层，持续8秒，每层效果单独结算持续时间；获得<color=#FFFFFF>[茶劲]</color>时，若装备者拥有的<color=#FFFFFF>[茶劲]</color>层数大于等于15层，全队造成的伤害提升<color=#2BAD00>29%</color>，持续10秒，同名被动效果之间不可叠加。"
+                "Desc": "<color=#FFFFFF>[普通攻击]</color>命中敌人时，获得1层<color=#FFFFFF>[茶劲]</color>，每层<color=#FFFFFF>[茶劲]</color>使装备者的冲击力提升<color=#2BAD00>1.22%</color>，最多叠加30层，持续8秒，每层效果单独结算持续时间；获得<color=#FFFFFF>[茶劲]</color>时，若装备者拥有的<color=#FFFFFF>[茶劲]</color>层数大于等于15层，全队角色造成的伤害提升<color=#2BAD00>29%</color>，持续10秒，同名被动效果之间不可叠加。"
             },
             "5": {
                 "Name": "泠泠连奏",
-                "Desc": "<color=#FFFFFF>[普通攻击]</color>命中敌人时，获得1层<color=#FFFFFF>[茶劲]</color>，每层<color=#FFFFFF>[茶劲]</color>使装备者的冲击力提升<color=#2BAD00>1.4%</color>，最多叠加30层，持续8秒，每层效果单独结算持续时间；获得<color=#FFFFFF>[茶劲]</color>时，若装备者拥有的<color=#FFFFFF>[茶劲]</color>层数大于等于15层，全队造成的伤害提升<color=#2BAD00>32%</color>，持续10秒，同名被动效果之间不可叠加。"
+                "Desc": "<color=#FFFFFF>[普通攻击]</color>命中敌人时，获得1层<color=#FFFFFF>[茶劲]</color>，每层<color=#FFFFFF>[茶劲]</color>使装备者的冲击力提升<color=#2BAD00>1.4%</color>，最多叠加30层，持续8秒，每层效果单独结算持续时间；获得<color=#FFFFFF>[茶劲]</color>时，若装备者拥有的<color=#FFFFFF>[茶劲]</color>层数大于等于15层，全队角色造成的伤害提升<color=#2BAD00>32%</color>，持续10秒，同名被动效果之间不可叠加。"
             }
         },
         "rarity": "S",

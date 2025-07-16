@@ -77,6 +77,7 @@ camp_map = {
     '防卫军·奥波勒斯小队': 'Obols',
     '反舌鸟': 'MockingBird',
     '云岿山': 'Suibian',
+    '怪啖屋': 'SpookShack',
 }
 
 
