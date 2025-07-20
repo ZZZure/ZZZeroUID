@@ -78,9 +78,14 @@ CONFIG_DEFAULT: Dict[str, GSC] = {
         '查询面板使用自定义角色图',
         False,
     ),
-    'EnableEnkaData': GsBoolConfig(
-        '查询面板使用Enka数据',
-        '查询面板使用Enka数据',
-        False,
+    'RefreshDataList': GsListStrConfig(
+        '刷新面板顺序',
+        '前一个失败会自动使用后一个',
+        ['MINIGG', 'ENKA', 'MYS'],
+        options=[
+            'MINIGG',
+            'ENKA',
+            'MYS',
+        ],
     ),
 }

@@ -28,7 +28,7 @@ async def get_uid(
 async def get_uid(
     bot: Bot, ev: Event, get_user_id: bool = False, only_uid: bool = False
 ) -> Union[Optional[str], Tuple[Optional[str], str]]:
-    uid_data = re.findall(r"\d{8-10}", ev.text)
+    uid_data = re.findall(r"\d{8,10}", ev.text)
     if ev.command in IGNORE_AT_LIST and ev.at:
         await bot.send('[绝区零] 该功能的@查询方式已被禁止！')
         raise Exception(f'[绝区零] [{ev.command}] 该功能的@查询方式已被禁止！')

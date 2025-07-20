@@ -28,6 +28,7 @@ from .api import (
     ZZZ_API,
     ZZZ_MEM,
     ENKA_API,
+    MINIGG_API,
     ZZZ_OS_API,
     ZZZ_BIND_API,
     ZZZ_NOTE_API,
@@ -179,9 +180,18 @@ class ZZZApi(_MysApi):
                 return -51
         return data
 
-    async def get_zzz_enka_data(self, uid: str) -> Union[int, Dict]:
+    async def get_zzz_enka_data(
+        self, uid: str, API_SOURCE: Literal['ENKA', 'MINIGG'] = 'ENKA'
+    ) -> Union[int, Dict]:
+        if API_SOURCE == 'ENKA':
+            API = ENKA_API
+        elif API_SOURCE == 'MINIGG':
+            API = MINIGG_API
+        else:
+            API = ENKA_API
+
         async with httpx.AsyncClient() as client:
-            resp = await client.get(ENKA_API.format(uid))
+            resp = await client.get(API.format(uid))
             if resp.status_code != 200:
                 return -1
             data = resp.json()
@@ -446,5 +456,4 @@ class ZZZApi(_MysApi):
             base_url=base_url,
             game_name='zzz',
         )
-        return data
         return data

@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-from typing import List, Union
+from typing import List, Union, Literal
 
 from PIL import Image, ImageDraw
 from gsuid_core.models import Event
@@ -25,12 +25,30 @@ from ..utils.image import (
 REFRESH_BG_PATH = TEXT_PATH / 'refresh_bg'
 
 
-async def refresh_char_by_enka(
+async def refresh_char_by_config(
+    SOURCE: str,
     uid: str,
     ev: Event,
     only_refresh: bool = False,
 ):
-    raw_data = await zzz_api.get_zzz_enka_data(uid)
+    if SOURCE == 'ENKA':
+        im = await refresh_char_by_enka('ENKA', uid, ev, only_refresh)
+    elif SOURCE == 'MINIGG':
+        im = await refresh_char_by_enka('MINIGG', uid, ev, only_refresh)
+    elif SOURCE == 'MYS':
+        im = await refresh_char_by_mys(uid, ev, only_refresh)
+    else:
+        im = '[刷新面板] 错误的配置！'
+    return im
+
+
+async def refresh_char_by_enka(
+    SOURCE: Literal['ENKA', 'MINIGG'],
+    uid: str,
+    ev: Event,
+    only_refresh: bool = False,
+):
+    raw_data = await zzz_api.get_zzz_enka_data(uid, SOURCE)
     if isinstance(raw_data, int):
         return error_reply(raw_data)
     data = await _enka_data_to_mys_data(raw_data)
