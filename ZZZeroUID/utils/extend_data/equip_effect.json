@@ -1,4 +1,24 @@
 {
+    "山大王": {
+        "normal_effect": {
+            "desc1": "",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "CritDmg+1500;Crit+1500"
+        }
+    },
+    "云岿如我": {
+        "normal_effect": {
+            "desc1": "HpAdd+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "Crit+1200"
+        }
+    },
     "原始朋克": {
         "normal_effect": {
             "desc1": "",
@@ -21,7 +41,7 @@
     },
     "摇摆爵士": {
         "normal_effect": {
-            "desc1": "",
+            "desc1": "SpRecoverAdd+2000",
             "desc2": ""
         },
         "skill_effect": {
@@ -131,7 +151,7 @@
     },
     "法厄同之歌": {
         "normal_effect": {
-            "desc1": "ElementAbnormalAdd+800",
+            "desc1": "ElementAbnormalPowerAdd+800",
             "desc2": ""
         },
         "skill_effect": {

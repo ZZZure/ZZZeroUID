@@ -119,7 +119,7 @@ async def draw_char_detail_img(
         if char_id in CUSTOM_OFFSET:
             _box = CUSTOM_OFFSET[char_id]
         else:
-            _box = (int(1100 - _w + 15), -128)
+            _box = (int(550 - _w // 2 - 235), -128)
         char_bg.paste(char_img, _box, char_img)
 
     img.paste(char_bg, (0, 195), char_bg)

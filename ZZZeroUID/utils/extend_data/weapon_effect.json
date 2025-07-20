@@ -1,4 +1,52 @@
 {
+    "狸法七变化": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "ElementAbnormalPower+30;ElementMystery+60",
+            "2": "ElementAbnormalPower+34;ElementMystery+69",
+            "3": "ElementAbnormalPower+39;ElementMystery+78",
+            "4": "ElementAbnormalPower+43;ElementMystery+87",
+            "5": "ElementAbnormalPower+48;ElementMystery+96"
+        }
+    },
+    "福虓炉炉": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "DmgBonus+2000",
+            "2": "DmgBonus+2300",
+            "3": "DmgBonus+2600",
+            "4": "DmgBonus+2900",
+            "5": "DmgBonus+3200"
+        }
+    },
+    "十方锻星": {
+        "normal_effect": {
+            "1": "ElementAbnormalPower+60",
+            "2": "ElementAbnormalPower+69",
+            "3": "ElementAbnormalPower+78",
+            "4": "ElementAbnormalPower+87",
+            "5": "ElementAbnormalPower+96"
+        },
+        "skill_effect": {
+            "1": "PhysDmgBonus+4000",
+            "2": "PhysDmgBonus+4600",
+            "3": "PhysDmgBonus+5200",
+            "4": "PhysDmgBonus+5800",
+            "5": "PhysDmgBonus+6400"
+        }
+    },
     "飞鸟星梦": {
         "normal_effect": {
             "1": "",

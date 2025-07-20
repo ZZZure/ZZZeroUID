@@ -4,6 +4,7 @@ from typing import Dict, List, Union
 
 from gsuid_core.logger import logger
 
+from .zzz_map import equip_effect
 from ..utils.api.models import ZZZAvatarInfo
 from .name_convert import equip_data, weapon_data, partener_data
 
@@ -22,12 +23,15 @@ ID_TO_PROP_NAME = {
     '12203': '冲击力',
     '20103': '暴击率',
     '21103': '暴击伤害',
+    '31401': '异常掌控',
     '31402': '异常掌控',
     '31403': '异常掌控',
+    '31201': '异常精通',
     '31202': '异常精通',
     '31203': '异常精通',
     '23103': '穿透率',
     '23203': '穿透值',
+    '30501': '能量自动回复',
     '30503': '能量自动回复',
     '30502': '能量回复百分比',
     '315': '伤害加成',
@@ -53,14 +57,17 @@ ID_TO_EN = {
     '12203': 'BreakStunAdd',
     '20103': 'Crit',
     '21103': 'CritDmg',
-    '31402': 'ElementAbnormalPower',
+    '31401': 'ElementAbnormalPowerBase',
+    '31402': 'ElementAbnormalPowerAdd',
     '31403': 'ElementAbnormalPower',
-    '31202': 'ElementMystery',
+    '31201': 'ElementMysteryBase',
+    '31202': 'ElementMysteryAdd',
     '31203': 'ElementMystery',
     '23103': 'PenRate',
     '23203': 'PenDelta',
+    '30501': 'SpRecoverBase',
     '30503': 'SpRecover',
-    '30502': 'SpRecover',
+    '30502': 'SpRecoverAdd',
     '31503': 'PhysDmgBonus',
     '31603': 'FireDmgBonus',
     '31703': 'IceDmgBonus',
@@ -220,6 +227,31 @@ def render_weapon_detail(weapon: Dict, current_level: int, star_tier: str):
     return int(base_value), int(rand_value) if rand_value else rand_value
 
 
+def add_buff_props(props: Dict, buff_list: List[str]):
+    for buff in buff_list:
+        buff = buff.strip()
+        if buff:
+            buff_name, buff_value = buff.split('+')
+            props[buff_name] += float(buff_value)
+    return props
+
+
+def get_normal_equip_buff(equip_suit_list: Dict, _type: str = 'normal_effect'):
+    buff_list = []
+    for equip_suit_id, equip_suit_count in equip_suit_list.items():
+        if equip_suit_count >= 2:
+            equip_name: str = equip_data[equip_suit_id]['equip_name']
+            buff = equip_effect[equip_name][_type]['desc1'].split(';')
+            buff_list.extend(buff)
+
+        if equip_suit_count >= 4:
+            equip_name = equip_data[equip_suit_id]['equip_name']
+            buff = equip_effect[equip_name][_type]['desc2'].split(';')
+            buff_list.extend(buff)
+
+    return buff_list
+
+
 def _calculate_base_stat(
     base: float,
     growth: float,
@@ -285,11 +317,14 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
         for _prop in ID_TO_EN.values():
             if _prop == 'CritDmg':
                 props[_prop] = _partener['CritDamage']
-                props['CritDamage'] = _partener['CritDamage']
             elif _prop == 'BreakStunBase':
                 props[_prop] = _partener['BreakStun']
             elif _prop == 'BreakStun' or _prop == 'BreakStunAdd':
                 props[_prop] = 0
+            elif _prop == 'ElementAbnormalPowerBase':
+                props[_prop] = _partener['ElementAbnormalPower']
+            elif _prop == 'SpRecoverBase':
+                props[_prop] = _partener['SpRecover']
             elif _prop not in _partener:
                 props[_prop] = 0
             else:
@@ -309,15 +344,22 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
                 _prop,
                 EN_TO_ID.get(_prop, _prop),
             )
-
+        logger.debug(props)
         # 圣遗物
         relics = []
+        equip_suit_list = {}
+
         for relic in char['EquippedList']:
             properties = []
             main_properties = []
             _equip = relic['Equipment']
             suit_id = str(_equip['Id'])[:3] + '00'
             equip_meta = equip_data[suit_id]
+
+            if suit_id not in equip_suit_list:
+                equip_suit_list[suit_id] = 1
+            else:
+                equip_suit_list[suit_id] += 1
 
             equip_suit = {
                 'suit_id': suit_id,
@@ -447,10 +489,10 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
 
         result['weapon'] = weapon
 
+        # 添加驱动盘特效
+        buffs = get_normal_equip_buff(equip_suit_list)
+        props = add_buff_props(props, buffs)
         logger.debug(props)
-        # 处理属性
-        props['CritDmg'] += props['CritDamage']
-        del props['CritDamage']
 
         props['HpMax'] += (
             props['HpBase'] + (props['HpAdd'] / 10000) * props['HpMax']
@@ -466,6 +508,23 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
         props['BreakStun'] = props['BreakStunBase'] + (
             props['BreakStunAdd'] / 10000 * props['BreakStunBase']
         )
+        props['ElementAbnormalPower'] = props['ElementAbnormalPowerBase'] + (
+            props['ElementAbnormalPowerAdd']
+            / 10000
+            * props['ElementAbnormalPowerBase']
+        )
+        props['ElementMystery'] = (
+            props['ElementMysteryBase']
+            + props['ElementMystery']
+            + (
+                props['ElementMysteryAdd']
+                / 10000
+                * props['ElementMysteryBase']
+            )
+        )
+        props['SpRecover'] = props['SpRecoverBase'] + (
+            props['SpRecoverAdd'] / 10000 * props['SpRecoverBase']
+        )
 
         del props['HpBase']
         del props['HpAdd']
@@ -475,6 +534,12 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
         del props['DefenceAdd']
         del props['BreakStunBase']
         del props['BreakStunAdd']
+        del props['ElementAbnormalPowerBase']
+        del props['ElementAbnormalPowerAdd']
+        del props['ElementMysteryBase']
+        del props['ElementMysteryAdd']
+        del props['SpRecoverBase']
+        del props['SpRecoverAdd']
 
         char_element = ELEMENT_TO_EN[_partener['ElementType']]
         for i in ELEMENT_TO_EN.values():
@@ -507,9 +572,9 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
                     "base": "",
                     "add": "",
                     "final": (
-                        str(props[p] / 100) + '%'
+                        f"{props[p] / 100:.1f}%"
                         if str(p) in PERCENT_NAME
-                        else str(props[p])
+                        else f"{props[p]:.1f}"
                     ),
                 }
             )
@@ -520,7 +585,7 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
                 final += 0.1 * hp
 
             # 保留一位小数并转为str
-            final = str(round(final, 1))
+            final = f"{final:.1f}"
 
             properties.append(
                 {
@@ -561,5 +626,4 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
 
         result_list.append(result)  # type: ignore
 
-    return result_list
     return result_list
