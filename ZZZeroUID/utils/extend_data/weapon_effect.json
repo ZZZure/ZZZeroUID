@@ -968,11 +968,11 @@
             "5": ""
         },
         "skill_effect": {
-            "1": "PsyDmgBonus+4500",
-            "2": "PsyDmgBonus+5250",
-            "3": "PsyDmgBonus+6000",
-            "4": "PsyDmgBonus+6600",
-            "5": "PsyDmgBonus+7200"
+            "1": "PhysDmgBonus+4500",
+            "2": "PhysDmgBonus+5250",
+            "3": "PhysDmgBonus+6000",
+            "4": "PhysDmgBonus+6600",
+            "5": "PhysDmgBonus+7200"
         }
     },
     "逍遥游球": {

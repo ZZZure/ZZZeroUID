@@ -131,7 +131,7 @@
     },
     "獠牙重金属": {
         "normal_effect": {
-            "desc1": "PsyDmgBonus+1000",
+            "desc1": "PhysDmgBonus+1000",
             "desc2": ""
         },
         "skill_effect": {
