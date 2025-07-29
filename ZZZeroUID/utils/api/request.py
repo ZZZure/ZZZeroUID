@@ -190,7 +190,7 @@ class ZZZApi(_MysApi):
         else:
             API = ENKA_API
 
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(follow_redirects=True) as client:
             resp = await client.get(API.format(uid))
             if resp.status_code != 200:
                 return -1
