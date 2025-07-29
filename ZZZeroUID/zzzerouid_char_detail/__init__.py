@@ -31,9 +31,13 @@ async def send_refresh_char_detail_msg(bot: Bot, ev: Event):
 
     data_list: List[str] = ZZZ_CONFIG.get_config('RefreshDataList').data
     for i in data_list:
-        im = await refresh_char_by_config(i, uid, ev)
-        if isinstance(im, bytes):
-            return await bot.send(im)
+        try:
+            logger.info(f'[绝区零] [刷新面板] [{i}] UID: {uid}')
+            im = await refresh_char_by_config(i, uid, ev)
+            if isinstance(im, bytes):
+                return await bot.send(im)
+        except Exception as e:
+            logger.error(f'[绝区零] [刷新面板] [{i}] ERROR: {e}')
     else:
         return await bot.send(im)
 
