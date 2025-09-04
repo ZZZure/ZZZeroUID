@@ -3,7 +3,7 @@ import shutil
 from pathlib import Path
 
 # input
-RES_PATH = Path(r"")
+RES_PATH = Path(r"E:\UIDs\ZZZ\napres")
 
 INTEND_PATH = Path(__file__).parent / 'INTEND_RES_PATH'
 INTEND_PATH.mkdir(exist_ok=True)
