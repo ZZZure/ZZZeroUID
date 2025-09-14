@@ -1,12 +1,8 @@
-import asyncio
-
 from gsuid_core.sv import SV
 from gsuid_core.bot import Bot
-from gsuid_core.gss import gss
 from gsuid_core.models import Event
 from gsuid_core.aps import scheduler
 from gsuid_core.logger import logger
-from gsuid_core.segment import MessageSegment
 
 from ..utils.uid import get_uid
 from .notice import get_notice_list
@@ -15,6 +11,7 @@ from .draw_zzz_stamina import draw_stamina_img
 from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
 
 sv_get_stamina = SV('绝区零查询体力')
+sv_get_stamina_admin = SV('绝区零强制推送', pm=1)
 
 is_check_energy = ZZZ_CONFIG.get_config('SchedEnergyPush').data
 
@@ -29,38 +26,26 @@ is_check_energy = ZZZ_CONFIG.get_config('SchedEnergyPush').data
     )
 )
 async def send_daily_info_pic(bot: Bot, ev: Event):
-    logger.info('开始执行[ZZZ每日信息]')
+    logger.info('[绝区零每日] 开始执行')
     uid = await get_uid(bot, ev)
-    logger.info(f'[ZZZ每日] UID: {uid}')
+    logger.info(f'[绝区零每日] UID: {uid}')
     if not uid:
         return await bot.send(BIND_UID_HINT)
     await draw_stamina_img(bot, ev)
 
 
-@scheduler.scheduled_job('cron', minute='*/30')
-async def zzz_notice_job():
-    logger.info('[zzz推送检查] 开始检查...')
-    if not is_check_energy:
-        return
-    result = await get_notice_list()
-    logger.info('[zzz推送检查]完成!等待消息推送中...')
-    logger.debug(result)
+@sv_get_stamina_admin.on_fullmatch(('强制推送体力提醒'))
+async def force_notice_job(bot: Bot, ev: Event):
+    await bot.send('🔨 [绝区零服务]\n🌱 开始执行强制推送体力提醒!')
+    await zzz_notice_job(True)
+    await bot.send('🔨 [绝区零服务]\n✅ 强制推送体力提醒执行完成!')
 
-    # 执行私聊推送
-    for bot_id in result:
-        for BOT_ID in gss.active_bot:
-            bot = gss.active_bot[BOT_ID]
-            for user_id in result[bot_id]['direct']:
-                msg = result[bot_id]['direct'][user_id]
-                await bot.target_send(msg, 'direct', user_id, bot_id, '', '')
-                await asyncio.sleep(0.5)
-            logger.info('[zzz推送检查] 私聊推送完成')
-            for gid in result[bot_id]['group']:
-                msg_list = []
-                for user_id in result[bot_id]['group'][gid]:
-                    msg_list.append(MessageSegment.at(user_id))
-                    msg = result[bot_id]['group'][gid][user_id]
-                    msg_list.append(MessageSegment.text(msg))
-                await bot.target_send(msg_list, 'group', gid, bot_id, '', '')
-                await asyncio.sleep(0.5)
-            logger.info('[zzz推送检查] 群聊推送完成')
+
+@scheduler.scheduled_job('cron', minute='*/30')
+async def zzz_notice_job(force: bool = False):
+    logger.info('[绝区零推送检查] 开始检查...')
+    if is_check_energy or force:
+        await get_notice_list()
+        logger.info('[绝区零推送检查] 完成!等待消息推送中...')
+    else:
+        logger.info('[绝区零推送检查] 未开启, 跳过检查...')
