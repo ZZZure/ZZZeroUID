@@ -1,4 +1,24 @@
 {
+    "月光骑士颂": {
+        "normal_effect": {
+            "desc1": "SpRecoverAdd+2000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "DmgBonus+1800"
+        }
+    },
+    "拂晓生花": {
+        "normal_effect": {
+            "desc1": "A:DmgBonus+1500",
+            "desc2": "A:DmgBonus+2000"
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "A:DmgBonus+2000"
+        }
+    },
     "山大王": {
         "normal_effect": {
             "desc1": "",

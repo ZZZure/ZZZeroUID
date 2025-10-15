@@ -1,4 +1,36 @@
 {
+    "铸梦炉歌": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "DmgBonus+2500;HpAdd+1500",
+            "2": "DmgBonus+2880;HpAdd+1730",
+            "3": "DmgBonus+3250;HpAdd+1950",
+            "4": "DmgBonus+3630;HpAdd+2180",
+            "5": "DmgBonus+4000;HpAdd+2400"
+        }
+    },
+    "机巧心种": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "Crit+1500;ThunderDmgBonus+2500",
+            "2": "Crit+1700;ThunderDmgBonus+2900",
+            "3": "Crit+1900;ThunderDmgBonus+3300",
+            "4": "Crit+2100;ThunderDmgBonus+3700",
+            "5": "Crit+2300;ThunderDmgBonus+4000"
+        }
+    },
     "狸法七变化": {
         "normal_effect": {
             "1": "",

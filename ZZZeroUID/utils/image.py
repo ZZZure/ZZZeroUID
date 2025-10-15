@@ -87,13 +87,18 @@ def get_camp_img(camp_name: str):
 
 
 def get_mind_role_img(_id: Union[str, int], _type: str = '3'):
-    return Image.open(MIND_PATH / f'Mindscape_{_id}_{_type}.png')
+    path = MIND_PATH / f'Mindscape_{_id}_{_type}.png'
+    if not path.exists():
+        path = MIND_PATH / f'Mindscape_1291_1.png'
+    return Image.open(path)
 
 
 def get_general_role_img(_id: Union[str, int], w: int = 180, h: int = 64):
     char_id = str(_id)
     sprite_id = char_id_to_sprite(char_id)
     path = ROLEGENERAL_PATH / f'IconRoleGeneral{sprite_id}.png'
+    if not path.exists():
+        path = ROLEGENERAL_PATH / f'IconRoleGeneral03.png'
     return Image.open(path).resize((w, h)).convert('RGBA')
 
 
@@ -101,6 +106,8 @@ def get_circle_role_img(_id: Union[str, int], w: int = 142, h: int = 142):
     char_id = str(_id)
     sprite_id = char_id_to_sprite(char_id)
     path = ROLECIRCLE_PATH / f'IconRoleCircle{sprite_id}.png'
+    if not path.exists():
+        path = ROLECIRCLE_PATH / f'IconRoleCircle03.png'
     return Image.open(path).resize((w, h)).convert('RGBA')
 
 
