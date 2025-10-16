@@ -4851,8 +4851,8 @@
     },
     "1451": {
         "sprite_id": "50",
-        "name": "(Test1)卢西娅",
-        "full_name": "(Test1)卢西娅",
+        "name": "卢西娅",
+        "full_name": "卢西娅",
         "en_name": "Lucia",
         "WeaponType": "4",
         "ElementType": "205",
