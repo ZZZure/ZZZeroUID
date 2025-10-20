@@ -15,8 +15,9 @@ ZZZ_ABYSS_API = '/abyss_abstract'
 ZZZ_NOTE_WIDGET_API = '/widget'
 
 ZZZ_MONTH_INFO = '/month_info'
-
 ZZZ_MEM = '/mem_detail'
+
+ZZZ_VOID_BATTLE_API = '/void_front_battle_detail'
 
 ZZZ_BIND_API = f'{GS_BASE}/binding/api'
 ZZZ_BIND_OS_API = f'{GS_BASE_OS}/binding/api'

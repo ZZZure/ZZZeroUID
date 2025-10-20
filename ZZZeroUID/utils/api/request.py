@@ -22,6 +22,7 @@ from .models import (
     ZZZAvatarBasic,
     ZZZGachaLogResp,
     ZZZWidgetNoteResp,
+    ZZZVoidFrontBattleData,
 )
 from .api import (
     ANN_API,
@@ -41,6 +42,7 @@ from .api import (
     ZZZ_BUDDY_INFO_API,
     ZZZ_AVATAR_INFO_API,
     ZZZ_NOTE_WIDGET_API,
+    ZZZ_VOID_BATTLE_API,
     ZZZ_AVATAR_BASIC_API,
     ZZZ_GET_GACHA_LOG_API,
 )
@@ -219,6 +221,22 @@ class ZZZApi(_MysApi):
         )
         if isinstance(data, Dict):
             data = cast(ZZZMEMInfo, data['data'])
+        return data
+
+    async def get_zzz_void_info(
+        self, uid: str
+    ) -> Union[int, ZZZVoidFrontBattleData]:
+        data = await self.simple_zzz_req(
+            ZZZ_VOID_BATTLE_API,
+            uid,
+            params={
+                'uid': uid,
+                'region': self._get_region(uid),
+                'void_front_id': '102',
+            },
+        )
+        if isinstance(data, Dict):
+            data = cast(ZZZVoidFrontBattleData, data['data'])
         return data
 
     async def get_zzz_widget_info(
