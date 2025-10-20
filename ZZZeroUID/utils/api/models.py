@@ -1,113 +1,6 @@
 from typing import List, TypedDict
 
 
-# Defines the structure for an avatar/character
-class VoidFrontBattleAvatar(TypedDict):
-    rarity: str
-    element_type: int
-    avatar_profession: int
-    id: int
-    level: int
-    rank: int
-    role_square_url: str
-    sub_element_type: int
-
-
-# Defines the structure for a "buddy" or Bangboo
-class VoidFrontBattleBuddy(TypedDict):
-    id: int
-    rarity: str
-    level: int
-    bangboo_rectangle_url: str
-
-
-# Defines the structure for a stage buff/buffer
-class VoidFrontBattleBuffer(TypedDict):
-    desc: str
-    icon: str
-    name: str
-
-
-# Defines the structure for a sub-challenge within a main stage
-class SubChallengeRecord(TypedDict):
-    avatar_list: List[VoidFrontBattleAvatar]
-    buddy: VoidFrontBattleBuddy
-    buffer: VoidFrontBattleBuffer
-    battle_id: int
-    name: str
-    star: str
-
-
-# Defines the structure for the completion time of a challenge
-class ChallengeTime(TypedDict):
-    hour: int
-    minute: int
-    second: int
-    year: int
-    month: int
-    day: int
-
-
-# Defines the structure for a main challenge record (used for both STAGE 01-03 and the boss)
-class MainChallengeRecord(TypedDict):
-    score_ratio: str
-    challenge_time: ChallengeTime
-    battle_id: int
-    star: str
-    node_id: int
-    buddy: VoidFrontBattleBuddy
-    buffer: VoidFrontBattleBuffer
-    max_score: int
-    avatar_list: List[VoidFrontBattleAvatar]
-    sub_challenge_record: List[SubChallengeRecord]
-    score: int
-    name: str
-
-
-# Defines the structure for the boss information
-class BossInfo(TypedDict):
-    race_icon: str
-    icon: str
-    name: str
-    bg_icon: str
-
-
-# Defines the structure for the entire boss challenge section
-class BossChallengeRecord(TypedDict):
-    main_challenge_record: MainChallengeRecord
-    boss_info: BossInfo
-
-
-# Defines the structure for the "Void Front" summary
-class VoidFrontBattleAbstractInfoBrief(TypedDict):
-    end_ts: int
-    left_ts: int
-    max_score: int
-    end_ts_over_42_days: bool
-    void_front_id: int
-    has_ending_record: bool
-    ending_record_bg_pic: str
-    rank_percent: int
-    ending_record_name: str
-    ending_record_id: int
-    total_score: int
-
-
-# Defines the structure for the basic player profile information
-class RoleBasicInfo(TypedDict):
-    server: str
-    nickname: str
-    icon: str
-
-
-# Defines the structure for the main "data" object
-class ZZZVoidFrontBattleData(TypedDict):
-    main_challenge_record_list: List[MainChallengeRecord]
-    boss_challenge_record: BossChallengeRecord
-    void_front_battle_abstract_info_brief: VoidFrontBattleAbstractInfoBrief
-    role_basic_info: RoleBasicInfo
-
-
 class EnergyProgress(TypedDict):
     max: int
     current: int
@@ -646,3 +539,90 @@ class ZZZMEMInfo(TypedDict):
     rank_percent: int
     list: List[ListItem]
     total_score: int
+
+
+# Defines the structure for a stage buff/buffer
+class VoidFrontBattleBuffer(TypedDict):
+    desc: str
+    icon: str
+    name: str
+
+
+# Defines the structure for a sub-challenge within a main stage
+class SubChallengeRecord(TypedDict):
+    avatar_list: List[MEMAvatar]
+    buddy: MEMBuddy
+    buffer: VoidFrontBattleBuffer
+    battle_id: int
+    name: str
+    star: str
+
+
+# Defines the structure for the completion time of a challenge
+class ChallengeTime(TypedDict):
+    hour: int
+    minute: int
+    second: int
+    year: int
+    month: int
+    day: int
+
+
+# Defines the structure for a main challenge record (used for both STAGE 01-03 and the boss)
+class MainChallengeRecord(TypedDict):
+    score_ratio: str
+    challenge_time: ChallengeTime
+    battle_id: int
+    star: str
+    node_id: int
+    buddy: MEMBuddy
+    buffer: VoidFrontBattleBuffer
+    max_score: int
+    avatar_list: List[MEMAvatar]
+    sub_challenge_record: List[SubChallengeRecord]
+    score: int
+    name: str
+
+
+# Defines the structure for the boss information
+class BossInfo(TypedDict):
+    race_icon: str
+    icon: str
+    name: str
+    bg_icon: str
+
+
+# Defines the structure for the entire boss challenge section
+class BossChallengeRecord(TypedDict):
+    main_challenge_record: MainChallengeRecord
+    boss_info: BossInfo
+
+
+# Defines the structure for the "Void Front" summary
+class VoidFrontBattleAbstractInfoBrief(TypedDict):
+    end_ts: int
+    left_ts: int
+    max_score: int
+    end_ts_over_42_days: bool
+    void_front_id: int
+    has_ending_record: bool
+    ending_record_bg_pic: str
+    rank_percent: int
+    ending_record_name: str
+    ending_record_id: int
+    total_score: int
+
+
+# Defines the structure for the basic player profile information
+class RoleBasicInfo(TypedDict):
+    server: str
+    nickname: str
+    icon: str
+
+
+# Defines the structure for the main "data" object
+class ZZZVoidFrontBattleData(TypedDict):
+    main_challenge_record_list: List[MainChallengeRecord]
+    boss_challenge_record: BossChallengeRecord
+    void_front_battle_abstract_info_brief: VoidFrontBattleAbstractInfoBrief
+    role_basic_info: RoleBasicInfo
