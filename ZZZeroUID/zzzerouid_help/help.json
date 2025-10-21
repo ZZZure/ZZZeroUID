@@ -64,6 +64,14 @@
         "need_admin": false
       },
       {
+        "name": "临界推演",
+        "desc": "查询临界推演信息",
+        "eg": "临界推演",
+        "need_ck": true,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
         "name": "危局强袭战",
         "desc": "查询危局强袭战信息",
         "eg": "强袭战",

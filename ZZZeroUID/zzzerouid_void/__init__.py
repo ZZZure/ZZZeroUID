@@ -11,7 +11,7 @@ sv_get_mem = SV('zzz查询临界推演')
 
 
 @sv_get_mem.on_fullmatch(
-    ('查询临界推演', '临界推演', '临界'),
+    ('查询临界推演', '临界推演', '临界', '推演'),
     block=True,
 )
 async def send_mem_info(bot: Bot, ev: Event):

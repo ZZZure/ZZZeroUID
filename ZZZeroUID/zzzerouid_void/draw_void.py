@@ -203,7 +203,7 @@ async def draw_void_img(uid: str, ev: Event):
     title_draw = ImageDraw.Draw(title)
     title_draw.text(
         (1248, 357),
-        f"{void_front['max_score']}",
+        f"{void_front['total_score']}",
         font=zzz_font_54,
         fill='white',
         anchor='rm',

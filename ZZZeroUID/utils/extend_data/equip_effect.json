@@ -11,12 +11,12 @@
     },
     "拂晓生花": {
         "normal_effect": {
-            "desc1": "A:DmgBonus+1500",
-            "desc2": "A:DmgBonus+2000"
+            "desc1": "",
+            "desc2": ""
         },
         "skill_effect": {
-            "desc1": "",
-            "desc2": "A:DmgBonus+2000"
+            "desc1": "A:DmgBonus+1500",
+            "desc2": "A:DmgBonus+4000"
         }
     },
     "山大王": {
