@@ -584,18 +584,10 @@ class MainChallengeRecord(TypedDict):
     name: str
 
 
-# Defines the structure for the boss information
-class BossInfo(TypedDict):
-    race_icon: str
-    icon: str
-    name: str
-    bg_icon: str
-
-
 # Defines the structure for the entire boss challenge section
 class BossChallengeRecord(TypedDict):
     main_challenge_record: MainChallengeRecord
-    boss_info: BossInfo
+    boss_info: Boss
 
 
 # Defines the structure for the "Void Front" summary

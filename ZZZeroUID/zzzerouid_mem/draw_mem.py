@@ -5,6 +5,7 @@ from gsuid_core.models import Event
 from gsuid_core.utils.image.convert import convert_img
 from gsuid_core.utils.download_resource.download_file import download
 
+from ..utils.api.models import Boss
 from ..utils.hint import error_reply
 from ..utils.zzzero_api import zzz_api
 from ..zzzerouid_roleinfo.draw_role_info import draw_avatar, draw_bangboo
@@ -25,6 +26,41 @@ from ..utils.image import (
 )
 
 TEXT_PATH = Path(__file__).parent / 'texture2d'
+boss_mask = Image.open(TEXT_PATH / 'monster_mask.png')
+boss_fg = Image.open(TEXT_PATH / 'monster_fg.png')
+
+
+async def draw_boss(boss: Boss):
+    boss_card = Image.new('RGBA', (241, 333))
+
+    boss_name = boss['name']
+    boss_race = boss['race_icon']
+    race_name = boss_race.split('/')[-1]
+    boss_icon = boss['icon']
+    boss_bg = boss['bg_icon']
+    boss_bg_name = boss_bg.split('/')[-1]
+
+    bg_path = BBS_T_PATH / boss_bg_name
+    if not bg_path.exists():
+        await download(boss_bg, BBS_T_PATH, boss_bg_name)
+    bg_img = Image.open(bg_path).resize((241, 333))
+
+    boss_path = MONSTER_PATH / f'{boss_name}.png'
+    if not boss_path.exists():
+        await download(boss_icon, MONSTER_PATH, f'{boss_name}.png')
+    boss_img = Image.open(boss_path).resize((241, 333))
+
+    race_path = TEMP_PATH / race_name
+    if not race_path.exists():
+        await download(boss_race, TEMP_PATH, race_name)
+    race_img = Image.open(race_path).resize((110, 110))
+
+    bg_img.paste(boss_img, (0, 0), boss_img)
+    bg_img.paste(race_img, (115, 212), race_img)
+    bg_img.paste(boss_fg, (0, 0), boss_fg)
+
+    boss_card.paste(bg_img, (0, 0), boss_mask)
+    return boss_card
 
 
 async def draw_mem_img(uid: str, ev: Event, schedule_type: int):
@@ -94,8 +130,6 @@ async def draw_mem_img(uid: str, ev: Event, schedule_type: int):
     img.paste(player_card, (0, 330), player_card)
     img.paste(banner, (0, 552), banner)
 
-    boss_mask = Image.open(TEXT_PATH / 'monster_mask.png')
-    boss_fg = Image.open(TEXT_PATH / 'monster_fg.png')
     star_full = Image.open(TEXT_PATH / 'star_full.png')
     star_empty = Image.open(TEXT_PATH / 'star_empty.png')
 
@@ -108,37 +142,12 @@ async def draw_mem_img(uid: str, ev: Event, schedule_type: int):
         time_str2 = f'{_time["hour"]}:{_time["minute"]}:{_time["second"]}'
         time_str = f'通关时刻 {time_str1} {time_str2}'
 
-        boss_name = mem['boss'][0]['name']
-        boss_race = mem['boss'][0]['race_icon']
-        race_name = boss_race.split('/')[-1]
-        boss_icon = mem['boss'][0]['icon']
-        boss_bg = mem['boss'][0]['bg_icon']
-        boss_bg_name = boss_bg.split('/')[-1]
-
-        bg_path = BBS_T_PATH / boss_bg_name
-        if not bg_path.exists():
-            await download(boss_bg, BBS_T_PATH, boss_bg_name)
-        bg_img = Image.open(bg_path).resize((241, 333))
-
-        boss_path = MONSTER_PATH / f'{boss_name}.png'
-        if not boss_path.exists():
-            await download(boss_icon, MONSTER_PATH, f'{boss_name}.png')
-        boss_img = Image.open(boss_path).resize((241, 333))
-
-        race_path = TEMP_PATH / race_name
-        if not race_path.exists():
-            await download(boss_race, TEMP_PATH, race_name)
-        race_img = Image.open(race_path).resize((110, 110))
-
-        bg_img.paste(boss_img, (0, 0), boss_img)
-        bg_img.paste(race_img, (115, 212), race_img)
-        bg_img.paste(boss_fg, (0, 0), boss_fg)
-
-        card.paste(bg_img, (62, 51), boss_mask)
+        boss_img = await draw_boss(mem['boss'][0])
+        card.paste(boss_img, (62, 51), boss_img)
 
         card_draw.text(
             (333, 91),
-            boss_name,
+            mem['boss'][0]['name'],
             font=zzz_font_54,
             fill=YELLOW,
             anchor='lm',
