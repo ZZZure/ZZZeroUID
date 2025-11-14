@@ -1,8 +1,9 @@
 from pathlib import Path
-from typing import Union
+from typing import Union, Sequence
 
 from PIL import Image, ImageDraw
 from gsuid_core.models import Event
+from gsuid_core.utils.database.models import CoreUser
 from gsuid_core.utils.image.image_tools import (
     crop_center_img,
     get_avatar_with_ring,
@@ -183,12 +184,25 @@ async def get_player_card_min(
 ):
     data = await zzz_api.get_zzz_user_info_g(uid)
     if isinstance(data, int):
-        data = {
-            'nickname': (
+        nickname = None
+        if ev.at:
+            nicknames: Sequence[CoreUser] = await CoreUser.select_rows(
+                user_id=ev.at
+            )
+            if nicknames:
+                nickname = nicknames[0].user_name
+        else:
+            nickname = (
                 ev.sender['nickname']
                 if ev.sender and 'nickname' in ev.sender
                 else '绳匠'
-            ),
+            )
+
+        if nickname is None:
+            nickname = '未知绳匠'
+
+        data = {
+            'nickname': nickname,
             'level': '未知',
             'region_name': '新艾丽都',
         }
