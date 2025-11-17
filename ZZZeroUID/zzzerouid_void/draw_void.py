@@ -6,24 +6,14 @@ from gsuid_core.models import Event
 from gsuid_core.utils.image.convert import convert_img
 from gsuid_core.utils.download_resource.download_file import download
 
-from ZZZeroUID.utils.api.models import (
-    MEMBuddy,
-    MainChallengeRecord,
-)
-
-from ..utils.api.models import Boss
 from ..utils.hint import error_reply
 from ..utils.zzzero_api import zzz_api
 from ..zzzerouid_mem.draw_mem import draw_boss
 from ..utils.resource.RESOURCE_PATH import TEMP_PATH
 from ..zzzerouid_mem.draw_mem import TEXT_PATH as MEM_TEXT_PATH
+from ..utils.api.models import Boss, MEMBuddy, MainChallengeRecord
 from ..zzzerouid_roleinfo.draw_role_info import draw_avatar, draw_bangboo
-from ..utils.image import (
-    BLACK_G,
-    add_footer,
-    get_zzz_bg,
-    get_player_card_min,
-)
+from ..utils.image import BLACK_G, add_footer, get_zzz_bg, get_player_card_min
 from ..utils.fonts.zzz_fonts import (
     zzz_font_20,
     zzz_font_22,
