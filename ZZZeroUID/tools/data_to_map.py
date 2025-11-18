@@ -8,7 +8,7 @@ import httpx
 sys.path.append(str(Path(__file__).parents[5]))
 sys.path.append(str(Path(__file__).parents[2]))
 
-__package__ = 'ZZZeroUID.tools'
+__package__ = 'ZZZeroUID.ZZZeroUID.tools'
 
 from ..version import ZZZero_version  # noqa: E402
 
