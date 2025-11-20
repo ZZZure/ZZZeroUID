@@ -5,15 +5,24 @@ from pathlib import Path
 
 import httpx
 
-sys.path.append(str(Path(__file__).parents[5]))
-sys.path.append(str(Path(__file__).parents[2]))
-
-__package__ = 'ZZZeroUID.ZZZeroUID.tools'
-
-from ..version import ZZZero_version  # noqa: E402
-
+# 定义路径
 R_PATH = Path(__file__).parents[0]
 ZZZ_DATA = R_PATH / 'zzz_data'
+
+try:
+    from ..version import ZZZero_version
+except (ImportError, ValueError):
+    current_file = Path(__file__).resolve()
+    project_root = current_file.parents[5]
+    plugin_root = current_file.parents[2]
+
+    if str(project_root) not in sys.path:
+        sys.path.insert(0, str(project_root))
+    if str(plugin_root) not in sys.path:
+        sys.path.insert(0, str(plugin_root))
+
+    from ZZZeroUID.version import ZZZero_version
+
 MAP_PATH = Path(__file__).parents[1] / 'utils' / 'map'
 ALIAS = Path(__file__).parents[1] / 'utils' / 'alias' / 'char_alias.json'
 
