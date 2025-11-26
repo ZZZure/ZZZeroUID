@@ -1,4 +1,24 @@
 {
+    "沧浪行歌": {
+        "normal_effect": {
+            "desc1": "PhysDmgBonus+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "Crit+2400"
+        }
+    },
+    "流光咏叹": {
+        "normal_effect": {
+            "desc1": "EtherDmgBonus+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "ElementMystery+36;DmgBonus+2500"
+        }
+    },
     "月光骑士颂": {
         "normal_effect": {
             "desc1": "SpRecoverAdd+2000",

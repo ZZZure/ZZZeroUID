@@ -1,5 +1,37 @@
 {
-    "铸梦炉歌": {
+    "半糖冰雹": {
+        "normal_effect": {
+            "1": "AttackAdd+1000;HpAdd+1000",
+            "2": "AttackAdd+1150;HpAdd+1150",
+            "3": "AttackAdd+1300;HpAdd+1300",
+            "4": "AttackAdd+1450;HpAdd+1450",
+            "5": "AttackAdd+1600;HpAdd+1600"
+        },
+        "skill_effect": {
+            "1": "CritDmg+3000",
+            "2": "CritDmg+3450",
+            "3": "CritDmg+3900",
+            "4": "CritDmg+4350",
+            "5": "CritDmg+4800"
+        }
+    },
+    "怒目金刚": {
+        "normal_effect": {
+            "1": "crit+2000",
+            "2": "crit+2300",
+            "3": "crit+2600",
+            "4": "crit+2900",
+            "5": "crit+3200"
+        },
+        "skill_effect": {
+            "1": "DmgBonus+1800",
+            "2": "DmgBonus+2070",
+            "3": "DmgBonus+2340",
+            "4": "DmgBonus+2610",
+            "5": "DmgBonus+2880"
+        }
+    },
+    "昨夜来电": {
         "normal_effect": {
             "1": "",
             "2": "",
@@ -8,11 +40,11 @@
             "5": ""
         },
         "skill_effect": {
-            "1": "DmgBonus+2500;HpAdd+1500",
-            "2": "DmgBonus+2880;HpAdd+1730",
-            "3": "DmgBonus+3250;HpAdd+1950",
-            "4": "DmgBonus+3630;HpAdd+2180",
-            "5": "DmgBonus+4000;HpAdd+2400"
+            "1": "CritDmg+3000",
+            "2": "CritDmg+3450",
+            "3": "CritDmg+3900",
+            "4": "CritDmg+4350",
+            "5": "CritDmg+4800"
         }
     },
     "机巧心种": {
