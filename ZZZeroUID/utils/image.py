@@ -79,6 +79,7 @@ camp_map = {
     '反舌鸟': 'MockingBird',
     '云岿山': 'Suibian',
     '怪啖屋': 'SpookShack',
+    '坎卜斯黑枝': 'BlackRoot',
 }
 
 
