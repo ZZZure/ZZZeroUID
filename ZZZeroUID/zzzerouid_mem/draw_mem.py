@@ -46,6 +46,10 @@ async def draw_boss(boss: Boss):
     bg_img = Image.open(bg_path).resize((241, 333))
 
     boss_path = MONSTER_PATH / f'{boss_name}.png'
+    if '?' in boss_name or '？' in boss_name:
+        boss_name = boss_icon.split('/')[-1].split('.')[0]
+        boss_path = MONSTER_PATH / f'{boss_name}.png'
+
     if not boss_path.exists():
         await download(boss_icon, MONSTER_PATH, f'{boss_name}.png')
     boss_img = Image.open(boss_path).resize((241, 333))
