@@ -2,20 +2,11 @@ from pathlib import Path
 from datetime import datetime
 
 from PIL import Image, ImageDraw
+
 from gsuid_core.models import Event
 from gsuid_core.utils.image.convert import convert_img
 
 from ..utils.hint import error_reply
-from ..utils.zzzero_api import zzz_api
-from ..utils.api.models import ChallengeNode
-from ..zzzerouid_roleinfo.draw_role_info import draw_avatar, draw_bangboo
-from ..utils.fonts.zzz_fonts import (
-    zzz_font_20,
-    zzz_font_30,
-    zzz_font_32,
-    zzz_font_40,
-    zzz_font_60,
-)
 from ..utils.image import (
     GREY,
     add_footer,
@@ -24,11 +15,21 @@ from ..utils.image import (
     get_element_img,
     get_player_card_min,
 )
+from ..utils.api.models import ChallengeNode
+from ..utils.zzzero_api import zzz_api
+from ..utils.fonts.zzz_fonts import (
+    zzz_font_20,
+    zzz_font_30,
+    zzz_font_32,
+    zzz_font_40,
+    zzz_font_60,
+)
+from ..zzzerouid_roleinfo.draw_role_info import draw_avatar, draw_bangboo
 
-TEXT_PATH = Path(__file__).parent / 'texture2d'
-ERROR_HINT = '''❌[绝区零] 你还没有解锁/挑战过【‌式舆防卫战】的记录噢！
-如果你已挑战过, 请稍等片刻, 等待数据同步后查询！'''
-RANK_COLOR = {'B': (39, 193, 255), 'A': (206, 34, 247), 'S': (255, 135, 0)}
+TEXT_PATH = Path(__file__).parent / "texture2d"
+ERROR_HINT = """❌[绝区零] 你还没有解锁/挑战过【‌式舆防卫战】的记录噢！
+如果你已挑战过, 请稍等片刻, 等待数据同步后查询！"""
+RANK_COLOR = {"B": (39, 193, 255), "A": (206, 34, 247), "S": (255, 135, 0)}
 
 
 def format_timestamp(timestamp: int):
@@ -49,22 +50,22 @@ async def draw_team(
     floor_img: Image.Image,
     pos_y: int = 114,
 ):
-    team_bar = Image.open(TEXT_PATH / 'team_bar.png')
+    team_bar = Image.open(TEXT_PATH / "team_bar.png")
     team_draw = ImageDraw.Draw(team_bar)
-    node_element = node['element_type_list']
+    node_element = node["element_type_list"]
     team_draw.text(
         (690, 35),
         time,
         GREY,
         zzz_font_20,
-        'rm',
+        "rm",
     )
     team_draw.text(
         (135, 38),
-        '队伍1',
-        'white',
+        "队伍1",
+        "white",
         zzz_font_30,
-        'lm',
+        "lm",
     )
     for eindex, element in enumerate(node_element):
         element_img = get_element_img(element, 32, 32)
@@ -75,7 +76,7 @@ async def draw_team(
         )
     floor_img.paste(team_bar, (0, pos_y), team_bar)
 
-    for aindex, agent in enumerate(node['avatars']):
+    for aindex, agent in enumerate(node["avatars"]):
         avatar_img = await draw_avatar(agent)
         floor_img.paste(
             avatar_img,
@@ -83,8 +84,8 @@ async def draw_team(
             avatar_img,
         )
 
-    if 'buddy' in node:
-        bangboo_img = await draw_bangboo(node['buddy'])
+    if "buddy" in node:
+        bangboo_img = await draw_bangboo(node["buddy"])
         bangboo_img = bangboo_img.resize((152, 176))
         floor_img.paste(
             bangboo_img,
@@ -107,7 +108,7 @@ async def draw_challenge_img(
     if isinstance(data, int):
         return error_reply(data)
 
-    if 'has_data' not in data or not data['has_data']:
+    if "has_data" not in data or not data["has_data"]:
         return ERROR_HINT
 
     player_card = await get_player_card_min(uid, ev)
@@ -115,68 +116,68 @@ async def draw_challenge_img(
         return error_reply(player_card)
 
     if is_full:
-        abyss_data = data['all_floor_detail']
+        abyss_data = data["all_floor_detail"]
     else:
-        abyss_data = data['all_floor_detail'][:3]
+        abyss_data = data["all_floor_detail"][:3]
 
     w, h = 950, 710 + 700 * len(abyss_data) + 100
 
-    img = get_zzz_bg(w, h, 'bg2')
-    title = Image.open(TEXT_PATH / 'title.png')
-    banner = Image.open(TEXT_PATH / 'banner.png')
+    img = get_zzz_bg(w, h, "bg2")
+    title = Image.open(TEXT_PATH / "title.png")
+    banner = Image.open(TEXT_PATH / "banner.png")
     title_draw = ImageDraw.Draw(title)
 
-    fast_layer_time = data['fast_layer_time']
+    fast_layer_time = data["fast_layer_time"]
     layer_time = format_seconds(fast_layer_time)
-    max_layer = data['max_layer']
-    begin = format_timestamp(int(data['begin_time']))
-    end = format_timestamp(int(data['end_time']))
+    max_layer = data["max_layer"]
+    begin = format_timestamp(int(data["begin_time"]))
+    end = format_timestamp(int(data["end_time"]))
 
     s_num, a_num, b_num = 0, 0, 0
-    for i in data['rating_list']:
-        if i['rating'] == 'B':
-            b_num += i['times']
-        elif i['rating'] == 'A':
-            a_num += i['times']
+    for i in data["rating_list"]:
+        if i["rating"] == "B":
+            b_num += i["times"]
+        elif i["rating"] == "A":
+            a_num += i["times"]
         else:
-            s_num += i['times']
+            s_num += i["times"]
 
     for index, num in enumerate([s_num, a_num, b_num]):
         title_draw.text(
             (402 + 109 * index, 285),
-            f'{num}',
-            'white',
+            f"{num}",
+            "white",
             zzz_font_30,
-            'mm',
+            "mm",
         )
 
     title_draw.text(
         (302, 367),
         layer_time,
-        'white',
+        "white",
         zzz_font_32,
-        'lm',
+        "lm",
     )
     title_draw.text(
         (723, 367),
-        f'第{max_layer}防线',
-        'white',
+        f"第{max_layer}防线",
+        "white",
         zzz_font_32,
-        'lm',
+        "lm",
     )
     title_draw.text(
         (224, 256),
         begin,
         (81, 81, 81),
         zzz_font_60,
-        'mm',
+        "mm",
     )
     title_draw.text(
         (733, 256),
         end,
         (81, 81, 81),
         zzz_font_60,
-        'mm',
+        "mm",
     )
 
     img.paste(player_card, (0, 70), player_card)
@@ -184,43 +185,43 @@ async def draw_challenge_img(
     img.paste(banner, (0, 610), banner)
 
     for floor_num, floor_data in enumerate(abyss_data):
-        floor_img = Image.open(TEXT_PATH / 'floor.png')
+        floor_img = Image.open(TEXT_PATH / "floor.png")
         floor_draw = ImageDraw.Draw(floor_img)
-        rating = floor_data['rating']
-        zone_name = floor_data['zone_name']
-        color = RANK_COLOR.get(rating, 'white')
-        times = floor_data['floor_challenge_time']
-        time1 = f'{times["year"]}.{times["month"]}.{times["day"]}'
-        time2 = f'{times["hour"]}:{times["minute"]}:{times["second"]}'
-        time = f'{time1} {time2}'
+        rating = floor_data["rating"]
+        zone_name = floor_data["zone_name"]
+        color = RANK_COLOR.get(rating, "white")
+        times = floor_data["floor_challenge_time"]
+        time1 = f"{times['year']}.{times['month']}.{times['day']}"
+        time2 = f"{times['hour']}:{times['minute']}:{times['second']}"
+        time = f"{time1} {time2}"
 
         rank_img = get_rank_img(rating, 51, 51)
         floor_img.paste(rank_img, (76, 57), rank_img)
         floor_draw.text(
             (138, 83),
             zone_name,
-            'black',
+            "black",
             zzz_font_40,
-            'lm',
+            "lm",
             stroke_width=5,
-            stroke_fill='black',
+            stroke_fill="black",
         )
         floor_draw.text(
             (138, 83),
             zone_name,
             color,
             zzz_font_40,
-            'lm',
+            "lm",
         )
 
         await draw_team(
-            floor_data['node_1'],
+            floor_data["node_1"],
             time,
             floor_img,
             115,
         )
         await draw_team(
-            floor_data['node_2'],
+            floor_data["node_2"],
             time,
             floor_img,
             385,

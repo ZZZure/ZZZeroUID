@@ -18,19 +18,19 @@ from .RESOURCE_PATH import (
 
 async def download_all_resource():
     await download_all_file(
-        'ZZZeroUID',
+        "ZZZeroUID",
         {
-            'guide/flower': FLOWER_GUIDE_PATH,
-            'guide/cat': CAT_GUIDE_PATH,
-            'resource/weapon': WEAPON_PATH,
-            'resource/role_circle': ROLECIRCLE_PATH,
-            'resource/role_general': ROLEGENERAL_PATH,
-            'resource/role': ROLE_PATH,
-            'resource/3d_suit': SUIT_3D_PATH,
-            'resource/suit': SUIT_PATH,
-            'resource/camp': CAMP_PATH,
-            'resource/mind': MIND_PATH,
-            'resource/square_bangbo': SQUARE_BANGBOO,
-            'custom': CUSTOM_PATH,
+            "guide/flower": FLOWER_GUIDE_PATH,
+            "guide/cat": CAT_GUIDE_PATH,
+            "resource/weapon": WEAPON_PATH,
+            "resource/role_circle": ROLECIRCLE_PATH,
+            "resource/role_general": ROLEGENERAL_PATH,
+            "resource/role": ROLE_PATH,
+            "resource/3d_suit": SUIT_3D_PATH,
+            "resource/suit": SUIT_PATH,
+            "resource/camp": CAMP_PATH,
+            "resource/mind": MIND_PATH,
+            "resource/square_bangbo": SQUARE_BANGBOO,
+            "custom": CUSTOM_PATH,
         },
     )

@@ -3,9 +3,9 @@ from __future__ import annotations
 from typing import Any, Dict, Union, Literal, Optional, cast
 
 from httpx import AsyncClient
+
 from gsuid_core.utils.api.utils import cache_data
 
-from ...version import ZZZero_version
 from .api import (
     ZZZ_NEW,
     ZZZ_WEAPON,
@@ -22,9 +22,10 @@ from .models import (
     WeaponDatabase,
     CharacterDatabase,
 )
+from ...version import ZZZero_version
 
 AnyDict = Dict[str, Any]
-_HEADER = {'User-Agent': f'ZZZeroUID/{ZZZero_version}'}
+_HEADER = {"User-Agent": f"ZZZeroUID/{ZZZero_version}"}
 
 
 async def get_hakush_all_equipment():
@@ -77,7 +78,7 @@ async def get_hakush_new_data() -> Optional[NewData]:
 
 async def _hakush_request(
     url: str,
-    method: Literal['GET', 'POST'] = 'GET',
+    method: Literal["GET", "POST"] = "GET",
     header: AnyDict = _HEADER,
     params: Optional[AnyDict] = None,
     data: Optional[AnyDict] = None,

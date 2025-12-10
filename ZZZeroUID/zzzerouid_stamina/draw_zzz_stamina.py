@@ -1,21 +1,14 @@
-from pathlib import Path
 from typing import Any, List, Union
+from pathlib import Path
+
+from PIL import Image, ImageDraw
 
 from gsuid_core.bot import Bot
-from PIL import Image, ImageDraw
 from gsuid_core.models import Event
-from gsuid_core.utils.database.models import GsBind
 from gsuid_core.utils.image.convert import convert_img
+from gsuid_core.utils.database.models import GsBind
 
-from ..utils.zzzero_api import zzz_api
 from ..utils.hint import BIND_UID_HINT, error_reply
-from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
-from ..utils.fonts.zzz_fonts import (
-    zzz_font_26,
-    zzz_font_36,
-    zzz_font_40,
-    zzz_font_50,
-)
 from ..utils.image import (
     GREY,
     YELLOW,
@@ -23,11 +16,19 @@ from ..utils.image import (
     get_zzz_bg,
     get_player_card_min,
 )
+from ..utils.zzzero_api import zzz_api
+from ..utils.fonts.zzz_fonts import (
+    zzz_font_26,
+    zzz_font_36,
+    zzz_font_40,
+    zzz_font_50,
+)
+from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG
 
-is_WidgetResin = ZZZ_CONFIG.get_config('WidgetResin').data
-TEXT_PATH = Path(__file__).parent / 'texture2d'
-YES = Image.open(TEXT_PATH / 'yes.png')
-NO = Image.open(TEXT_PATH / 'no.png')
+is_WidgetResin = ZZZ_CONFIG.get_config("WidgetResin").data
+TEXT_PATH = Path(__file__).parent / "texture2d"
+YES = Image.open(TEXT_PATH / "yes.png")
+NO = Image.open(TEXT_PATH / "no.png")
 
 
 def convert_seconds_to_hm(seconds: int):
@@ -40,7 +41,7 @@ def convert_seconds_to_hm(seconds: int):
 
 async def draw_stamina_img(bot: Bot, ev: Event):
     user_id = ev.at if ev.at else ev.user_id
-    uids = await GsBind.get_uid_list_by_game(user_id, ev.bot_id, 'zzz')
+    uids = await GsBind.get_uid_list_by_game(user_id, ev.bot_id, "zzz")
     if not uids:
         await bot.send(BIND_UID_HINT)
     else:
@@ -53,13 +54,13 @@ async def draw_stamina_img(bot: Bot, ev: Event):
                 img_list.append(i)
         if img_list:
             _x = img_list[0].size[0]
-            res = Image.new('RGBA', (_x * len(img_list), img_list[0].size[1]))
+            res = Image.new("RGBA", (_x * len(img_list), img_list[0].size[1]))
             for index, img in enumerate(img_list):
                 res.paste(img, (index * _x, 0), img)
             res = await convert_img(res)
             await bot.send(res)
         else:
-            await bot.send('你当前绑定的UID存在错误, 请尝试解决...')
+            await bot.send("你当前绑定的UID存在错误, 请尝试解决...")
 
 
 async def draw_bar(
@@ -68,7 +69,7 @@ async def draw_bar(
     max_value: Any,
     max_yes: bool = True,
 ):
-    bar = Image.open(TEXT_PATH / 'bar.png')
+    bar = Image.open(TEXT_PATH / "bar.png")
     bar_draw = ImageDraw.Draw(bar)
 
     if max_yes:
@@ -84,10 +85,10 @@ async def draw_bar(
 
     bar.paste(icon, (93, 10), icon)
 
-    bar_draw.text((188, 51), f'{title}', GREY, zzz_font_40, 'lm')
+    bar_draw.text((188, 51), f"{title}", GREY, zzz_font_40, "lm")
 
-    bar_draw.text((716, 56), f'/{max_value}', GREY, zzz_font_40, 'lm')
-    bar_draw.text((708, 54), f'{cur_value}', YELLOW, zzz_font_50, 'rm')
+    bar_draw.text((716, 56), f"/{max_value}", GREY, zzz_font_40, "lm")
+    bar_draw.text((708, 54), f"{cur_value}", YELLOW, zzz_font_50, "rm")
 
     return bar
 
@@ -103,106 +104,106 @@ async def _draw_stamina_img(uid: str, ev: Event) -> Union[str, Image.Image]:
     if isinstance(player_card, int):
         return error_reply(player_card)
 
-    energy = data['energy']['progress']['current']
-    max_energy = data['energy']['progress']['max']
+    energy = data["energy"]["progress"]["current"]
+    max_energy = data["energy"]["progress"]["max"]
     radio = energy / max_energy
     max_len = 386
-    restore = data['energy']['restore']
+    restore = data["energy"]["restore"]
     rh, rm = convert_seconds_to_hm(restore)
-    restore_str = f'{rh}小时{rm}分钟'
+    restore_str = f"{rh}小时{rm}分钟"
 
-    vitality = data['vitality']['current']
-    max_vitality = data['vitality']['max']
+    vitality = data["vitality"]["current"]
+    max_vitality = data["vitality"]["max"]
     vitality_radio = vitality / max_vitality
     if vitality_radio == 1:
         vitality_icon = YES
     else:
         vitality_icon = NO
 
-    VHSSale = data['vhs_sale']['sale_state']
-    if 'Doing' in VHSSale:
+    VHSSale = data["vhs_sale"]["sale_state"]
+    if "Doing" in VHSSale:
         sale_icon = YES
-        sale_text = '正在营业'
+        sale_text = "正在营业"
     else:
         sale_icon = NO
-        sale_text = '尚未营业'
+        sale_text = "尚未营业"
 
-    card_sign = data['card_sign']
-    if 'Done' in card_sign:
+    card_sign = data["card_sign"]
+    if "Done" in card_sign:
         card_icon = YES
-        card_text = '已抽奖'
+        card_text = "已抽奖"
     else:
         card_icon = NO
-        card_text = '未抽奖'
+        card_text = "未抽奖"
 
-    if 's2_bounty_commission' in data and data['s2_bounty_commission']:
-        cnum = data['s2_bounty_commission']['num']
-        ctotal = data['s2_bounty_commission']['total']
+    if "s2_bounty_commission" in data and data["s2_bounty_commission"]:
+        cnum = data["s2_bounty_commission"]["num"]
+        ctotal = data["s2_bounty_commission"]["total"]
         if cnum >= ctotal:
             bounty_icon = YES
         else:
             bounty_icon = NO
-    elif 's1_bounty_commission' in data and data['s1_bounty_commission']:
-        cnum = data['s1_bounty_commission']['num']
-        ctotal = data['s1_bounty_commission']['total']
+    elif "s1_bounty_commission" in data and data["s1_bounty_commission"]:
+        cnum = data["s1_bounty_commission"]["num"]
+        ctotal = data["s1_bounty_commission"]["total"]
         if cnum >= ctotal:
             bounty_icon = YES
         else:
             bounty_icon = NO
     else:
-        cnum = '-'
-        ctotal = '-'
+        cnum = "-"
+        ctotal = "-"
         bounty_icon = NO
 
-    if 'weekly_task' in data and data['weekly_task']:
-        wnum = data['weekly_task']['cur_point']
-        wtotal = data['weekly_task']['max_point']
+    if "weekly_task" in data and data["weekly_task"]:
+        wnum = data["weekly_task"]["cur_point"]
+        wtotal = data["weekly_task"]["max_point"]
         if wnum >= wtotal:
             weekly_icon = YES
         else:
             weekly_icon = NO
     else:
-        wnum = '-'
-        wtotal = '-'
+        wnum = "-"
+        wtotal = "-"
         weekly_icon = NO
 
     # 废弃
-    '''
+    """
     pnum = data['survey_points']['num']
     ptotal = data['survey_points']['total']
     if pnum >= ptotal:
         survey_icon = YES
     else:
         survey_icon = NO
-    '''
+    """
 
     img = get_zzz_bg(950, 1700)
-    bg = Image.open(TEXT_PATH / 'bg.png')
-    battery_banner = Image.open(TEXT_PATH / 'battery_banner.png')
-    active_banner = Image.open(TEXT_PATH / 'active_banner.png')
-    abyss_banner = Image.open(TEXT_PATH / 'abyss_banner.png')
+    bg = Image.open(TEXT_PATH / "bg.png")
+    battery_banner = Image.open(TEXT_PATH / "battery_banner.png")
+    active_banner = Image.open(TEXT_PATH / "active_banner.png")
+    abyss_banner = Image.open(TEXT_PATH / "abyss_banner.png")
 
-    battery_card = Image.open(TEXT_PATH / 'battery_card.png')
+    battery_card = Image.open(TEXT_PATH / "battery_card.png")
 
-    active_bar = Image.open(TEXT_PATH / 'bar.png')
+    active_bar = Image.open(TEXT_PATH / "bar.png")
     active_draw = ImageDraw.Draw(active_bar)
-    gacha_bar = Image.open(TEXT_PATH / 'bar.png')
+    gacha_bar = Image.open(TEXT_PATH / "bar.png")
     gacha_draw = ImageDraw.Draw(gacha_bar)
-    shop_bar = Image.open(TEXT_PATH / 'bar.png')
+    shop_bar = Image.open(TEXT_PATH / "bar.png")
     shop_draw = ImageDraw.Draw(shop_bar)
 
-    mission_bar = Image.open(TEXT_PATH / 'bar.png')
+    mission_bar = Image.open(TEXT_PATH / "bar.png")
     mission_draw = ImageDraw.Draw(mission_bar)
-    point_bar = Image.open(TEXT_PATH / 'bar.png')
+    point_bar = Image.open(TEXT_PATH / "bar.png")
     point_draw = ImageDraw.Draw(point_bar)
 
     battery_draw = ImageDraw.Draw(battery_card)
 
-    active_draw.text((188, 51), '今日活跃度', GREY, zzz_font_40, 'lm')
-    gacha_draw.text((188, 51), '刮刮卡', GREY, zzz_font_40, 'lm')
-    shop_draw.text((188, 51), '录像店经营', GREY, zzz_font_40, 'lm')
-    mission_draw.text((188, 51), '悬赏委托', GREY, zzz_font_40, 'lm')
-    point_draw.text((188, 51), '丽都周纪', GREY, zzz_font_40, 'lm')
+    active_draw.text((188, 51), "今日活跃度", GREY, zzz_font_40, "lm")
+    gacha_draw.text((188, 51), "刮刮卡", GREY, zzz_font_40, "lm")
+    shop_draw.text((188, 51), "录像店经营", GREY, zzz_font_40, "lm")
+    mission_draw.text((188, 51), "悬赏委托", GREY, zzz_font_40, "lm")
+    point_draw.text((188, 51), "丽都周纪", GREY, zzz_font_40, "lm")
 
     active_bar.paste(vitality_icon, (93, 10), vitality_icon)
     gacha_bar.paste(card_icon, (93, 10), card_icon)
@@ -210,38 +211,38 @@ async def _draw_stamina_img(uid: str, ev: Event) -> Union[str, Image.Image]:
     point_bar.paste(bounty_icon, (93, 10), bounty_icon)
     mission_bar.paste(weekly_icon, (93, 10), weekly_icon)
 
-    active_draw.text((716, 56), f'/{max_vitality}', GREY, zzz_font_40, 'lm')
-    active_draw.text((708, 54), f'{vitality}', YELLOW, zzz_font_50, 'rm')
+    active_draw.text((716, 56), f"/{max_vitality}", GREY, zzz_font_40, "lm")
+    active_draw.text((708, 54), f"{vitality}", YELLOW, zzz_font_50, "rm")
 
-    mission_draw.text((716, 56), f'/{ctotal}', GREY, zzz_font_40, 'lm')
-    mission_draw.text((708, 54), f'{cnum}', YELLOW, zzz_font_50, 'rm')
+    mission_draw.text((716, 56), f"/{ctotal}", GREY, zzz_font_40, "lm")
+    mission_draw.text((708, 54), f"{cnum}", YELLOW, zzz_font_50, "rm")
 
-    point_draw.text((716, 56), f'/{wtotal}', GREY, zzz_font_40, 'lm')
-    point_draw.text((708, 54), f'{wnum}', YELLOW, zzz_font_50, 'rm')
+    point_draw.text((716, 56), f"/{wtotal}", GREY, zzz_font_40, "lm")
+    point_draw.text((708, 54), f"{wnum}", YELLOW, zzz_font_50, "rm")
 
-    gacha_draw.text((826, 50), card_text, YELLOW, zzz_font_50, 'rm')
-    shop_draw.text((826, 50), sale_text, YELLOW, zzz_font_50, 'rm')
+    gacha_draw.text((826, 50), card_text, YELLOW, zzz_font_50, "rm")
+    shop_draw.text((826, 50), sale_text, YELLOW, zzz_font_50, "rm")
 
     battery_draw.text(
         (565, 111),
-        f'/{max_energy}',
+        f"/{max_energy}",
         (165, 165, 165),
         zzz_font_36,
-        'lm',
+        "lm",
     )
     battery_draw.text(
         (517, 108),
-        f'{energy}',
+        f"{energy}",
         YELLOW,
         zzz_font_50,
-        'mm',
+        "mm",
     )
     battery_draw.text(
         (454, 152),
-        f'{restore_str}',
-        'white',
+        f"{restore_str}",
+        "white",
         zzz_font_26,
-        'lm',
+        "lm",
     )
     battery_draw.rounded_rectangle(
         (415, 230, int(415 + radio * max_len), 246),

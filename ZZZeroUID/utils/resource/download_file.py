@@ -1,17 +1,18 @@
-from pathlib import Path
 from typing import Union
+from pathlib import Path
 
 from PIL import Image, UnidentifiedImageError
+
 from gsuid_core.utils.download_resource.download_file import download
 
-from ..name_convert import weapon_data, char_name_to_char_id
-from .RESOURCE_PATH import WEAPON_PATH, SQUARE_AVATAR, SQUARE_BANGBOO
 from ..api.api import (
     ZZZ_SQUARE_AVATAR,
     ZZZ_SQUARE_BANGBOO,
     V2_ZZZ_SQUARE_AVATAR,
     V2_ZZZ_SQUARE_BANGBOO,
 )
+from ..name_convert import weapon_data, char_name_to_char_id
+from .RESOURCE_PATH import WEAPON_PATH, SQUARE_AVATAR, SQUARE_BANGBOO
 
 
 def get_source(img: Union[Image.Image, Path], w: int, h: int):
@@ -77,7 +78,6 @@ async def get_square_bangboo(bangboo_id: Union[str, int]) -> Image.Image:
 async def get_weapon(weapon_id: Union[str, int]) -> Image.Image:
     img = Image.new("RGBA", (400, 400))
     if str(weapon_id) in weapon_data:
-
         weapon_sprite = weapon_data[str(weapon_id)]
         path_1 = WEAPON_PATH / f"{weapon_sprite['code_name']}.png"
         path_2 = WEAPON_PATH / f"{weapon_sprite['code_name']}_High.png"

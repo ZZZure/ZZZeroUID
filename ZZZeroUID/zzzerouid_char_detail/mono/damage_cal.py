@@ -6,4 +6,4 @@ async def get_damage_cal(char: Character):
     _id = char.id
     char_info = await get_hakush_char(_id)
     if char_info is None:
-        return '该角色暂无数据...'
+        return "该角色暂无数据..."

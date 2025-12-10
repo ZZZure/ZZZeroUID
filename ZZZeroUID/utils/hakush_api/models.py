@@ -146,8 +146,8 @@ class CharacterData(TypedDict):
     Gender: int
     PartnerInfo: Dict
     Stats: Stats
-    Level: Dict[Literal['1', '2', '3', '4', '5', '6'], Level]
-    ExtraLevel: Dict[Literal['1', '2', '3', '4', '5', '6'], ExtraLevel]
+    Level: Dict[Literal["1", "2", "3", "4", "5", "6"], Level]
+    ExtraLevel: Dict[Literal["1", "2", "3", "4", "5", "6"], ExtraLevel]
     Skill: Skill
     Passive: Passive
     Talent: Talent

@@ -1,10 +1,11 @@
 from pathlib import Path
 
 from PIL import ImageFont
+
 from gsuid_core.utils.fonts.fonts import core_font
 
-FONT_ORIGIN_PATH = Path(__file__).parent / 'zzz_fonts.ttf'
-FONT_THIN_PATH = Path(__file__).parent / 'zzz_thins.ttf'
+FONT_ORIGIN_PATH = Path(__file__).parent / "zzz_fonts.ttf"
+FONT_THIN_PATH = Path(__file__).parent / "zzz_thins.ttf"
 
 
 def zzz_font_origin(size: int) -> ImageFont.FreeTypeFont:

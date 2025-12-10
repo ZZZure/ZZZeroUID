@@ -1,6 +1,6 @@
 import json
-from time import time
 from re import sub, compile, findall
+from time import time
 from typing import List, Union, Literal
 from datetime import datetime, timezone, timedelta
 
@@ -9,9 +9,7 @@ from httpx import AsyncClient
 TZ = timezone(timedelta(hours=8))
 
 
-async def get_data(
-    type: Literal["activity", "index", "code"], data: dict = {}
-) -> dict:
+async def get_data(type: Literal["activity", "index", "code"], data: dict = {}) -> dict:
     """米哈游接口请求"""
 
     url = {
@@ -22,9 +20,7 @@ async def get_data(
     async with AsyncClient() as client:
         try:
             if type == "index":
-                res = await client.get(
-                    url[type], headers={"x-rpc-act_id": data.get("actId", "")}
-                )
+                res = await client.get(url[type], headers={"x-rpc-act_id": data.get("actId", "")})
             elif type == "code":
                 res = await client.get(
                     url[type],
@@ -85,9 +81,7 @@ async def get_live_data(act_id: str) -> dict:
         live_data["review"] = live_temp["reviewUrl"]["args"]["post_id"]
     else:
         now = datetime.fromtimestamp(time(), TZ)
-        start = datetime.strptime(
-            live_raw["start"], "%Y-%m-%d %H:%M:%S"
-        ).replace(tzinfo=TZ)
+        start = datetime.strptime(live_raw["start"], "%Y-%m-%d %H:%M:%S").replace(tzinfo=TZ)
         if now < start:
             live_data["start"] = live_raw["start"]
 
@@ -127,11 +121,11 @@ async def get_code_msg() -> str:
     if isinstance(code_data, dict):
         return code_data["error"]
 
-    code_msg = f'{live_data["title"]}\n'
+    code_msg = f"{live_data['title']}\n"
     # 只有一个兑换码，直接取第0个
     try:
         code = code_data[0]
-        code_msg += f'{code["items"]}:\n{code["code"]}\n'
+        code_msg += f"{code['items']}:\n{code['code']}\n"
         return code_msg.strip()
     except:  # noqa: E722
         return "获取兑换码失败！"

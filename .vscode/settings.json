@@ -1,22 +1,19 @@
-  {
-    "python.languageServer": "None",
+{
+  "python.languageServer": "None",
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
-    "[python]": {
-      "editor.defaultFormatter": "ms-python.black-formatter",
-      "editor.formatOnSave": true,
-      "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit"
-      }
-    },
-    "python.autoComplete.extraPaths": [
-      "${workspaceFolder}/../../../../"
-    ],
-    "isort.args": [
-      "--profile",
-      "black"
-    ],
-    "basedpyright.analysis.extraPaths": [
-      "${workspaceFolder}/../../../"
-    ],
-    "python.analysis.typeCheckingMode": "off",
-  }
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+      "source.fixAll.ruff": "explicit"
+    }
+  },
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}/../../../../"
+  ],
+  "basedpyright.analysis.extraPaths": [
+    "${workspaceFolder}/../../../"
+  ],
+  "python.analysis.typeCheckingMode": "off",
+}
