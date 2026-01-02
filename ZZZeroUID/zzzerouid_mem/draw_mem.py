@@ -55,13 +55,14 @@ async def draw_boss(boss: Boss):
         await download(boss_icon, MONSTER_PATH, f"{boss_name}.png")
     boss_img = Image.open(boss_path).resize((241, 333))
 
-    race_path = TEMP_PATH / race_name
-    if not race_path.exists():
-        await download(boss_race, TEMP_PATH, race_name)
-    race_img = Image.open(race_path).resize((110, 110))
+    if boss_race:
+        race_path = TEMP_PATH / race_name
+        if not race_path.exists():
+            await download(boss_race, TEMP_PATH, race_name)
+        race_img = Image.open(race_path).resize((110, 110))
+        bg_img.paste(race_img, (115, 212), race_img)
 
     bg_img.paste(boss_img, (0, 0), boss_img)
-    bg_img.paste(race_img, (115, 212), race_img)
     bg_img.paste(boss_fg, (0, 0), boss_fg)
 
     boss_card.paste(bg_img, (0, 0), boss_mask)
