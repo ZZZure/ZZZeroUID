@@ -1,5 +1,37 @@
 from typing import List, TypedDict
 
+# =================================================
+# 1. 基础与通用组件 (Basic & Common Components)
+# =================================================
+
+
+class TimeData(TypedDict):
+    """通用的时间结构 (年/月/日/时/分/秒)"""
+
+    year: int
+    month: int
+    day: int
+    hour: int
+    minute: int
+    second: int
+
+
+# 兼容旧代码的别名
+FloorChallengeTime = TimeData
+ChallengeTime = TimeData
+
+
+class Buff(TypedDict):
+    """通用Buff结构: 标题与文本"""
+
+    title: str
+    text: str
+
+
+# =================================================
+# 2. 玩家状态与便签 (User Status & Note)
+# =================================================
+
 
 class EnergyProgress(TypedDict):
     max: int
@@ -61,31 +93,36 @@ class ZZZWidgetNoteResp(ZZZNoteResp):
     note_url: str
 
 
-class SingleGachaLog(TypedDict):
-    uid: str
-    gacha_id: str
-    gacha_type: str
-    """gacha_type: 1-常驻, 2-限定, 3-音擎"""
-    item_id: str
-    count: str
-    time: str
-    name: str
-    lang: str
-    item_type: str
-    rank_type: str
-    """rank_type: 2-B, 3-A, 4-S"""
-    id: str
-
-
-class ZZZGachaLogResp(TypedDict):
-    page: str
-    size: str
-    list: List[SingleGachaLog]
+class ZZZUser(TypedDict):
+    game_biz: str
     region: str
-    region_time_zone: int
+    game_uid: str
+    nickname: str
+    level: int
+    is_chosen: bool
+    region_name: str
+    is_official: bool
+
+
+class RoleBasicInfo(TypedDict):
+    server: str
+    nickname: str
+    icon: str
+
+
+# =================================================
+# 3. 角色、装备与邦布 (Avatar, Equip & Buddy)
+# =================================================
+
+
+class AvatarIconPaths(TypedDict):
+    group_icon_path: str
+    hollow_icon_path: str
 
 
 class Avatar(TypedDict):
+    """基础角色完整信息"""
+
     id: int
     level: int
     name_mi18n: str
@@ -98,47 +135,6 @@ class Avatar(TypedDict):
     hollow_icon_path: str
     rank: int
     is_chosen: bool
-
-
-class Buddy(TypedDict):
-    id: int
-    name: str
-    rarity: str
-    level: int
-    star: int
-
-
-class Stats(TypedDict):
-    active_days: int
-    avatar_num: int
-    world_level_name: str
-    cur_period_zone_layer_count: int
-    buddy_num: int
-
-
-class ZZZIndexResp(TypedDict):
-    stats: Stats
-    avatar_list: List[Avatar]
-    cur_head_icon_url: str
-    buddy_list: List[Buddy]
-
-
-class ZZZBangboo(TypedDict):
-    id: int
-    name: str
-    rarity: str
-    level: int
-    star: int
-
-
-class BangbooWiki(TypedDict):
-    item_id: str
-    wiki_url: str
-
-
-class AvatarIconPaths(TypedDict):
-    group_icon_path: str
-    hollow_icon_path: str
 
 
 class ZZZAvatarBasic(TypedDict):
@@ -155,10 +151,66 @@ class ZZZAvatarBasic(TypedDict):
     is_chosen: bool
 
 
+class MEMAvatar(TypedDict):
+    """挑战/深渊记录中的简略角色信息"""
+
+    id: int
+    level: int
+    rarity: str
+    element_type: int
+    avatar_profession: int
+    rank: int
+    role_square_url: str
+    sub_element_type: int
+
+
+class ChallengeAvatar(TypedDict):
+    id: int
+    level: int
+    rarity: str
+    element_type: int
+
+
+class Buddy(TypedDict):
+    id: int
+    name: str
+    rarity: str
+    level: int
+    star: int
+
+
+class MEMBuddy(TypedDict):
+    """挑战/深渊记录中的简略邦布信息"""
+
+    id: int
+    rarity: str
+    level: int
+    bangboo_rectangle_url: str
+
+
+class ChallengeBangboo(TypedDict):
+    id: int
+    rarity: str
+    level: int
+
+
+class ZZZBangboo(TypedDict):
+    id: int
+    name: str
+    rarity: str
+    level: int
+    star: int
+
+
+class BangbooWiki(TypedDict):
+    item_id: str
+    wiki_url: str
+
+
 class EquipProperty(TypedDict):
     property_name: str
     property_id: int
-    base: str  # Base value, could be an empty string if not applicable
+    base: str
     level: int
     valid: bool
     system_id: int
@@ -233,6 +285,8 @@ class Rank(TypedDict):
 
 
 class ZZZAvatarInfo(TypedDict):
+    """角色详情页面完整信息"""
+
     id: int
     level: int
     name_mi18n: str
@@ -251,28 +305,51 @@ class ZZZAvatarInfo(TypedDict):
     ranks: List[Rank]
 
 
-class ZZZUser(TypedDict):
-    game_biz: str
+class Stats(TypedDict):
+    active_days: int
+    avatar_num: int
+    world_level_name: str
+    cur_period_zone_layer_count: int
+    buddy_num: int
+
+
+class ZZZIndexResp(TypedDict):
+    stats: Stats
+    avatar_list: List[Avatar]
+    cur_head_icon_url: str
+    buddy_list: List[Buddy]
+
+
+# =================================================
+# 4. 抽卡记录 (Gacha Log)
+# =================================================
+
+
+class SingleGachaLog(TypedDict):
+    uid: str
+    gacha_id: str
+    gacha_type: str  # 1-常驻, 2-限定, 3-音擎
+    item_id: str
+    count: str
+    time: str
+    name: str
+    lang: str
+    item_type: str
+    rank_type: str  # 2-B, 3-A, 4-S
+    id: str
+
+
+class ZZZGachaLogResp(TypedDict):
+    page: str
+    size: str
+    list: List[SingleGachaLog]
     region: str
-    game_uid: str
-    nickname: str
-    level: int
-    is_chosen: bool
-    region_name: str
-    is_official: bool
+    region_time_zone: int
 
 
-class ChallengeAvatar(TypedDict):
-    id: int
-    level: int
-    rarity: str
-    element_type: int
-
-
-class ChallengeBangboo(TypedDict):
-    id: int
-    rarity: str
-    level: int
+# =================================================
+# 5. 旧版挑战/式舆防卫战 (Standard Challenge / Shiyu Defense V1)
+# =================================================
 
 
 class MonsterInfo(TypedDict):
@@ -281,25 +358,11 @@ class MonsterInfo(TypedDict):
     weak_element_type: int
 
 
-class Buff(TypedDict):
-    title: str
-    text: str
-
-
 class ChallengeNode(TypedDict):
     avatars: List[ChallengeAvatar]
     buddy: ChallengeBangboo
     element_type_list: List[int]
     monster_info: MonsterInfo
-
-
-class FloorChallengeTime(TypedDict):
-    year: int
-    month: int
-    day: int
-    hour: int
-    minute: int
-    second: int
 
 
 class FloorDetail(TypedDict):
@@ -311,7 +374,7 @@ class FloorDetail(TypedDict):
     node_2: ChallengeNode
     challenge_time: int
     zone_name: str
-    floor_challenge_time: FloorChallengeTime
+    floor_challenge_time: TimeData
 
 
 class Rating(TypedDict):
@@ -330,6 +393,203 @@ class ZZZChallenge(TypedDict):
     max_layer: int
     hadal_begin_time: dict
     hadal_end_time: dict
+
+
+# =================================================
+# 6. 深渊/哈达尔数据 V2 (Hadal Zone V2 - from av.json)
+# =================================================
+
+
+class FifthLayerChallengeItem(TypedDict):
+    """第五层具体关卡的详细信息"""
+
+    layer_id: int
+    rating: str
+    buffer: Buff  # 复用通用的 Buff (title, text)
+    score: int
+    avatar_list: List[MEMAvatar]  # 复用 MEMAvatar
+    buddy: MEMBuddy  # 复用 MEMBuddy
+    battle_time: int
+    monster_pic: str
+    max_score: int
+
+
+class FitfhLayerDetail(TypedDict):
+    """第五层总览"""
+
+    layer_challenge_info_list: List[FifthLayerChallengeItem]
+
+
+class FourthLayerChallengeItem(TypedDict):
+    """第四层具体关卡的详细信息"""
+
+    layer_id: int
+    battle_time: int
+    avatar_list: List[MEMAvatar]
+    buddy: MEMBuddy
+
+
+class FourthLayerDetail(TypedDict):
+    """第四层总览"""
+
+    buffer: Buff
+    challenge_time: TimeData
+    rating: str
+    layer_challenge_info_list: List[FourthLayerChallengeItem]
+
+
+class HadalBriefInfo(TypedDict):
+    """Hadal V2 简报信息"""
+
+    cur_period_zone_layer_count: int
+    score: int
+    rank_percent: int
+    battle_time: int
+    rating: str
+    challenge_time: TimeData
+    max_score: int
+
+
+class HadalInfoV2(TypedDict):
+    """深渊/哈达尔区域详细信息 V2"""
+
+    zone_id: int
+    hadal_begin_time: TimeData
+    hadal_end_time: TimeData
+    pass_fifth_floor: bool
+    brief: HadalBriefInfo
+    # 注意：此处键名严格匹配 JSON 中的拼写错误
+    fitfh_layer_detail: FitfhLayerDetail
+    fourth_layer_detail: FourthLayerDetail
+    begin_time: str
+    end_time: str
+
+
+class ZZZHadalData(TypedDict):
+    """Hadal V2 数据载体"""
+
+    hadal_ver: str
+    hadal_info_v2: HadalInfoV2
+    nick_name: str
+    icon: str
+
+
+class ZZZHadalResp(TypedDict):
+    """Hadal V2 完整响应"""
+
+    retcode: int
+    message: str
+    data: ZZZHadalData
+
+
+# =================================================
+# 7. 恶名狩猎/其他挑战 (Notorious Hunt / MEM Info)
+# =================================================
+
+
+class Boss(TypedDict):
+    race_icon: str
+    icon: str
+    name: str
+    bg_icon: str
+
+
+class Buffer(TypedDict):
+    """旧版 MEM Buffer 结构"""
+
+    desc: str
+    icon: str
+    name: str
+
+
+class ListItem(TypedDict):
+    star: int
+    score: int
+    boss: List[Boss]
+    buffer: List[Buffer]
+    buddy: Buddy
+    total_star: int
+    challenge_time: TimeData
+    avatar_list: List[Avatar]
+
+
+class ZZZMEMInfo(TypedDict):
+    end_time: TimeData
+    nick_name: str
+    avatar_icon: str
+    has_data: bool
+    start_time: TimeData
+    zone_id: int
+    total_star: int
+    rank_percent: int
+    list: List[ListItem]
+    total_score: int
+
+
+# =================================================
+# 8. 纷争节点/虚无前线 (Void Front Battle)
+# =================================================
+
+
+class VoidFrontBattleBuffer(TypedDict):
+    desc: str
+    icon: str
+    name: str
+
+
+class SubChallengeRecord(TypedDict):
+    avatar_list: List[MEMAvatar]
+    buddy: MEMBuddy
+    buffer: VoidFrontBattleBuffer
+    battle_id: int
+    name: str
+    star: str
+
+
+class MainChallengeRecord(TypedDict):
+    score_ratio: str
+    challenge_time: TimeData
+    battle_id: int
+    star: str
+    node_id: int
+    buddy: MEMBuddy
+    buffer: VoidFrontBattleBuffer
+    max_score: int
+    avatar_list: List[MEMAvatar]
+    sub_challenge_record: List[SubChallengeRecord]
+    score: int
+    name: str
+
+
+class BossChallengeRecord(TypedDict):
+    main_challenge_record: MainChallengeRecord
+    boss_info: Boss
+
+
+class VoidFrontBattleAbstractInfoBrief(TypedDict):
+    end_ts: int
+    left_ts: int
+    max_score: int
+    end_ts_over_42_days: bool
+    void_front_id: int
+    has_ending_record: bool
+    ending_record_bg_pic: str
+    rank_percent: int
+    ending_record_name: str
+    ending_record_id: int
+    total_score: int
+
+
+class ZZZVoidFrontBattleData(TypedDict):
+    main_challenge_record_list: List[MainChallengeRecord]
+    boss_challenge_record: BossChallengeRecord
+    void_front_battle_abstract_info_brief: VoidFrontBattleAbstractInfoBrief
+    role_basic_info: RoleBasicInfo
+
+
+# =================================================
+# 9. 杂项与公告 (Misc & Announcements)
+# =================================================
 
 
 class AbyssLevel(TypedDict):
@@ -451,12 +711,10 @@ class TypeListItem(TypedDict):
 
 
 class PicListItem(TypedDict):
-    # 根据实际情况添加字段，如果pic_list始终为空列表，可以省略此类型
     pass
 
 
 class PicTypeListItem(TypedDict):
-    # 根据实际情况添加字段，如果pic_type_list始终为空列表，可以省略此类型
     pass
 
 
@@ -475,146 +733,3 @@ class ZZZAnnData(TypedDict):
     pic_alert_id: int
     static_sign: str
     banner: str
-
-
-class TimeData(TypedDict):
-    hour: int
-    minute: int
-    second: int
-    year: int
-    month: int
-    day: int
-
-
-class Boss(TypedDict):
-    race_icon: str
-    icon: str
-    name: str
-    bg_icon: str
-
-
-class Buffer(TypedDict):
-    desc: str
-    icon: str
-    name: str
-
-
-class MEMBuddy(TypedDict):
-    id: int
-    rarity: str
-    level: int
-    bangboo_rectangle_url: str
-
-
-class MEMAvatar(TypedDict):
-    rarity: str
-    element_type: int
-    avatar_profession: int
-    id: int
-    level: int
-    rank: int
-    role_square_url: str
-    sub_element_type: int
-
-
-class ListItem(TypedDict):
-    star: int
-    score: int
-    boss: List[Boss]
-    buffer: List[Buffer]
-    buddy: Buddy
-    total_star: int
-    challenge_time: TimeData
-    avatar_list: List[Avatar]
-
-
-class ZZZMEMInfo(TypedDict):
-    end_time: TimeData
-    nick_name: str
-    avatar_icon: str
-    has_data: bool
-    start_time: TimeData
-    zone_id: int
-    total_star: int
-    rank_percent: int
-    list: List[ListItem]
-    total_score: int
-
-
-# Defines the structure for a stage buff/buffer
-class VoidFrontBattleBuffer(TypedDict):
-    desc: str
-    icon: str
-    name: str
-
-
-# Defines the structure for a sub-challenge within a main stage
-class SubChallengeRecord(TypedDict):
-    avatar_list: List[MEMAvatar]
-    buddy: MEMBuddy
-    buffer: VoidFrontBattleBuffer
-    battle_id: int
-    name: str
-    star: str
-
-
-# Defines the structure for the completion time of a challenge
-class ChallengeTime(TypedDict):
-    hour: int
-    minute: int
-    second: int
-    year: int
-    month: int
-    day: int
-
-
-# Defines the structure for a main challenge record (used for both STAGE 01-03 and the boss)
-class MainChallengeRecord(TypedDict):
-    score_ratio: str
-    challenge_time: ChallengeTime
-    battle_id: int
-    star: str
-    node_id: int
-    buddy: MEMBuddy
-    buffer: VoidFrontBattleBuffer
-    max_score: int
-    avatar_list: List[MEMAvatar]
-    sub_challenge_record: List[SubChallengeRecord]
-    score: int
-    name: str
-
-
-# Defines the structure for the entire boss challenge section
-class BossChallengeRecord(TypedDict):
-    main_challenge_record: MainChallengeRecord
-    boss_info: Boss
-
-
-# Defines the structure for the "Void Front" summary
-class VoidFrontBattleAbstractInfoBrief(TypedDict):
-    end_ts: int
-    left_ts: int
-    max_score: int
-    end_ts_over_42_days: bool
-    void_front_id: int
-    has_ending_record: bool
-    ending_record_bg_pic: str
-    rank_percent: int
-    ending_record_name: str
-    ending_record_id: int
-    total_score: int
-
-
-# Defines the structure for the basic player profile information
-class RoleBasicInfo(TypedDict):
-    server: str
-    nickname: str
-    icon: str
-
-
-# Defines the structure for the main "data" object
-class ZZZVoidFrontBattleData(TypedDict):
-    main_challenge_record_list: List[MainChallengeRecord]
-    boss_challenge_record: BossChallengeRecord
-    void_front_battle_abstract_info_brief: VoidFrontBattleAbstractInfoBrief
-    role_basic_info: RoleBasicInfo

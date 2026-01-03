@@ -19,6 +19,7 @@ from .api import (
     ZZZ_BIND_API,
     ZZZ_NOTE_API,
     ZZZ_ABYSS_API,
+    ZZZ_HADAL_API,
     ZZZ_INDEX_API,
     ZZZ_MONTH_INFO,
     ZZZ_BIND_OS_API,
@@ -39,6 +40,7 @@ from .models import (
     ZZZNoteResp,
     ZZZAbyssData,
     ZZZChallenge,
+    ZZZHadalData,
     ZZZIndexResp,
     ZZZMonthInfo,
     ZZZAvatarInfo,
@@ -275,6 +277,12 @@ class ZZZApi(_MysApi):
         data = await self.simple_zzz_req(ZZZ_ABYSS_API, uid)
         if isinstance(data, Dict):
             data = cast(ZZZAbyssData, data["data"])
+        return data
+
+    async def get_zzz_hadal_info(self, uid: str, schedule_type: int = 1) -> Union[int, ZZZHadalData]:
+        data = await self.simple_zzz_req(ZZZ_HADAL_API, uid, params={"schedule_type": schedule_type})
+        if isinstance(data, Dict):
+            data = cast(ZZZHadalData, data["data"])
         return data
 
     async def get_zzz_bangboo_info(

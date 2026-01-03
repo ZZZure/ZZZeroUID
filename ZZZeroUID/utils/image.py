@@ -172,7 +172,7 @@ def get_rarity_img(rank: str, w: int = 80, h: int = 80):
 
 def get_rank_img(rank: str, w: int = 40, h: int = 40):
     rank = rank.upper()
-    if rank in ["S", "A", "B"]:
+    if rank in ["S", "A", "B", "S+"]:
         img = Image.open(TEXT_PATH / f"{rank}RANK.png")
         return img.resize((w, h)).convert("RGBA")
     else:
