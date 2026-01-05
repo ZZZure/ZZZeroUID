@@ -13,6 +13,7 @@ from ..utils.image import (
     add_footer,
     get_zzz_bg,
     get_rank_img,
+    get_level_img,
     get_player_card_min,
 )
 from ..utils.api.models import FifthLayerChallengeItem, FourthLayerChallengeItem
@@ -38,7 +39,7 @@ def format_timestamp(timestamp: int):
 
 
 def format_seconds(seconds: float):
-    hours = seconds // 3600
+    # hours = seconds // 3600
     minute = (seconds % 3600) // 60
     second = seconds % 60
     return f"{minute}分钟{second}秒"
@@ -50,7 +51,16 @@ async def draw_team(
     team_index: int = 0,
     pos_y: int = 114,
 ):
-    team_bar = Image.open(TEXT_PATH / "team_bar.png")
+    if "score" in node:
+        rating = node["rating"]
+        _p = TEXT_PATH / f"team_bar_{rating.lower()}.png"
+        if _p.exists():
+            team_bar = Image.open(TEXT_PATH / f"team_bar_{rating.lower()}.png")
+        else:
+            team_bar = Image.open(TEXT_PATH / "team_bar.png")
+    else:
+        team_bar = Image.open(TEXT_PATH / "team_bar.png")
+
     team_draw = ImageDraw.Draw(team_bar)
 
     # node_element = node["element_type_list"]
@@ -59,19 +69,35 @@ async def draw_team(
     battle_time = format_seconds(battle_time)
 
     team_draw.text(
-        (690, 35),
+        (818, 42),
         battle_time,
         GREY,
         zzz_font_20,
         "rm",
     )
-    team_draw.text(
-        (135, 38),
-        f"队伍{team_index + 1}",
-        "white",
-        zzz_font_30,
-        "lm",
-    )
+    if "score" in node:
+        score = node["score"]
+        team_draw.text(
+            (184, 38),
+            f"{score}分",
+            "white",
+            zzz_font_30,
+            "lm",
+        )
+        level = get_level_img(node["rating"], 51, 51)
+        team_bar.paste(
+            level,
+            (121, 12),
+            level,
+        )
+    else:
+        team_draw.text(
+            (135, 38),
+            f"队伍{team_index + 1}",
+            "white",
+            zzz_font_30,
+            "lm",
+        )
     """
     for eindex, element in enumerate(node_element):
         element_img = get_element_img(element, 32, 32)
@@ -88,7 +114,7 @@ async def draw_team(
         avatar_img = await draw_avatar(agent)
         floor_img.paste(
             avatar_img,
-            (99 + aindex * 190, pos_y + 55),
+            (105 + aindex * 190, pos_y + 55),
             avatar_img,
         )
 
@@ -97,7 +123,7 @@ async def draw_team(
         bangboo_img = bangboo_img.resize((152, 176))
         floor_img.paste(
             bangboo_img,
-            (681, pos_y + 91),
+            (685, pos_y + 91),
             bangboo_img,
         )
     return floor_img
@@ -271,11 +297,20 @@ async def draw_challenge_img(
         floor_img = Image.open(TEXT_PATH / "floor5.png")
         floor_draw = ImageDraw.Draw(floor_img)
         rating = data["brief"]["rating"]
+        score = data["brief"]["score"]
         zone_name = f"{layer_name}"
         color = RANK_COLOR.get(rating, "white")
 
-        rank_img = get_rank_img(rating, 51, 51)
-        floor_img.paste(rank_img, (76, 57), rank_img)
+        rank_img = get_rank_img(rating, 64, 64)
+        floor_img.paste(rank_img, (70, 50), rank_img)
+        floor_draw.text(
+            (879, 88),
+            f"{score}分",
+            "white",
+            zzz_font_40,
+            "rm",
+        )
+
         floor_draw.text(
             (138, 83),
             zone_name,
@@ -297,19 +332,19 @@ async def draw_challenge_img(
             abyss_data_5[0],
             floor_img,
             0,
-            115,
+            138,
         )
         await draw_team(
             abyss_data_5[1],
             floor_img,
             1,
-            385,
+            408,
         )
         await draw_team(
             abyss_data_5[2],
             floor_img,
             2,
-            655,
+            678,
         )
         img.paste(floor_img, (0, y), floor_img)
 

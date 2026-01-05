@@ -170,6 +170,14 @@ def get_rarity_img(rank: str, w: int = 80, h: int = 80):
         return Image.new("RGBA", (w, h), (0, 0, 0, 0))
 
 
+def get_level_img(level: str, w: int = 40, h: int = 40):
+    if level in ["S", "A", "B", "S+"]:
+        img = Image.open(TEXT_PATH / f"level_{level.lower()}.png")
+        return img.resize((w, h)).convert("RGBA")
+    else:
+        return Image.new("RGBA", (w, h), (0, 0, 0, 0))
+
+
 def get_rank_img(rank: str, w: int = 40, h: int = 40):
     rank = rank.upper()
     if rank in ["S", "A", "B", "S+"]:
