@@ -1,3 +1,4 @@
+from typing import Union
 from pathlib import Path
 
 from PIL import Image, ImageDraw
@@ -29,6 +30,35 @@ from ..zzzerouid_roleinfo.draw_role_info import draw_avatar, draw_bangboo
 TEXT_PATH = Path(__file__).parent / "texture2d"
 boss_mask = Image.open(TEXT_PATH / "monster_mask.png")
 boss_fg = Image.open(TEXT_PATH / "monster_fg.png")
+
+
+def get_rank_tier(percent: Union[int, float]):
+    rank_percent = percent
+    color = BLACK_G
+    if rank_percent <= 1:
+        rank_tag = "tier_5"
+    elif rank_percent <= 10:
+        rank_tag = "tier_4"
+    elif rank_percent <= 25:
+        rank_tag = "tier_3"
+    elif rank_percent <= 50:
+        rank_tag = "tier_2"
+    else:
+        color = "white"
+        rank_tag = "tier_1"
+
+    rank_img = Image.open(TEXT_PATH / f"{rank_tag}.png").convert("RGBA")
+
+    rank_draw = ImageDraw.Draw(rank_img)
+    rank_draw.text(
+        (140, 49),
+        f"{rank_percent:.2f}%",
+        font=zzz_font_38,
+        fill=color,
+        anchor="mm",
+    )
+
+    return rank_img
 
 
 async def draw_boss(boss: Boss):
@@ -85,26 +115,8 @@ async def draw_mem_img(uid: str, ev: Event, schedule_type: int):
     w, h = 950, 730 + 420 * len(data["list"])
 
     rank_percent = data["rank_percent"] / 100
-    if rank_percent <= 1:
-        rank_tag = "tier_5"
-    elif rank_percent <= 10:
-        rank_tag = "tier_4"
-    elif rank_percent <= 25:
-        rank_tag = "tier_3"
-    elif rank_percent <= 50:
-        rank_tag = "tier_2"
-    else:
-        rank_tag = "tier_1"
+    rank_img = get_rank_tier(rank_percent)
 
-    rank_img = Image.open(TEXT_PATH / f"{rank_tag}.png")
-    rank_draw = ImageDraw.Draw(rank_img)
-    rank_draw.text(
-        (137, 49),
-        f"{rank_percent:.2f}%",
-        font=zzz_font_38,
-        fill=BLACK_G,
-        anchor="mm",
-    )
     all_score = sum([i["score"] for i in data["list"]])
     all_star = sum([i["star"] for i in data["list"]])
 

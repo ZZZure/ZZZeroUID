@@ -25,6 +25,7 @@ from ..utils.fonts.zzz_fonts import (
     zzz_font_40,
     zzz_font_60,
 )
+from ..zzzerouid_mem.draw_mem import get_rank_tier
 from ..zzzerouid_roleinfo.draw_role_info import draw_avatar, draw_bangboo
 
 TEXT_PATH = Path(__file__).parent / "texture2d"
@@ -301,10 +302,15 @@ async def draw_challenge_img(
         zone_name = f"{layer_name}"
         color = RANK_COLOR.get(rating, "white")
 
+        rank_percent = data["brief"]["rank_percent"] / 100
+
+        rank_tier = get_rank_tier(rank_percent)
         rank_img = get_rank_img(rating, 64, 64)
         floor_img.paste(rank_img, (70, 50), rank_img)
+        floor_img.paste(rank_tier, (618, 33), rank_tier)
+
         floor_draw.text(
-            (879, 88),
+            (645, 84),
             f"{score}分",
             "white",
             zzz_font_40,
