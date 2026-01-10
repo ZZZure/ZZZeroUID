@@ -334,24 +334,27 @@ async def draw_challenge_img(
             "lm",
         )
 
-        await draw_team(
-            abyss_data_5[0],
-            floor_img,
-            0,
-            138,
-        )
-        await draw_team(
-            abyss_data_5[1],
-            floor_img,
-            1,
-            408,
-        )
-        await draw_team(
-            abyss_data_5[2],
-            floor_img,
-            2,
-            678,
-        )
+        if len(abyss_data_5) > 0:
+            await draw_team(
+                abyss_data_5[0],
+                floor_img,
+                0,
+                138,
+            )
+        if len(abyss_data_5) > 1:
+            await draw_team(
+                abyss_data_5[1],
+                floor_img,
+                1,
+                408,
+            )
+        if len(abyss_data_5) > 2:
+            await draw_team(
+                abyss_data_5[2],
+                floor_img,
+                2,
+                678,
+            )
         img.paste(floor_img, (0, y), floor_img)
 
     img = add_footer(img)
