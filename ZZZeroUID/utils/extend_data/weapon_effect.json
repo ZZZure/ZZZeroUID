@@ -1,4 +1,36 @@
 {
+    "思络成歌": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "DmgBonus+2500;AttackAdd+1000",
+            "2": "DmgBonus+2860;AttackAdd+1150",
+            "3": "DmgBonus+3220;AttackAdd+1300",
+            "4": "DmgBonus+3580;AttackAdd+1450",
+            "5": "DmgBonus+4000;AttackAdd+1600"
+        }
+    },
+    "壳中之灵": {
+        "normal_effect": {
+            "1": "ElementMystery+90",
+            "2": "ElementMystery+103",
+            "3": "ElementMystery+117",
+            "4": "ElementMystery+130",
+            "5": "ElementMystery+144"
+        },
+        "skill_effect": {
+            "1": "DmgBonus+2000;DmgBonus+1000",
+            "2": "DmgBonus+2300;DmgBonus+1150",
+            "3": "DmgBonus+2600;DmgBonus+1300",
+            "4": "DmgBonus+2900;DmgBonus+1450",
+            "5": "DmgBonus+3200;DmgBonus+1600"
+        }
+    },
     "半糖冰雹": {
         "normal_effect": {
             "1": "AttackAdd+1000;HpAdd+1000",
