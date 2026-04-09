@@ -9,6 +9,26 @@
             "desc2": "Crit+2400"
         }
     },
+    "雪兔梦游仙境": {
+        "normal_effect": {
+            "desc1": "HpAdd+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "DmgBonus+1800"
+        }
+    },
+    "囚徒手记": {
+        "normal_effect": {
+            "desc1": "IceDmgBonus+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "ElementMystery+48;ElementAbnormalPower+16"
+        }
+    },
     "流光咏叹": {
         "normal_effect": {
             "desc1": "EtherDmgBonus+1000",

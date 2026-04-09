@@ -16,7 +16,7 @@ from ..utils.name_convert import equip_data, weapon_data, partener_data
 INTEND_PATH = Path(__file__).parent / "INTEND_RES_PATH"
 mask = Image.open(Path(__file__).parent / "texture2d" / "mask.png")
 
-BASE_URL = "https://api.hakush.in/zzz/UI"
+BASE_URL = "https://static.nanoka.cc/assets/zzz"
 
 
 def download_url_to_path(url: str, path: Path):
@@ -110,7 +110,7 @@ def download_IconRoleGeneral():
 
 
 def download_bangboo():
-    bangboo_list_req = httpx.get("https://api.hakush.in/zzz/data/bangboo.json")
+    bangboo_list_req = httpx.get("https://static.nanoka.cc/zzz/2.8.2+14745356/bangboo.json")
     bangboo_list = bangboo_list_req.json()
     for bangboo_id in bangboo_list:
         icon_name = bangboo_list[bangboo_id]["icon"].split("/")[-1]

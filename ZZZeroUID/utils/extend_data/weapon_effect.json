@@ -1,4 +1,36 @@
 {
+    "鳞齿寻踪": {
+        "normal_effect": {
+            "1": "crit+2500",
+            "2": "crit+2880",
+            "3": "crit+3250",
+            "4": "crit+3630",
+            "5": "crit+4000"
+        },
+        "skill_effect": {
+            "1": "ThunderResist+-2800",
+            "2": "ThunderResist+-3150",
+            "3": "ThunderResist+-3500",
+            "4": "ThunderResist+-3850",
+            "5": "ThunderResist+-4200"
+        }
+    },
+    "霓虹妄想": {
+        "normal_effect": {
+            "1": "ElementMystery+90",
+            "2": "ElementMystery+103",
+            "3": "ElementMystery+117",
+            "4": "ElementMystery+130",
+            "5": "ElementMystery+145"
+        },
+        "skill_effect": {
+            "1": "ElementMystery+60;DmgBonus+3000",
+            "2": "ElementMystery+69;DmgBonus+3400",
+            "3": "ElementMystery+78;DmgBonus+3900",
+            "4": "ElementMystery+87;DmgBonus+4200",
+            "5": "ElementMystery+96;DmgBonus+4800"
+        }
+    },
     "思络成歌": {
         "normal_effect": {
             "1": "",

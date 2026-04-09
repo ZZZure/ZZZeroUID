@@ -66,7 +66,7 @@ async def draw_team(
 
     # node_element = node["element_type_list"]
 
-    battle_time = node["battle_time"]
+    battle_time = node["challenge_time"]
     battle_time = format_seconds(battle_time)
 
     team_draw.text(
@@ -191,8 +191,17 @@ async def draw_challenge_img(
     banner = Image.open(TEXT_PATH / "banner.png")
     title_draw = ImageDraw.Draw(title)
 
-    fast_layer_time = data["brief"]["battle_time"]
-    layer_time = format_seconds(fast_layer_time)
+    if "battle_time" in data["brief"]:
+        fast_layer_time = data["brief"]["battle_time"]
+        layer_time = format_seconds(fast_layer_time)
+        title_draw.text(
+            (302, 367),
+            layer_time,
+            "white",
+            zzz_font_32,
+            "lm",
+        )
+
     max_layer = data["brief"]["cur_period_zone_layer_count"]
 
     layer_name = f"第{max_layer}防线"
@@ -218,13 +227,6 @@ async def draw_challenge_img(
             "mm",
         )
 
-    title_draw.text(
-        (302, 367),
-        layer_time,
-        "white",
-        zzz_font_32,
-        "lm",
-    )
     title_draw.text(
         (723, 367),
         layer_name,
