@@ -156,12 +156,13 @@ async def draw_role_img(uid: str, ev: Event) -> Union[str, bytes]:
         )
 
     for bindex, bangboo in enumerate(bangboo_data):
-        rank_bg = await draw_bangboo(bangboo)
-        img.paste(
-            rank_bg,
-            (94 + bindex % 4 * 190, 659 + bindex // 4 * 220 + agent_h + 100),
-            rank_bg,
-        )
+        if bangboo:
+            rank_bg = await draw_bangboo(bangboo)
+            img.paste(
+                rank_bg,
+                (94 + bindex % 4 * 190, 659 + bindex // 4 * 220 + agent_h + 100),
+                rank_bg,
+            )
 
     img = add_footer(img)
     return await convert_img(img)
