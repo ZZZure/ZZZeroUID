@@ -409,7 +409,7 @@ class FifthLayerChallengeItem(TypedDict):
     score: int
     avatar_list: List[MEMAvatar]  # 复用 MEMAvatar
     buddy: MEMBuddy  # 复用 MEMBuddy
-    challenge_time: int
+    challenge_time: TimeData
     monster_pic: str
     max_score: int
 
@@ -424,7 +424,7 @@ class FourthLayerChallengeItem(TypedDict):
     """第四层具体关卡的详细信息"""
 
     layer_id: int
-    challenge_time: int
+    challenge_time: TimeData
     avatar_list: List[MEMAvatar]
     buddy: MEMBuddy
 

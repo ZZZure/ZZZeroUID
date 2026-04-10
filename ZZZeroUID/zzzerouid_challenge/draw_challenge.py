@@ -16,7 +16,7 @@ from ..utils.image import (
     get_level_img,
     get_player_card_min,
 )
-from ..utils.api.models import FifthLayerChallengeItem, FourthLayerChallengeItem
+from ..utils.api.models import TimeData, FifthLayerChallengeItem, FourthLayerChallengeItem
 from ..utils.zzzero_api import zzz_api
 from ..utils.fonts.zzz_fonts import (
     zzz_font_20,
@@ -46,6 +46,10 @@ def format_seconds(seconds: float):
     return f"{minute}分钟{second}秒"
 
 
+def format_times(e: TimeData):
+    return f"{e['day']}天{e['hour']}时{e['minute']}分{e['second']}秒"
+
+
 async def draw_team(
     node: Union[FifthLayerChallengeItem, FourthLayerChallengeItem],
     floor_img: Image.Image,
@@ -67,7 +71,7 @@ async def draw_team(
     # node_element = node["element_type_list"]
 
     battle_time = node["challenge_time"]
-    battle_time = format_seconds(battle_time)
+    battle_time = format_times(battle_time)
 
     team_draw.text(
         (818, 42),
