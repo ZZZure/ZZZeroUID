@@ -124,13 +124,14 @@ async def draw_team(
         )
 
     if "buddy" in node:
-        bangboo_img = await draw_bangboo(node["buddy"])
-        bangboo_img = bangboo_img.resize((152, 176))
-        floor_img.paste(
-            bangboo_img,
-            (685, pos_y + 91),
-            bangboo_img,
-        )
+        if node["buddy"]:
+            bangboo_img = await draw_bangboo(node["buddy"])
+            bangboo_img = bangboo_img.resize((152, 176))
+            floor_img.paste(
+                bangboo_img,
+                (685, pos_y + 91),
+                bangboo_img,
+            )
     return floor_img
 
 
