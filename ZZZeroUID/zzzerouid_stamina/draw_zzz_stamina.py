@@ -208,8 +208,8 @@ async def _draw_stamina_img(uid: str, ev: Event) -> Union[str, Image.Image]:
     active_bar.paste(vitality_icon, (93, 10), vitality_icon)
     gacha_bar.paste(card_icon, (93, 10), card_icon)
     shop_bar.paste(sale_icon, (93, 10), sale_icon)
-    point_bar.paste(bounty_icon, (93, 10), bounty_icon)
-    mission_bar.paste(weekly_icon, (93, 10), weekly_icon)
+    mission_bar.paste(bounty_icon, (93, 10), bounty_icon)
+    point_bar.paste(weekly_icon, (93, 10), weekly_icon)
 
     active_draw.text((716, 56), f"/{max_vitality}", GREY, zzz_font_40, "lm")
     active_draw.text((708, 54), f"{vitality}", YELLOW, zzz_font_50, "rm")
