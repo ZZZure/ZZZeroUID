@@ -1,4 +1,52 @@
 {
+    "辉骑面铠": {
+        "normal_effect": {
+            "1": "crit+2000",
+            "2": "crit+2300",
+            "3": "crit+2600",
+            "4": "crit+2900",
+            "5": "crit+3200"
+        },
+        "skill_effect": {
+            "1": "PhysDmgBonus+1000",
+            "2": "PhysDmgBonus+1150",
+            "3": "PhysDmgBonus+1300",
+            "4": "PhysDmgBonus+1450",
+            "5": "PhysDmgBonus+1600"
+        }
+    },
+    "朔月裁霜": {
+        "normal_effect": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "skill_effect": {
+            "1": "BC:IceDmgBonus+2000",
+            "2": "BC:IceDmgBonus+2300",
+            "3": "BC:IceDmgBonus+2600",
+            "4": "BC:IceDmgBonus+2900",
+            "5": "BC:IceDmgBonus+3200"
+        }
+    },
+    "首席跟班": {
+        "normal_effect": {
+            "1": "BreakStunAdd+1500",
+            "2": "BreakStunAdd+1720",
+            "3": "BreakStunAdd+1950",
+            "4": "BreakStunAdd+2175",
+            "5": "BreakStunAdd+2400"
+        },
+        "skill_effect": {
+            "1": "FireResist+-1000;C:DmgBonus+800",
+            "2": "FireResist+-1150;C:DmgBonus+920",
+            "3": "FireResist+-1300;C:DmgBonus+1040",
+            "4": "FireResist+-1450;C:DmgBonus+1160",
+            "5": "FireResist+-1600;C:DmgBonus+1280"
+        }
+    },
     "鳞齿寻踪": {
         "normal_effect": {
             "1": "crit+2500",

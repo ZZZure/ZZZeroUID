@@ -83,6 +83,7 @@ async def _hakush_request(
     params: Optional[AnyDict] = None,
     data: Optional[AnyDict] = None,
 ) -> Optional[AnyDict]:
+    print(url)
     async with AsyncClient(timeout=None) as client:
         req = await client.request(
             method,
@@ -91,5 +92,6 @@ async def _hakush_request(
             params=params,
             json=data,
         )
+        print(req.text)
         data = req.json()
         return data

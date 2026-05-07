@@ -1,4 +1,4 @@
-HAKUSH_BASE = "https://static.nanoka.cc/zzz/2.8.2+14745356"
+HAKUSH_BASE = "https://static.nanoka.cc/zzz/3.0.1+15390262"
 HAKUSH_API = f"{HAKUSH_BASE}/zh"
 
 ZZZ_CHARACTER = HAKUSH_API + "/character/{}.json"

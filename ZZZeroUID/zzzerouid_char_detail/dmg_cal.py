@@ -121,4 +121,3 @@ def get_dmg(char_dict: dict) -> Dict[str, List[str]]:
     bl_dict = to_bl(char_dict)
     dmg_dict = to_dmg(char_dict, bl_dict)
     return dmg_dict
-    return dmg_dict
