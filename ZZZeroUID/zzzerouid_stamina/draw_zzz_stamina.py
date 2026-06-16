@@ -40,7 +40,7 @@ def convert_seconds_to_hm(seconds: int):
 
 
 async def draw_stamina_img(bot: Bot, ev: Event):
-    user_id = ev.at if ev.at else ev.user_id
+    user_id = ev.at if ev.at and (ev.bot_id != ev.at and ev.bot_self_id != ev.at) else ev.user_id
     uids = await GsBind.get_uid_list_by_game(user_id, ev.bot_id, "zzz")
     if not uids:
         await bot.send(BIND_UID_HINT)
