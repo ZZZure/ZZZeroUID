@@ -110,7 +110,7 @@ def download_IconRoleGeneral():
 
 
 def download_bangboo():
-    bangboo_list_req = httpx.get("https://static.nanoka.cc/zzz/3.0.1+15390262/bangboo.json")
+    bangboo_list_req = httpx.get("https://static.nanoka.cc/zzz/3.1.1+16701526/bangboo.json")
     bangboo_list = bangboo_list_req.json()
     for bangboo_id in bangboo_list:
         icon_name = bangboo_list[bangboo_id]["icon"].split("/")[-1]

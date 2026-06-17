@@ -286,7 +286,7 @@ async def get_new_equipment():
 
 
 async def get_new():
-    # await get_new_char()
+    await get_new_char()
     await get_new_weapon()
     await get_new_equipment()
 

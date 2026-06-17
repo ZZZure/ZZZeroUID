@@ -11347,15 +11347,36 @@
     },
     "13018": {
         "code_name": "Weapon_A_Common_18",
-        "name": "Item_Weapon_A_Common_18_Name",
-        "talents": {},
+        "name": "咚哒回声",
+        "talents": {
+            "1": {
+                "name": "铿锵鸣鼓",
+                "desc": "装备者触发<color=#FFFFFF>[乱流]</color>效果时，为自身回复<color=#2BAD00>2</color>点能量，10秒内最多触发一次；装备者攻击处于属性异常状态下的敌人时，造成的伤害提升<color=#2BAD00>11.5%</color>。"
+            },
+            "2": {
+                "name": "铿锵鸣鼓",
+                "desc": "装备者触发<color=#FFFFFF>[乱流]</color>效果时，为自身回复<color=#2BAD00>2.3</color>点能量，10秒内最多触发一次；装备者攻击处于属性异常状态下的敌人时，造成的伤害提升<color=#2BAD00>13.2%</color>。"
+            },
+            "3": {
+                "name": "铿锵鸣鼓",
+                "desc": "装备者触发<color=#FFFFFF>[乱流]</color>效果时，为自身回复<color=#2BAD00>2.6</color>点能量，10秒内最多触发一次；装备者攻击处于属性异常状态下的敌人时，造成的伤害提升<color=#2BAD00>15%</color>。"
+            },
+            "4": {
+                "name": "铿锵鸣鼓",
+                "desc": "装备者触发<color=#FFFFFF>[乱流]</color>效果时，为自身回复<color=#2BAD00>2.9</color>点能量，10秒内最多触发一次；装备者攻击处于属性异常状态下的敌人时，造成的伤害提升<color=#2BAD00>16.7%</color>。"
+            },
+            "5": {
+                "name": "铿锵鸣鼓",
+                "desc": "装备者触发<color=#FFFFFF>[乱流]</color>效果时，为自身回复<color=#2BAD00>3.2</color>点能量，10秒内最多触发一次；装备者攻击处于属性异常状态下的敌人时，造成的伤害提升<color=#2BAD00>18.4%</color>。"
+            }
+        },
         "rarity": "A",
         "props_name": "基础攻击力",
         "props_id": "12101",
-        "props_value": 42,
-        "rand_props_name": "攻击力",
-        "rand_props_id": "12102",
-        "rand_props_value": 1000,
+        "props_value": 40,
+        "rand_props_name": "异常精通",
+        "rand_props_id": "31203",
+        "rand_props_value": 30,
         "level": {
             "0": {
                 "exp": 40,
@@ -18249,351 +18270,6 @@
                 "exp": 0,
                 "rate": 94090,
                 "rate2": 5500
-            }
-        },
-        "stars": {
-            "0": {
-                "star_rate": 0,
-                "rand_rate": 0
-            },
-            "1": {
-                "star_rate": 8922,
-                "rand_rate": 3000
-            },
-            "2": {
-                "star_rate": 17844,
-                "rand_rate": 6000
-            },
-            "3": {
-                "star_rate": 26766,
-                "rand_rate": 9000
-            },
-            "4": {
-                "star_rate": 35688,
-                "rand_rate": 12000
-            },
-            "5": {
-                "star_rate": 44610,
-                "rand_rate": 15000
-            }
-        }
-    },
-    "14004": {
-        "code_name": "Weapon_S_Common_04",
-        "name": "Item_Weapon_S_Common_04_Name",
-        "talents": {},
-        "rarity": "S",
-        "props_name": "基础攻击力",
-        "props_id": "12101",
-        "props_value": 40,
-        "rand_props_name": "冲击力",
-        "rand_props_id": "12203",
-        "rand_props_value": 600,
-        "level": {
-            "0": {
-                "exp": 50,
-                "rate": 0,
-                "rate2": 10000
-            },
-            "1": {
-                "exp": 100,
-                "rate": 1568,
-                "rate2": 10000
-            },
-            "2": {
-                "exp": 150,
-                "rate": 3136,
-                "rate2": 10000
-            },
-            "3": {
-                "exp": 200,
-                "rate": 4705,
-                "rate2": 10000
-            },
-            "4": {
-                "exp": 300,
-                "rate": 6273,
-                "rate2": 10000
-            },
-            "5": {
-                "exp": 400,
-                "rate": 7841,
-                "rate2": 10000
-            },
-            "6": {
-                "exp": 500,
-                "rate": 9409,
-                "rate2": 10000
-            },
-            "7": {
-                "exp": 600,
-                "rate": 10977,
-                "rate2": 10000
-            },
-            "8": {
-                "exp": 750,
-                "rate": 12545,
-                "rate2": 10000
-            },
-            "9": {
-                "exp": 950,
-                "rate": 14114,
-                "rate2": 10000
-            },
-            "10": {
-                "exp": 1200,
-                "rate": 15682,
-                "rate2": 9000
-            },
-            "11": {
-                "exp": 1290,
-                "rate": 17250,
-                "rate2": 9000
-            },
-            "12": {
-                "exp": 1380,
-                "rate": 18818,
-                "rate2": 9000
-            },
-            "13": {
-                "exp": 1465,
-                "rate": 20386,
-                "rate2": 9000
-            },
-            "14": {
-                "exp": 1555,
-                "rate": 21954,
-                "rate2": 9000
-            },
-            "15": {
-                "exp": 1640,
-                "rate": 23523,
-                "rate2": 9000
-            },
-            "16": {
-                "exp": 1735,
-                "rate": 25091,
-                "rate2": 9000
-            },
-            "17": {
-                "exp": 1825,
-                "rate": 26659,
-                "rate2": 9000
-            },
-            "18": {
-                "exp": 1910,
-                "rate": 28227,
-                "rate2": 9000
-            },
-            "19": {
-                "exp": 2000,
-                "rate": 29795,
-                "rate2": 9000
-            },
-            "20": {
-                "exp": 3120,
-                "rate": 31363,
-                "rate2": 8000
-            },
-            "21": {
-                "exp": 3315,
-                "rate": 32932,
-                "rate2": 8000
-            },
-            "22": {
-                "exp": 3510,
-                "rate": 34500,
-                "rate2": 8000
-            },
-            "23": {
-                "exp": 3705,
-                "rate": 36068,
-                "rate2": 8000
-            },
-            "24": {
-                "exp": 3900,
-                "rate": 37636,
-                "rate2": 8000
-            },
-            "25": {
-                "exp": 4100,
-                "rate": 39204,
-                "rate2": 8000
-            },
-            "26": {
-                "exp": 4295,
-                "rate": 40772,
-                "rate2": 8000
-            },
-            "27": {
-                "exp": 4490,
-                "rate": 42341,
-                "rate2": 8000
-            },
-            "28": {
-                "exp": 4685,
-                "rate": 43909,
-                "rate2": 8000
-            },
-            "29": {
-                "exp": 4880,
-                "rate": 45477,
-                "rate2": 8000
-            },
-            "30": {
-                "exp": 7200,
-                "rate": 47045,
-                "rate2": 7000
-            },
-            "31": {
-                "exp": 7600,
-                "rate": 48613,
-                "rate2": 7000
-            },
-            "32": {
-                "exp": 8000,
-                "rate": 50181,
-                "rate2": 7000
-            },
-            "33": {
-                "exp": 8400,
-                "rate": 51750,
-                "rate2": 7000
-            },
-            "34": {
-                "exp": 8800,
-                "rate": 53318,
-                "rate2": 7000
-            },
-            "35": {
-                "exp": 9200,
-                "rate": 54886,
-                "rate2": 7000
-            },
-            "36": {
-                "exp": 9600,
-                "rate": 56454,
-                "rate2": 7000
-            },
-            "37": {
-                "exp": 10000,
-                "rate": 58022,
-                "rate2": 7000
-            },
-            "38": {
-                "exp": 10400,
-                "rate": 59590,
-                "rate2": 7000
-            },
-            "39": {
-                "exp": 10800,
-                "rate": 61159,
-                "rate2": 7000
-            },
-            "40": {
-                "exp": 11400,
-                "rate": 62727,
-                "rate2": 6000
-            },
-            "41": {
-                "exp": 12200,
-                "rate": 64295,
-                "rate2": 6000
-            },
-            "42": {
-                "exp": 13000,
-                "rate": 65863,
-                "rate2": 6000
-            },
-            "43": {
-                "exp": 13800,
-                "rate": 67431,
-                "rate2": 6000
-            },
-            "44": {
-                "exp": 14600,
-                "rate": 68999,
-                "rate2": 6000
-            },
-            "45": {
-                "exp": 15400,
-                "rate": 70568,
-                "rate2": 6000
-            },
-            "46": {
-                "exp": 16200,
-                "rate": 72136,
-                "rate2": 6000
-            },
-            "47": {
-                "exp": 17000,
-                "rate": 73704,
-                "rate2": 6000
-            },
-            "48": {
-                "exp": 17800,
-                "rate": 75272,
-                "rate2": 6000
-            },
-            "49": {
-                "exp": 18600,
-                "rate": 76840,
-                "rate2": 6000
-            },
-            "50": {
-                "exp": 22800,
-                "rate": 78408,
-                "rate2": 5000
-            },
-            "51": {
-                "exp": 24400,
-                "rate": 79977,
-                "rate2": 5000
-            },
-            "52": {
-                "exp": 26000,
-                "rate": 81545,
-                "rate2": 5000
-            },
-            "53": {
-                "exp": 27600,
-                "rate": 83113,
-                "rate2": 5000
-            },
-            "54": {
-                "exp": 29200,
-                "rate": 84681,
-                "rate2": 5000
-            },
-            "55": {
-                "exp": 30800,
-                "rate": 86249,
-                "rate2": 5000
-            },
-            "56": {
-                "exp": 32400,
-                "rate": 87817,
-                "rate2": 5000
-            },
-            "57": {
-                "exp": 34000,
-                "rate": 89386,
-                "rate2": 5000
-            },
-            "58": {
-                "exp": 35600,
-                "rate": 90954,
-                "rate2": 5000
-            },
-            "59": {
-                "exp": 37200,
-                "rate": 92522,
-                "rate2": 5000
-            },
-            "60": {
-                "exp": 0,
-                "rate": 94090,
-                "rate2": 4000
             }
         },
         "stars": {
@@ -31439,23 +31115,23 @@
         "talents": {
             "1": {
                 "name": "元气一击",
-                "desc": "装备者的异常精通提升<color=#2BAD00>90</color>点；<color=#FE437E>以太属性</color>的装备者进入前场或发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时获得增益效果：对处于属性异常状态下的敌人造成的伤害提升<color=#2BAD00>20%</color>，触发的所有属性异常伤害提升<color=#2BAD00>10%</color>，效果持续15秒，重复触发时刷新持续时间，换回后场时该效果移除。"
+                "desc": "装备者的异常精通提升<color=#2BAD00>90</color>点；<color=#FE437E>以太属性</color>的装备者进入前场或发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时获得增益效果：对处于属性异常状态下的敌人造成的伤害提升<color=#2BAD00>20%</color>，触发的所有属性异常伤害和[紊乱]伤害提升<color=#2BAD00>10%</color>，效果持续15秒，重复触发时刷新持续时间，换回后场时该效果移除。"
             },
             "2": {
                 "name": "元气一击",
-                "desc": "装备者的异常精通提升<color=#2BAD00>103</color>点；<color=#FE437E>以太属性</color>的装备者进入前场或发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时获得增益效果：对处于属性异常状态下的敌人造成的伤害提升<color=#2BAD00>23%</color>，触发的所有属性异常伤害提升<color=#2BAD00>11.5%</color>，效果持续15秒，重复触发时刷新持续时间，换回后场时该效果移除。"
+                "desc": "装备者的异常精通提升<color=#2BAD00>103</color>点；<color=#FE437E>以太属性</color>的装备者进入前场或发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时获得增益效果：对处于属性异常状态下的敌人造成的伤害提升<color=#2BAD00>23%</color>，触发的所有属性异常伤害和[紊乱]伤害提升<color=#2BAD00>11.5%</color>，效果持续15秒，重复触发时刷新持续时间，换回后场时该效果移除。"
             },
             "3": {
                 "name": "元气一击",
-                "desc": "装备者的异常精通提升<color=#2BAD00>117</color>点；<color=#FE437E>以太属性</color>的装备者进入前场或发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时获得增益效果：对处于属性异常状态下的敌人造成的伤害提升<color=#2BAD00>26%</color>，触发的所有属性异常伤害提升<color=#2BAD00>13%</color>，效果持续15秒，重复触发时刷新持续时间，换回后场时该效果移除。"
+                "desc": "装备者的异常精通提升<color=#2BAD00>117</color>点；<color=#FE437E>以太属性</color>的装备者进入前场或发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时获得增益效果：对处于属性异常状态下的敌人造成的伤害提升<color=#2BAD00>26%</color>，触发的所有属性异常伤害和[紊乱]伤害提升<color=#2BAD00>13%</color>，效果持续15秒，重复触发时刷新持续时间，换回后场时该效果移除。"
             },
             "4": {
                 "name": "元气一击",
-                "desc": "装备者的异常精通提升<color=#2BAD00>130</color>点；<color=#FE437E>以太属性</color>的装备者进入前场或发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时获得增益效果：对处于属性异常状态下的敌人造成的伤害提升<color=#2BAD00>29%</color>，触发的所有属性异常伤害提升<color=#2BAD00>14.5%</color>，效果持续15秒，重复触发时刷新持续时间，换回后场时该效果移除。"
+                "desc": "装备者的异常精通提升<color=#2BAD00>130</color>点；<color=#FE437E>以太属性</color>的装备者进入前场或发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时获得增益效果：对处于属性异常状态下的敌人造成的伤害提升<color=#2BAD00>29%</color>，触发的所有属性异常伤害和[紊乱]伤害提升<color=#2BAD00>14.5%</color>，效果持续15秒，重复触发时刷新持续时间，换回后场时该效果移除。"
             },
             "5": {
                 "name": "元气一击",
-                "desc": "装备者的异常精通提升<color=#2BAD00>144</color>点；<color=#FE437E>以太属性</color>的装备者进入前场或发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时获得增益效果：对处于属性异常状态下的敌人造成的伤害提升<color=#2BAD00>32%</color>，触发的所有属性异常伤害提升<color=#2BAD00>16%</color>，效果持续15秒，重复触发时刷新持续时间，换回后场时该效果移除。"
+                "desc": "装备者的异常精通提升<color=#2BAD00>144</color>点；<color=#FE437E>以太属性</color>的装备者进入前场或发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时获得增益效果：对处于属性异常状态下的敌人造成的伤害提升<color=#2BAD00>32%</color>，触发的所有属性异常伤害和[紊乱]伤害提升<color=#2BAD00>16%</color>，效果持续15秒，重复触发时刷新持续时间，换回后场时该效果移除。"
             }
         },
         "rarity": "S",
@@ -32533,27 +32209,27 @@
     },
     "14153": {
         "code_name": "Weapon_S_1531",
-        "name": "(Test1)星徽比利测试音擎",
+        "name": "辉骑面铠",
         "talents": {
             "1": {
-                "name": "(Test1)星徽比利测试音擎效果",
-                "desc": "(Test1)暴击率提升<color=#2BAD00>20%</color>；装备者发动<color=#FFFFFF>[普通攻击]</color>时，装备者造成的<color=#F0D12B>物理属性贯穿伤害</color>提升<color=#2BAD00>12%</color>，最多叠加2层，持续12秒，重复触发时刷新持续时间。"
+                "name": "骑士气势",
+                "desc": "暴击率提升<color=#2BAD00>20%</color>；装备者发动<color=#FFFFFF>[特殊技]</color>时，装备者造成的<color=#F0D12B>物理贯穿伤害</color>提升<color=#2BAD00>10%</color>，最多叠加2层，持续30秒，重复触发时刷新持续时间。"
             },
             "2": {
-                "name": "(Test1)星徽比利测试音擎效果",
-                "desc": "(Test1)暴击率提升<color=#2BAD00>23%</color>；装备者发动<color=#FFFFFF>[普通攻击]</color>时，装备者造成的<color=#F0D12B>物理属性贯穿伤害</color>提升<color=#2BAD00>13.5%</color>，最多叠加2层，持续12秒，重复触发时刷新持续时间。"
+                "name": "骑士气势",
+                "desc": "暴击率提升<color=#2BAD00>23%</color>；装备者发动<color=#FFFFFF>[特殊技]</color>时，装备者造成的<color=#F0D12B>物理贯穿伤害</color>提升<color=#2BAD00>11.5%</color>，最多叠加2层，持续30秒，重复触发时刷新持续时间。"
             },
             "3": {
-                "name": "(Test1)星徽比利测试音擎效果",
-                "desc": "(Test1)暴击率提升<color=#2BAD00>26%</color>；装备者发动<color=#FFFFFF>[普通攻击]</color>时，装备者造成的<color=#F0D12B>物理属性贯穿伤害</color>提升<color=#2BAD00>15%</color>，最多叠加2层，持续12秒，重复触发时刷新持续时间。"
+                "name": "骑士气势",
+                "desc": "暴击率提升<color=#2BAD00>26%</color>；装备者发动<color=#FFFFFF>[特殊技]</color>时，装备者造成的<color=#F0D12B>物理贯穿伤害</color>提升<color=#2BAD00>13%</color>，最多叠加2层，持续30秒，重复触发时刷新持续时间。"
             },
             "4": {
-                "name": "(Test1)星徽比利测试音擎效果",
-                "desc": "(Test1)暴击率提升<color=#2BAD00>29%</color>；装备者发动<color=#FFFFFF>[普通攻击]</color>时，装备者造成的<color=#F0D12B>物理属性贯穿伤害</color>提升<color=#2BAD00>16.5%</color>，最多叠加2层，持续12秒，重复触发时刷新持续时间。"
+                "name": "骑士气势",
+                "desc": "暴击率提升<color=#2BAD00>29%</color>；装备者发动<color=#FFFFFF>[特殊技]</color>时，装备者造成的<color=#F0D12B>物理贯穿伤害</color>提升<color=#2BAD00>14.5%</color>，最多叠加2层，持续30秒，重复触发时刷新持续时间。"
             },
             "5": {
-                "name": "(Test1)星徽比利测试音擎效果",
-                "desc": "(Test1)暴击率提升<color=#2BAD00>32%</color>；装备者发动<color=#FFFFFF>[普通攻击]</color>时，装备者造成的<color=#F0D12B>物理属性贯穿伤害</color>提升<color=#2BAD00>18%</color>，最多叠加2层，持续12秒，重复触发时刷新持续时间。"
+                "name": "骑士气势",
+                "desc": "暴击率提升<color=#2BAD00>32%</color>；装备者发动<color=#FFFFFF>[特殊技]</color>时，装备者造成的<color=#F0D12B>物理贯穿伤害</color>提升<color=#2BAD00>16%</color>，最多叠加2层，持续30秒，重复触发时刷新持续时间。"
             }
         },
         "rarity": "S",
@@ -32899,27 +32575,27 @@
     },
     "14154": {
         "code_name": "Weapon_S_1541",
-        "name": "(Test1)普罗米娅测试音擎",
+        "name": "朔月裁霜",
         "talents": {
             "1": {
-                "name": "(Test1)普罗米娅测试音擎效果",
-                "desc": "(Test1)装备者造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>35</color>%；<color=#98EFF0>冰属性</color>的装备者发动<color=#FFFFFF>[强化特殊技]</color>时，自身造成的属性异常伤害、<color=#FFFFFF>[紊乱]</color>伤害提升<color=#2BAD00>7.5%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，角色造成的<color=#FFFFFF>[异放]</color>伤害额外提升<color=#2BAD00>25%</color>。"
+                "name": "终末裁决",
+                "desc": "<color=#98EFF0>冰属性</color>的装备者发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时，自身造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>20%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，装备者造成的<color=#FFFFFF>[异放]</color>伤害额外提升<color=#2BAD00>35%</color>。"
             },
             "2": {
-                "name": "(Test1)普罗米娅测试音擎效果",
-                "desc": "(Test1)装备者造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>41</color>%；<color=#98EFF0>冰属性</color>的装备者发动<color=#FFFFFF>[强化特殊技]</color>时，自身造成的属性异常伤害、<color=#FFFFFF>[紊乱]</color>伤害提升<color=#2BAD00>8.5%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，角色造成的<color=#FFFFFF>[异放]</color>伤害额外提升<color=#2BAD00>28.7%</color>。"
+                "name": "终末裁决",
+                "desc": "<color=#98EFF0>冰属性</color>的装备者发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时，自身造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>23%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，装备者造成的<color=#FFFFFF>[异放]</color>伤害额外提升<color=#2BAD00>38.5%</color>。"
             },
             "3": {
-                "name": "(Test1)普罗米娅测试音擎效果",
-                "desc": "(Test1)装备者造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>47</color>%；<color=#98EFF0>冰属性</color>的装备者发动<color=#FFFFFF>[强化特殊技]</color>时，自身造成的属性异常伤害、<color=#FFFFFF>[紊乱]</color>伤害提升<color=#2BAD00>9.5%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，角色造成的<color=#FFFFFF>[异放]</color>伤害额外提升<color=#2BAD00>32.5%</color>。"
+                "name": "终末裁决",
+                "desc": "<color=#98EFF0>冰属性</color>的装备者发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时，自身造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>26%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，装备者造成的<color=#FFFFFF>[异放]</color>伤害额外提升<color=#2BAD00>42%</color>。"
             },
             "4": {
-                "name": "(Test1)普罗米娅测试音擎效果",
-                "desc": "(Test1)装备者造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>53</color>%；<color=#98EFF0>冰属性</color>的装备者发动<color=#FFFFFF>[强化特殊技]</color>时，自身造成的属性异常伤害、<color=#FFFFFF>[紊乱]</color>伤害提升<color=#2BAD00>10.5%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，角色造成的<color=#FFFFFF>[异放]</color>伤害额外提升<color=#2BAD00>36.2%</color>。"
+                "name": "终末裁决",
+                "desc": "<color=#98EFF0>冰属性</color>的装备者发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时，自身造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>29%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，装备者造成的<color=#FFFFFF>[异放]</color>伤害额外提升<color=#2BAD00>45.5%</color>。"
             },
             "5": {
-                "name": "(Test1)普罗米娅测试音擎效果",
-                "desc": "(Test1)装备者造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>60</color>%；<color=#98EFF0>冰属性</color>的装备者发动<color=#FFFFFF>[强化特殊技]</color>时，自身造成的属性异常伤害、<color=#FFFFFF>[紊乱]</color>伤害提升<color=#2BAD00>11.5%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，角色造成的<color=#FFFFFF>[异放]</color>伤害额外提升<color=#2BAD00>40%</color>。"
+                "name": "终末裁决",
+                "desc": "<color=#98EFF0>冰属性</color>的装备者发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时，自身造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>32%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，装备者造成的<color=#FFFFFF>[异放]</color>伤害额外提升<color=#2BAD00>50%</color>。"
             }
         },
         "rarity": "S",
@@ -33263,29 +32939,395 @@
             }
         }
     },
-    "14156": {
-        "code_name": "Weapon_S_1561",
-        "name": "(Test1)维琳娜测试音擎",
+    "14155": {
+        "code_name": "Weapon_S_Common_04",
+        "name": "日冕遗蜕",
         "talents": {
             "1": {
-                "name": "(Test1)维琳娜测试音擎效果",
-                "desc": "(Test1)装备者的异常精通提升<color=#2BAD00>105</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>时，自身造成的<color=#FFFFFF>[乱流]</color>和<color=#A6C5FD>[风化]</color>伤害提升<color=#2BAD00>10%</color>，持续40秒，最多叠加2层，重复触发时刷新持续时间。"
+                "name": "日蚀效应",
+                "desc": "暴击率提升20%；装备者为佩洛伊斯时，发动<color=#FFFFFF>[终结技]</color>获得[日蚀]效果，[日蚀]效果下，装备者造成的伤害无视<color=#2BAD00>16%</color><color=#FE437E>以太伤害抗性</color>，持续45秒，重复触发时刷新持续时间，进入接战状态时，获得[日蚀]效果。"
             },
             "2": {
-                "name": "(Test1)维琳娜测试音擎效果",
-                "desc": "(Test1)装备者的异常精通提升<color=#2BAD00>105</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>时，自身造成的<color=#FFFFFF>[乱流]</color>和<color=#A6C5FD>[风化]</color>伤害提升<color=#2BAD00>10%</color>，持续40秒，最多叠加2层，重复触发时刷新持续时间。"
+                "name": "日蚀效应",
+                "desc": "暴击率提升20%；装备者为佩洛伊斯时，发动<color=#FFFFFF>[终结技]</color>获得[日蚀]效果，[日蚀]效果下，装备者造成的伤害无视<color=#2BAD00>17.5%</color><color=#FE437E>以太伤害抗性</color>，持续45秒，重复触发时刷新持续时间，进入接战状态时，获得[日蚀]效果。"
             },
             "3": {
-                "name": "(Test1)维琳娜测试音擎效果",
-                "desc": "(Test1)装备者的异常精通提升<color=#2BAD00>105</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>时，自身造成的<color=#FFFFFF>[乱流]</color>和<color=#A6C5FD>[风化]</color>伤害提升<color=#2BAD00>10%</color>，持续40秒，最多叠加2层，重复触发时刷新持续时间。"
+                "name": "日蚀效应",
+                "desc": "暴击率提升20%；装备者为佩洛伊斯时，发动<color=#FFFFFF>[终结技]</color>获得[日蚀]效果，[日蚀]效果下，装备者造成的伤害无视<color=#2BAD00>19%</color><color=#FE437E>以太伤害抗性</color>，持续45秒，重复触发时刷新持续时间，进入接战状态时，获得[日蚀]效果。"
             },
             "4": {
-                "name": "(Test1)维琳娜测试音擎效果",
-                "desc": "(Test1)装备者的异常精通提升<color=#2BAD00>105</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>时，自身造成的<color=#FFFFFF>[乱流]</color>和<color=#A6C5FD>[风化]</color>伤害提升<color=#2BAD00>10%</color>，持续40秒，最多叠加2层，重复触发时刷新持续时间。"
+                "name": "日蚀效应",
+                "desc": "暴击率提升20%；装备者为佩洛伊斯时，发动<color=#FFFFFF>[终结技]</color>获得[日蚀]效果，[日蚀]效果下，装备者造成的伤害无视<color=#2BAD00>20.5%</color><color=#FE437E>以太伤害抗性</color>，持续45秒，重复触发时刷新持续时间，进入接战状态时，获得[日蚀]效果。"
             },
             "5": {
-                "name": "(Test1)维琳娜测试音擎效果",
-                "desc": "(Test1)装备者的异常精通提升<color=#2BAD00>105</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>时，自身造成的<color=#FFFFFF>[乱流]</color>和<color=#A6C5FD>[风化]</color>伤害提升<color=#2BAD00>10%</color>，持续40秒，最多叠加2层，重复触发时刷新持续时间。"
+                "name": "日蚀效应",
+                "desc": "暴击率提升20%；装备者为佩洛伊斯时，发动<color=#FFFFFF>[终结技]</color>获得[日蚀]效果，[日蚀]效果下，装备者造成的伤害无视<color=#2BAD00>22%</color><color=#FE437E>以太伤害抗性</color>，持续45秒，重复触发时刷新持续时间，进入接战状态时，获得[日蚀]效果。"
+            }
+        },
+        "rarity": "S",
+        "props_name": "基础攻击力",
+        "props_id": "12101",
+        "props_value": 48,
+        "rand_props_name": "攻击力",
+        "rand_props_id": "12102",
+        "rand_props_value": 1200,
+        "level": {
+            "0": {
+                "exp": 50,
+                "rate": 0,
+                "rate2": 10000
+            },
+            "1": {
+                "exp": 100,
+                "rate": 1568,
+                "rate2": 10000
+            },
+            "2": {
+                "exp": 150,
+                "rate": 3136,
+                "rate2": 10000
+            },
+            "3": {
+                "exp": 200,
+                "rate": 4705,
+                "rate2": 10000
+            },
+            "4": {
+                "exp": 300,
+                "rate": 6273,
+                "rate2": 10000
+            },
+            "5": {
+                "exp": 400,
+                "rate": 7841,
+                "rate2": 10000
+            },
+            "6": {
+                "exp": 500,
+                "rate": 9409,
+                "rate2": 10000
+            },
+            "7": {
+                "exp": 600,
+                "rate": 10977,
+                "rate2": 10000
+            },
+            "8": {
+                "exp": 750,
+                "rate": 12545,
+                "rate2": 10000
+            },
+            "9": {
+                "exp": 950,
+                "rate": 14114,
+                "rate2": 10000
+            },
+            "10": {
+                "exp": 1200,
+                "rate": 15682,
+                "rate2": 9000
+            },
+            "11": {
+                "exp": 1290,
+                "rate": 17250,
+                "rate2": 9000
+            },
+            "12": {
+                "exp": 1380,
+                "rate": 18818,
+                "rate2": 9000
+            },
+            "13": {
+                "exp": 1465,
+                "rate": 20386,
+                "rate2": 9000
+            },
+            "14": {
+                "exp": 1555,
+                "rate": 21954,
+                "rate2": 9000
+            },
+            "15": {
+                "exp": 1640,
+                "rate": 23523,
+                "rate2": 9000
+            },
+            "16": {
+                "exp": 1735,
+                "rate": 25091,
+                "rate2": 9000
+            },
+            "17": {
+                "exp": 1825,
+                "rate": 26659,
+                "rate2": 9000
+            },
+            "18": {
+                "exp": 1910,
+                "rate": 28227,
+                "rate2": 9000
+            },
+            "19": {
+                "exp": 2000,
+                "rate": 29795,
+                "rate2": 9000
+            },
+            "20": {
+                "exp": 3120,
+                "rate": 31363,
+                "rate2": 8000
+            },
+            "21": {
+                "exp": 3315,
+                "rate": 32932,
+                "rate2": 8000
+            },
+            "22": {
+                "exp": 3510,
+                "rate": 34500,
+                "rate2": 8000
+            },
+            "23": {
+                "exp": 3705,
+                "rate": 36068,
+                "rate2": 8000
+            },
+            "24": {
+                "exp": 3900,
+                "rate": 37636,
+                "rate2": 8000
+            },
+            "25": {
+                "exp": 4100,
+                "rate": 39204,
+                "rate2": 8000
+            },
+            "26": {
+                "exp": 4295,
+                "rate": 40772,
+                "rate2": 8000
+            },
+            "27": {
+                "exp": 4490,
+                "rate": 42341,
+                "rate2": 8000
+            },
+            "28": {
+                "exp": 4685,
+                "rate": 43909,
+                "rate2": 8000
+            },
+            "29": {
+                "exp": 4880,
+                "rate": 45477,
+                "rate2": 8000
+            },
+            "30": {
+                "exp": 7200,
+                "rate": 47045,
+                "rate2": 7000
+            },
+            "31": {
+                "exp": 7600,
+                "rate": 48613,
+                "rate2": 7000
+            },
+            "32": {
+                "exp": 8000,
+                "rate": 50181,
+                "rate2": 7000
+            },
+            "33": {
+                "exp": 8400,
+                "rate": 51750,
+                "rate2": 7000
+            },
+            "34": {
+                "exp": 8800,
+                "rate": 53318,
+                "rate2": 7000
+            },
+            "35": {
+                "exp": 9200,
+                "rate": 54886,
+                "rate2": 7000
+            },
+            "36": {
+                "exp": 9600,
+                "rate": 56454,
+                "rate2": 7000
+            },
+            "37": {
+                "exp": 10000,
+                "rate": 58022,
+                "rate2": 7000
+            },
+            "38": {
+                "exp": 10400,
+                "rate": 59590,
+                "rate2": 7000
+            },
+            "39": {
+                "exp": 10800,
+                "rate": 61159,
+                "rate2": 7000
+            },
+            "40": {
+                "exp": 11400,
+                "rate": 62727,
+                "rate2": 6000
+            },
+            "41": {
+                "exp": 12200,
+                "rate": 64295,
+                "rate2": 6000
+            },
+            "42": {
+                "exp": 13000,
+                "rate": 65863,
+                "rate2": 6000
+            },
+            "43": {
+                "exp": 13800,
+                "rate": 67431,
+                "rate2": 6000
+            },
+            "44": {
+                "exp": 14600,
+                "rate": 68999,
+                "rate2": 6000
+            },
+            "45": {
+                "exp": 15400,
+                "rate": 70568,
+                "rate2": 6000
+            },
+            "46": {
+                "exp": 16200,
+                "rate": 72136,
+                "rate2": 6000
+            },
+            "47": {
+                "exp": 17000,
+                "rate": 73704,
+                "rate2": 6000
+            },
+            "48": {
+                "exp": 17800,
+                "rate": 75272,
+                "rate2": 6000
+            },
+            "49": {
+                "exp": 18600,
+                "rate": 76840,
+                "rate2": 6000
+            },
+            "50": {
+                "exp": 22800,
+                "rate": 78408,
+                "rate2": 5000
+            },
+            "51": {
+                "exp": 24400,
+                "rate": 79977,
+                "rate2": 5000
+            },
+            "52": {
+                "exp": 26000,
+                "rate": 81545,
+                "rate2": 5000
+            },
+            "53": {
+                "exp": 27600,
+                "rate": 83113,
+                "rate2": 5000
+            },
+            "54": {
+                "exp": 29200,
+                "rate": 84681,
+                "rate2": 5000
+            },
+            "55": {
+                "exp": 30800,
+                "rate": 86249,
+                "rate2": 5000
+            },
+            "56": {
+                "exp": 32400,
+                "rate": 87817,
+                "rate2": 5000
+            },
+            "57": {
+                "exp": 34000,
+                "rate": 89386,
+                "rate2": 5000
+            },
+            "58": {
+                "exp": 35600,
+                "rate": 90954,
+                "rate2": 5000
+            },
+            "59": {
+                "exp": 37200,
+                "rate": 92522,
+                "rate2": 5000
+            },
+            "60": {
+                "exp": 0,
+                "rate": 94090,
+                "rate2": 4000
+            }
+        },
+        "stars": {
+            "0": {
+                "star_rate": 0,
+                "rand_rate": 0
+            },
+            "1": {
+                "star_rate": 8922,
+                "rand_rate": 3000
+            },
+            "2": {
+                "star_rate": 17844,
+                "rand_rate": 6000
+            },
+            "3": {
+                "star_rate": 26766,
+                "rand_rate": 9000
+            },
+            "4": {
+                "star_rate": 35688,
+                "rand_rate": 12000
+            },
+            "5": {
+                "star_rate": 44610,
+                "rand_rate": 15000
+            }
+        }
+    },
+    "14156": {
+        "code_name": "Weapon_S_1561",
+        "name": "琳琅鎏心",
+        "talents": {
+            "1": {
+                "name": "无懈之礼",
+                "desc": "装备者的异常精通提升<color=#2BAD00>70</color>点；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#A6C5FD>风属性伤害</color>时，自身造成的<color=#FFFFFF>[乱流]</color>和<color=#A6C5FD>[风化]</color>伤害提升<color=#2BAD00>7%</color>，持续40秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发一次，拥有2层该效果时，全队代理人的异常精通提升<color=#2BAD00>60</color>点，该效果全队唯一。"
+            },
+            "2": {
+                "name": "无懈之礼",
+                "desc": "装备者的异常精通提升<color=#2BAD00>80</color>点；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#A6C5FD>风属性伤害</color>时，自身造成的<color=#FFFFFF>[乱流]</color>和<color=#A6C5FD>[风化]</color>伤害提升<color=#2BAD00>8%</color>，持续40秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发一次，拥有2层该效果时，全队代理人的异常精通提升<color=#2BAD00>69</color>点，该效果全队唯一。"
+            },
+            "3": {
+                "name": "无懈之礼",
+                "desc": "装备者的异常精通提升<color=#2BAD00>90</color>点；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#A6C5FD>风属性伤害</color>时，自身造成的<color=#FFFFFF>[乱流]</color>和<color=#A6C5FD>[风化]</color>伤害提升<color=#2BAD00>9%</color>，持续40秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发一次，拥有2层该效果时，全队代理人的异常精通提升<color=#2BAD00>78</color>点，该效果全队唯一。"
+            },
+            "4": {
+                "name": "无懈之礼",
+                "desc": "装备者的异常精通提升<color=#2BAD00>100</color>点；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#A6C5FD>风属性伤害</color>时，自身造成的<color=#FFFFFF>[乱流]</color>和<color=#A6C5FD>[风化]</color>伤害提升<color=#2BAD00>10%</color>，持续40秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发一次，拥有2层该效果时，全队代理人的异常精通提升<color=#2BAD00>87</color>点，该效果全队唯一。"
+            },
+            "5": {
+                "name": "无懈之礼",
+                "desc": "装备者的异常精通提升<color=#2BAD00>110</color>点；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#A6C5FD>风属性伤害</color>时，自身造成的<color=#FFFFFF>[乱流]</color>和<color=#A6C5FD>[风化]</color>伤害提升<color=#2BAD00>11%</color>，持续40秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发一次，拥有2层该效果时，全队代理人的异常精通提升<color=#2BAD00>96</color>点，该效果全队唯一。"
             }
         },
         "rarity": "S",
@@ -33634,24 +33676,24 @@
         "name": "首席跟班",
         "talents": {
             "1": {
-                "name": "(Test1)诺姆测试音擎效果",
-                "desc": "(Test1)装备者的冲击力提升<color=#2BAD00>15%</color>；造成的伤害无视目标<color=#2BAD00>10%</color><color=#FF5521>火属性伤害抗性</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成伤害时，使全队造成的伤害提升<color=#2BAD00>8%</color>，持续8秒，最多叠加3层，重复触发时刷新持续时间，同一招式内最多触发1次，该效果全队唯一。"
+                "name": "天才的扈从",
+                "desc": "装备者的冲击力提升<color=#2BAD00>30</color>点，造成的伤害无视目标<color=#2BAD00>15%</color><color=#FF5521>火属性伤害抗性</color>；装备者为非操作中角色时，能量自动回复提升<color=#2BAD00>0.4</color>点/秒；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#FF5521>火属性伤害</color>时，使全队代理人造成的伤害提升<color=#2BAD00>12.5%</color>，持续30秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发1次，该效果全队唯一。"
             },
             "2": {
-                "name": "(Test1)诺姆测试音擎效果",
-                "desc": "(Test1)装备者的冲击力提升<color=#2BAD00>17.25%</color>；造成的伤害无视目标<color=#2BAD00>11.5%</color><color=#FF5521>火属性伤害抗性</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成伤害时，使全队造成的伤害提升<color=#2BAD00>9.2%</color>，持续8秒，最多叠加3层，重复触发时刷新持续时间，同一招式内最多触发1次，该效果全队唯一。"
+                "name": "天才的扈从",
+                "desc": "装备者的冲击力提升<color=#2BAD00>33</color>点，造成的伤害无视目标<color=#2BAD00>17.2%</color><color=#FF5521>火属性伤害抗性</color>；装备者为非操作中角色时，能量自动回复提升<color=#2BAD00>0.46</color>点/秒；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#FF5521>火属性伤害</color>时，使全队代理人造成的伤害提升<color=#2BAD00>14.4%</color>，持续30秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发1次，该效果全队唯一。"
             },
             "3": {
-                "name": "(Test1)诺姆测试音擎效果",
-                "desc": "(Test1)装备者的冲击力提升<color=#2BAD00>19.5%</color>；造成的伤害无视目标<color=#2BAD00>13%</color><color=#FF5521>火属性伤害抗性</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成伤害时，使全队造成的伤害提升<color=#2BAD00>10.4%</color>，持续8秒，最多叠加3层，重复触发时刷新持续时间，同一招式内最多触发1次，该效果全队唯一。"
+                "name": "天才的扈从",
+                "desc": "装备者的冲击力提升<color=#2BAD00>36</color>点，造成的伤害无视目标<color=#2BAD00>19.5%</color><color=#FF5521>火属性伤害抗性</color>；装备者为非操作中角色时，能量自动回复提升<color=#2BAD00>0.52</color>点/秒；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#FF5521>火属性伤害</color>时，使全队代理人造成的伤害提升<color=#2BAD00>16.3%</color>，持续30秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发1次，该效果全队唯一。"
             },
             "4": {
-                "name": "(Test1)诺姆测试音擎效果",
-                "desc": "(Test1)装备者的冲击力提升<color=#2BAD00>21.75%</color>；造成的伤害无视目标<color=#2BAD00>14.5%</color><color=#FF5521>火属性伤害抗性</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成伤害时，使全队造成的伤害提升<color=#2BAD00>11.6%</color>，持续8秒，最多叠加3层，重复触发时刷新持续时间，同一招式内最多触发1次，该效果全队唯一。"
+                "name": "天才的扈从",
+                "desc": "装备者的冲击力提升<color=#2BAD00>39</color>点，造成的伤害无视目标<color=#2BAD00>21.7%</color><color=#FF5521>火属性伤害抗性</color>；装备者为非操作中角色时，能量自动回复提升<color=#2BAD00>0.58</color>点/秒；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#FF5521>火属性伤害</color>时，使全队代理人造成的伤害提升<color=#2BAD00>18.1%</color>，持续30秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发1次，该效果全队唯一。"
             },
             "5": {
-                "name": "(Test1)诺姆测试音擎效果",
-                "desc": "(Test1)装备者的冲击力提升<color=#2BAD00>24%</color>；造成的伤害无视目标<color=#2BAD00>16%</color><color=#FF5521>火属性伤害抗性</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成伤害时，使全队造成的伤害提升<color=#2BAD00>12.8%</color>，持续8秒，最多叠加3层，重复触发时刷新持续时间，同一招式内最多触发1次，该效果全队唯一。"
+                "name": "天才的扈从",
+                "desc": "装备者的冲击力提升<color=#2BAD00>42</color>点，造成的伤害无视目标<color=#2BAD00>24%</color><color=#FF5521>火属性伤害抗性</color>；装备者为非操作中角色时，能量自动回复提升<color=#2BAD00>0.64</color>点/秒；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#FF5521>火属性伤害</color>时，使全队代理人造成的伤害提升<color=#2BAD00>20%</color>，持续30秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发1次，该效果全队唯一。"
             }
         },
         "rarity": "S",

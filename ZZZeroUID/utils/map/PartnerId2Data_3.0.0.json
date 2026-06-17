@@ -9894,7 +9894,7 @@
         }
     },
     "1531": {
-        "sprite_id": "10_01",
+        "sprite_id": "62",
         "name": "星徽·比利",
         "full_name": "星徽·比利",
         "en_name": "Starlight - Billy",
@@ -10090,7 +10090,7 @@
     "1541": {
         "sprite_id": "61",
         "name": "普罗米娅",
-        "full_name": "...",
+        "full_name": "普罗米娅",
         "en_name": "Promeia",
         "weapon_type": "3",
         "element_type": "202",
@@ -10281,14 +10281,208 @@
             }
         }
     },
+    "1551": {
+        "sprite_id": "63",
+        "name": "佩洛伊斯",
+        "full_name": "佩洛伊斯",
+        "en_name": "(Test1)Pyrois",
+        "weapon_type": "1",
+        "element_type": "205",
+        "camp": "法厄同",
+        "hit_type": "斩击",
+        "rarity": "S",
+        "Attack": 0,
+        "AttackGrowth": 0,
+        "BreakStun": 0,
+        "Defence": 0,
+        "DefenceGrowth": 0,
+        "HpMax": 0,
+        "HpGrowth": 0,
+        "Crit": 0,
+        "CritDamage": 0,
+        "ElementAbnormalPower": 0,
+        "ElementMystery": 0,
+        "PenDelta": 0,
+        "PenRate": 0,
+        "SpRecover": 0,
+        "level": {
+            "1": {
+                "hp_max": 0,
+                "attack": 0,
+                "defence": 0,
+                "level_max": 10,
+                "level_min": 0,
+                "materials": {
+                    "10": 24000,
+                    "100211": 4
+                }
+            },
+            "2": {
+                "hp_max": 423,
+                "attack": 47,
+                "defence": 34,
+                "level_max": 20,
+                "level_min": 10,
+                "materials": {
+                    "10": 56000,
+                    "100221": 12
+                }
+            },
+            "3": {
+                "hp_max": 847,
+                "attack": 95,
+                "defence": 68,
+                "level_max": 30,
+                "level_min": 20,
+                "materials": {
+                    "10": 120000,
+                    "100221": 20
+                }
+            },
+            "4": {
+                "hp_max": 1270,
+                "attack": 142,
+                "defence": 101,
+                "level_max": 40,
+                "level_min": 30,
+                "materials": {
+                    "10": 200000,
+                    "100231": 10
+                }
+            },
+            "5": {
+                "hp_max": 1694,
+                "attack": 190,
+                "defence": 135,
+                "level_max": 50,
+                "level_min": 40,
+                "materials": {
+                    "10": 400000,
+                    "100231": 20
+                }
+            },
+            "6": {
+                "hp_max": 2117,
+                "attack": 237,
+                "defence": 169,
+                "level_max": 60,
+                "level_min": 50,
+                "materials": {}
+            }
+        },
+        "extra_level": {
+            "1": {
+                "max_level": 15,
+                "extra": {
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 480
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
+                        "format": "{0:0.#}",
+                        "value": 0
+                    }
+                }
+            },
+            "2": {
+                "max_level": 25,
+                "extra": {
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 480
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
+                        "format": "{0:0.#}",
+                        "value": 25
+                    }
+                }
+            },
+            "3": {
+                "max_level": 35,
+                "extra": {
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 960
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
+                        "format": "{0:0.#}",
+                        "value": 25
+                    }
+                }
+            },
+            "4": {
+                "max_level": 45,
+                "extra": {
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 960
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
+                        "format": "{0:0.#}",
+                        "value": 50
+                    }
+                }
+            },
+            "5": {
+                "max_level": 55,
+                "extra": {
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 1440
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
+                        "format": "{0:0.#}",
+                        "value": 50
+                    }
+                }
+            },
+            "6": {
+                "max_level": 60,
+                "extra": {
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 1440
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
+                        "format": "{0:0.#}",
+                        "value": 75
+                    }
+                }
+            }
+        }
+    },
     "1561": {
-        "sprite_id": "",
-        "name": "(Test1)维琳娜",
-        "full_name": "(Test1)维琳娜",
-        "en_name": "(Test1)Velina",
+        "sprite_id": "64",
+        "name": "维琳娜",
+        "full_name": "维琳娜·艾嘉德",
+        "en_name": "Velina",
         "weapon_type": "3",
         "element_type": "204",
-        "camp": "新艾利都治安局",
+        "camp": "罗斯凯利法·外务筹策局",
         "hit_type": "斩击",
         "rarity": "S",
         "Attack": 0,
@@ -10476,13 +10670,13 @@
         }
     },
     "1571": {
-        "sprite_id": "",
-        "name": "(Test1)诺姆",
-        "full_name": "...",
-        "en_name": "(Test1)Norma",
+        "sprite_id": "65",
+        "name": "诺姆",
+        "full_name": "诺姆·霍洛维尔",
+        "en_name": "Norma",
         "weapon_type": "2",
         "element_type": "201",
-        "camp": "新艾利都治安局",
+        "camp": "罗斯凯利法·外务筹策局",
         "hit_type": "打击",
         "rarity": "S",
         "Attack": 0,
@@ -10568,11 +10762,11 @@
             "1": {
                 "max_level": 15,
                 "extra": {
-                    "12201": {
-                        "prop": 12201,
-                        "name": "冲击力",
-                        "format": "{0:0.#}",
-                        "value": 6
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 480
                     },
                     "12101": {
                         "prop": 12101,
@@ -10585,11 +10779,11 @@
             "2": {
                 "max_level": 25,
                 "extra": {
-                    "12201": {
-                        "prop": 12201,
-                        "name": "冲击力",
-                        "format": "{0:0.#}",
-                        "value": 6
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 480
                     },
                     "12101": {
                         "prop": 12101,
@@ -10602,11 +10796,11 @@
             "3": {
                 "max_level": 35,
                 "extra": {
-                    "12201": {
-                        "prop": 12201,
-                        "name": "冲击力",
-                        "format": "{0:0.#}",
-                        "value": 12
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 960
                     },
                     "12101": {
                         "prop": 12101,
@@ -10619,11 +10813,11 @@
             "4": {
                 "max_level": 45,
                 "extra": {
-                    "12201": {
-                        "prop": 12201,
-                        "name": "冲击力",
-                        "format": "{0:0.#}",
-                        "value": 12
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 960
                     },
                     "12101": {
                         "prop": 12101,
@@ -10636,11 +10830,11 @@
             "5": {
                 "max_level": 55,
                 "extra": {
-                    "12201": {
-                        "prop": 12201,
-                        "name": "冲击力",
-                        "format": "{0:0.#}",
-                        "value": 18
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 1440
                     },
                     "12101": {
                         "prop": 12101,
@@ -10653,11 +10847,205 @@
             "6": {
                 "max_level": 60,
                 "extra": {
-                    "12201": {
-                        "prop": 12201,
-                        "name": "冲击力",
+                    "20101": {
+                        "prop": 20101,
+                        "name": "暴击率",
+                        "format": "{0:0.#%}",
+                        "value": 1440
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
                         "format": "{0:0.#}",
-                        "value": 18
+                        "value": 75
+                    }
+                }
+            }
+        }
+    },
+    "1581": {
+        "sprite_id": "",
+        "name": "蕾米埃尔",
+        "full_name": "蕾米埃尔",
+        "en_name": "蕾米埃尔",
+        "weapon_type": "5",
+        "element_type": "200",
+        "camp": "怪啖屋",
+        "hit_type": "斩击",
+        "rarity": "S",
+        "Attack": 0,
+        "AttackGrowth": 0,
+        "BreakStun": 0,
+        "Defence": 0,
+        "DefenceGrowth": 0,
+        "HpMax": 0,
+        "HpGrowth": 0,
+        "Crit": 0,
+        "CritDamage": 0,
+        "ElementAbnormalPower": 0,
+        "ElementMystery": 0,
+        "PenDelta": 0,
+        "PenRate": 0,
+        "SpRecover": 0,
+        "level": {
+            "1": {
+                "hp_max": 0,
+                "attack": 0,
+                "defence": 0,
+                "level_max": 10,
+                "level_min": 0,
+                "materials": {
+                    "10": 24000,
+                    "100215": 4
+                }
+            },
+            "2": {
+                "hp_max": 503,
+                "attack": 39,
+                "defence": 39,
+                "level_max": 20,
+                "level_min": 10,
+                "materials": {
+                    "10": 56000,
+                    "100225": 12
+                }
+            },
+            "3": {
+                "hp_max": 1006,
+                "attack": 79,
+                "defence": 77,
+                "level_max": 30,
+                "level_min": 20,
+                "materials": {
+                    "10": 120000,
+                    "100225": 20
+                }
+            },
+            "4": {
+                "hp_max": 1509,
+                "attack": 118,
+                "defence": 116,
+                "level_max": 40,
+                "level_min": 30,
+                "materials": {
+                    "10": 200000,
+                    "100235": 10
+                }
+            },
+            "5": {
+                "hp_max": 2012,
+                "attack": 157,
+                "defence": 155,
+                "level_max": 50,
+                "level_min": 40,
+                "materials": {
+                    "10": 400000,
+                    "100235": 20
+                }
+            },
+            "6": {
+                "hp_max": 2515,
+                "attack": 197,
+                "defence": 194,
+                "level_max": 60,
+                "level_min": 50,
+                "materials": {}
+            }
+        },
+        "extra_level": {
+            "1": {
+                "max_level": 15,
+                "extra": {
+                    "11102": {
+                        "prop": 11102,
+                        "name": "生命值",
+                        "format": "{0:0.#%}",
+                        "value": 600
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
+                        "format": "{0:0.#}",
+                        "value": 0
+                    }
+                }
+            },
+            "2": {
+                "max_level": 25,
+                "extra": {
+                    "11102": {
+                        "prop": 11102,
+                        "name": "生命值",
+                        "format": "{0:0.#%}",
+                        "value": 600
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
+                        "format": "{0:0.#}",
+                        "value": 25
+                    }
+                }
+            },
+            "3": {
+                "max_level": 35,
+                "extra": {
+                    "11102": {
+                        "prop": 11102,
+                        "name": "生命值",
+                        "format": "{0:0.#%}",
+                        "value": 1200
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
+                        "format": "{0:0.#}",
+                        "value": 25
+                    }
+                }
+            },
+            "4": {
+                "max_level": 45,
+                "extra": {
+                    "11102": {
+                        "prop": 11102,
+                        "name": "生命值",
+                        "format": "{0:0.#%}",
+                        "value": 1200
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
+                        "format": "{0:0.#}",
+                        "value": 50
+                    }
+                }
+            },
+            "5": {
+                "max_level": 55,
+                "extra": {
+                    "11102": {
+                        "prop": 11102,
+                        "name": "生命值",
+                        "format": "{0:0.#%}",
+                        "value": 1800
+                    },
+                    "12101": {
+                        "prop": 12101,
+                        "name": "基础攻击力",
+                        "format": "{0:0.#}",
+                        "value": 50
+                    }
+                }
+            },
+            "6": {
+                "max_level": 60,
+                "extra": {
+                    "11102": {
+                        "prop": 11102,
+                        "name": "生命值",
+                        "format": "{0:0.#%}",
+                        "value": 1800
                     },
                     "12101": {
                         "prop": 12101,
