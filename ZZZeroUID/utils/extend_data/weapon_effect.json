@@ -1,4 +1,36 @@
 {
+    "日冕遗蜕": {
+        "normal_effect": {
+            "1": "crit+2000",
+            "2": "crit+2000",
+            "3": "crit+2600",
+            "4": "crit+2900",
+            "5": "crit+3200"
+        },
+        "skill_effect": {
+            "1": "EtherResist+-1600",
+            "2": "EtherResist+-1750",
+            "3": "EtherResist+-1900",
+            "4": "EtherResist+-2050",
+            "5": "EtherResist+-2200"
+        }
+    },
+    "琳琅鎏心": {
+        "normal_effect": {
+            "1": "ElementMystery+70",
+            "2": "ElementMystery+80",
+            "3": "ElementMystery+90",
+            "4": "ElementMystery+100",
+            "5": "ElementMystery+110"
+        },
+        "skill_effect": {
+            "1": "ElementMystery+60",
+            "2": "ElementMystery+69",
+            "3": "ElementMystery+78",
+            "4": "ElementMystery+87",
+            "5": "ElementMystery+96"
+        }
+    },
     "辉骑面铠": {
         "normal_effect": {
             "1": "crit+2000",

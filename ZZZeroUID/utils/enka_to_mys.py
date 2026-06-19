@@ -40,6 +40,7 @@ ID_TO_PROP_NAME = {
     "31703": "冰属性伤害加成",
     "31803": "雷属性伤害加成",
     "31903": "以太属性伤害加成",
+    "32003": "风属性伤害加成",
 }
 
 ID_TO_EN = {
@@ -73,6 +74,7 @@ ID_TO_EN = {
     "31703": "IceDmgBonus",
     "31803": "ThunderDmgBonus",
     "31903": "EtherDmgBonus",
+    "32003": "WindDmgBonus",
 }
 ELEMENT_TO_EN = {
     "203": "Thunder",
@@ -80,6 +82,7 @@ ELEMENT_TO_EN = {
     "202": "Ice",
     "200": "Phys",
     "201": "Fire",
+    "204": "Wind",
 }
 EN_TO_ZH = {ID_TO_EN[k]: ID_TO_PROP_NAME[k] for k in ID_TO_EN}
 EN_TO_ID = {ID_TO_EN[k]: k for k in ID_TO_EN}
@@ -107,6 +110,7 @@ PERCENT_NAME = [
     "IceDmgBonus",
     "ThunderDmgBonus",
     "EtherDmgBonus",
+    "WindDmgBonus",
     "SpRecover",
 ]
 MAIN_PROP_VALUE = {
@@ -137,6 +141,7 @@ MAIN_PROP_VALUE = {
     "31703": 450,
     "31803": 450,
     "31903": 450,
+    "32003": 450,
 }
 
 MYS_NAME_TO_ID = {
@@ -159,6 +164,7 @@ MYS_NAME_TO_ID = {
     "冰属性伤害加成": "317",
     "火属性伤害加成": "316",
     "物理伤害加成": "315",
+    "风属性伤害加成": "320",
 }
 
 """

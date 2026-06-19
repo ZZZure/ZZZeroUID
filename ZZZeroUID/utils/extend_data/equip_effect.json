@@ -1,4 +1,24 @@
 {
+    "呼啸沙龙": {
+        "normal_effect": {
+            "desc1": "WindDmgBonus+1000",
+            "desc2": ""
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "ElementMystery+50;DmgBonus+1800"
+        }
+    },
+    "拂晓行纪": {
+        "normal_effect": {
+            "desc1": "EtherDmgBonus+1000",
+            "desc2": "CritDmg+3000"
+        },
+        "skill_effect": {
+            "desc1": "",
+            "desc2": "AttackAdd+1000"
+        }
+    },
     "沧浪行歌": {
         "normal_effect": {
             "desc1": "PhysDmgBonus+1000",
