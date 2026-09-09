@@ -30,6 +30,7 @@ description: >
 | 四 | 渲染与资源 | [references/04-rendering-and-resources.md](./references/04-rendering-and-resources.md) |
 | 五 | 配置、订阅、启动 | [references/05-config-lifecycle.md](./references/05-config-lifecycle.md) |
 | 六 | 坑点与规范 | [references/06-pitfalls-and-conventions.md](./references/06-pitfalls-and-conventions.md) |
+| 七 | Web 控制台页（抽卡 / 角色卡片 / PIL 预览） | [references/07-web-console.md](./references/07-web-console.md) |
 
 ## 关键概念速记
 
@@ -39,3 +40,4 @@ description: >
 - 尚无 AI 桥接；加的话优先 `to_ai` + `ai_return`。
 - 若干 wiki 触发器函数体是 `pass`。
 - 官方评分：`zzzerouid_char_detail/official_score.py` + `docs/API与官方评分说明.md`。
+- Hub 插件页：`zzzerouid_webconsole` + `web/`，`register_plugin_page(page_id="console")`。预览走 PIL `draw_card` / `draw_char_detail_img`。

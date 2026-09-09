@@ -15,14 +15,14 @@ from ..utils.image import (
     get_circle_role_img,
     get_player_card_min,
 )
-from ..utils.api.models import ZZZAvatarInfo
-from ..utils.zzzero_api import zzz_api
-from ..utils.enka_to_mys import _enka_data_to_mys_data
-from .draw_char_detail_card import TEXT_PATH
 from .official_score import (
     process_avatars_on_refresh,
     supplement_official_score_from_mys,
 )
+from ..utils.api.models import ZZZAvatarInfo
+from ..utils.zzzero_api import zzz_api
+from ..utils.enka_to_mys import _enka_data_to_mys_data
+from .draw_char_detail_card import TEXT_PATH
 from ..utils.fonts.zzz_fonts import zzz_font_40
 from ..utils.resource.RESOURCE_PATH import PLAYER_PATH
 from ..zzzerouid_config.zzzero_config import ZZZ_CONFIG

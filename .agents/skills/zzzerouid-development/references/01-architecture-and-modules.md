@@ -28,6 +28,7 @@ Plugins(
 | `zzzerouid_gachalog` | 抽卡记录 |
 | `zzzerouid_month_info` | 绳网月报 |
 | `zzzerouid_wiki` | 攻略/图鉴（部分未实现） |
+| `zzzerouid_webconsole` | Hub 插件页：全体用户抽卡 / 角色卡 + PIL 预览 |
 | `zzzerouid_code` | 前瞻兑换码 |
 | `zzzerouid_sign` | 米游社签到 |
 | `zzzerouid_ann` | 公告清红 |

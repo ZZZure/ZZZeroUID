@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple, Optional
 
 # 雅 & 浅羽版本
 CUSTOM_OFFSET = {

@@ -53,6 +53,7 @@
 | `zzzerouid_wiki` | 攻略/图鉴（若干函数体 `pass`） |
 | `zzzerouid_code` / `_sign` / `_ann` | 兑换码、签到、清红 |
 | `zzzerouid_config` / `_help` / `_resource` / `_start` | 配置、帮助、下载、启动 |
+| `zzzerouid_webconsole` + `web/` | Hub 插件页：全体用户抽卡 / 角色卡 + PIL 预览 |
 
 `utils/database/model.py`：`ZzzPush`（电量阈值）。UID 仍在 `GsBind`。
 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ZZZeroUID</title>
+    <link rel="stylesheet" href="./app.css" />
+    <script src="/plugin-pages/_sdk/gshub-plugin.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div>
+          <h1 id="title">ZZZeroUID</h1>
+          <div class="sub" id="subtitle"></div>
+        </div>
+      </header>
+      <aside>
+        <h2 id="players-label">Players</h2>
+        <input id="search" type="search" autocomplete="off" />
+        <div id="player-list"></div>
+      </aside>
+      <main>
+        <div id="empty-main" class="empty"></div>
+        <div id="workspace" hidden>
+          <div class="tabs">
+            <button type="button" id="tab-gacha" class="active"></button>
+            <button type="button" id="tab-chars"></button>
+          </div>
+          <section id="panel-gacha">
+            <div class="stats" id="gacha-stats"></div>
+            <div class="toolbar">
+              <button type="button" class="btn gold" id="btn-preview-gacha"></button>
+              <button type="button" class="btn danger" id="btn-del-gacha"></button>
+            </div>
+            <div class="pools" id="pools"></div>
+            <div id="gacha-body"></div>
+          </section>
+          <section id="panel-chars" hidden>
+            <div class="stats" id="char-stats"></div>
+            <div class="grid" id="char-grid"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div class="modal" id="modal">
+      <div class="box">
+        <div class="modal-toolbar">
+          <button type="button" class="btn" id="modal-close"></button>
+        </div>
+        <div class="modal-loading" id="modal-loading" hidden>
+          <div class="spinner" aria-hidden="true"></div>
+          <p id="modal-loading-text"></p>
+        </div>
+        <p class="empty" id="modal-error" hidden></p>
+        <img id="modal-img" alt="preview" hidden />
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
