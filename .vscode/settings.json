@@ -16,4 +16,5 @@
     "${workspaceFolder}/../../../"
   ],
   "python.analysis.typeCheckingMode": "off",
+  "python-envs.defaultEnvManager": "ms-python.python:system",
 }
