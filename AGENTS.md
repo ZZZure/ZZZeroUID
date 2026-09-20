@@ -17,7 +17,7 @@
 - UID：框架 **`GsBind`**，必须 **`game_name="zzz"`**（`ZZZ_GAME_NAME`）。不要用原神默认槽。
 - Cookie：框架 `GsUser`。刷新顺序配置 `RefreshDataList`：`ENKA` → `MINIGG` → `MYS`。
 - **没有** `to_ai` / `@ai_tools` / `ai_return`。接 AI 走 Core 插件技能 §10 / §18，不要先堆 `@ai_tools`。
-- 版本：`ZZZeroUID/version.py` 的 `ZZeroUID_version` / `ZZZero_version`（当前 `3.1.0`，与 `utils/map/*_3.1.0.json` 对齐）。`pyproject.toml` 的 `[project]` / poetry 可能滞后。
+- 版本：`ZZZeroUID/version.py` 的 `ZZeroUID_version` / `ZZZero_version`（当前 `3.3.3`，与 `utils/map/*_3.3.3.json` 对齐）。nanoka CDN 用同文件的 `NANOKA_DATA_VERSION`。`pyproject.toml` 的 `[project]` / poetry 可能滞后。
 
 ## Repository map
 

@@ -92,6 +92,6 @@ async def _hakush_request(
             params=params,
             json=data,
         )
-        print(req.text)
+        print(req.status_code, len(req.content))
         data = req.json()
         return data

@@ -11,12 +11,14 @@ sys.path.append(str(Path(__file__).parents[2]))
 
 __package__ = "ZZZeroUID.tools"
 
+from ..version import NANOKA_DATA_VERSION
 from ..utils.name_convert import equip_data, weapon_data, partener_data
 
 INTEND_PATH = Path(__file__).parent / "INTEND_RES_PATH"
 mask = Image.open(Path(__file__).parent / "texture2d" / "mask.png")
 
 BASE_URL = "https://static.nanoka.cc/assets/zzz"
+BANGBOO_INDEX = f"https://static.nanoka.cc/zzz/{NANOKA_DATA_VERSION}/bangboo.json"
 
 
 def download_url_to_path(url: str, path: Path):
@@ -110,11 +112,14 @@ def download_IconRoleGeneral():
 
 
 def download_bangboo():
-    bangboo_list_req = httpx.get("https://static.nanoka.cc/zzz/3.1/bangboo.json")
+    bangboo_list_req = httpx.get(BANGBOO_INDEX)
     bangboo_list = bangboo_list_req.json()
     for bangboo_id in bangboo_list:
         icon_name = bangboo_list[bangboo_id]["icon"].split("/")[-1]
         icon_name = icon_name.split(".")[0]
+        if not icon_name:
+            print(f"bangboo {bangboo_id} 无图标，跳过！")
+            continue
         bangboo_sq_name = f"bangboo_rectangle_avatar_{bangboo_id}.png"
         path = INTEND_PATH / "square_bangbo" / bangboo_sq_name
         if path.exists():
@@ -131,9 +136,18 @@ def download_bangboo():
             except:  # noqa:E722
                 sleep(4)
 
-        if char_data.headers["Content-Type"] == "image/png":
+        if char_data.status_code != 200:
+            print(f"{icon_name}不存在，跳过！")
+            continue
+
+        content_type = ""
+        for header_name in char_data.headers:
+            if header_name.lower() == "content-type":
+                content_type = char_data.headers[header_name]
+                break
+        if content_type == "image/png":
             img = Image.open(BytesIO(char_data.content))
-        elif char_data.headers["Content-Type"] == "image/webp":
+        elif content_type == "image/webp":
             webp_image = BytesIO(char_data.content)
             img = Image.open(webp_image)
         else:
