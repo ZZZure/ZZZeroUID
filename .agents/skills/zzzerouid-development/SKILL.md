@@ -17,6 +17,7 @@ description: >
 | 任务 | 文档 |
 |------|------|
 | 改本插件 | **本 SKILL** |
+| 从 nanoka 更新 `extend_data`（音擎/驱动盘效果 JSON） | [zzzerouid-extend-data-update](../zzzerouid-extend-data-update/SKILL.md) |
 | 给本插件补 `to_ai` | 本 SKILL + Core `gscore-plugin-development` §10 / §18 |
 | 代码红线 | [`AGENTS.md`](../../../AGENTS.md) + Core 根 `AGENTS.md` |
 

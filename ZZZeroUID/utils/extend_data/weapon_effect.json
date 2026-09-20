@@ -1,4 +1,292 @@
 {
+    "涅槃初翎": {
+      "normal_effect": {
+        "1": "ElementMystery+90",
+        "2": "ElementMystery+104",
+        "3": "ElementMystery+117",
+        "4": "ElementMystery+131",
+        "5": "ElementMystery+144"
+      },
+      "skill_effect": {
+        "1": "FireDmgBonus+4000",
+        "2": "FireDmgBonus+4600",
+        "3": "FireDmgBonus+5200",
+        "4": "FireDmgBonus+5800",
+        "5": "FireDmgBonus+6400"
+      }
+    },
+    "禁罪囚笼": {
+      "normal_effect": {
+        "1": "Crit+2400",
+        "2": "Crit+2760",
+        "3": "Crit+3120",
+        "4": "Crit+3480",
+        "5": "Crit+3840"
+      },
+      "skill_effect": {
+        "1": "AttackAdd+1000;WindResist+-1600",
+        "2": "AttackAdd+1150;WindResist+-1840",
+        "3": "AttackAdd+1300;WindResist+-2080",
+        "4": "AttackAdd+1450;WindResist+-2320",
+        "5": "AttackAdd+1600;WindResist+-2560"
+      }
+    },
+    "铸梦炉歌": {
+      "normal_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      },
+      "skill_effect": {
+        "1": "DmgBonus+2500;HpAdd+1500",
+        "2": "DmgBonus+2880;HpAdd+1730",
+        "3": "DmgBonus+3250;HpAdd+1950",
+        "4": "DmgBonus+3630;HpAdd+2180",
+        "5": "DmgBonus+4000;HpAdd+2400"
+      }
+    },
+    "云霓孤光": {
+      "normal_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      },
+      "skill_effect": {
+        "1": "DmgBonus+2500;CritDmg+2500",
+        "2": "DmgBonus+2870;CritDmg+2870",
+        "3": "DmgBonus+3250;CritDmg+3250",
+        "4": "DmgBonus+3620;CritDmg+3620",
+        "5": "DmgBonus+4000;CritDmg+4000"
+      }
+    },
+    "青溟笼舍": {
+      "normal_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      },
+      "skill_effect": {
+        "1": "Crit+4000;CQ:EtherDmgBonus+1600;CQ:DmgBonus+2000",
+        "2": "Crit+4600;CQ:EtherDmgBonus+1840;CQ:DmgBonus+2300",
+        "3": "Crit+5200;CQ:EtherDmgBonus+2080;CQ:DmgBonus+2600",
+        "4": "Crit+5800;CQ:EtherDmgBonus+2320;CQ:DmgBonus+2900",
+        "5": "Crit+6400;CQ:EtherDmgBonus+2560;CQ:DmgBonus+3200"
+      }
+    },
+    "半糖雪兔": {
+      "normal_effect": {
+        "1": "AttackAdd+1000;HpAdd+1000",
+        "2": "AttackAdd+1150;HpAdd+1150",
+        "3": "AttackAdd+1300;HpAdd+1300",
+        "4": "AttackAdd+1450;HpAdd+1450",
+        "5": "AttackAdd+1600;HpAdd+1600"
+      },
+      "skill_effect": {
+        "1": "CritDmg+3000",
+        "2": "CritDmg+3450",
+        "3": "CritDmg+3900",
+        "4": "CritDmg+4350",
+        "5": "CritDmg+4800"
+      }
+    },
+    "嚣枪喧焰": {
+      "normal_effect": {
+        "1": "Crit+2000",
+        "2": "Crit+2300",
+        "3": "Crit+2600",
+        "4": "Crit+2900",
+        "5": "Crit+3200"
+      },
+      "skill_effect": {
+        "1": "D+-1500",
+        "2": "D+-1720",
+        "3": "D+-1950",
+        "4": "D+-2170",
+        "5": "D+-2400"
+      }
+    },
+    "海妖摇篮": {
+      "normal_effect": {
+        "1": "Crit+2000;HpAdd+5000",
+        "2": "Crit+2300;HpAdd+5000",
+        "3": "Crit+2600;HpAdd+5000",
+        "4": "Crit+2900;HpAdd+5000",
+        "5": "Crit+3200;HpAdd+5000"
+      },
+      "skill_effect": {
+        "1": "HpAdd+1800;DmgBonus+1800",
+        "2": "HpAdd+2100;DmgBonus+2100",
+        "3": "HpAdd+2400;DmgBonus+2400",
+        "4": "HpAdd+2700;DmgBonus+2700",
+        "5": "HpAdd+3000;DmgBonus+3000"
+      }
+    },
+    "燔火胧夜": {
+      "normal_effect": {
+        "1": "FireDmgBonus+1500;Crit+1500;HpAdd+1500",
+        "2": "FireDmgBonus+1725;Crit+1725;HpAdd+1725",
+        "3": "FireDmgBonus+1950;Crit+1950;HpAdd+1950",
+        "4": "FireDmgBonus+2175;Crit+2175;HpAdd+2175",
+        "5": "FireDmgBonus+2400;Crit+2400;HpAdd+2400"
+      },
+      "skill_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      }
+    },
+    "震元奇枢": {
+      "normal_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      },
+      "skill_effect": {
+        "1": "CQ:DmgBonus+2500",
+        "2": "CQ:DmgBonus+2870",
+        "3": "CQ:DmgBonus+3250",
+        "4": "CQ:DmgBonus+3620",
+        "5": "CQ:DmgBonus+4000"
+      }
+    },
+    "烛光诡计": {
+      "normal_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      },
+      "skill_effect": {
+        "1": "Crit+800;DmgBonus+1500",
+        "2": "Crit+920;DmgBonus+1730",
+        "3": "Crit+1040;DmgBonus+1950",
+        "4": "Crit+1160;DmgBonus+2180",
+        "5": "Crit+1280;DmgBonus+2400"
+      }
+    },
+    "炎炙沸釜": {
+      "normal_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      },
+      "skill_effect": {
+        "1": "DmgBonus+720",
+        "2": "DmgBonus+820",
+        "3": "DmgBonus+920",
+        "4": "DmgBonus+1020",
+        "5": "DmgBonus+1150"
+      }
+    },
+    "青漪灵鼎": {
+      "normal_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      },
+      "skill_effect": {
+        "1": "C:DmgBonus+1200;Crit+650",
+        "2": "C:DmgBonus+1380;Crit+750",
+        "3": "C:DmgBonus+1560;Crit+850",
+        "4": "C:DmgBonus+1740;Crit+940",
+        "5": "C:DmgBonus+1920;Crit+1040"
+      }
+    },
+    "咚哒回声": {
+      "normal_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      },
+      "skill_effect": {
+        "1": "DmgBonus+1150",
+        "2": "DmgBonus+1320",
+        "3": "DmgBonus+1500",
+        "4": "DmgBonus+1670",
+        "5": "DmgBonus+1840"
+      }
+    },
+    "光影刻刀": {
+      "normal_effect": {
+        "1": "HpAdd+5000",
+        "2": "HpAdd+5000",
+        "3": "HpAdd+5000",
+        "4": "HpAdd+5000",
+        "5": "HpAdd+5000"
+      },
+      "skill_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      }
+    },
+    "电波漫步": {
+      "normal_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      },
+      "skill_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      }
+    },
+    "幻变魔方": {
+      "normal_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      },
+      "skill_effect": {
+        "1": "CritDmg+1600;C:DmgBonus+2000",
+        "2": "CritDmg+1840;C:DmgBonus+2300",
+        "3": "CritDmg+2080;C:DmgBonus+2600",
+        "4": "CritDmg+2320;C:DmgBonus+2900",
+        "5": "CritDmg+2560;C:DmgBonus+3200"
+      }
+    },
+    "「灰烬」-钴蓝": {
+      "normal_effect": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
+      },
+      "skill_effect": {
+        "1": "AttackAdd+720",
+        "2": "AttackAdd+820",
+        "3": "AttackAdd+930",
+        "4": "AttackAdd+1040",
+        "5": "AttackAdd+1150"
+      }
+    },
     "喵运当头": {
       "normal_effect": {
         "1": "DefenceAdd+800",
@@ -237,22 +525,6 @@
         "3": "DmgBonus+2600;DmgBonus+1300",
         "4": "DmgBonus+2900;DmgBonus+1450",
         "5": "DmgBonus+3200;DmgBonus+1600"
-      }
-    },
-    "半糖冰雹": {
-      "normal_effect": {
-        "1": "AttackAdd+1000;HpAdd+1000",
-        "2": "AttackAdd+1150;HpAdd+1150",
-        "3": "AttackAdd+1300;HpAdd+1300",
-        "4": "AttackAdd+1450;HpAdd+1450",
-        "5": "AttackAdd+1600;HpAdd+1600"
-      },
-      "skill_effect": {
-        "1": "CritDmg+3000",
-        "2": "CritDmg+3450",
-        "3": "CritDmg+3900",
-        "4": "CritDmg+4350",
-        "5": "CritDmg+4800"
       }
     },
     "怒目金刚": {
