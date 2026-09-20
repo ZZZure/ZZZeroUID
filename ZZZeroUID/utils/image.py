@@ -84,6 +84,9 @@ camp_map = {
     "妄想天使": "A.O.D",
     "罗斯凯利法·外务筹策局": "E.S.D.",
     "达识结社": "FactionCovenantOfDayat",
+    "法厄同": "Phaethon",
+    "罗斯凯利法·弗林特工坊": "FactionFlintWorks",
+    "罗斯凯利法·空域巡戍局": "A.P.D.",
 }
 
 
