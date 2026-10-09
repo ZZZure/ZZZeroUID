@@ -1,7 +1,7 @@
 import json
 from re import sub, compile, findall
 from time import time
-from typing import List, Union, Literal
+from typing import Literal
 from datetime import datetime, timezone, timedelta
 
 from httpx import AsyncClient
@@ -41,25 +41,28 @@ async def get_act_id() -> str:
     """获取 ``act_id``"""
 
     ret = await get_data("activity")
-    if ret.get("error") or ret.get("retcode") != 0:
+    if "error" in ret or ret["retcode"] != 0:
         return ""
 
-    act_id = ""
-    keywords = ["前瞻直播"]
-    for nav in ret["data"]["navigator"]:
-        name = nav.get("name")
-        if not name:
-            continue
-        if not all(word in name for word in keywords):
-            continue
-        app_path = nav.get("app_path")
-        matched = findall(r"act_id=(.*?)\&", app_path)
-        if matched:
-            act_id = matched[0]
-        if act_id:
-            break
+    navigator = ret["data"]["navigator"]
+    if not isinstance(navigator, list):
+        return ""
 
-    return act_id
+    for nav in navigator:
+        if not isinstance(nav, dict):
+            continue
+        name = nav["name"] if "name" in nav else ""
+        app_path = nav["app_path"] if "app_path" in nav else ""
+        if not isinstance(name, str) or not isinstance(app_path, str):
+            continue
+        # 入口名已从「前瞻直播」收成「x.x前瞻」
+        if "前瞻" not in name and "event/live" not in app_path:
+            continue
+        matched = findall(r"act_id=([^&]+)", app_path)
+        if matched:
+            return matched[0]
+
+    return ""
 
 
 async def get_live_data(act_id: str) -> dict:
@@ -88,21 +91,29 @@ async def get_live_data(act_id: str) -> dict:
     return live_data
 
 
-async def get_code(version: str, act_id: str) -> Union[dict, List[dict]]:
+async def get_code(version: str, act_id: str) -> dict[str, str] | list[dict[str, str]]:
     """获取兑换码"""
 
     ret = await get_data("code", {"version": version, "actId": act_id})
-    if ret.get("error") or ret.get("retcode") != 0:
-        return {"error": ret.get("error") or "兑换码数据异常"}
-    code_data = []
-    for code_info in ret["data"]["code_list"]:
-        remove_tag = compile("<.*?>")
-        code_data.append(
-            {
-                "items": sub(remove_tag, "", code_info["title"]),
-                "code": code_info["code"],
-            }
-        )
+    if "error" in ret or ret["retcode"] != 0:
+        err = ret["error"] if "error" in ret else "兑换码数据异常"
+        return {"error": err if isinstance(err, str) and err else "兑换码数据异常"}
+    code_list = ret["data"]["code_list"]
+    if not isinstance(code_list, list):
+        return {"error": "兑换码数据异常"}
+
+    remove_tag = compile("<.*?>")
+    code_data: list[dict[str, str]] = []
+    for code_info in code_list:
+        if not isinstance(code_info, dict):
+            continue
+        title = code_info["title"] if "title" in code_info else ""
+        code = code_info["code"] if "code" in code_info else ""
+        if not isinstance(title, str) or not isinstance(code, str) or not code:
+            continue
+        plain = sub(remove_tag, "", sub("</p>", "\n", title))
+        items = "\n".join(line.strip() for line in plain.splitlines() if line.strip())
+        code_data.append({"items": items, "code": code})
     return code_data
 
 
@@ -114,18 +125,24 @@ async def get_code_msg() -> str:
         return "暂无前瞻直播资讯！"
 
     live_data = await get_live_data(act_id)
-    if live_data.get("error"):
-        return live_data["error"]
+    if "error" in live_data:
+        err = live_data["error"]
+        return err if isinstance(err, str) else "前瞻直播数据异常"
 
-    code_data = await get_code(live_data["code_ver"], act_id)
+    code_ver = live_data["code_ver"]
+    if not isinstance(code_ver, str):
+        return "前瞻直播数据异常"
+    code_data = await get_code(code_ver, act_id)
     if isinstance(code_data, dict):
         return code_data["error"]
-
-    code_msg = f"{live_data['title']}\n"
-    # 只有一个兑换码，直接取第0个
-    try:
-        code = code_data[0]
-        code_msg += f"{code['items']}:\n{code['code']}\n"
-        return code_msg.strip()
-    except:  # noqa: E722
+    if not code_data:
         return "获取兑换码失败！"
+
+    title = live_data["title"]
+    lines: list[str] = [title] if isinstance(title, str) else []
+    for code in code_data:
+        lines.append(f"兑换码：{code['code']}")
+        reward = code["items"].replace("\n", "、")
+        if reward:
+            lines.append(f"奖励：{reward}")
+    return "\n".join(lines)
