@@ -2,33 +2,33 @@
     "涅槃初翎": {
       "normal_effect": {
         "1": "ElementMystery+90",
-        "2": "ElementMystery+104",
-        "3": "ElementMystery+117",
-        "4": "ElementMystery+131",
-        "5": "ElementMystery+144"
+        "2": "ElementMystery+99",
+        "3": "ElementMystery+108",
+        "4": "ElementMystery+117",
+        "5": "ElementMystery+126"
       },
       "skill_effect": {
         "1": "FireDmgBonus+4000",
-        "2": "FireDmgBonus+4600",
-        "3": "FireDmgBonus+5200",
-        "4": "FireDmgBonus+5800",
-        "5": "FireDmgBonus+6400"
+        "2": "FireDmgBonus+4400",
+        "3": "FireDmgBonus+4800",
+        "4": "FireDmgBonus+5200",
+        "5": "FireDmgBonus+5600"
       }
     },
     "禁罪囚笼": {
       "normal_effect": {
-        "1": "Crit+2400",
-        "2": "Crit+2760",
-        "3": "Crit+3120",
-        "4": "Crit+3480",
-        "5": "Crit+3840"
+        "1": "Crit+2000",
+        "2": "Crit+2300",
+        "3": "Crit+2600",
+        "4": "Crit+2900",
+        "5": "Crit+3200"
       },
       "skill_effect": {
-        "1": "AttackAdd+1000;WindResist+-1600",
-        "2": "AttackAdd+1150;WindResist+-1840",
-        "3": "AttackAdd+1300;WindResist+-2080",
-        "4": "AttackAdd+1450;WindResist+-2320",
-        "5": "AttackAdd+1600;WindResist+-2560"
+        "1": "AttackAdd+1000;WindResist+-1500",
+        "2": "AttackAdd+1150;WindResist+-1730",
+        "3": "AttackAdd+1300;WindResist+-1950",
+        "4": "AttackAdd+1450;WindResist+-2180",
+        "5": "AttackAdd+1600;WindResist+-2400"
       }
     },
     "铸梦炉歌": {
@@ -337,11 +337,11 @@
     },
     "绯月银棺": {
       "normal_effect": {
-        "1": "Crit+2400",
-        "2": "Crit+2600",
-        "3": "Crit+2800",
-        "4": "Crit+3050",
-        "5": "Crit+3200"
+        "1": "Crit+2400;WindResist+-1500",
+        "2": "Crit+2600;WindResist+-1730",
+        "3": "Crit+2800;WindResist+-1950",
+        "4": "Crit+3000;WindResist+-2180",
+        "5": "Crit+3200;WindResist+-2400"
       },
       "skill_effect": {
         "1": "DmgBonus+2000",
@@ -363,7 +363,7 @@
         "1": "DmgBonus+3000",
         "2": "DmgBonus+3450",
         "3": "DmgBonus+3900",
-        "4": "DmgBonus+4300",
+        "4": "DmgBonus+4350",
         "5": "DmgBonus+4800"
       }
     },
@@ -376,20 +376,20 @@
         "5": ""
       },
       "skill_effect": {
-        "1": "crit+6400",
-        "2": "crit+7360",
-        "3": "crit+8320",
-        "4": "crit+9280",
-        "5": "crit+10240"
+        "1": "CritDmg+6400;IceResist+-2000",
+        "2": "CritDmg+7360;IceResist+-2300",
+        "3": "CritDmg+8320;IceResist+-2600",
+        "4": "CritDmg+9280;IceResist+-2900",
+        "5": "CritDmg+10240;IceResist+-3200"
       }
     },
     "日冕遗蜕": {
       "normal_effect": {
-        "1": "crit+2000",
-        "2": "crit+2000",
-        "3": "crit+2600",
-        "4": "crit+2900",
-        "5": "crit+3200"
+        "1": "Crit+2000",
+        "2": "Crit+2000",
+        "3": "Crit+2000",
+        "4": "Crit+2000",
+        "5": "Crit+2000"
       },
       "skill_effect": {
         "1": "EtherResist+-1600",
@@ -417,11 +417,11 @@
     },
     "辉骑面铠": {
       "normal_effect": {
-        "1": "crit+2000",
-        "2": "crit+2300",
-        "3": "crit+2600",
-        "4": "crit+2900",
-        "5": "crit+3200"
+        "1": "Crit+2000",
+        "2": "Crit+2300",
+        "3": "Crit+2600",
+        "4": "Crit+2900",
+        "5": "Crit+3200"
       },
       "skill_effect": {
         "1": "PhysDmgBonus+1000",
@@ -449,34 +449,34 @@
     },
     "首席跟班": {
       "normal_effect": {
-        "1": "BreakStunAdd+1500",
-        "2": "BreakStunAdd+1720",
-        "3": "BreakStunAdd+1950",
-        "4": "BreakStunAdd+2175",
-        "5": "BreakStunAdd+2400"
+        "1": "FireResist+-1500;BreakStunBase+30",
+        "2": "FireResist+-1720;BreakStunBase+33",
+        "3": "FireResist+-1950;BreakStunBase+36",
+        "4": "FireResist+-2170;BreakStunBase+39",
+        "5": "FireResist+-2400;BreakStunBase+42"
       },
       "skill_effect": {
-        "1": "FireResist+-1000;C:DmgBonus+800",
-        "2": "FireResist+-1150;C:DmgBonus+920",
-        "3": "FireResist+-1300;C:DmgBonus+1040",
-        "4": "FireResist+-1450;C:DmgBonus+1160",
-        "5": "FireResist+-1600;C:DmgBonus+1280"
+        "1": "C:DmgBonus+2500",
+        "2": "C:DmgBonus+2880",
+        "3": "C:DmgBonus+3260",
+        "4": "C:DmgBonus+3620",
+        "5": "C:DmgBonus+4000"
       }
     },
     "鳞齿寻踪": {
       "normal_effect": {
-        "1": "crit+2500",
-        "2": "crit+2880",
-        "3": "crit+3250",
-        "4": "crit+3630",
-        "5": "crit+4000"
+        "1": "Crit+2500",
+        "2": "Crit+2880",
+        "3": "Crit+3250",
+        "4": "Crit+3630",
+        "5": "Crit+4000"
       },
       "skill_effect": {
-        "1": "ThunderResist+-2800",
-        "2": "ThunderResist+-3150",
-        "3": "ThunderResist+-3500",
-        "4": "ThunderResist+-3850",
-        "5": "ThunderResist+-4200"
+        "1": "D+-2800",
+        "2": "D+-3150",
+        "3": "D+-3500",
+        "4": "D+-3850",
+        "5": "D+-4200"
       }
     },
     "霓虹妄想": {
@@ -529,11 +529,11 @@
     },
     "怒目金刚": {
       "normal_effect": {
-        "1": "crit+2000",
-        "2": "crit+2300",
-        "3": "crit+2600",
-        "4": "crit+2900",
-        "5": "crit+3200"
+        "1": "Crit+2000",
+        "2": "Crit+2300",
+        "3": "Crit+2600",
+        "4": "Crit+2900",
+        "5": "Crit+3200"
       },
       "skill_effect": {
         "1": "DmgBonus+1800",
@@ -641,18 +641,18 @@
     },
     "千面日陨": {
       "normal_effect": {
-        "1": "CritDmg+3500",
-        "2": "CritDmg+4025",
-        "3": "CritDmg+4550",
-        "4": "CritDmg+5075",
-        "5": "CritDmg+5600"
+        "1": "CritDmg+4500",
+        "2": "CritDmg+5175",
+        "3": "CritDmg+5850",
+        "4": "CritDmg+6525",
+        "5": "CritDmg+7200"
       },
       "skill_effect": {
-        "1": "D+-3000",
-        "2": "D+-3450",
-        "3": "D+-3900",
-        "4": "D+-4300",
-        "5": "D+-4800"
+        "1": "D+-2500",
+        "2": "D+-2875",
+        "3": "D+-3250",
+        "4": "D+-3625",
+        "5": "D+-4000"
       }
     },
     "仿制星徽引擎": {

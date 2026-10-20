@@ -16,7 +16,7 @@
       },
       "skill_effect": {
         "desc1": "",
-        "desc2": "DmgBonus+1500;crit+1600"
+        "desc2": "DmgBonus+1500;Crit+1600"
       }
     },
     "呼啸沙龙": {
@@ -245,7 +245,7 @@
         "desc2": "FireDmgBonus+1500;ThunderDmgBonus+1500"
       },
       "skill_effect": {
-        "desc1": "异常精通+30点。",
+        "desc1": "",
         "desc2": "CPE:DmgBonus+2000"
       }
     },

@@ -189,7 +189,7 @@ async def save_gachalogs(
 
     for i in gachalogs_history:
         if len(gachalogs_history[i]) >= 1:
-            gachalogs_history[i].sort(key=lambda x: (-int(x["id"])))
+            gachalogs_history[i].sort(key=lambda x: -int(x["id"]))
     raw_data = await get_new_gachalog(uid, gachalogs_history, is_force)
     if isinstance(raw_data, int):
         return error_reply(raw_data)
@@ -205,7 +205,7 @@ async def save_gachalogs(
         result[key] = count
     for i in raw_data:
         if len(raw_data[i]) > 1:
-            raw_data[i].sort(key=lambda x: (-int(x["id"])))
+            raw_data[i].sort(key=lambda x: -int(x["id"]))
     result["data"] = raw_data
 
     # 计算数据

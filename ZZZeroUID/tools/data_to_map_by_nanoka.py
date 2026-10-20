@@ -1,8 +1,11 @@
 import re
 import sys
 import json
+import shutil
 import asyncio
 from pathlib import Path
+
+import httpx
 
 MAP_PATH = Path(__file__).parents[1] / "utils" / "map"
 
@@ -10,19 +13,112 @@ sys.path.append(str(Path(__file__).parents[5]))
 sys.path.append(str(Path(__file__).parents[2]))
 __package__ = "ZZZeroUID.tools"
 
+from ZZZeroUID.version import ZZZero_version  # noqa: E402
+from gsuid_core.data_store import data_cache_path  # noqa: E402
 from ZZZeroUID.tools.data_to_map import (  # noqa: E402
     EquipId2DataFile,
     WeaponId2DataFile,
     PartnerId2DataFile,
     PartnerId2SkillParamFile,
 )
+from ZZZeroUID.utils.hakush_api.api import ZZZ_WEAPON, ZZZ_CHARACTER  # noqa: E402
 from ZZZeroUID.utils.hakush_api.request import (  # noqa: E402
-    get_hakush_char_data,
-    get_hakush_weapon_data,
     get_hakush_all_char_data,
     get_hakush_all_equipment,
     get_hakush_all_weapon_data,
 )
+
+_HEADER = {"User-Agent": f"ZZZeroUID/{ZZZero_version}"}
+
+# gsuid_core 的 cache_data 缓存目录（只按 id 落盘，无 TTL / 无数据版本键）
+STALE_CACHE_DIRS = ("get_hakush_char_data", "get_hakush_weapon_data")
+
+# nanoka 现网数据里这几个新角色的 partner_info.full_name 还是占位符 "..."，
+# 角色面板卡会直接显示 full_name，用官方全名补上。
+FULL_NAME_OVERRIDE = {
+    "1631": "赛维里安·洛威尔",
+    "1641": "菲欧妮·蕾法爱菈",
+}
+
+# 上线前的测试快照里，名字带 (Test1) 这类占位前缀，正式数据不会有。
+TEST_PREFIX_RE = re.compile(r"^\(Test[^)]*\)\s*")
+
+# map 文件名里的版本后缀，如 PartnerId2Data_3.4.json
+VERSION_SUFFIX_RE = re.compile(r"_(\d+\.\d+\.\d+)\.json$")
+
+
+def clear_stale_cache() -> None:
+    """清掉 gsuid_core 里 nanoka 详情接口的磁盘缓存。
+
+    cache_data 只按 id 落盘，没有 TTL、没有数据版本键，磁盘里可能还留着角色
+    上线前的测试快照（名字带 (Test1) 前缀、数值是 beta 值）。不清掉的话，
+    运行时的伤害计算（utils/data.py -> get_hakush_char -> get_hakush_char_data）
+    也会读到旧快照，算出来的伤害是 beta 数值。
+    """
+    root = Path(data_cache_path)
+    for name in STALE_CACHE_DIRS:
+        cache_dir = root / name
+        if not cache_dir.exists():
+            continue
+        count = len(list(cache_dir.glob("*.json")))
+        shutil.rmtree(cache_dir, ignore_errors=True)
+        left = len(list(cache_dir.glob("*.json"))) if cache_dir.exists() else 0
+        if left:
+            print(f"警告：缓存目录 {cache_dir} 仍有 {left}/{count} 个文件未清掉（可能正被占用）")
+        else:
+            print(f"已清理缓存 {cache_dir}（{count} 个文件）")
+
+
+def remove_old_map_files() -> None:
+    """只保留当前版本的 map json，旧版本删掉。
+
+    `utils/zzz_map.py` / `utils/name_convert.py` 只按 `ZZZero_version` 读一个后缀，
+    留着旧版本既占仓库体积，又会让人误以为插件还在用旧数据。
+    """
+    for f in sorted(MAP_PATH.glob("*.json")):
+        m = VERSION_SUFFIX_RE.search(f.name)
+        if not m or m.group(1) == ZZZero_version:
+            continue
+        f.unlink()
+        print(f"已删除旧版本 map {f.name}")
+
+
+def strip_test_prefix(text: str) -> str:
+    """去掉名字里的 (TestN) 占位前缀。"""
+    return TEST_PREFIX_RE.sub("", text).strip()
+
+
+def strip_test_prefix_deep(data):
+    """递归去掉所有字符串里的 (TestN) 占位前缀。"""
+    if isinstance(data, str):
+        return strip_test_prefix(data)
+    if isinstance(data, dict):
+        return {k: strip_test_prefix_deep(v) for k, v in data.items()}
+    if isinstance(data, list):
+        return [strip_test_prefix_deep(v) for v in data]
+    return data
+
+
+async def fetch_detail(url: str) -> dict | None:
+    """直连 CDN 取详情，绕开 gsuid_core 的 cache_data 磁盘缓存。
+
+    cache_data 只按 id 落盘，没有 TTL、没有数据版本键，磁盘里可能还留着角色
+    上线前的测试快照（名字带 (Test1) 前缀、数值是 beta 值）。用它生成的 map
+    会把测试期数据当成正式数据发布。
+    """
+    async with httpx.AsyncClient(timeout=60) as client:
+        for attempt in range(5):
+            try:
+                resp = await client.get(url, headers=_HEADER)
+                if resp.status_code == 200:
+                    return resp.json()
+                print(f"{url} -> HTTP {resp.status_code}")
+            except Exception as e:
+                print(e)
+            if attempt < 4:
+                await asyncio.sleep(10)
+    return None
+
 
 PROP_NAME_TO_ID = {
     "基础生命值": "11101",
@@ -111,32 +207,28 @@ async def get_new_char():
     if all_char_data:
         for char in all_char_data:
             print(char)
-            for _ in range(5):
-                try:
-                    char_data = await get_hakush_char_data(char)
-                    break
-                except Exception as e:
-                    print(e)
-                    await asyncio.sleep(30)
-                    continue
+            char_data = await fetch_detail(ZZZ_CHARACTER.format(char))
             if char_data:
                 skill_data[char] = {}
 
+                char_name = strip_test_prefix(str(char_data["name"]))
                 if "partner_info" in char_data and "full_name" in char_data["partner_info"]:
-                    full_name = char_data["partner_info"]["full_name"]
+                    full_name = str(char_data["partner_info"]["full_name"])
                 else:
-                    full_name = char_data["name"]
+                    full_name = char_name
+                if full_name in ("", "..."):
+                    full_name = FULL_NAME_OVERRIDE.get(char, char_name)
                 partner_data[char] = {
                     "sprite_id": char_data["icon"].replace("IconRole", ""),
-                    "name": char_data["name"],
+                    "name": char_name,
                     "full_name": full_name,
-                    "en_name": char_data["code_name"],
+                    "en_name": strip_test_prefix(str(char_data["code_name"])),
                 }
 
                 for skill in char_data["skill"]:
                     for k in char_data["skill"][skill]["description"]:
                         if "param" in k:
-                            skill_name = k["name"]
+                            skill_name = strip_test_prefix(str(k["name"]))
                             if "招架支援" in skill_name:
                                 continue
 
@@ -146,7 +238,7 @@ async def get_new_char():
                                 if "param" not in param:
                                     continue
 
-                                skill_sub = param["name"]
+                                skill_sub = strip_test_prefix(str(param["name"]))
                                 if "失衡" in skill_sub:
                                     continue
 
@@ -237,19 +329,12 @@ async def get_new_weapon():
         weapon_result = {}
         for weapon in all_weapon_data:
             print(weapon)
-            for _ in range(5):
-                try:
-                    weapon_data = await get_hakush_weapon_data(weapon)
-                    break
-                except Exception as e:
-                    print(e)
-                    await asyncio.sleep(30)
-                    continue
+            weapon_data = await fetch_detail(ZZZ_WEAPON.format(weapon))
             if weapon_data:
                 weapon_result[weapon] = {
-                    "code_name": weapon_data["code_name"],
-                    "name": weapon_data["name"],
-                    "talents": weapon_data["talents"],
+                    "code_name": strip_test_prefix(str(weapon_data["code_name"])),
+                    "name": strip_test_prefix(str(weapon_data["name"])),
+                    "talents": strip_test_prefix_deep(weapon_data["talents"]),
                     "rarity": "S" if weapon_data["rarity"] == 4 else "A",
                     "props_name": weapon_data["base_property"]["name"],
                     "props_id": PROP_NAME_TO_ID[weapon_data["base_property"]["name2"]],
@@ -286,9 +371,13 @@ async def get_new_equipment():
 
 
 async def get_new():
+    # 先清缓存：磁盘里的 nanoka 详情快照可能是角色上线前的 beta 数据
+    clear_stale_cache()
     await get_new_char()
     await get_new_weapon()
     await get_new_equipment()
+    # 新 map 写成功后再删旧版本
+    remove_old_map_files()
 
 
 asyncio.run(get_new())
