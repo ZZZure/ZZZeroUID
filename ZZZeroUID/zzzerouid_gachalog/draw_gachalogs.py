@@ -12,6 +12,7 @@ from gsuid_core.logger import logger
 from gsuid_core.models import Event
 from gsuid_core.utils.image.convert import convert_img
 
+from .up_windows import is_up_item
 from ..utils.hint import error_reply
 from ..utils.image import (
     get_footer,
@@ -45,20 +46,6 @@ RANK_MAP = {
     "2": "B",
 }
 HOMO_TAG = ["非到极致", "运气不好", "平稳保底", "小欧一把", "欧狗在此"]
-NORMAL_LIST = [
-    "「11号」",
-    "猫又",
-    "莱卡恩",
-    "丽娜",
-    "格莉丝",
-    "珂蕾妲",
-    "拘缚者",
-    "燃狱齿轮",
-    "嵌合编译器",
-    "钢铁肉垫",
-    "硫磺石",
-    "啜泣摇篮",
-]
 GACHA_DISPLAY_ORDER = [
     "音擎频段",
     "独家频段",
@@ -363,11 +350,7 @@ async def draw_card(uid: str, ev: Event) -> Union[str, bytes]:
             if data["rank_type"] == "4":
                 data["gacha_num"] = num
 
-                # 判断是否是UP
-                if data["name"] in NORMAL_LIST:
-                    data["is_up"] = False
-                else:
-                    data["is_up"] = True
+                data["is_up"] = is_up_item(gacha_name, data["name"], data["time"])
 
                 current_data["r_num"].append(num)
                 current_data["rank_s_list"].append(data)
