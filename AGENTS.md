@@ -17,7 +17,7 @@
 - UID：框架 **`GsBind`**，必须 **`game_name="zzz"`**（`ZZZ_GAME_NAME`）。不要用原神默认槽。
 - Cookie：框架 `GsUser`。刷新顺序配置 `RefreshDataList`：`ENKA` → `MINIGG` → `MYS`。
 - **没有** `to_ai` / `@ai_tools` / `ai_return`。接 AI 走 Core 插件技能 §10 / §18，不要先堆 `@ai_tools`。
-- 版本：`ZZZeroUID/version.py` 的 `ZZeroUID_version` / `ZZZero_version`（当前 `3.4`，与 `utils/map/*_3.4.json` 对齐；`utils/map/` 只保留当前版本，旧版本 json 要删掉）。CDN 数据目录用同文件的 `NANOKA_DATA_VERSION`（当前 `3.3.12+19566749`）——**两者是独立变量**：`ZZZero_version` 决定 map 文件名（`tools/data_to_map.py` → `utils/name_convert.py` / `utils/zzz_map.py`），`NANOKA_DATA_VERSION` 决定 nanoka CDN 目录（`utils/hakush_api/api.py`）。CDN 上没有的版本号一律 404，别硬凑 `+build`。`utils/nanoka/urls.py::WIKI_DATA_VERSION` 单独锁版本，不要跟着动。`pyproject.toml` 的 `[project]` / poetry 可能滞后。
+- 版本：`ZZZeroUID/version.py` 的 `ZZeroUID_version` / `ZZZero_version`（当前 `3.4`，与 `utils/map/*_3.4.json` 对齐；`utils/map/` 只保留当前版本，旧版本 json 要删掉）。CDN 数据目录用同文件的 `NANOKA_DATA_VERSION`（当前 `3.4.2+20052336`）——**两者是独立变量**：`ZZZero_version` 决定 map 文件名（`tools/data_to_map.py` → `utils/name_convert.py` / `utils/zzz_map.py`），`NANOKA_DATA_VERSION` 决定 nanoka CDN 目录（`utils/hakush_api/api.py`）。CDN 上没有的版本号一律 404，别硬凑 `+build`。`utils/nanoka/urls.py::WIKI_DATA_VERSION` 单独锁版本，不要跟着动。`pyproject.toml` 的 `[project]` / poetry 可能滞后。
 
 ## Repository map
 
