@@ -289,22 +289,52 @@ async def get_new_char():
                 partner_data[char].update({k: 0 for k in stats})
 
                 if char not in ["2011", "2021"]:
+                    w_type = list(char_data["weapon_type"].keys())[0]
+                    e_type = list(char_data["element_type"].keys())[0]
+                    c_name = list(char_data["camp"].values())[0]
+                    h_type = list(char_data["hit_type"].values())[0]
+                    rarity_str = {4: "S", 3: "A"}.get(char_data["rarity"], "A")
                     partner_data[char].update(
                         {
-                            "weapon_type": list(char_data["weapon_type"].keys())[0],
-                            "element_type": list(char_data["element_type"].keys())[0],
-                            "camp": list(char_data["camp"].values())[0],
-                            "hit_type": list(char_data["hit_type"].values())[0],
-                            "rarity": {4: "S", 3: "A"}.get(char_data["rarity"], "A"),
+                            "weapon_type": w_type,
+                            "element_type": e_type,
+                            "camp": c_name,
+                            "hit_type": h_type,
+                            "rarity": rarity_str,
+                            "WeaponType": w_type,
+                            "ElementType": e_type,
+                            "Camp": c_name,
+                            "HitType": h_type,
+                            "Rarity": rarity_str,
                         }
                     )
 
-                    for k in char_data["stats"]:
-                        if k in stats:
-                            partner_data[char][k] = char_data["stats"][k]
+                    stat_map = {
+                        "attack": "Attack",
+                        "attack_growth": "AttackGrowth",
+                        "break_stun": "BreakStun",
+                        "defence": "Defence",
+                        "defence_growth": "DefenceGrowth",
+                        "hp_max": "HpMax",
+                        "hp_growth": "HpGrowth",
+                        "crit": "Crit",
+                        "crit_damage": "CritDamage",
+                        "element_abnormal_power": "ElementAbnormalPower",
+                        "element_mystery": "ElementMystery",
+                        "pen_delta": "PenDelta",
+                        "pen_rate": "PenRate",
+                        "sp_recover": "SpRecover",
+                    }
+                    for k, val in char_data["stats"].items():
+                        if k in stat_map:
+                            partner_data[char][stat_map[k]] = val
+                        elif k in stats:
+                            partner_data[char][k] = val
 
                     partner_data[char]["level"] = char_data["level"]
                     partner_data[char]["extra_level"] = char_data["extra_level"]
+                    partner_data[char]["Level"] = char_data["level"]
+                    partner_data[char]["ExtraLevel"] = char_data["extra_level"]
 
             await asyncio.sleep(3)
 

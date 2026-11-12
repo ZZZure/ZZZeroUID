@@ -1,4 +1,4 @@
 ZZeroUID_version = "3.4"
 ZZZero_version = "3.4"
 # static.nanoka.cc/zzz/<NANOKA_DATA_VERSION>/  与首页 Latest Data Version 对齐
-NANOKA_DATA_VERSION = "3.4.2+20052336"
+NANOKA_DATA_VERSION = "3.4.3+20291004"

@@ -28,11 +28,13 @@ YELLOW = (255, 200, 1)
 BLUE = (1, 183, 255)
 
 ELEMENT_TYPE = {
-    203: "电属性",
-    205: "以太属性",
-    202: "冰属性",
     200: "物理属性",
     201: "火属性",
+    202: "冰属性",
+    203: "电属性",
+    204: "风属性",
+    205: "以太属性",
+    300: "玄墨属性",
 }
 
 prop_id = {
@@ -54,6 +56,8 @@ prop_id = {
     "317": "IconIce",
     "318": "IconThunder",
     "319": "IconDungeonBuffEther",
+    "19": "IconSheerForce",
+    "322": "IconSheerDMGBonus",
 }
 
 pro_id = {
@@ -91,8 +95,13 @@ camp_map = {
 
 
 def get_camp_img(camp_name: str):
-    name = camp_map[camp_name]
-    return Image.open(CAMP_PATH / f"IconCamp{name}.png")
+    name = camp_map.get(camp_name)
+    if not name:
+        return Image.new("RGBA", (100, 100), (0, 0, 0, 0))
+    path = CAMP_PATH / f"IconCamp{name}.png"
+    if not path.exists():
+        return Image.new("RGBA", (100, 100), (0, 0, 0, 0))
+    return Image.open(path)
 
 
 def get_mind_role_img(_id: Union[str, int], _type: str = "3"):

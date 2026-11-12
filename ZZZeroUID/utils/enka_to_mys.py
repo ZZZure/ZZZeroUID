@@ -34,13 +34,20 @@ ID_TO_PROP_NAME = {
     "30501": "能量自动回复",
     "30503": "能量自动回复",
     "30502": "能量回复百分比",
-    "315": "伤害加成",
+    "315": "物理伤害加成",
     "31503": "物理伤害加成",
+    "316": "火属性伤害加成",
     "31603": "火属性伤害加成",
+    "317": "冰属性伤害加成",
     "31703": "冰属性伤害加成",
+    "318": "雷属性伤害加成",
     "31803": "雷属性伤害加成",
+    "319": "以太属性伤害加成",
     "31903": "以太属性伤害加成",
+    "320": "风属性伤害加成",
     "32003": "风属性伤害加成",
+    "323": "风属性伤害加成",
+    "32303": "风属性伤害加成",
 }
 
 ID_TO_EN = {
@@ -75,6 +82,7 @@ ID_TO_EN = {
     "31803": "ThunderDmgBonus",
     "31903": "EtherDmgBonus",
     "32003": "WindDmgBonus",
+    "32303": "WindDmgBonus",
 }
 ELEMENT_TO_EN = {
     "203": "Thunder",
@@ -83,6 +91,7 @@ ELEMENT_TO_EN = {
     "200": "Phys",
     "201": "Fire",
     "204": "Wind",
+    "300": "Lumiflux",
 }
 EN_TO_ZH = {ID_TO_EN[k]: ID_TO_PROP_NAME[k] for k in ID_TO_EN}
 EN_TO_ID = {ID_TO_EN[k]: k for k in ID_TO_EN}
@@ -94,11 +103,15 @@ PERCENT_ID = [
     "20103",
     "21103",
     "23103",
+    "30502",
+    "31503",
     "31603",
     "12203",
     "31703",
     "31803",
     "31903",
+    "32003",
+    "32303",
 ]
 
 PERCENT_NAME = [
@@ -142,6 +155,7 @@ MAIN_PROP_VALUE = {
     "31803": 450,
     "31903": 450,
     "32003": 450,
+    "32303": 450,
 }
 
 MYS_NAME_TO_ID = {
@@ -160,11 +174,17 @@ MYS_NAME_TO_ID = {
     "贯穿力": "19",
     "闪能自动累积": "20",
     "以太伤害加成": "319",
+    "以太属性伤害加成": "319",
     "雷属性伤害加成": "318",
+    "雷伤害加成": "318",
     "冰属性伤害加成": "317",
+    "冰伤害加成": "317",
     "火属性伤害加成": "316",
+    "火伤害加成": "316",
     "物理伤害加成": "315",
-    "风属性伤害加成": "320",
+    "物理属性伤害加成": "315",
+    "风属性伤害加成": "323",
+    "风伤害加成": "323",
 }
 
 """
@@ -213,15 +233,17 @@ def _determine_weapon_star_tier(level):
 def render_weapon_detail(weapon: Dict, current_level: int, star_tier: str):
     # 基础属性计算
     base_value = weapon["props_value"]
-    base_value = (
-        base_value
-        + base_value * (weapon["level"][str(current_level)]["Rate"] + weapon["stars"][star_tier]["StarRate"]) / 10000
-    )
+    lvl_data = weapon["level"].get(str(current_level), {})
+    star_data = weapon["stars"].get(star_tier, {})
+    rate = lvl_data.get("rate", lvl_data.get("Rate", 0))
+    star_rate = star_data.get("star_rate", star_data.get("StarRate", 0))
+    base_value = base_value + base_value * (rate + star_rate) / 10000
 
     # 随机属性计算
     rand_value = weapon["rand_props_value"]
     if rand_value:
-        rand_value = rand_value + rand_value * (weapon["stars"][star_tier]["RandRate"] / 10000)
+        rand_rate = star_data.get("rand_rate", star_data.get("RandRate", 0))
+        rand_value = rand_value + rand_value * (rand_rate / 10000)
 
     return int(base_value), int(rand_value) if rand_value else rand_value
 
@@ -267,11 +289,22 @@ def _calculate_base_stat(
 
     act = str(act)
 
-    if act in level_data and level_key in level_data[act]:
-        base_value += level_data[act][level_key]
+    if act in level_data:
+        act_data = level_data[act]
+        lvl_key_lower = {
+            "HpMax": "hp_max",
+            "Attack": "attack",
+            "Defence": "defence",
+        }.get(level_key, level_key.lower())
+        if level_key in act_data:
+            base_value += act_data[level_key]
+        elif lvl_key_lower in act_data:
+            base_value += act_data[lvl_key_lower]
 
-    if level > 10 and extra_key:
-        base_value += extra_level[act]["Extra"].get(extra_key, {}).get("Value", 0)
+    if level > 10 and extra_key and act in extra_level:
+        extra_dict = extra_level[act].get("extra", extra_level[act].get("Extra", {}))
+        extra_item = extra_dict.get(str(extra_key), {})
+        base_value += extra_item.get("value", extra_item.get("Value", 0))
 
     return math.floor(base_value)
 
@@ -302,24 +335,24 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
         result["name_mi18n"] = _partener["name"]
         result["full_name_mi18n"] = _partener["full_name"]
 
-        result["element_type"] = int(_partener["ElementType"])
-        result["avatar_profession"] = int(_partener["WeaponType"])
-        result["rarity"] = _partener["Rarity"]
-        result["camp_name_mi18n"] = _partener["Camp"]
+        result["element_type"] = int(_partener.get("element_type", _partener.get("ElementType", 0)))
+        result["avatar_profession"] = int(_partener.get("weapon_type", _partener.get("WeaponType", 0)))
+        result["rarity"] = _partener.get("rarity", _partener.get("Rarity", "A"))
+        result["camp_name_mi18n"] = _partener.get("camp", _partener.get("Camp", ""))
 
         # 基础属性
         props = {}
         for _prop in ID_TO_EN.values():
             if _prop == "CritDmg":
-                props[_prop] = _partener["CritDamage"]
+                props[_prop] = _partener.get("CritDamage", _partener.get("crit_damage", 0))
             elif _prop == "BreakStunBase":
-                props[_prop] = _partener["BreakStun"]
+                props[_prop] = _partener.get("BreakStun", _partener.get("break_stun", 0))
             elif _prop == "BreakStun" or _prop == "BreakStunAdd":
                 props[_prop] = 0
             elif _prop == "ElementAbnormalPowerBase":
-                props[_prop] = _partener["ElementAbnormalPower"]
+                props[_prop] = _partener.get("ElementAbnormalPower", _partener.get("element_abnormal_power", 0))
             elif _prop == "SpRecoverBase":
-                props[_prop] = _partener["SpRecover"]
+                props[_prop] = _partener.get("SpRecover", _partener.get("sp_recover", 0))
             elif _prop not in _partener:
                 props[_prop] = 0
             else:
@@ -328,12 +361,12 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
             props[_prop] = _calculate_base_stat(
                 props[_prop],
                 {
-                    "HpMax": _partener["HpGrowth"],
-                    "Attack": _partener["AttackGrowth"],
-                    "Defence": _partener["DefenceGrowth"],
+                    "HpMax": _partener.get("HpGrowth", _partener.get("hp_growth", 0)),
+                    "Attack": _partener.get("AttackGrowth", _partener.get("attack_growth", 0)),
+                    "Defence": _partener.get("DefenceGrowth", _partener.get("defence_growth", 0)),
                 }.get(_prop, 0),
-                _partener["Level"],
-                _partener["ExtraLevel"],
+                _partener.get("level", _partener.get("Level", {})),
+                _partener.get("extra_level", _partener.get("ExtraLevel", {})),
                 char["Level"],
                 char["PromotionLevel"],
                 _prop,
@@ -461,8 +494,9 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
                 "base": (f"{round(base) / 100}%" if _weapon["props_id"] in PERCENT_ID else str(base)),
             }
         ]
-        weapon["talent_title"] = _weapon["talents"][str(weapon["star"])]["Name"]
-        weapon["talent_content"] = _weapon["talents"][str(weapon["star"])]["Desc"]
+        talent_info = _weapon.get("talents", {}).get(str(weapon["star"]), {})
+        weapon["talent_title"] = talent_info.get("name", talent_info.get("Name", ""))
+        weapon["talent_content"] = talent_info.get("desc", talent_info.get("Desc", ""))
         props[ID_TO_EN[_weapon["props_id"]]] += base
         props[ID_TO_EN[_weapon["rand_props_id"]]] += rand
 
@@ -502,10 +536,11 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
         del props["SpRecoverBase"]
         del props["SpRecoverAdd"]
 
-        char_element = ELEMENT_TO_EN[_partener["ElementType"]]
+        elem_key = str(_partener.get("element_type", _partener.get("ElementType", "")))
+        char_element = ELEMENT_TO_EN.get(elem_key, "")
         for i in ELEMENT_TO_EN.values():
             if i != char_element:
-                del props[f"{i}DmgBonus"]
+                props.pop(f"{i}DmgBonus", None)
 
         logger.debug(props)
         properties = []
@@ -518,8 +553,9 @@ async def _enka_data_to_mys_data(enka_data: Dict) -> List[ZZZAvatarInfo]:
                 pid = 4
                 property_name = "冲击力"
             else:
-                pid = int(MYS_NAME_TO_ID.get(EN_TO_ZH[p], 0))
-                property_name = EN_TO_ZH[p]
+                p_zh = EN_TO_ZH.get(p, p)
+                pid = int(MYS_NAME_TO_ID.get(p_zh, 0))
+                property_name = p_zh
 
             if pid == 2:
                 atk += props[p]
