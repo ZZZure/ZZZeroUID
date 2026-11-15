@@ -84,3 +84,47 @@ def init_dir():
 
 
 init_dir()
+
+
+def _register_backup_hints() -> None:
+    # 宿主 Core 无该模块（旧版本）时跳过，不报错
+    try:
+        from gsuid_core.utils.backup.hints import register_backup_path
+    except ImportError:
+        return
+    register_backup_path(
+        "ZZZeroUID",
+        PLAYER_PATH,
+        "user_data",
+        "按 UID 存档的抽卡记录与角色面板",
+    )
+    register_backup_path("ZZZeroUID", CONFIG_PATH, "config", "插件配置", default_selected=True)
+    register_backup_path("ZZZeroUID", CU_BG_PATH, "config", "自定义背景图")
+    register_backup_path("ZZZeroUID", CUSTOM_PATH, "config", "自定义角色立绘")
+    register_backup_path(
+        "ZZZeroUID",
+        RESOURCE_PATH,
+        "regenerable",
+        "图片素材，可用「zzz下载全部资源」命令重新下载",
+    )
+    register_backup_path(
+        "ZZZeroUID",
+        WIKI_PATH,
+        "regenerable",
+        "图鉴缓存数据，可自动或通过命令重新拉取",
+    )
+    register_backup_path(
+        "ZZZeroUID",
+        GUIDE_PATH,
+        "regenerable",
+        "角色攻略图，可用「zzz下载全部资源」命令重新下载",
+    )
+    register_backup_path(
+        "ZZZeroUID",
+        ZZZ_DATA_PATH,
+        "regenerable",
+        "角色基础数据，可自动或通过命令重新拉取",
+    )
+
+
+_register_backup_hints()
